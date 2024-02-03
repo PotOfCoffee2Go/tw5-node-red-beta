@@ -1,0 +1,17 @@
+created: 20191216094801867
+modified: 20191216103253027
+tags: [[1. Introduction]] Section
+title: 1.1. Key points
+
+* Tiddlywiki is more than a note-taking application.
+* It is an advanced way of organizing your information.
+* All notes you will add to it are called tiddlers.
+* You can download an empty wiki from its web site.
+* It is portable and multi platform.
+* To add format to your text inside the tiddlers you use format characters: `//text//` for italics, `__text__` for underline, `[[Tiddler]]` for links etc. This is called Wikitext.
+* It use tags to organize, classify etc the tiddlers.
+* It use fields to add extra information to the tiddlers. For example the created date field, the modified date field etc.
+* You can include the information of a tiddler inside other tiddler without writing twice. This is called Transclusion.
+* You can use templates to personalize the way that tiddlywiki shows the tiddlers.
+* Tiddlywiki uses Filters to get a group of tiddlers. Filters are written in a little language inside tiddlywiki. For example, to get all tiddlers tagged with the“Person” tag you write `{{{ [tag[Person]] }}}`.
+* You can add code to your wiki in Macros and Widgets. This is used to personalize the wiki.

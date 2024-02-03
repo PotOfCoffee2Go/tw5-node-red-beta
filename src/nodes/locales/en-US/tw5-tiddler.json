@@ -1,0 +1,43 @@
+{
+	"read-tiddlers" : {
+		"defaults": {
+			"name": "read tiddlers",
+			"path": "",
+			"topic": "",
+			"tofield": ""
+		},
+		"label": {
+			"name": "Name",
+			"path": "Path",
+			"topic": "Topic",
+			"tofield": "Field"
+		},
+		"section": {
+			"to": "To",
+			"from": "From"
+		}
+	},
+
+	"edit-tiddlers" : {
+		"defaults": {
+			"name": "edit tiddlers",
+			"path": "",
+			"topic": "",
+			"tofield": ""
+		},
+		"label": {
+			"name": "Name",
+			"path": "Path",
+			"topic": "Topic",
+			"tofield": "Field",
+			"template":"Tiddler (in .tid or JSON format)",
+			"templateaction": "Apply",
+			"templateactionnone": "none",
+			"templateactionmustache": "mustache"
+		},
+		"section": {
+			"to": "To",
+			"from": "From"
+		}
+	}
+}

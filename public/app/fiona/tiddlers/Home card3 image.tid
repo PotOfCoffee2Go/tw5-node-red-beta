@@ -1,0 +1,10 @@
+caption: Image
+created: 20231231160642664
+fetched: 20231231160642664
+modified: 20240101014344281
+selector: .fiona-card3-image
+tags: Fiona ·node-red· [[Home card 3]] to-home
+title: Home card3 image
+type: text/vnd.tiddlywiki
+
+<img src="files/images/IMG_5356.jpeg" class="card-img-top" alt="card-img-top">

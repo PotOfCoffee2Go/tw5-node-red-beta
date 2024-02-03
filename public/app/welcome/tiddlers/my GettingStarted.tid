@@ -1,0 +1,17 @@
+created: 20231219020652876
+modified: 20231219054432532
+tags: 
+title: my GettingStarted
+type: text/vnd.tiddlywiki
+
+<!-- Connection status -->
+{{$:/temp/tw5-node-red/netstat}}
+
+!!! Welcome to TW5-Node-RED
+
+TW5-Node-RED allows building server applications for single file TiddlyWikis using Node-RED flows. Node-Red 'tiddler' nodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard (and most third party) Node-Red nodes.
+
+A `<<node-red 'topic' [[filter]]>>` TiddlyWiki macro provides access to the server allowing tiddlers to be sent to and received from the server. For more information see <$button actions="<<node-red 'twserver site'>>" class="tc-btn-invisible tc-tiddlylink"> TW5-Node-RED Documentation</$button>.
+
+To view the Node-RED server go to 'http://localhost:1880/red' in a browser or in the [[TW5-Node-RED Flow Editor]] tiddler.
+

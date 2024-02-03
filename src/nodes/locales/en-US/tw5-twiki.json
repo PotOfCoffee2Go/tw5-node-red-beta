@@ -1,0 +1,88 @@
+{
+	"wiki": {
+		"label": {
+			"name": "Name",
+			"server": "Server",
+			"path": "Path"
+		}
+	},
+
+	"to-twiki" : {
+		"defaults": {
+			"name": "",
+			"twikiName": "",
+			"filter": "[all[]]",
+			"networkfield": "no",
+			"topic": ""
+		},
+		"label": {
+			"name": "a twiki",
+			"topic": "topic",
+			"twikiName": "Twiki",
+			"fromTwikiName": "From Twiki",
+			"field": "Field",
+			"editor": "Editor",
+			"file": "Path",
+			"resetOnDeploy": "Empty twiki when node is deployed",
+			"resetOnDeployDisabled": "$tw.wiki can not be cleared",
+			"task-add": " given array of tiddlers",
+			"task-delete": " given array of titles or tiddlers",
+			"input-desc": "- (msg.payload to twiki)",
+			"output-desc": "- (twiki to msg.payload)",
+			"filter": "filter",
+			"networkfield": "Network",
+			"useListener": "Add second output - Watch for updates to this twiki",
+			"useListenerDisabled": "Listen for updates disabled ('no outputs', see above)",
+			"template":"Tiddler (in .tid or JSON format)",
+			"templateformat": "Apply",
+			"clear": "Empty the twiki before applying tiddlers"
+		},
+		"section": {
+			"to": "To",
+			"from": "From",
+			"output": "Output",
+			"settings": "Settings",
+			"editor": "Tiddler Editor"
+		},
+		"tip": {
+			"to": " - (can update multiple sources)",
+			"from": " - (can update from multiple sources)"
+		}
+	},
+
+	"from-twiki" : {
+		"defaults": {
+			"name": "",
+			"twikiName": "",
+			"filter": "[all[]]",
+			"networkfield": "no",
+			"topic": ""
+		},
+		"label": {
+			"name": "a twiki",
+			"topic": "topic",
+			"twikiName": "Twiki",
+			"toTwikiName": "To Twiki",
+			"field": "Field",
+			"resetOnDeploy": "Empty twiki when node is deployed",
+			"resetOnDeployDisabled": "$tw.wiki can not be cleared",
+			"output-tiddlers": " output array of tiddlers",
+			"output-titles": " output array of titles",
+			"filter": "filter",
+			"networkfield": "Network",
+			"useListener": "Add second output - Watch for updates to this twiki"
+		},
+		"section": {
+			"to": "To",
+			"from": "From",
+			"output": "Output",
+			"settings": "Settings"
+		},
+		"tip": {
+			"to": " - (can update multiple destinations)",
+			"from": " - (can update multiple destinations)",
+			"file": "(extension of .tid or will output tiddlers as JSON)"
+		}
+	}
+
+}

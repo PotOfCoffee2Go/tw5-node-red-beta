@@ -1,0 +1,28 @@
+created: 20231230104719458
+fetched: 20231204091259497
+modified: 20231230104750630
+tags: ·node-red· Flotsam
+title: preface-old
+type: text/vnd.tiddlywiki
+
+A note from PotOfCoffee2Go:
+
+About 10 or more years ago, being a developer of back-end systems - I was looking for something different to play around with at home; without the stress, deadlines, meetings, etc. I had used TiddlyWiki for task scheduling and taking notes. Thus TW5-Node-RED has a long history of personal use, twists and turns, bugs, tweaks, and rewrites.
+
+Played around with connecting TiddlyWiki to a python server and it worked and proved the concept. Then ported it over to an Express server. The main issue being the HTTP request/response protocol does not allow the server to initiate data exchange.
+
+When Node-RED came out it had a websocket node, plus the drag-n-drop low-code programming design is cool. Made a websocket macro for TiddlyWiki and connected to Node-Red. But was low-level stuff and not release upgrade tolerant at all. But it basically worked. Was during this phase is where the architecture to combine the concepts of TiddlyWiki and Node-Red into a single system surfaced.  
+
+The communications system was always a thorn in my paw. To be reliable has to be integrated at a fairly low-level for Node-Red and the browsers. Finally discovered 'uibuilder' which really was the final piece for the system to work seamlessly.
+
+Please excuse the documentation - or lack there-of. The system is all there, but documentation is not one of my strongest skills. Enjoy writing - but have issues organizing. Guess is why a non-linear note taking app like TiddlyWiki works so good for me - collection of random stuff.
+
+Hope you find TW5-Node-RED fun to work with. Has a lot of moving parts - but can do some amazing stuff with it once you get your head wrapped around it.
+
+PotOfCoffee2Go
+
+<div style="max-width: 500px;">{{hello-flow.png}}</div>
+
+The From Client node delivers all `<<node-red ...>>` requests from all clients thus is invariably followed by a 'switch' node to check the msg.topic. When a client makes a request every switch node will receive a copy of the request; only the switch that matches will pass the message on to the next node.
+
+For the blue 'To Client' node at the end of a flow to work properly the flow MUST start with a green 'From Client' node. This is similar to how the Node-Red 'HTTP in' and 'HTTP response' nodes work.

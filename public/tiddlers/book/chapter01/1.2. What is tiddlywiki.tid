@@ -1,0 +1,13 @@
+created: 20191216095144474
+modified: 20191216103311483
+tags: [[1. Introduction]] Section
+title: 1.2. What is tiddlywiki
+
+{{TW concept.svg}}
+~TiddlyWiki is a personal and a non-linear notebook for organizing and sharing complex information. It is an open-source single page application wiki in the form of a single HTML file that includes all javascript code, the CSS format and the content. It is designed to be easy to customize and re-shape depending on application. It facilitates re-use of content by dividing it into small pieces called Tiddlers. It is not an application but a large html page that runs in almost all web browsers so it is very portable: you can use it in a USB stick, in a phone or tablet or as a web page in some internet servers. Tiddlywiki is made of tiddlers: little text areas or notes with a title and a content. You can add all the tiddlers you want and each of them will contain certain information.
+
+It was created by the British software developer Jeremy Ruston in 2004. Tiddlywiki is free and open source software and is distributed under the terms of the BSD license.
+
+Tiddlywiki introduces the concept of microcontent: the smallest structured and addressable piece of information, the smallest semantically meaningful units. This small piece of information is called tiddler. The purpose of this tiddlers is recording and organizing information is so that it can be used as many times as necessary.
+
+You can find the basic information of Tiddlywiki in the web site: https://tiddlywiki.com/. I recommend you take a look.

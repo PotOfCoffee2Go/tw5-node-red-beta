@@ -1,0 +1,24 @@
+created: 20240108214754175
+list: [[Site development]]
+modified: 20240117083308908
+tags: Development
+title: Wiki templates
+type: text/vnd.tiddlywiki
+
+A web 'site' is a TiddlyWiki which is created as a [[Single file wiki]]. An 'application' is a collection of tiddlers created using the TiddlyWiki 'server' edition [[TW Sync Wiki]]. A site does not need an application if the single file wiki contains all the tiddlers needed to present the site. An application however needs a site to present the tiddlers of the application.
+
+<div style="float:right;">{{frame-flower-left.png}}</div>
+
+Both 'Single file wiki' and 'TW Sync Wiki' are created offline from the server. So are considered ''templates'' as they do not have access to the TW5-Node-Red server (other than sharing directories). `<<node-red ...>>` macros will not work until the wiki is loaded by the server ('TW Client Wiki'). See [[Site development]].
+
+Any Single file TiddlyWiki with can be saved on the server and the server will deliver it. The server can be used to store static content (such as images) which can be accessed by the wiki. The wiki needs $:/plugins/potofcoffee2go/tw5-node-red/network.js installed to access the more advanced features of the server.
+
+A [[TiddlyWiki on Node.js|https://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]] can be copied to the server. Which is called an [[application|Application]] in this documentation.
+
+It is common for the single file wiki to be relatively 'empty'; containing only the plugins required (or desired) to present the tiddlers of an application. The server loads the single file wiki and then sends the tiddlers of the application to provide the content.
+
+The development environment is similar whether using the [[Single file wiki]] or [[TW Sync Wiki]]
+methods of creating TW5-Node-RED web sites. In both environments there is the [[TW Client Wiki]] which is the TiddlyWiki delivered by the server that the user sees; and the [[Node-Red Flow Editor|Node-Red flows]] used to implement server-side Node-Red flows.
+
+See [[Site development]]
+

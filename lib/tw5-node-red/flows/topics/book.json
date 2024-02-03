@@ -1,0 +1,245 @@
+[
+    {
+        "id": "3d9daca2a6f68b44",
+        "type": "group",
+        "z": "7d26f7b9de3797b9",
+        "name": "TiddlyWiki Book - Chapter 1",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0d0209599f37e5fd",
+            "a04cbaa536c3e91d"
+        ],
+        "x": 48,
+        "y": 493,
+        "w": 564,
+        "h": 274
+    },
+    {
+        "id": "0d0209599f37e5fd",
+        "type": "group",
+        "z": "7d26f7b9de3797b9",
+        "g": "3d9daca2a6f68b44",
+        "name": "Select tiddlers from twiki using filter",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7f3dc513caf95a47",
+            "f863a67c056367c1",
+            "68a113f373cb6891",
+            "bc00d1525b9d48e3",
+            "325145ba78e22609"
+        ],
+        "x": 74,
+        "y": 619,
+        "w": 512,
+        "h": 122
+    },
+    {
+        "id": "7f3dc513caf95a47",
+        "type": "switch",
+        "z": "7d26f7b9de3797b9",
+        "g": "0d0209599f37e5fd",
+        "name": "book",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "book",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 210,
+        "y": 680,
+        "wires": [
+            [
+                "68a113f373cb6891",
+                "325145ba78e22609"
+            ]
+        ]
+    },
+    {
+        "id": "f863a67c056367c1",
+        "type": "link in",
+        "z": "7d26f7b9de3797b9",
+        "g": "0d0209599f37e5fd",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 115,
+        "y": 680,
+        "wires": [
+            [
+                "7f3dc513caf95a47"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "68a113f373cb6891",
+        "type": "set-network",
+        "z": "7d26f7b9de3797b9",
+        "g": "0d0209599f37e5fd",
+        "name": "Chapter 1 tiddlers",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "TW Book",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "public/tiddlers/book/chapter01",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 390,
+        "y": 700,
+        "wires": [
+            [
+                "bc00d1525b9d48e3"
+            ]
+        ]
+    },
+    {
+        "id": "bc00d1525b9d48e3",
+        "type": "link out",
+        "z": "7d26f7b9de3797b9",
+        "g": "0d0209599f37e5fd",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 545,
+        "y": 680,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "325145ba78e22609",
+        "type": "set-network",
+        "z": "7d26f7b9de3797b9",
+        "g": "0d0209599f37e5fd",
+        "name": "[[1. Introduction]]",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "TW Book",
+        "filter": "[[1. Introduction]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: TiddlyWiki Book\n\n> [[TiddlyWiki Book Introduction|1. Introduction]]\n> The book is published by Luis Javier González Caballero [[kewapoon|https://github.com/kewapo]] on GitHub at https://github.com/kewapo/The-Book-Wiki. There are more chapters for those interested. TW5-Node-RED is not associated with the package - full credits to Luis Javier González Caballero for sharing.\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 390,
+        "y": 660,
+        "wires": [
+            [
+                "bc00d1525b9d48e3"
+            ]
+        ]
+    },
+    {
+        "id": "a04cbaa536c3e91d",
+        "type": "group",
+        "z": "7d26f7b9de3797b9",
+        "g": "3d9daca2a6f68b44",
+        "name": "Load 'TW Book' twiki with the books content tiddlers on startup",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "bacb619cec794e97",
+            "666befd3477d7aba"
+        ],
+        "x": 114,
+        "y": 519,
+        "w": 395,
+        "h": 82
+    },
+    {
+        "id": "bacb619cec794e97",
+        "type": "inject",
+        "z": "7d26f7b9de3797b9",
+        "g": "a04cbaa536c3e91d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": ".1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 560,
+        "wires": [
+            [
+                "666befd3477d7aba"
+            ]
+        ]
+    },
+    {
+        "id": "666befd3477d7aba",
+        "type": "to-twiki",
+        "z": "7d26f7b9de3797b9",
+        "g": "a04cbaa536c3e91d",
+        "name": "",
+        "twikiName": "TW Book",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "public/tiddlers/book/chapter01",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.server.tiddlers",
+        "useListener": false,
+        "filter": "[[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "",
+        "clear": true,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": true,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 420,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    }
+]

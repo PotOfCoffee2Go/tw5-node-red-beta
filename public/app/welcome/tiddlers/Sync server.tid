@@ -1,0 +1,45 @@
+created: 20231208011318887
+fetched: 20231204091259494
+modified: 20240103170705843
+tags: ·node-red· Embedded
+title: Sync server
+type: text/vnd.tiddlywiki
+
+The 'server' edition sync server is a handy tool for creating tiddlers when developing applications or can be used as a dashboard. By default tiddlers are written to './twsync/tiddlers' by the sync server automatically. Is a convenient way of creating tiddlers and roughing in an application.
+
+In most cases the default directory <span class="poc2go-dir">'./twsync'</span> is all that is needed to create tiddlers - then copy the .tid files of interest to other directories. 
+
+TW5-Node-RED 'twserver site' flow in the [[Applications tab]] of Node-Red reads tiddlers from <span class="poc2go-dir">'./twserver/tiddlers'</span>, converts any <span class="poc2go-dir">'.meta'</span> files to .tid format and sends to the client wiki connected to TW5-Node-RED port 1880.
+
+{{sync-to-flow.png}}
+
+The 'server' edition client on the other hand connects onto the sync server - port 8080. So runs independently from Node-Red. They are accessing/sharing the same directories on the server. The sync server behaves identical to when running [[TiddlyWiki on Node.js|https://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]]. The directory to use can be configured in [[Server settings]].
+
+It should be noted however that server-side both TW5-Node-Red and the sync server are using the same instance of TiddlyWiki.
+
+> TW5-Node-Red should pretty much leave server-side '$tw.wiki' (active tiddler store) alone. Use [[TW twikis]] instead of '$tw.wiki' whenever possible. Does open some interesting integration possibilities as Node-Red could be a TiddlyWeb Server as the embedded TiddlyWiki has $tw.syncer and adapter toys already loaded. Just need to implement the routes as HTTP-in nodes.
+
+There are a few thngs to be aware of:
+
+!!! `.meta` files
+The sync server creates .tid files for most tiddlers - specifically tiddlers of type: text/vnd.tiddlywiki - the default TW5 tiddler type. TW5-Node-RED [[Tiddler nodes]] only work properly with .tid formatted files. So the .meta files need to be converted to .tid format - the 'Get sync server' flow in the [[Tools tab]] converts .meta files to .tid format. Note that the '+======+' tiddler separator is not available (because is not implemented in the TiddlyWiki 'server' edition).   
+
+The server can have multiple [[sync server|Sync server]] directories with each containing a unique application. However, the sync server can only be connected to a single directory at a time (it is linked into $tw.boot.files at startup - is one of the idiosyncrasies of the 'server' edition). Thus a reboot is required to change the directory the sync server is connected to.
+
+
+
+The flows that implement the sync server are in the [[Applications tab]] of Node-Red:
+
+<div style="max-width: 550px;">{{twserver-app.png}}</div>
+
+The top flow has an 'inject' node which when the server starts sends a '--listen' command to the [[TW Commander]] flow which starts the server.
+
+> If do not wish to launch the sync server - can change the 'syncServer' variable in './settings.js' to `false` or can disable the 'listen' inject node, double-click and notice a 'Enabled' button on the bottom left of the properties window which disables the inject.
+
+The flow in the middle accepts a 'twserver site' topic which calls the flow on the bottom and sends the results to the client wiki that requested the `<<node-red 'twserve site'>>`. This refreshes all the tiddlers on the client, handy to refresh tiddlers wihen changing them via the [[Sync server]].
+
+The bottom flow uses [[Set network]] to copy all the tiddlers from the sync server './twserver/tiddlers' folder to 'server.tiddlers'. The TOC node copies ./twserver/tiddlers/Table Of Contents.tid' to the story. Calls the [[Hide Sidebar]] flow so story river goes wide-screen.
+
+> [[TW Commander]] and [[Hide Sidebar]] are in the 'tools' tab.
+
+When ready for release can be copied to the application directory delivered by TW5-Node-Red or can be used as a TiddlyWiki blog - where the creator uses port 8080 to change content and client wikis call `<<node-red 'twserver site'>>` to present the content.

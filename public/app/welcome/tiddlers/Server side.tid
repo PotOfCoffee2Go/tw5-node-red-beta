@@ -1,0 +1,35 @@
+created: 20231126235752363
+fetched: 20231203083230350
+modified: 20240122200636836
+tags: [[How it works]] ·node-red·
+title: Server side
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar2.png}}</div>
+
+The server is the standard Node-Red server configured by <span class="poc2go-dir">'./settings.js'</span> in the project directory. Access the server by either going to address http://localhost:1880/red in the browser or in TiddlyWiki by:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>
+"""/>
+
+<$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>
+
+The flow editor has tabs across the top to help [ext[organize flows|https://nodered.org/docs/developing-flows/flow-structure]]. Will be going through all of them later but for now go to the 'topics' tab. The first flow on the top is a flow that contains two topics 'hello' and 'better hello'.
+
+<div style="max-width:550px;">{{hello-flow.png}}</div>
+
+Flows begin with a green network down-arrow node and end with a blue network up-arrow node. The green node receives all `<<node-red ...>>` macro calls from all clients and passes onto the next node. The ending blue node replies back to the requesting client with the response. These nodes work similar to the standard Node-Red [ext[http-in and http-response|https://cookbook.nodered.org/http/create-an-http-endpoint]] nodes.
+
+The yellow 'hello' node is a standard [ext[Node-Red 'switch' node|https://nodered.org/docs/user-guide/nodes#switch]] which tests a property in the message. If the test is successful the message (msg) is passed to the next node in the flow. Double click the node and notice the property being tested is 'msg.topic'. The test (or rule) is the regular expression '^hello$' in either upper or lower case.
+
+The [[Edit tiddlers]] node contains a [[Tiddler editor]]. The editor is similar to the [ext[Node-Red 'template' node|https://nodered.org/docs/user-guide/nodes#template]] but customized to accept tiddlers in either .tid or JSON format. This node is most often used in conjunction with third party Node-Red nodes to add tiddlers to the Node-Red message. The [[Tiddler editor]] is also available in other nodes.
+
+<div style="max-width:500px;">{{hello-edit-tiddlers.png}}</div>
+
+The tiddler will be placed in 'msg.payload' and passed onto the next node - 'to story'. The 'to story' node is actually a [ext[renamed|https://nodered.org/docs/developing-flows/documenting-flows#naming-nodes]] [[Set network]] node which copies 'msg.payload' to the network for transmission back to the client.
+
+<div style="max-width:500px;">{{hello-set-network-node.png}}</div>
+
+When used to place tiddlers on the 'server.tiddlers' of the network, the node automatically names itself 'to story' or 'to client' unless a name is assigned in the node. The node copies tiddlers from various sources to the network. There is a companion node [[Get network]] which copies tiddlers from the network to various destinations.
+
+<div style="width:50%;transform:scaleY(-1);margin-left:auto;margin-right:auto;">{{steel-bar2.png}}</div>

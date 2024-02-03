@@ -1,0 +1,43 @@
+created: 20231202140622709
+fetched: 20231203083230350
+modified: 20240113113703439
+tags: [[Tiddler nodes]] ·node-red·
+title: Set network
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em -6px;">{{set-network.png}}</div>
+
+The 'set network' node copies tiddlers onto the network for transmission to the client wiki.  
+
+When the 'set network' node is dropped in the Node-Red workspace it will rename itself to 'to client' by default. The node can also copy to 'client.tiddlers' or 'meta.tiddlers' of the network even though is most commonly used to set 'server.tiddlers'. If the server.tiddlers 'to story' option is set the node will name itself 'to story'. Setting the 'name' property overrides this behavior.
+
+The example below (in the flow editor 'topics' tab) will use the 'from client' [[Get network]] which places the tiddlers from the client into msg.payload.
+
+<div style="max-width: 600px;">{{get-network-flow.png}}</div>
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'test network nodes' '[tag[TableOfContents]]'>>">List TOC level 1 tiddlers</$button> 
+"""/>
+
+<$button actions="<<node-red 'test network nodes' '[tag[TableOfContents]]'>>">List TOC level 1 tiddlers</$button>
+
+The [[Set network]] 'to story' node will create a tiddler using [[Mustache]] to create a list of the tiddlers sent by the client. The 'To Network' property is set to 'server.tiddlers' to be sent to the client wiki. The 'to story' option is set so the tiddler will display in the story.
+
+<div style="max-width: 500px;">{{set-network-properties.png}}</div>
+
+The 'From' section has the source locations of tiddlers to copy to the network. In this case will be from the tiddler editor.
+
+@@color:pink;
+> Do not forget to ''__check__'' the 'Editor' checkbox!! Is a common problem when tiddlers in the tiddler editor are NOT sent to the client! I forget all the time  grrr...
+@@
+
+{{prop-from-editor}}
+
+{{prop-from-path}}
+
+{{prop-from-twiki}}
+
+{{prop-from-field}}
+
+The settings section allows the network client, server, or meta.tiddlers to be cleared before copying tiddlers to the network.
+ 
+

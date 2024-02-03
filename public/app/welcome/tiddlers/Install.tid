@@ -1,0 +1,33 @@
+created: 20231126191238250
+fetched: 20231128183332930
+modified: 20240117143403232
+tags: Welcome ·node-red·
+title: Install
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{victorian-top-spin.png}}</div>
+
+Install server:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""git clone repo
+cd tw5-node-red
+npm install
+"""/>
+
+> ''Documentation is still being constructed so is not currently available for this beta release.''
+
+Optional, install documentation presented using [ext[docsify|https://docsify.js.org]] :
+
+<strike>
+
+```
+npm install repo-docs ./public/docs
+```
+</strike>
+
+Start the server:
+
+<$macrocall $name=".codesample" n="2" lng="cmd" eg="""npm start
+"""/>
+
+Browse to http://localhost:1880/svr/wiki/nodered.html?app=welcome. A TiddyWiki will open which is this wiki you are looking at right now.

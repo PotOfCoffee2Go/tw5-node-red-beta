@@ -1,0 +1,26 @@
+created: 20191216101511508
+modified: 20191216103526115
+tags: [[1.5. Elements of tiddywiki]] Subsection
+title: 1.5.2. Tiddlers
+
+All notes you can add to Tiddlywiki are written in Tiddlers. It consist of a Title on the top, the tags and its content. A Tiddler is the basic element of Tiddliwiki. All things inside TW are made of tiddlers. The GettingStarted page you can see is a tiddler. The right menus too.
+
+The most important thing in a tiddler is its title: this will be unique. This information is inside a tiddler. You can see the first tiddler:
+
+* Buttons to edit and close the tiddler.
+* Title:“My first tiddler”
+* The field: created date.
+* Tags: only one:“this-is-a-tag”. You can add as many tags as you want.
+* Content:“This is the content of the tiddler”.
+
+When you click the“pen” icon at the top you can see a tiddler in edition mode:
+
+* Buttons to delete, discard and save the tiddler
+* Title at the top:“New Tiddler”
+* Tag zone
+* The format toolbar
+* The content of the tiddler
+* The type of the tiddler
+* The fields zone. There are predefined fields but you can add your own fields.
+
+If you close the tiddler it disappears from the screen. You can search it with the search bar, under the save button or choosing in the right menu More / All.

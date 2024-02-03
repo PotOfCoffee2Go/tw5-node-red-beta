@@ -1,0 +1,23 @@
+created: 20231208030418620
+modified: 20240129053149109
+tags: Storage
+title: tiddlywiki
+type: text/vnd.tiddlywiki
+
+This directory holds sub-directories which can be used as output directories for the main <span class="poc2go-dir">'twmain'</span> and sync server <span class="poc2go-dir">'twsync'</span> tiddlywiki modules.
+
+
+These directory paths are set at the beginning of the <span class="poc2go-dir">'./settings.js'</span> file.
+
+```js
+// Start TiddlyWiki 'server' edition sync server on startup?
+var syncServer = true;
+
+// Directory which Tiddlywiki will use for output
+const twOutput = './tiddlywiki/twmain'; // default is './tiddlywiki/twmain'
+const twsyncOutput = './public/app/welcome'; // default is './tiddlywiki/twsync'
+```
+
+It is not unusual to set the sync server to one of the <span class="poc2go-dir">'./public/app/appname '</span> to use the built-in sync server to edit an application.
+
+There generally will not be any output from the main tiddlywiki module unless there is an error or using the --verbose option of the Commander.

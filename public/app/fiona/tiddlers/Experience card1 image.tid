@@ -1,0 +1,10 @@
+caption: Image
+created: 20231231161920667
+fetched: 20231231161920667
+modified: 20240101014650750
+selector: .fiona-card1-image
+tags: Fiona ·node-red· [[Experience card 1]] to-experience
+title: Experience card1 image
+type: text/vnd.tiddlywiki
+
+<img src="files/images/IMG_5351.jpeg" class="card-img-top" alt="card-img-top">

@@ -1,0 +1,144 @@
+[
+    {
+        "id": "b37cb4ef8029f994",
+        "type": "group",
+        "z": "c58e1993cab59996",
+        "name": "Send a sample tiddler of a topic",
+        "style": {
+            "stroke": "#a4a4a4",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "90ab04c3ce5393e8",
+            "b210f724bebd1948",
+            "68553a08235eb1d7",
+            "54f166a7f4f3a368",
+            "704002cca88ec103"
+        ],
+        "x": 84,
+        "y": 59,
+        "w": 642,
+        "h": 82
+    },
+    {
+        "id": "90ab04c3ce5393e8",
+        "type": "link in",
+        "z": "c58e1993cab59996",
+        "g": "b37cb4ef8029f994",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 125,
+        "y": 100,
+        "wires": [
+            [
+                "b210f724bebd1948"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "b210f724bebd1948",
+        "type": "switch",
+        "z": "c58e1993cab59996",
+        "g": "b37cb4ef8029f994",
+        "name": "topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^topic .*",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "68553a08235eb1d7"
+            ]
+        ]
+    },
+    {
+        "id": "68553a08235eb1d7",
+        "type": "change",
+        "z": "c58e1993cab59996",
+        "g": "b37cb4ef8029f994",
+        "name": "get topic name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "$replace(msg.topic, 'topic ', '')\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "54f166a7f4f3a368"
+            ]
+        ]
+    },
+    {
+        "id": "54f166a7f4f3a368",
+        "type": "set-network",
+        "z": "c58e1993cab59996",
+        "g": "b37cb4ef8029f994",
+        "name": "Generate sample",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Topic '<%topic%>'\ntopicbtn: <$button actions=\"<<node-red '<%topic%>'>>\"> <%topic%> </$button>\ntopic: <%topic%>\n\n<$button actions=\"<<node-red '<%topic%>'>>\"> <%topic%> </$button>\n\n<$macrocall $name=\"copy-to-clipboard\" src={{!!topicbtn}}/>\n\n```html\n<$button actions=\"<<node-red '<%topic%>'>>\"> <%topic%> </$button>\n```\n\n---\n\nTopic: <$edit-text field=topic class=poc2go-edit-text />\n\n<$set name=topic value={{!!topic}}>\n<$button actions=\"<<node-red 'topic $(topic)$'>>\"> Generate Sample </$button>\n</$set>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "704002cca88ec103"
+            ]
+        ]
+    },
+    {
+        "id": "704002cca88ec103",
+        "type": "link out",
+        "z": "c58e1993cab59996",
+        "g": "b37cb4ef8029f994",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 685,
+        "y": 100,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    }
+]

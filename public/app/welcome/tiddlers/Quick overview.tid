@@ -1,0 +1,29 @@
+created: 20240107192246656
+modified: 20240112110430977
+tags: Applications
+title: Quick overview
+type: text/vnd.tiddlywiki
+
+A basic understanding of the system components and how they interact will be helpful in creating the new 'My Hello World!' application. The diagram below defines the terminology that will be used to build the application. A TW5-Node-RED server can maintain multiple applications.
+
+> Will need "<span class="poc2go-dir">npm install tiddlywiki -g</span>"&nbsp; installed to complete this walk-thru.
+
+!! Overview
+
+When creating a server application will have three browser tabs loaded in the browser:
+
+ * TW Client Wiki
+ ** The wiki that presents the site to users
+ * Node-Red Flow Editor
+ ** Site server-side application code 
+ * TW Sync Server
+ ** TiddlyWiki wiki used to create tiddlers presented to the user 
+
+<div style="max-width: 800px;">{{sync browser dev.png}}</div>
+
+If not already running - open a command window in the TW5-Node-RED project directory - '<span class="poc2go-dir">tw5-node-red</span>' and start the 'Node-Red server'.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""npm start
+"""/>
+
+See [[TW Sync Server]] to continue.

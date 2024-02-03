@@ -1,0 +1,13 @@
+created: 20231128063337072
+fetched: 20231128164421030
+modified: 20240107123525979
+tags: Welcome ·node-red·
+title: Prerequisites
+type: text/vnd.tiddlywiki
+
+Will need the normal cast of characters to include [ext[node.js|https://nodejs.org]], [ext[git|https://git-scm.com]], and a favorite editor. Both [ext[TiddlyWiki|https://tiddlywiki.com]] and [ext[Node-RED|https://nodered.org]] are installed locally with the project. Neither has been modified in any way, other than documented settings required to configure the system. Attempt has been made to insure as new release tolerant as possible.
+
+[ext[nodemon|https://nodemon.io/]] can be handy to automatically restart the server but only if on the rare chance are making custom Node-Red nodes from scratch - which is fun but only for the brave.
+
+The system installs all software needed to operate. However, to create applications will require '<span class="poc2go-dir">npm install tiddlywiki -g</span>' and is recommend to global install Node-Red. See [[Quick start]].
+

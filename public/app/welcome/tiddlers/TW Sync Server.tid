@@ -1,0 +1,28 @@
+created: 20240107131606398
+modified: 20240129052257084
+tags: Applications
+title: TW Sync Server
+type: text/vnd.tiddlywiki
+
+!! Create new site
+
+Open another command window in the TW5-Node-RED project directory and enter the command to launch a TiddlyWiki 'server' edition sync server. If the application does not exist it will be created.
+
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""npm run syncserver world port=8080
+"""/>
+
+The site will be in the <span class="">./public/app/world</span> sub-directory. The site name must be a single word containing only letters/numbers/underbar (no spaces or weird stuff).
+
+To access the <span class="poc2go-dir">'files'</span> directory would use the path of the Node-Red server. For example `<img src="/app/world/files/logo.png">` which would access <span class="poc2go-dir">'./public/app/world/files/logo.png'</span> on the server.
+
+> Note: The URI to access the <span class="poc2go-dir">./public</span> directory is <span class="poc2go-dir">'/'</span> without the <span class="poc2go-dir">'public'</span> .
+
+The port number 8080 which is the default. If working on multiple applications at the same time can have multiple "TW Sync Servers' running by using differing port numbers.
+
+<div style="max-width: 800px;">{{components.png}}</div>
+
+There are two servers - Node-Red and Sync servers. The Node-Red server presents the site to the users while the Sync Server is used to create the tiddlers of the application. The Node-Red and Sync server share the same sub-directories and files contained within the Node-Red Server's <span class="poc2go-dir">./public/app</span> directory.
+
+Hopefully no issues and now have both the servers running as depicted in the diagram.
+
+See [[Dev tools]] to continue. 

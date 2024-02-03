@@ -1,0 +1,6 @@
+created: 20191216101916955
+modified: 20191216103453043
+tags: [[1.5. Elements of tiddywiki]] Subsection
+title: 1.5.5. Fields
+
+A tiddler has field. There are system field like the created and modified date but you can add your own ones.

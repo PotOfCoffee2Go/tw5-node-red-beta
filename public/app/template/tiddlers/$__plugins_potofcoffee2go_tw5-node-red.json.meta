@@ -1,0 +1,11 @@
+author: PotOfCoffee2Go
+caption: TW5-Node-RED Plugin
+dependents: 
+description: Connect TiddlyWiki to Node-RED server
+list: readme settings docs toys tools credits license
+name: TW5-Node-RED
+plugin-type: plugin
+tags: tw5-node-red
+title: $:/plugins/potofcoffee2go/tw5-node-red
+type: application/json
+version: 0.1.6

@@ -1,0 +1,105 @@
+{
+	"network": {
+		"label": {
+			"name": "Name",
+			"server": "Server",
+			"path": "Path"
+		}
+	},
+
+	"get-network" : {
+		"defaults": {
+			"name": "",
+			"topic": "",
+			"networkfield": "network.client.tiddlers",
+			"twikiName": "",
+			"filter": "[all[]]",
+			"field": "",
+			"file": ""
+		},
+		"label": {
+			"name": "get network",
+			"networkfield": "Network",
+			"topic": "Topic",
+			"filter": "filter",
+			"twikiName": "Twiki",
+			"field": "Field",
+			"file": "File"
+		},
+		"section": {
+			"to": "To",
+			"from": "From",
+			"output": "Output",
+			"settings": "Settings"
+		},
+		"tip": {
+			"to": " - (can update multiple destinations)",
+			"file": "(extension of .tid or will output tiddlers as JSON)"
+		}
+	},
+
+	"set-network" : {
+		"defaults": {
+			"name": "",
+			"topic": "",
+			"networkfield": "network.client.tiddlers",
+			"twikiName": "",
+			"filter": "[all[]]",
+			"field": "",
+			"file": "",
+			"updtostory": false,
+			"tostory": false
+		},
+		"label": {
+			"name": "set network",
+			"topic": "Topic",
+			"networkfield": "Network",
+			"twikiName": "Twiki",
+			"filter": "filter",
+			"field": "Field",
+			"file": "Path",
+			"editor": "Editor",
+			"updtostory": "Display in story river",
+			"template":"Tiddler (in .tid or JSON format)",
+			"templateformat": "Apply",
+			"clear": "Clear any existing network tiddlers"
+		},
+		"section": {
+			"to": "To",
+			"from": "From",
+			"settings": "Settings",
+			"editor": "Tiddler Editor"
+		},
+		"tip": {
+			"from": " - (tiddlers can be from multiple sources)"
+		},
+		"networkfield": {
+			"client": {
+				"tiddlers": "network.client.tiddlers"
+			},
+			"server": {
+				"tiddlers": "network.server.tiddlers"
+			},
+			"meta": {
+				"tiddlers": "network.meta.tiddlers"
+			 }
+		}
+	},
+
+	"read-tiddlers" : {
+		"defaults": {
+			"name": "",
+			"path": "",
+			"twikiName": "",
+			"networkfield": "no"
+		},
+		"label": {
+			"name": "read tiddlers",
+			"path": "Path to directory of tids",
+			"topic": "Topic",
+			"tofield": "Field",
+			"twikiName": "Twiki",
+			"networkfield": "Network"
+		}
+	}
+}

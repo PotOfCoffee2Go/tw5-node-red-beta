@@ -1,0 +1,8 @@
+created: 20191216101939540
+modified: 20191216103442588
+tags: Subsection [[1.5. Elements of tiddywiki]]
+title: 1.5.6. Text format
+
+The formatted text inside a tiddlerr is called “Wikitext”. The best way of learing Wikitext is playing with the toolbar above the tiddler in edition mode. For example, if you want some words to be italiced and click in the italic icon of the tool bar while editing a tiddler, Tiddlywiki will add two slashes around the words: `//some words//`. ~WikiText is a concise, expressive way of typing a wide range of text formatting, hypertext and interactive features. It allows you to focus on writing without a complex user interface getting in the way. It is designed to be familiar for users of ~MarkDown, but with more of a focus on linking and the interactive features.
+
+Other example: you can make a link of a tiddler inside other tiddler writting `[[Tiddler Title Linked]]`.

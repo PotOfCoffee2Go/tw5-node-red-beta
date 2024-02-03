@@ -1,0 +1,29 @@
+caption: Change theme
+created: 20240102082836409
+modified: 20240129063700210
+tags: Flotsam
+title: Change Flow Editor Theme
+type: text/vnd.tiddlywiki
+
+
+<img src="/app/welcome/files/sync browser dev.png"/>
+
+The configuration is in file <span class="poc2go-dir">./settings.js</span> which is documented at [ext[Node-RED Settings File|https://nodered.org/docs/user-guide/runtime/settings-file]].
+
+> Note that whenever Node-Red documentation mentions <span class="poc2go-dir">~/.node-red</span> or <span class="poc2go-dir">$HOME/.node-red</span> it is the TW5-Node-RED project directory.
+
+To change the theme of the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> in <span class="poc2go-dir">./settings.js</span> locate section
+
+```js
+    editorTheme: {
+        /** The following property can be used to set a custom theme for the editor.
+         * See https://github.com/node-red-contrib-themes/theme-collection for
+         * a collection of themes to chose from.
+         */
+        //theme: "",
+        theme: "dark-scroll",
+
+       ...
+```
+
+Change <span class="poc2go-dir">"dark-scroll"</span> to one of the available [ext[themes|https://github.com/node-red-contrib-themes/theme-collection/tree/screenshots#screenshots]]. Add '-scroll' to the theme name to override the browser default scrollbars.

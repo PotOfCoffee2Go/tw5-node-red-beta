@@ -1,0 +1,452 @@
+title: $:/plugins/potofcoffee2go/tw5-node-red/network.js
+caption: Node-RED Network Interface
+created: 20220607214310616
+modified: 20220922111705268
+type: application/javascript
+module-type: macro
+
+/*\
+Macro that interfaces TiddlyWiki Client to Node-Red server.
+Node-Red flows expect the message and data structures sent
+by this macro.
+
+When this macro is loaded by TW5 $:/boot, the uibuilder library is
+fetched from the server and is loaded into the site <head> element.
+The library maintains a connection to the server independently from
+TiddlyWiki.
+
+Examples:
+  <$button actions="<<node-red 'Hello'>>" >Hello</$button>
+  <$button actions="<<node-red 'a topic' '[[filter of tiddlers to send]]'>>" >Send My Tiddlers</$button>
+\*/
+
+// Path to uibuilder library on server
+const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
+
+// Tiddler sent on connect
+const settingsSender = '$:/tw5-node-red/settings';
+const settingsSendFilter = '[[$:/tw5-node-red/settings]]';
+const bearerToken = '$:/temp/tw5-node-red/token';
+
+/*
+ System tiddler of default server settings
+  alter fields as needed then save wiki
+  in the server folder './uibuilder/uibtw/tiddlywikis' - reload
+*/
+const svrDefaultSettings = {
+	title: '$:/tw5-node-red/settings',
+	tags: 'tw5-node-red',
+	type: 'text/vnd.tiddlywiki',
+
+	redNetstat: '$:/temp/tw5-node-red/netstat',
+	redStore: '$:/temp/tw5-node-red/store',
+	redData: '$:/temp/tw5-node-red/data',
+	autoLoadPlugin: 'no',
+	autoSend: '[[$:/temp/tw5-node-red/store]] [[$:/temp/tw5-node-red/data]]',
+	autoTags: '[[·node-red·]]',
+	tagWithTopic: 'no',
+	heartbeatInterval: 10000, // 0 milliseconds = no heartbeat
+
+	text:'{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}'
+};
+
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+// Unique 16 char identifier for this tw5 instance
+// UUIDv4 for client id generation
+const uuidv4 = () => {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16))
+}
+const _clientid = uuidv4().replace(/-/g,'').substr(-16);
+
+// Get our settings - see if tiddler '$:/tw5-node-red/settings' exists
+//  if not, create it with the default settings
+var settings = $tw.wiki.getTiddler(svrDefaultSettings.title);
+if (!settings) {
+	$tw.wiki.addTiddler(new $tw.Tiddler(svrDefaultSettings));
+	settings = $tw.wiki.getTiddler(svrDefaultSettings.title);
+}
+settings = settings.getFieldStrings();
+
+// ------------------------
+// Network related tiddlers
+// Add a tiddler of the network connection status
+$tw.wiki.addTiddler(new $tw.Tiddler({
+	title: settings.redNetstat,
+	text: 'Node-Red Offline',
+}));
+
+// Tiddlers that are sent with each message to server
+// A tiddler for optional Node-Red flows use
+$tw.wiki.addTiddler(new $tw.Tiddler({
+	title: settings.redStore,
+	type: 'application/json',
+	text: `{ "title": "${settings.redStore}" }`
+}));
+
+// Tiddler for optional Node-Red flows data
+$tw.wiki.addTiddler(new $tw.Tiddler({
+	title: settings.redData,
+	type: 'application/x-tiddler-dictionary',
+	text: `title: ${settings.redData}`
+}));
+
+// Display a tiddler informing of an error
+const showErrorTizzler = (text) => {
+	fieldsToWiki({
+		title: 'Node-Red macro error',
+		tags: 'node-red',
+		text: text,
+	}, true); // to story
+}
+
+// ------------------------
+const commands = {
+	'emit': (topic, message) => emit(topic, message)
+}
+
+/*
+ $Name = 'network'
+ command = 'emit'
+ topic = string node-red uses to route request
+ sendFilter = filter of tiddlers to send to server
+ sender = $(currentTiddler)$
+*/
+exports.name = 'network';
+exports.params = [
+	{name: 'command'},
+	{name: 'topic'},
+	{name: 'sendFilter'},
+	{name: 'sender'},
+];
+exports.run = (command, topic, sendFilter, sender) => {
+	if (!commands[command]) {
+		showErrorTizzler(`Network: Invalid command - ${command}.`);
+		return;
+	}
+	if (!topic) {
+		showErrorTizzler(`Network: A topic is required to send a message to the server.`);
+		return;
+	}
+
+	// Insure settings are current
+	settings = $tw.wiki.getTiddler(svrDefaultSettings.title).getFieldStrings();
+
+	// Build network message and send it
+	let message = createMessage(topic, sendFilter, sender);
+	commands[command](message.client.topic, message);
+}
+
+// Prepare network message
+// Setup message content
+const createMessage = (topic, sendFilter, sender) => {
+	// Assume sender is a tiddler title - otherwize make an empty tiddler
+	let senderTiddler = $tw.wiki.getTiddler(sender) || new $tw.Tiddler({ title: sender });
+	let senderFields = senderTiddler.getFieldStrings({exclude: ['text']});
+
+	// Meta data and tiddlers
+	let metaTiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(`${settings.autoSend}`))
+
+	// Tiddlers to send to Node-Red based on the sendFilter
+	let sendTiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(sendFilter))
+	// Remove the tags added by Node-Red
+	sendTiddlers.forEach(tidd => {
+		if (tidd.tags) {
+			tidd.tags = stripNodeRedTags(tidd.tags);
+		}
+	})
+
+	// Create the network message
+	//  meta = Can be used for Status and state information
+	//    Note: _clientid is a required field
+	//  client = requested topic, sender ($(currentTiddler)$ without 'text'),
+	//    tiddlers (based on sendFilter)
+	//  server = default server topic, empty tiddler array for Node-Red to populate
+	return {
+		meta: { source: 'TW5', version: 'v' + $tw.version, location: window.location, _clientid, tiddlers: metaTiddlers },
+		client: { topic, sender: [senderFields], tiddlers: sendTiddlers },
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		};
+}
+
+// ------------------------
+// Network interface
+
+// Emit a topic and network object to the server
+const emit = (topic, network) => {
+    uibuilder.send({
+        'topic': topic,
+        'network': network,
+    })
+}
+
+// Send barebones message with just a topic
+const sendTopic = (topic) => {
+	emit(topic, {
+		meta: { source: 'TW5', version: 'v' + $tw.version, _clientid, tiddlers: [] },
+		client: { topic, sender: [{title: 'barebones'}], tiddlers: [] },
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+	});
+}
+
+// Listen for uibuilder connections to server
+//  A special heartbeat on (re)connects
+const onConnect = (evt) => {
+	emit('heartbeat',createMessage('heartbeat', settingsSendFilter, settingsSender));
+	startHeartbeat();
+}
+document.addEventListener('uibuilder:socket:connected', onConnect);
+
+// ------------------------
+// Heartbeat with server
+const hbImage = '{{$:/temp/images/phosphor-icons/fill/heart-straight-fill}} ';
+const hbImageBeat = '{{$:/temp/images/remix-icon/health/hearts-fill}} ';
+const hbImageBroken = '{{$:/temp/images/font-awesome/solid/heart-broken}} ';
+
+// Visually - heartbeat back and forth quicker to look pretty
+const quickenHeartbeat = () => {
+	if (/phosphor/.test(heart)) {
+		heart = hbImageBeat;
+		fieldsToWiki({ title: settings.redNetstat, text: heart + heartText + tStamp() });
+	} else if (/remix/.test(heart)) {
+		heart = hbImage;
+		fieldsToWiki({ title: settings.redNetstat, text: heart + heartText + tStamp() });
+	}
+}
+
+// Send heartbeat
+// Check if received a message within 4 seconds of sent heartbeat
+var ping = 'pong';
+const heartbeat = () => {
+	setTimeout(() => {
+		if (ping === 'ping') {
+			netstat(`Node-Red Timeout`);
+		}}, 4000);
+
+	ping = 'ping';
+	sendTopic('heartbeat');
+}
+
+// Update heartbeat ping and netstat tiddler
+var heart = '';
+var heartText = '';
+const netstat = (text) => {
+	if (/Connected/.test(text)) {
+		ping = 'pong';
+		if (!/Connected/.test(heartText)) heart = hbImageBeat;
+	} else {
+		heart = hbImageBroken;
+	}
+	heartText = text;
+	fieldsToWiki({ title: settings.redNetstat, text: heart + heartText + tStamp() });
+}
+
+// Use heartbeat params from settings
+// Insure timers are sane values
+var hbTimer = undefined;
+var visHbTimer = undefined;
+const startHeartbeat = () => {
+	if (hbTimer) clearInterval(hbTimer);
+	if (visHbTimer) clearInterval(visHbTimer);
+
+	heart = hbImageBeat;
+	visHbTimer = setInterval(quickenHeartbeat, 2000);
+
+	if (settings.heartbeatInterval) {
+		hbTimer = setInterval(heartbeat,
+			settings.heartbeatInterval < 5000
+			? 5000
+			: settings.heartbeatInterval);
+	}
+}
+
+// ------------------------
+// TiddlyWiki interface
+const story = new $tw.Story();
+
+// Create/overwrite tiddler and add to wiki from hashmap of fields
+//  includes timestamps and tagging
+//  optional display to story and fetch from server fields
+const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic = '') => {
+	// Dev alert in case tags/list fields are an array - should not happen
+	//  ie: the fields should have been strings with 'wiki.getFieldStrings()'
+	if (Array.isArray(fields.tags)) alert('field.tags is an array');
+	if (Array.isArray(fields.tags)) fields.tags = $tw.utils.stringifyList(fields.tags)
+	if (Array.isArray(fields.list)) fields.list = $tw.utils.stringifyList(fields.list)
+
+	$tw.wiki.addTiddler(new $tw.Tiddler(
+		$tw.wiki.getCreationFields(),
+		$tw.wiki.getModificationFields(),
+		fields,
+		fromServer ? fetched(fields, clientTopic) : {},
+	))
+	if (tostory) {
+		story.navigateTiddler(fields.title /*, fromTitle*/);
+	}
+}
+
+// Update the wiki with array of tiddlers from server
+const updateWiki = (svr) => {
+	console.log(svr);
+	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
+	svr.server.tiddlers.forEach(fields => {
+		if (svr.server.storylist.includes(fields.title)) {
+			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server
+		} else {
+			fieldsToWiki(fields, false, true, clientTopic); // tostory = false, from server
+		}
+	})
+	svr.meta.tiddlers.forEach(fields => {
+		fieldsToWiki(fields, false, true, ''); // tostory = false, from server
+	})
+}
+
+// ------------------------
+// Helpers
+// Timestamp when tiddler was 'fetched' from server
+//  and tags the tiddler as from the server (Default: 'node-red')
+const fetched = (fields, clientTopic) => {
+	delete fields.fetched;
+	const _clientTopic = ['true', 'yes'].indexOf(settings.tagWithTopic.toLowerCase()) > -1 ? clientTopic : '';
+	return {
+		fetched: $tw.utils.stringifyDate(new Date()),
+		tags: fields.tags
+			? `${fields.tags} ${settings.autoTags} ${_clientTopic}`
+			: `${settings.autoTags} ${_clientTopic}`
+		};
+}
+
+// Format timestamp text always same length
+const tStamp = () => {
+	return ' ' + ((new Date()).toLocaleDateString(undefined, {
+		hourCycle: 'h23',
+		year: 'numeric', month: '2-digit', day: '2-digit',
+		hour: '2-digit', minute: '2-digit' //, second: '2-digit'
+		})).replace(',', '');
+}
+
+// Remove Node-Red tags - (tags that start with '·' a middle dot)
+const stripNodeRedTags = (tags) => {
+	let outTags = [];
+	let inTags = $tw.utils.parseStringArray(tags);
+	inTags.forEach(tag => {
+		if (tag[0] !== '·') outTags.push(tag);
+	})
+	return $tw.utils.stringifyList(outTags);
+}
+
+
+// ------------------------
+// Post node-red macros and network event handlers
+const initialize = () => {
+	// Description of settings
+	$tw.wiki.addTiddler(new $tw.Tiddler(serverSettingsDesc));
+
+	// Macros simplify access to Node-Red server
+	$tw.wiki.addTiddler(new $tw.Tiddler(nodeRedDefines));
+
+	// Listen for incoming messages from server
+	//  Perform actions based on topic
+	uibuilder.onChange('msg', (msg) => {
+		netstat(`Node-Red Connected`);
+
+		// Tiddlers from server
+		if (msg.topic === 'server.tiddlers') {
+			updateWiki(msg.network);
+			// bearer token indictes ready for tiddlers
+			if (msg.network.server.tiddlers[0].title === bearerToken) {
+				emit('client.onload',createMessage('client.onload',
+					settingsSendFilter, settingsSender));
+			}
+		}
+		// Server requesting tiddlers
+		else if (msg.topic === 'server.request') {
+			msg.topic = 'client.response';
+			if (!msg.filter) msg.filter = '[[$:/tw5-node-red/settings]]';
+			let tiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(msg.filter));
+			let sender = new $tw.Tiddler(
+				{ title: 'client.response', filter: msg.filter, count: tiddlers.length },
+				$tw.wiki.getCreationFields(),
+				$tw.wiki.getModificationFields()
+			);
+			tiddlers.forEach(tiddler => {
+				tiddler.requested = $tw.utils.stringifyDate(new Date());
+			})
+			msg.network.client.sender.push(sender.getFieldStrings({exclude: ['text']}));
+			msg.network.client.tiddlers = msg.network.client.tiddlers.concat(tiddlers);
+			uibuilder.send(msg);
+		}
+	})
+
+	// Up and running - start app level heartbeat
+	console.log('TW5-Node-RED interface initialized');
+}
+
+// ------------------------
+// Fetch uibulder library from server
+//  load into site <head>,
+//   (it will connect to server automatically)
+//  initialize node-red macros and uibuilder events
+
+// Is async so TW $:/boot continues loading wiki
+//  while uibuilder is being initialized
+fetch(socketLibrary).then((res) => {
+	// Verify library fetch successful
+	if (res.status !== 200) {
+		throw new Error(`Unable to fetch Uibuilder - HTTP status: ${res.status}`);
+	}
+	return res.text();
+}).then((text) => {
+	// Load socket library into browser
+	let elem = document.createElement("script");
+	elem.innerHTML = text;
+	document.head.appendChild(elem);
+}).then(() => {
+	// Initialize the network interface
+	initialize();
+}).catch((err) => {
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redNetstat,
+		text: 'Node-Red Offline',
+		site: '[[Go online|https://tw5-node-red.poc2go.com]] - ',
+	}));
+	console.log(err);
+});
+
+
+})();
+
+// Global macros for TiddlyWiki access to server
+//  If problems loading the network these macros will not be loaded
+//   so TiddlyWiki will quietly do nothing when they are called.
+const nodeRedDefines = {
+	title: '$:/temp/tw5-node-red/macros',
+	tags: '$:/tags/Macro tw5-node-red',
+    text: `\\define node-red(topic sendFilter:"") <$macrocall $name=network command=emit topic='$topic$' sendFilter='$sendFilter$' sender="$(currentTiddler)$" />
+
+Node-Red macro
+`
+};
+
+const serverSettingsDesc = {
+	title: '$:/plugins/potofcoffee2go/tw5-node-red/settings/page',
+	tags: 'tw5-node-red',
+	caption: 'TNR Settings',
+	type: 'text/vnd.tiddlywiki',
+
+	text: `| field | description | value |
+|autoTags|Tag all tidders from Node-Red|<$edit-text tiddler="$:/tw5-node-red/settings" field="autoTags"/>|
+|autoSend|Meta tiddlers|<$edit-text tiddler="$:/tw5-node-red/settings" field="autoSend"/>|
+|heartbeatInterval|Heartbeat ms|<$edit-text tiddler="$:/tw5-node-red/settings" field="heartbeatInterval"/>|
+|autoLoadPlugin|On connect load the TW5-Node-RED plugin|<$edit-text tiddler="$:/tw5-node-red/settings" field="autoLoadPlugin"/>|
+
+<$checkbox tiddler="$:/tw5-node-red/settings" field="tagWithTopic" checked="yes" unchecked="no" default="no"> Tag tidders with Node-Red topic (tagWithTopic) </$checkbox>
+`
+};
+

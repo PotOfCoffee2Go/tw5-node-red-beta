@@ -1,0 +1,19 @@
+created: 20231208030440881
+modified: 20231217193643199
+tags: Storage
+title: flows
+type: text/vnd.tiddlywiki
+
+Node-Red stores the nodes that are wired together in the Flow Editor in a JSON file - called a flowfile. This file contains all the tabs, nodes, wires, node properties, and stuff used by the Node-Red runtime system.
+
+The <span class="poc2go-dir">'./flows'</span> directory contains these files.
+
+When starting the system it is common to add the flowfile as a parameter. The default flowfile is <span class="poc2go-dir">'./flows/tiddlywiki.json'</span> as specified in the 'settings.js' file. To load a different flowfile use the '--flowfile' option when starting the server.
+
+```
+npm start --flowfile ./flows/docs-builder.json
+```
+
+An empty flowfile will be created if the file does not exist.
+
+> For TW5-Node-RED to communicate with the clients the flows in the 'network' tab must be imported to an empty flowfile. See [[lib]] for details.

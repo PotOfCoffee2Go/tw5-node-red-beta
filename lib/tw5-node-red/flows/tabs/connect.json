@@ -1,0 +1,754 @@
+[
+    {
+        "id": "304338a4b9f89088",
+        "type": "tab",
+        "label": "Connect",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b69ab7ee9538fda9",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "name": "On client connection",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "fe78daaf53164ccc",
+            "e1182f32882a4acc",
+            "6a40ed1c79cf46ea",
+            "1a53e1db7536049c",
+            "2318b06227765245",
+            "6a0e3eeb89393e81",
+            "54215c27f407ce59"
+        ],
+        "x": 84,
+        "y": 39,
+        "w": 772,
+        "h": 122
+    },
+    {
+        "id": "1d4bc70456acd7ba",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "name": "Load TW5-Node-RED Plugin \\n The plugin does not contain the JavaScript Macro or TW5 core nodes (above)\\n Contains General information about TW5-Node-RED",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "72338ffe0165db82",
+            "b3471ca383c825fc",
+            "0c32555e2c9829c1",
+            "a1a4eba4e4b2f662",
+            "d1cb8f6bba82cf91",
+            "45b27da691ddd601",
+            "4e810fa7d9a7b1c4"
+        ],
+        "x": 94,
+        "y": 187,
+        "w": 722,
+        "h": 174
+    },
+    {
+        "id": "386c8e9a3fbf33de",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c4666d0665600361",
+            "e277a3352b39ab18"
+        ],
+        "x": 178,
+        "y": 399,
+        "w": 574,
+        "h": 188
+    },
+    {
+        "id": "ee1505631e417af2",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "d665783e3514018b",
+            "b79d45a9b7037362"
+        ],
+        "x": 18,
+        "y": 619,
+        "w": 904,
+        "h": 188
+    },
+    {
+        "id": "e277a3352b39ab18",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "g": "386c8e9a3fbf33de",
+        "name": "TW5-Node-RED Core",
+        "style": {
+            "label": true,
+            "stroke": "#777777"
+        },
+        "nodes": [
+            "ac177abd18a30b02",
+            "8a6999c14f732048",
+            "c9bbe0f3f12e859e",
+            "47d0e6a8f8415aa2",
+            "99b7abd4d3bc5b40"
+        ],
+        "x": 204,
+        "y": 479,
+        "w": 522,
+        "h": 82
+    },
+    {
+        "id": "b79d45a9b7037362",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "g": "ee1505631e417af2",
+        "name": "Generate TW5-Node-RED plugin",
+        "style": {
+            "label": true,
+            "stroke": "#777777"
+        },
+        "nodes": [
+            "732bf9ecdfc9df63",
+            "0f50d74a1682b4e9",
+            "da7b525e9244bad9",
+            "05fe6cb33e33ae93",
+            "205fb0492ffcd399",
+            "f491cc3db92cc626"
+        ],
+        "x": 44,
+        "y": 699,
+        "w": 852,
+        "h": 82
+    },
+    {
+        "id": "54215c27f407ce59",
+        "type": "junction",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "x": 740,
+        "y": 120,
+        "wires": [
+            [
+                "6a40ed1c79cf46ea"
+            ]
+        ]
+    },
+    {
+        "id": "fe78daaf53164ccc",
+        "type": "switch",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "client.onload",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "client.onload",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 100,
+        "wires": [
+            [
+                "2318b06227765245",
+                "1a53e1db7536049c"
+            ]
+        ]
+    },
+    {
+        "id": "e1182f32882a4acc",
+        "type": "link in",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 125,
+        "y": 100,
+        "wires": [
+            [
+                "fe78daaf53164ccc"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "6a40ed1c79cf46ea",
+        "type": "link out",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 815,
+        "y": 100,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "1a53e1db7536049c",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "TiddlyWiki settings",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/config/Navigation/openLinkFromInsideRiver\n\nabove\n+======+\ntitle: $:/language/PluginReloadWarning\n\nPlease save on the server in directory `uibuilder/uibtw/tiddlywikis` {{$:/core/ui/Buttons/save-wiki}}<br>\n and reload {{$:/core/ui/Buttons/refresh}} to allow changes to ~JavaScript plugins to to take effect\n+======+\ntitle: $:/palette\n\n$:/palettes/Dev Fire\n+======+\ntitle: $:/palettes/Dev Fire\ncreated: 20160302142923732\ncreator: Stephen\ndescription: Dark and Bold\nmodified: 20160427120948086\nmodifier: Stephen\nname: Dev Fire\ntags: $:/tags/Palette\ntype: application/x-tiddler-dictionary\n\nalert-background: #9d7d00\nalert-border: #8e7924\nalert-highlight: #881122\nalert-muted-foreground: #b99e2f\nbackground: #000000\nblockquote-bar: <<colour muted-foreground>>\nbutton-background: #3a2f2f\nbutton-foreground: #ffbf00\nbutton-border: #666666\ncode-background: #3a2f2f\ncode-border: #ffbf00\ncode-foreground: #fdf3d9\ndirty-indicator: #ff0000\ndownload-background: #34c734\ndownload-foreground: <<colour foreground>>\ndragger-background: <<colour foreground>>\ndragger-foreground: <<colour background>>\ndropdown-background: <<colour background>>\ndropdown-border: <<colour muted-foreground>>\ndropdown-tab-background-selected: #ffffff\ndropdown-tab-background: #ececec\ndropzone-background: rgba(0,200,0,0.7)\nexternal-link-background-hover: inherit\nexternal-link-background-visited: inherit\nexternal-link-background: inherit\nexternal-link-foreground-hover: inherit\nexternal-link-foreground-visited: #ff0000\nexternal-link-foreground: #ffbf00\nforeground: #ffdfaa\nmessage-background: #ecf2ff\nmessage-border: #cfd6e6\nmessage-foreground: #547599\nmodal-backdrop: <<colour pre-background>>\nmodal-background: <<colour background>>\nmodal-border: #999999\nmodal-footer-background: <<colour muted-background>>\nmodal-footer-border: #dddddd\nmodal-header-border: #eeeeee\nmuted-foreground: #Ffbf00\nnotification-background: <<colour pre-background>>\nnotification-border: #999999\npage-background: #000000\npre-background: #3a2f2f\npre-border: #cccccc\nprimary: #5778b8\nsidebar-button-foreground: #Ffbf00\nsidebar-controls-foreground-hover: <<colour sidebar-button-foreground>>\nsidebar-controls-foreground: #aaaaaa\nsidebar-foreground-shadow: \nsidebar-foreground: #ffbf00\nsidebar-muted-foreground-hover: #444444\nsidebar-muted-foreground: #c0c0c0\nsidebar-tab-background-selected: #ffbf00\nsidebar-tab-background: #604800\nsidebar-tab-border-selected: <<colour tab-border-selected>>\nsidebar-tab-border: #ab0318\nsidebar-tab-divider: #ab0318\nsidebar-tab-foreground-selected: #000000\nsidebar-tab-foreground: #ffd964\nsidebar-tiddler-link-foreground-hover: #464646\nsidebar-tiddler-link-foreground: #ffbf00\nsite-title-foreground: #ffca95\nstatic-alert-foreground: #aaaaaa\ntab-background-selected: #ffbf00\ntab-background: #604800\ntab-border-selected: #ffbf00\ntab-border: #ff9b6a\ntab-divider: #ff9b6a\ntab-foreground-selected: #000000\ntab-foreground: #ffd964\ntable-border: #ab0318\ntable-footer-background: #a8a8a8\ntable-header-background: #710210\ntag-background: #ec6\ntag-foreground: #ffffff\ntiddler-background: <<colour background>>\ntiddler-border: #b08500\ntiddler-controls-foreground-hover: <<colour sidebar-button-foreground>>\ntiddler-controls-foreground-selected: #2d2d2d\ntiddler-controls-foreground: <<colour tiddler-border>>\ntiddler-editor-background: #3a2f2f\ntiddler-editor-border-image: #ffffff\ntiddler-editor-border: #cccccc\ntiddler-editor-fields-even: #85a585\ntiddler-editor-fields-odd: #5f815f\ntiddler-info-background: #710210\ntiddler-info-border: #dddddd\ntiddler-info-tab-background: #f8f8f8\ntiddler-link-background: <<colour background>>\ntiddler-link-foreground: #fe9901\ntiddler-subtitle-foreground: #ffbf00\ntiddler-title-foreground: <<colour site-title-foreground>>\ntoolbar-new-button: \ntoolbar-options-button: \ntoolbar-save-button: \ntoolbar-info-button: \ntoolbar-edit-button: \ntoolbar-close-button: \ntoolbar-delete-button: \ntoolbar-cancel-button: \ntoolbar-done-button: \nuntagged-background: #999999\nvery-muted-foreground: #888888\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "6a0e3eeb89393e81"
+            ]
+        ]
+    },
+    {
+        "id": "2318b06227765245",
+        "type": "link call",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "",
+        "links": [
+            "ac177abd18a30b02"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 460,
+        "y": 120,
+        "wires": [
+            [
+                "54215c27f407ce59"
+            ]
+        ]
+    },
+    {
+        "id": "6a0e3eeb89393e81",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "b69ab7ee9538fda9",
+        "name": "Default tiddler(s)",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "public/tiddlers/connect",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: TW5-Node-RED\ntags: tw5-node-red\nclientId: <%network.meta._clientid%>\n\n<!-- Connection status -->\n{{$:/temp/tw5-node-red/netstat}}\n\n<div style=\"float:left; margin-right:1em;\">\n    <!-- Logo -->\n    <p><img  style=\"width: 100px;\" src=\"/tw5-node-red-logo.png\"></p>\n\n    <!-- Hello World Button -->\n    <p>\n        <$button class=\"poc2go-center-img\" actions=\"<<node-red 'hello'>>\"> Hello World </$button>\n    </p>\n\n    <!-- Credits -->\n    <p>\n        <$button class=\"poc2go-center-img\" to=\"$:/plugins/potofcoffee2go/tw5-node-red/credits/page\">\n            <img style=\"width: 100px;\" src=\"/images/packages/packages.png\"></$button>\n    </p>\n</div>\n\n<!-- Connection status as site subtitle -->\nConnection status to \n<$button actions=\"<<node-red 'get subtitle'>>\"> SiteSubtitle </$button>\n\n<!-- Dark, light, very dark Palettes -->\nPalettes:\n<$button actions=\"<<node-red 'dark'>>\"> Dark </$button>\n<$button actions=\"<<node-red 'light'>>\"> Light </$button>\n<$button actions=\"<<node-red 'fire'>>\"> Dev Dark </$button> ([[skplugins|http://skplugins.tiddlyspot.com/]])\n\n---\n\n<!-- TW5-Node-RED Plugin -->\n<$button actions=\"<<node-red 'plugin'>>\"> TW5-Node-RED Plugin </$button> more info about TW5-Node-RED\n\n<!-- Tiddlers composed into a single 'Book' tiddler -->\n<$button actions=\"<<node-red 'book'>>\"> Book </$button> Chapter 1 of a book about TiddlyWiki.\n\n<!-- Tiddlers of many $tw functions -->\n<$button actions=\"<<node-red 'twfndocs'>>\"> Function Docs </$button> TiddlyWiki functions available in 'function' nodes\n\n<!-- Tiddlers stored in GitHub GIST -->\n<$button actions=\"<<node-red 'get gist'>>\"> Get Hello World Gist</$button> a couple tiddlers in a GIST\n\n<!-- Large tiddlers from a sample csv file dowloaded from NASA -->\n<$button actions=\"<<node-red 'nasa'>>\">NASA TechPort Sample</$button> Large tiddler test\n\n<div style=\"clear: both;\">\n\n<!-- Read/Write tiddlers to a file given based on a tag -->  \n<$button actions=\"<<node-red 'refreshtagged myne'>>\"> Store by tag </$button> save tagged tiddlers to server\n\n<!-- Convert tiddler(s) to .tid or JSON format -->\n<$button actions=\"<<node-red 'to json'>>\"> Convert tiddler(s) </$button> to .tid and JSON format\n\n<!-- Sample topic tiddler -->\n<$button actions=\"<<node-red 'topic '>>\"> Topic Sample </$button> Generate Sample Tiddler for a topic\n\n<$button actions=\"<<node-red 'rooms refresh' '[tag[rooms]'>>\"> Rooms </$button> to-do\n\nThis tiddler <$button actions=\"<<node-red 'to debug' 'Message added to debug display'>>\"> to Node-Red debug</$button> display.\n\n---\n\nPlugins:\n\n|tc-table-no-border|k\n|<$button actions=\"<<node-red 'markdown plugin'>>\" class=\"tc-btn-invisible tc-tiddlylink\"> Markdown </$button> | [[TiddlyWiki|https://tiddlywiki.com/static/Markdown%2520Plugin.html]] |\n|<$button actions=\"<<node-red 'shiraz'>>\" class=\"tc-btn-invisible tc-tiddlylink\"> Shiraz plugin </$button> | [[Mohammad Rahmani|https://github.com/kookma]] |\n|<$button actions=\"<<node-red 'jd mob'>>\" class=\"tc-btn-invisible tc-tiddlylink\"> JD Mobile Layout plugin </$button> | [[JD Mobile layout|http://j.d.simplemobile.tiddlyspot.com/]] |\n|<$button actions=\"<<node-red 'link-to-tabs'>>\" class=\"tc-btn-invisible tc-tiddlylink\"> link-to-tabs plugin </$button> | [[WikiLabs link-to-tab|https://wikilabs.github.io/editions/link-to-tabs/]] |\n\n</div>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 660,
+        "y": 80,
+        "wires": [
+            [
+                "6a40ed1c79cf46ea"
+            ]
+        ]
+    },
+    {
+        "id": "72338ffe0165db82",
+        "type": "get-network",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "get settings",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "settings",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "b3471ca383c825fc"
+            ]
+        ]
+    },
+    {
+        "id": "b3471ca383c825fc",
+        "type": "switch",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "autoLoadPlugin?",
+        "property": "settings[0].autoLoadPlugin",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "yes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "0c32555e2c9829c1"
+            ]
+        ]
+    },
+    {
+        "id": "0c32555e2c9829c1",
+        "type": "link call",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "",
+        "links": [
+            "05fe6cb33e33ae93"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "45b27da691ddd601"
+            ]
+        ]
+    },
+    {
+        "id": "a1a4eba4e4b2f662",
+        "type": "switch",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "client.onload",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "client.onload",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "72338ffe0165db82"
+            ]
+        ]
+    },
+    {
+        "id": "d1cb8f6bba82cf91",
+        "type": "link in",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 135,
+        "y": 260,
+        "wires": [
+            [
+                "a1a4eba4e4b2f662",
+                "4e810fa7d9a7b1c4"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "45b27da691ddd601",
+        "type": "link out",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 775,
+        "y": 320,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "c4666d0665600361",
+        "type": "link call",
+        "z": "304338a4b9f89088",
+        "g": "386c8e9a3fbf33de",
+        "name": "",
+        "links": [
+            "ac177abd18a30b02"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 460,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac177abd18a30b02",
+        "type": "link in",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "TW5-Node-RED Core",
+        "links": [],
+        "x": 245,
+        "y": 520,
+        "wires": [
+            [
+                "8a6999c14f732048"
+            ]
+        ]
+    },
+    {
+        "id": "8a6999c14f732048",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "Styles",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "false",
+        "template": "title: $:/tw5-node-red/styles\ntags: $:/tags/Stylesheet tw5-node-red\n\n.tc-edit-texteditor-body {\n\tfont-family: monospace;\n    font-size: 15px;\n    line-height: 25px;\n}\n\n.poc2go-center-img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n\n.poc2go-edit-text {\n\twidth: 60%;\n}\n\n[data-tag-title^=\"·topic: \"] .tc-tag-label,\n[data-tag-title^=\"·topic: \"].tc-tag-label {\n  border-radius: 3px;\n}\n[data-tag-title^=\"·\"] .tc-tag-label,\n[data-tag-title^=\"·\"].tc-tag-label {\n   border-radius: 3px;\n}",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [
+                "c9bbe0f3f12e859e"
+            ]
+        ]
+    },
+    {
+        "id": "c9bbe0f3f12e859e",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "Icons",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "false",
+        "template": "[\n  {\n    \"title\":\"$:/favicon.ico\",\n    \"_canonical_uri\":\"/tw5-node-red-logo.png\",\n    \"text\":\"\"\n  },\n {\n    \"title\": \"$:/temp/images/phosphor-icons/fill/heart-straight-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-phi-heart-straight-fill tc-image-button\\\" viewBox=\\\"0 0 256 256\\\"><rect width=\\\"256\\\" height=\\\"256\\\" fill=\\\"none\\\"/><path fill=\\\"red\\\" d=\\\"M224.627,51.90625a59.54956,59.54956,0,0,0-43.0625-19.89063,60.69786,60.69786,0,0,0-43.98437,17.55469L128.002,59.14844l-7.5-7.49219c-23.32812-23.35156-61.29687-25.3125-84.57812-4.29687a59.974,59.974,0,0,0-2.34375,87.07031l83.10937,83.10937a16.013,16.013,0,0,0,22.625,0l81.03125-81.03125C243.68945,113.15625,245.61133,75.20312,224.627,51.90625Z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"1.2.0\",\n    \"library\": \"Phosphor Icons\",\n    \"collection\": \"Fill\",\n    \"caption\": \"heart-straight-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/remix-icon/health/hearts-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-ri-hearts-fill tc-image-button\\\" viewBox=\\\"0 0 24 24\\\"><g><path fill=\\\"none\\\" d=\\\"M0 0H24V24H0z\\\"/><path fill=\\\"red\\\" d=\\\"M17.363 11.045c1.404-1.393 3.68-1.393 5.084 0 1.404 1.394 1.404 3.654 0 5.047L17 21.5l-5.447-5.408c-1.404-1.393-1.404-3.653 0-5.047 1.404-1.393 3.68-1.393 5.084 0l.363.36.363-.36zm1.88-6.288c.94.943 1.503 2.118 1.689 3.338-1.333-.248-2.739-.01-3.932.713-2.15-1.303-4.994-1.03-6.856.818-2.131 2.115-2.19 5.515-.178 7.701l.178.185 2.421 2.404L11 21.485 2.52 12.993C.417 10.637.496 7.019 2.757 4.757c2.265-2.264 5.888-2.34 8.244-.228 2.349-2.109 5.979-2.039 8.242.228z\\\"/></g></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"2.5.0\",\n    \"library\": \"Remix Icon\",\n    \"collection\": \"\",\n    \"category\": \"Health\",\n    \"caption\": \"hearts-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/font-awesome/solid/heart-broken\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-fa-heart-broken tc-image-button\\\" viewBox=\\\"0 0 512 512\\\"><path fill=\\\"red\\\" d=\\\"M473.7 73.8l-2.4-2.5c-46-47-118-51.7-169.6-14.8L336 159.9l-96 64 48 128-144-144 96-64-28.6-86.5C159.7 19.6 87 24 40.7 71.4l-2.4 2.4C-10.4 123.6-12.5 202.9 31 256l212.1 218.6c7.1 7.3 18.6 7.3 25.7 0L481 255.9c43.5-53 41.4-132.3-7.3-182.1z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"5.15.2\",\n    \"library\": \"Font Awesome\",\n    \"collection\": \"Solid\",\n    \"caption\": \"heart-broken\"\n  },\n  {\n    \"text\": \"<svg width=\\\"22pt\\\" height=\\\"22pt\\\" class=\\\"tc-image-tmd-download-network-outline tc-image-button\\\" viewBox=\\\"0 0 24 24\\\"><path d=\\\"M15,20A1,1 0 0,0 14,19H13V17H17A2,2 0 0,0 19,15V5A2,2 0 0,0 17,3H7A2,2 0 0,0 5,5V15A2,2 0 0,0 7,17H11V19H10A1,1 0 0,0 9,20H2V22H9A1,1 0 0,0 10,23H14A1,1 0 0,0 15,22H22V20H15M7,15V5H17V15H7M12,14L16,10H13V6H11V10H8L12,14Z\\\" /></svg>\",\n    \"title\": \"$:/images/templarian-material-design/download-network-outline\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"5.9.55\",\n    \"library\": \"Templarian Material Design\",\n    \"collection\": \"\",\n    \"caption\": \"download-network-outline\"\n  },\n  {\n    \"text\": \"<svg width=\\\"22pt\\\" height=\\\"22pt\\\" class=\\\"tc-image-tmd-upload-network-outline tc-image-button\\\" viewBox=\\\"0 0 24 24\\\"><path d=\\\"M15,20A1,1 0 0,0 14,19H13V17H17A2,2 0 0,0 19,15V5A2,2 0 0,0 17,3H7A2,2 0 0,0 5,5V15A2,2 0 0,0 7,17H11V19H10A1,1 0 0,0 9,20H2V22H9A1,1 0 0,0 10,23H14A1,1 0 0,0 15,22H22V20H15M7,15V5H17V15H7M12,6L8,10H11V14H13V10H16L12,6Z\\\" /></svg>\",\n    \"title\": \"$:/images/templarian-material-design/upload-network-outline\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"5.9.55\",\n    \"library\": \"Templarian Material Design\",\n    \"collection\": \"\",\n    \"caption\": \"upload-network-outline\"\n  }\n]",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 450,
+        "y": 520,
+        "wires": [
+            [
+                "47d0e6a8f8415aa2"
+            ]
+        ]
+    },
+    {
+        "id": "47d0e6a8f8415aa2",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "Tiddlers",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "false",
+        "template": "title: ·node-red·\ncolor: #8f0000\nlist: ·node-red·\n\nTiddlers tagged with `·node-red·` have been sent to this wiki by the Node-Red server.\n\n+======+\ntitle: tw5-node-red\ncolor: #334e7e\nlist: tw5-node-red\n\nTW5-Node-RED allows building server APIs for single file TiddlyWikis using Node-RED flows.\nNodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard \n(and most third party) nodes.\n\nA TiddlyWiki macro provides TiddlyWiki's access to the server allowing tiddlers to be sent\nto and received from the server. Due to browser security concerns, the TiddlyWiki\nmust be delivered by the server. Any TiddlyWiki can access the Node-Red server by drag-n-drop\n[[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server\ndirectory 'uibuilder/uibtw/tiddlywikis'.\n\nServer side tiddlers can be from the connected TiddlyWikis, web, files, msg.property, or stored in Node-Red\nflows. The TiddlyWiki Core is embedded into Node-Red allowing the Node-Red 'function' node full\naccess to the TiddlyWiki codebase (ie: $tw functions and objects). Tiddlers can be stored in\nserver side TiddlyWiki wikis (twikis) allowing the server to access databases of tiddlers\nusing standard TW filters.\n\n!! TiddlyWiki\n\nRequests contain a topic to inform the server which Node-Red flow is to be executed.\nClient TiddlyWiki tiddlers are sent to the server by providing a filter of the tiddlers to send.\n`<<node-red 'topic' '[[tiddlers to send]]'>>` would send topic 'topic' and the tiddler titled\n'tiddlers to send'.\n\n!! Node-RED\n\nTiddler exchange is managed using the `msg.network` property maintained by all \nthe nodes in the Node-Red 'Tiddler' category:\n\n * create tiddler, read tiddler, get network, set network, to twiki, from twiki.\n\nTiddlers can be in .tid or JSON format, the Mustache logic-less template\nsystem is available for content substitution. TW5-Node-RED allows multiple tiddlers in .tid format\nby separating them using the line `+======+`.  \n\nThe server can dynamically request tiddlers from client TiddlyWikis at any time using standard TW filters.\n\nTiddlers and plugins can be preloaded into the Node-Red embedded TiddlyWiki for additional\nor custom server side tiddler processing.\n\nSee <a href=\"https://tw5-node-red.poc2go.com\" target=\"_blank\"> TW5-Node-Red Documentation </a> for details\n\n---\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits/page\ntags: tw5-node-red\ncaption: TNR Credits\ntype: text/vnd.tiddlywiki\n\n<div>\n<img style=\"float: left;width: 120px;margin-right:1.5em;\" src=\"/tw5-node-red-logo.png\">\n<h3>TW5-Node-RED</h3>\n<p style=\"font-size: 1em;\" > Designed and initial commit by <a href=\"\" target=\"_blank\">PotOfCoffee2Go</a></p>\n<hr>\n<p>Developed on:<br />\nRaspberry Pi 4B, <a href=\"https://www.lxde.org\" target=\"_blank\">LXDE Desktop</a>\n<br>Raspberry Pi OS (32-bit)\n<br>TiddlyWiki: v5.3.0, Node-RED: v3.0.2, Node.js: v14.21.3\n<br>Linux: 5.10.103-v7l+ arm LE\n<br>Chromium: 92.0.4515.98 (Official Build) Built on Raspbian\n<br>\n<br> (Long overdue for an upgrade but system is running other stuff so not fixing what ain't broke)\n</p>\n\n</div>\n<div style=\"clear: both;\"></div>\n<hr>\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 900px;\" src=\"/images/packages/main-packages.png\">\n</div>\n\n<p>\nThe main packages are Node-RED, TiddlyWiki, and uibuilder (node-red-contrib-uibuilder).\n</p>\n<p>\nnode.js, GIMP, GitHub, inkscape, git, geany, docsify, and nodemon were used to develop the project.\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 500px;\" src=\"/images/packages/helper-packages.png\">\n</div>\n\nMany online developer resources <a href=\"https://developer.mozilla.org/en-US/\" target=\"_blank\">MDN</a>,  \n<a href=\"https://stackoverflow.com/\" target=\"_blank\">StackOverflow</a>,\n\n</p>\n\n<p>\nCopyright and Trademarks are property of respective packages.\n</p>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 580,
+        "y": 520,
+        "wires": [
+            [
+                "99b7abd4d3bc5b40"
+            ]
+        ]
+    },
+    {
+        "id": "99b7abd4d3bc5b40",
+        "type": "link out",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 685,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d665783e3514018b",
+        "type": "link call",
+        "z": "304338a4b9f89088",
+        "g": "ee1505631e417af2",
+        "name": "",
+        "links": [
+            "05fe6cb33e33ae93"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 460,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "732bf9ecdfc9df63",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "About TW5-Node-RED ",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[[$:/plugins/potofcoffee2go/tw5-node-red]]",
+        "field": "payload",
+        "file": "public/tiddlers/install/buildplugin/How to create plugins in the browser.json",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/state/plugin-info-156448408-$:/plugins/potofcoffee2go/tw5-node-red--303101393\ncomment: Plugin default tab to display\n\ntoys\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/docs/page\ncaption: TNR Docs\ntags: tw5-node-red\ntype: text/vnd.tiddlywiki\n\n<$button actions=\"<<node-red 'docs'>>\"> Documentation </$button>\nTW5-Node-RED Documentation\n\n<$button actions=\"<<node-red 'red'>>\"> Node-RED Editor </$button>\nNode-Red flow editor\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/toys/page\ncaption: TNR Toys\ntags: tw5-node-red\n\nView this tiddler [[TW5-Node-RED]]\n\n{{TW5-Node-RED}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/tools/page\ncaption: TNR Tools\ntags: tw5-node-red\ntype: text/vnd.tiddlywiki\n\n<$button actions=\"<<node-red 'to tid' '[[tw5-node-red]]'>>\"> Convert Tiddler </$button>\nDisplay a tiddler in tid or JSON format\n\n<$button actions=\"<<node-red 'to debug' '[[tw5-node-red]]'>>\"> to debug </$button>\nDisplay the Node-Red debug msg\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/license/page\ncaption: TNR License\ntags: tw5-node-red\ntype: text/vnd.tiddlywiki\n\n[[TW5-Node-RED (link todo)|https://example.com]] (c) Kim I. McKinley - 2023\n\n[[Creative Commons Attribution-NonCommercial-ShareAlike|https://creativecommons.org/licenses/by-nc-sa/4.0/]]\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 720,
+        "y": 740,
+        "wires": [
+            [
+                "205fb0492ffcd399"
+            ]
+        ]
+    },
+    {
+        "id": "0f50d74a1682b4e9",
+        "type": "function",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "repackPlugin",
+        "func": "const $tw = global.get('$tw');\n\n$tw.utils.repackPlugin(\"$:/plugins/potofcoffee2go/tw5-node-red\", [\n    \"$:/plugins/potofcoffee2go/tw5-node-red/readme\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/settings\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/docs\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/toys\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/tools\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/credits\",\n    \"$:/plugins/potofcoffee2go/tw5-node-red/license\"\n]);\n\nmsg.payload = JSON.parse($tw.wiki.getTiddlerAsJson('$:/plugins/potofcoffee2go/tw5-node-red'));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 740,
+        "wires": [
+            [
+                "f491cc3db92cc626"
+            ]
+        ]
+    },
+    {
+        "id": "da7b525e9244bad9",
+        "type": "to-twiki",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "TW5-Node-RED Plugin template",
+        "twikiName": "$tw.wiki",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "title: $:/plugins/potofcoffee2go/tw5-node-red\ncaption: TW5-Node-RED Plugin\ndependents: \nlist: readme settings docs toys tools credits license\nauthor: PotOfCoffee2Go\ndescription: Connect TiddlyWiki to Node-RED server\nname: TW5-Node-RED\nplugin-type: plugin\ntype: application/json\nversion: 0.1.5\ntags: tw5-node-red\n\n{ \"tiddlers\": {} }\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/readme\ncaption: readme\nauthor: PotOfCoffee2Go\ntags: tw5-node-red\n\nView this tiddler [[tw5-node-red]]\n\n{{tw5-node-red}}\n\n{{·node-red·}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/settings\ncaption: settings\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\nView this tiddler [[Settings|$:/tw5-node-red/settings]]\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/docs\ncaption: docs\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/docs/page}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/toys\ncaption: toys\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/toys/page}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/tools\ncaption: tools\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/tools/page}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits\ncaption: credits\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/credits/page}}\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/license\ncaption: license\nauthor: PotOfCoffee2Go\ntags: ·node-red· tw5-node-red\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/license/page}}\n\n\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 250,
+        "y": 740,
+        "wires": [
+            [
+                "0f50d74a1682b4e9"
+            ]
+        ],
+        "info": "Add the plugin tiddlers to $tw.wiki so the call\nto repackPlugin can find them.\n"
+    },
+    {
+        "id": "05fe6cb33e33ae93",
+        "type": "link in",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "Generate TW5-Node-RED plugin",
+        "links": [],
+        "x": 85,
+        "y": 740,
+        "wires": [
+            [
+                "da7b525e9244bad9"
+            ]
+        ]
+    },
+    {
+        "id": "205fb0492ffcd399",
+        "type": "link out",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 855,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f491cc3db92cc626",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "b79d45a9b7037362",
+        "name": "Show plugin tiddler?",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[[$:/plugins/potofcoffee2go/tw5-node-red]]",
+        "field": "payload",
+        "file": "public/tiddlers/install/buildplugin/How to create plugins in the browser.json",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 575,
+        "y": 740,
+        "wires": [
+            [
+                "732bf9ecdfc9df63"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4e810fa7d9a7b1c4",
+        "type": "switch",
+        "z": "304338a4b9f89088",
+        "g": "1d4bc70456acd7ba",
+        "name": "plugin",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "plugin",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "0c32555e2c9829c1"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,33 @@
+created: 20240107122454151
+fetched: 20231203083230348
+list: [[TW Sync Wiki]] [[Node-Red flows]]
+modified: 20240117051740329
+tags: Applications
+title: Dev tools
+type: text/vnd.tiddlywiki
+
+<div style="float:right;">
+<div style="margin: 0 0px -6px -9px;">{{swirl-top-right.png}}</div>
+<div style="float:right;">{{swirl-right.png}}</div>
+</div>
+
+!! Startup Development Tools
+
+Open three tabs in the browser:
+
+ * http://localhost:1880/svr/wiki/hello.html?app=world
+ ** TW Client Wiki
+ * http://localhost:1880/red
+ ** Node-Red Flow Editor
+ * http://localhost:8080
+ ** TW Sync Wiki
+
+The TW Client Wiki 'hello.html' is 'empty.html' from https://tiddlywiki.com with no changes other than $:/plugins/potofcoffee2go/tw5-node-red/network.js installed to communicate with the server. Should see the stock 'GettingStarted' tiddler.
+
+Need to log into the Node-Red Flow Editor in order to deploy (save) changes to the flows. The user is 'admin' the password is 'password'. In the upper-right is a 'person' icon. Press it and can log in from there.
+
+The TW Sync Wiki loads with the GettingStarted tiddler that is stock for [[TiddlyWiki on Node.js|https://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]] which asks to create a tiddler. 
+
+<div style="max-width: 600px;">{{sync browser dev-1.png}}</div>
+
+See [[TW Sync Wiki]] to continue.

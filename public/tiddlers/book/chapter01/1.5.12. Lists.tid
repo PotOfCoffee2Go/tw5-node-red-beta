@@ -1,0 +1,20 @@
+created: 20191216102403060
+modified: 20191216103413251
+tags: Subsection [[1.5. Elements of tiddywiki]]
+title: 1.5.12. Lists
+
+When you look some information inside Tiddlywiki it gives you a list of tiddlers, so the manage of list is an important question in Tiddlywiki.
+
+The more simplest is a tiddler list. This is a list with a few number of tiddlers. For example:
+
+`[[First Tiddler]`] ~SecondTiddler `[[Third tiddler]]` ~Finaltiddler
+
+is a list with 4 tiddlers. You can see tiddlers inside [[ ]] and other tiddlers not. If your tiddler contains spaces you have to surround with `[[ ]]`.
+
+You can construct a list with filters. For example if you find this code in a tiddler:
+
+`<$list filter="[tag[$:/tags/PageTemplate]]">`
+
+this means a list with all tiddlers tagged with the `$:/tags/PageTemplate` tag.
+
+The most important thing here is the order of the tiddlers inside the list. In the first example the order is clear but in the second is not. Tiddlywiki will order the list alphabetically. But, imagine you need other order in this $list inside your tiddler. In this case you can include this order in the“list” field of the tiddler. Tiddlywiki will respect that order.

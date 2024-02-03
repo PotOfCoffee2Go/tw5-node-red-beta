@@ -1,0 +1,7 @@
+created: 20231220183041023
+modified: 20231221175114040
+tags: properties
+title: prop-from-twiki
+type: text/vnd.tiddlywiki
+
+''From Twiki'' allows tiddlers from a named source twiki to be copied to the destination twiki. A filter can be entered to select what tiddlers from the source twiki are to be copied.

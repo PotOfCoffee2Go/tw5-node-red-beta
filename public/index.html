@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<!-- This index page rediects to the site landing page -->
+<html data-destination="/svr/wiki/nodered.html?app=default">
+  <meta charset="utf-8" />
+  <head>
+    <script>
+      var destination = document.documentElement.getAttribute('data-destination');
+      window.location.href = destination + (window.location.search || '') + (window.location.hash || '');
+    </script>
+  </head>
+  <body></body>
+</html>

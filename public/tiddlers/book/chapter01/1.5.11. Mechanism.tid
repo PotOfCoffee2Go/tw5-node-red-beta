@@ -1,0 +1,6 @@
+created: 20191216102346163
+modified: 20191216103419427
+tags: Subsection [[1.5. Elements of tiddywiki]]
+title: 1.5.11. Mechanism
+
+All elements of tiddlywiki fit together through mechanism. For example, the HistoryMechanism keeps track of a list of tiddlers comprising the navigation history. The StartupMechanism runs the installed startup modules at the end of the boot process.

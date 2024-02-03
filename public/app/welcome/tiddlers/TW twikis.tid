@@ -1,0 +1,15 @@
+created: 20231204085951206
+fetched: 20231204091259496
+modified: 20231222031159383
+tags: ·node-red· [[How it works]]
+title: TW twikis
+type: text/vnd.tiddlywiki
+
+The tiddlywiki module is [[Embedded]] into the Node-Red runtime system. This gives custom nodes and the [ext[Node-red 'function' node|https://nodered.org/docs/user-guide/writing-functions]] access to TiddlyWiki code base ($tw functions).
+
+Both client and server have an active tiddler store ($tw.wiki), which contain all the standard, system, and shadow tiddlers required of the TiddlyWiki system. $tw.wiki on the server operates independently of the $tw.wiki on the client. See [[Startup]] for details of server side $tw.wiki.
+
+TiddlyWiki wikis can be created server side to hold sets of tiddlers. The tiddlers are accessed using TiddlyWiki [ext[filters|https://tiddlywiki.com/static/Filters.html]]. The [[To twiki]] and [[From twiki]] nodes create and manage instances of wikis (technically $tw.Wiki instances) which in TW5-Node-RED are called '''twikis''' to distinguish from other wikis that are operating both server and client side of the system.
+
+Note that twikis are in-memory only. Use the [[To twiki]] node to load a twiki with tiddlers while the [[From twiki]] node to save twikis to disk.
+

@@ -1,0 +1,39 @@
+created: 20231201231701878
+fetched: 20231206142330649
+list: [[Tiddler editor]] [[Read tiddlers]] [[Edit tiddlers]] [[Get network]] [[Set network]] [[To twiki]] [[From twiki]]
+modified: 20240116180622219
+tags: TableOfContents ·node-red·
+title: Tiddler nodes
+type: text/vnd.tiddlywiki
+
+<div style="margin: 0 0 0 -9px;">{{victorian-top2.png}}</div>
+<div style="float:left;">
+<div style="margin: -6px 0px 0 -9px;">{{victorian-middle2.png}}</div>
+<div style="margin: -6px -1em 0 -9px;">{{victorian-left2.png}}</div>
+</div>
+
+There are six 'tiddler' nodes that have been added to Node-Red:
+
+<div style="float: left; margin-right: 2rem;">
+
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{read-tiddlers.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{edit-tiddlers.png}}</div>|
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{get-network.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{set-network.png}}</div>|
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{to-twiki.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{from-wiki.png}}</div>|
+
+</div>
+
+These nodes are in the 'tiddler' category of the [ext[Node-Red node palette|https://nodered.org/docs/user-guide/editor/palette/]] in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> (ctrl-p if not shown). All six of the nodes involve copying tiddlers from differing sources to destinations.
+
+<hr class="poc2go-hr">
+
+!!! Under-the-hood
+
+TW5-Node-RED handles sets of tiddlers. When a tiddler is discovered that is not in a set the tiddler is placed into a set. An empty set is valid indicating 'no tiddlers'. There are two types of sets - ''twikis'' and ''arrays''.
+
+Standard Node-Red nodes use ''arrays'' containing tiddlers as JavaScript objects. ''twikis'' on the other hand use an internal TiddlyWiki format ''$tw.Wikis'' containing ''$tw.Tiddlers''. Accessing tiddlers using TiddlyWiki [[filters|https://tiddlywiki.com/static/Filters.html]] requires tiddlers to be in TiddlyWiki format.
+
+[[To twiki]] and [[From twiki]] store and access tiddlers in TiddlyWiki format and does the conversion  to/from TiddlyWiki format to/from JavaScript objects. This is transparent to the application developer. Tiddlers are ''arrays'' of JavaScript objects when used by Node-Red nodes. If needed, the Node-Red 'function' node can be used to access both formats.
+
+<hr class="poc2go-hr">
+
+The tiddler nodes process files in tid or JSON format. It is natural to gravitate toward using the tid format as that format is the easiest to edit with a text editor. Being able to include multiple tiddlers in a single .tid file separated by '+======+' is an important feature which application developers will find as a simple and effective way to handle sets of tiddlers with the [[Tiddler editor]] or text editor.

@@ -1,0 +1,10 @@
+created: 20191216102048955
+modified: 20191216103447819
+tags: Subsection [[1.5. Elements of tiddywiki]]
+title: 1.5.7. Transclusion
+
+Transclusion is the process of referencing one tiddler "A" from another tiddler "B" such that the content of "A" appears to be a part of "B". It avoid Avoid having duplicate information.
+
+* To show the information of a tiddler inside other, write `{{Tiddler Title}}`.
+* To show the content of a field write `{{Tiddler Tittle!!field name}}`.
+* to show the content of a field in the same tiddler write: `{{!!field name}}`

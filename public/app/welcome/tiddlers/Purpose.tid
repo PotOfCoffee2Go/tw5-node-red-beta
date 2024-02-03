@@ -1,0 +1,26 @@
+created: 20231128073017185
+fetched: 20231130180107081
+list: [[Client side]] [[Server side]] [[More client side]]
+modified: 20240130130539638
+tags: Welcome
+title: Purpose
+type: text/vnd.tiddlywiki
+
+<div style="margin: 0 0 -6px -9px;">{{swirl-top.png}}</div>
+<div style="float:left;">{{swirl-left.png}}</div>
+
+The tiddlers that you are reading right now have come from the server. They are the ''application'' 'TW5-Node-RED Documentation'. This specific wiki is 'empty.html' from https:/tiddlywiki.com with the [[markdown|$:/plugins/tiddlywiki/markdown]] and [[highlight|$:/plugins/tiddlywiki/highlight]] plugins installed. Neither is required but Markdown is used in other applications and code highlighted looks pretty.
+
+To illustrate what an application is, go to [ext[/svr/wiki/wikilabs.html?app=welcome|/svr/wiki/wikilabs.html?app=welcome]]  - which is a copy of [[PMarios 'WikiLabs'|https://wikilabs.github.io]] out-of-the-box with [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] drag-n-dropped and saved in the server directory <span class="poc2go-dir">'./uibuilder/svr/src/wiki/wikilabs.html'</span>. 
+
+By going to [ext[/svr/wiki/wikilabs.html?app=welcome|/svr/wiki/wikilabs.html?app=welcome]] you are viewing the same ''application'' from the server (these docs) - but the presentation of the application is using the 'wikilabs' wiki. Observe there are differences due to the wiki settings between 'empty' and 'wikilabs'. Also notice that there are two tabs in your browser - the server is multi-user.
+
+Can run a different app - for example [ext[/svr/wiki/nodered.html?app=template|/svr/wiki/nodered.html?app=template]] a starter application site using the TiddlyWiki TOC macro.
+
+Another TiddlyWiki is [ext[/svr/wiki/notebook.html?app=welcome|/svr/wiki/notebook.html?app=welcome]] (see saqimtiaz https://saqimtiaz.github.io/sq-tw/notebook.html) which is running on an older release of TiddkyWiki. Some nice palettes.
+
+Regardless of the wiki presenting the application, the application deals with and delivers content. The client deals with the presentation of that content. The server can send tiddlers which change the presentation such as templates, palettes, config, non-JS plugins, etc.
+
+It is not all that uncommon that a specific wiki is designed to present a custom server application. Such applications would not generally work well with other client wikis. This application your reading was intentionally designed to be generic and work with most client wikis.
+
+Hopefully you have come away with a better idea of what a TW5-Node-RED application is. The purpose of TW5-Node-RED is to give non-technical TiddlyWiki developers the ability to build server-side applications.

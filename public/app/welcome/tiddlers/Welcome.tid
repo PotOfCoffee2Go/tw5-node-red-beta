@@ -1,0 +1,33 @@
+created: 20231102103835604
+fetched: 20231128063655573
+list: Preface Purpose Prerequisites Install [[Client wiki]] [[Server settings]]
+modified: 20240130173929504
+mustache: yes
+tags: TableOfContents ·node-red·
+title: Welcome
+type: text/vnd.tiddlywiki
+
+<div style="margin: 0 0 -6px -9px;">{{victorian-top.png}}</div>
+<div style="float:left;">{{victorian-left.png}}</div>
+
+{%#network.user.username%}
+!! Hi {%.%}! - Welcome to TW5-Node-RED <$button style="float: right; font-size: 1rem;" actions="<<node-red 'logout'>>"> logout </$button>
+{%/network.user.username%}
+{%^network.user.username%}
+!! Welcome to TW5-Node-RED <$button style="float: right; font-size: 1rem;" actions="<<node-red 'login'>>"> login </$button>
+{%/network.user.username%}
+
+TW5-Node-RED allows building server applications for single file TiddlyWikis using Node-RED flows.
+Node-Red [['tiddler' nodes|Tiddler nodes]] have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard (and most third party) Node-Red nodes.
+
+A `<<node-red 'topic' [[filter]]>>` TiddlyWiki macro provides access to the server allowing tiddlers to be sent to and received from the server. Due to browser security concerns, the TiddlyWiki must be delivered by the server. 
+
+Any TW5 TiddlyWiki can access the Node-Red server by drag-n-drop [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server directory <span class="poc2go-dir">'./uibuilder/svr/src/wiki'</span>. The browser address would be  'http://localhost:1880/svr/wiki/hello.html' for a wiki named 'hello.html'.
+
+HTML web pages can access tiddlers on the server by including `<script src="/svr/page/js/tw5-node-red.js"></script>` in the document `<head>`. There are hooks provided for basic tiddler management. This documentation will concentrate on using TiddlyWiki clients and only briefly cover HTML page usage.
+
+The TiddlyWiki 'server' edition sync server is integrated into TW5-Node-Red and can be used as a tool to create server-side tiddlers or as a dashboard. See [[Sync server]].
+
+Tiddlers can be distributed from the other connected TiddlyWikis, web, files, Node-Red msg.property, or stored with-in Node-Red flows. The TiddlyWiki core is embedded into Node-Red allowing custom nodes and the Node-Red [ext[function|https://nodered.org/docs/user-guide/nodes#function]] node full access to the TiddlyWiki code base (ie: $tw functions and objects). Tiddlers can be stored in server side TiddlyWiki $tw.Wiki instances (twikis) allowing the server to access databases of tiddlers using standard TW filters.
+
+Hopefully TW5-Node-RED will be useful in your software toolbox. Enjoy!

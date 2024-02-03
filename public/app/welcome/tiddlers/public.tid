@@ -1,0 +1,23 @@
+created: 20231208030555436
+modified: 20231217193916151
+tags: Storage
+title: public
+type: text/vnd.tiddlywiki
+
+The <span class="poc2go-dir">'./public'</span> directory is the root for delivery of static content. Many of the sub-directories contain an 'index.html' that redirects to a default page for that sub-directory. The default can be changed by modifying the data-destination attribute.
+
+<$macrocall $name=".codesample" n="0" lng="" eg="""<!DOCTYPE html>
+<!-- This index page rediects to the site landing page -->
+<html data-destination="/uibtw/index.html">
+  <meta charset="utf-8" />
+  <head>
+    <script>
+      var destination = document.documentElement.getAttribute('data-destination');
+      window.location.href = destination + (window.location.search || '') + (window.location.hash || '');
+    </script>
+  </head>
+  <body></body>
+</html>
+
+"""/>
+

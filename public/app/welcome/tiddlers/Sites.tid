@@ -1,0 +1,31 @@
+created: 20240112100107899
+modified: 20240116163014560
+tags: Development
+title: Sites
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar3.png}}</div>
+
+This is a quick summary of building a site. 
+
+Any TW5 TiddlyWiki wiki is a candidate to connect to the server. Lets say have a TiddlyWiki named <span class="poc2go-dir">mywiki.html</span> to place on the server.
+
+ * Drag-n-drop [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] into <span class="poc2go-dir">mywiki.html.</span>
+ * Save the wiki on the server in directory <span class="poc2go-dir">./uibuilder/svr/src/wiki</span>.
+ * Open the wiki at address http://localhost:1880/svr/wiki/mywiki.html.
+
+<span class="poc2go-dir">mywiki.html</span> will startup as usual but will be connected to the server.
+
+In the sidebar 'recent' tab will see a few tiddlers that have come from the server - 'tw5-node-red' for example that has a blurb about TW5-Node-RED.
+
+In the server directory <span class="poc2go-dir">./uibuilder/svr/src/wiki</span> double-click '<span class="poc2go-dir">mywiki.html</span>' to open in the browser as a 'file'. Add a tiddler with the WikiText:
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'get subtitle'>>" > Get subtitle </$button>
+"""/>
+
+Will see a button - press it and nothing happens. Must save/replace 'mywiki.html' on the server first. Then go to http://localhost:1880/svr/wiki/mywiki.html and press the button. The subtitle displayed in the sidebar will show the connection status of the server.
+
+<hr class="poc2go-hr">
+
+There is generally very little needed to do on a site wiki as most tiddlers can come from the server. It is important to install any JavaScript macros/plugins since the server can not dynamically install JS macros. For example, the Markdown plugin would need to be installed and saved in the site wiki if planning on the server delivering Markdown type tiddlers.
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar3.png}}</div>

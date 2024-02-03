@@ -1,0 +1,25 @@
+created: 20231126235752363
+fetched: 20231130165635244
+modified: 20240122193823499
+tags: [[How it works]] ·node-red·
+title: Client side
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar.png}}</div>
+
+Client side is a single file TiddlyWiki. The [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] JavaScript macro does all the work required to connect and communicate with the server. The <$button class="tc-btn-invisible tc-tiddlylink" actions="<<node-red 'plugin'>>">TW5-Node-RED plugin</$button> contains information and some handy buttons but is not required - is just for show.
+
+All communication with the server is done through a single macro `<<node-red 'topic' '[[filter]]'>>`. The topic is used by the server to route the request to the proper flow. The filter is a TW filter of the tiddlers to send to the server with the request. The topic is required, while the filter is optional - depends on the topic.
+
+Let's do the obligatory 'Hello World' exercise. The server has a 'hello' topic which simply sends a 'Hello World' tiddler back to the client and displays in the story river. The WikiText is:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'hello'>>" > Hello World </$button>
+"""/>
+
+<$button actions="<<node-red 'hello'>>" > Hello World </$button>
+
+Press the button and a request to run the 'hello' flow will be sent to the server. A 'Hello World' is tiddler returned and displayed in the story.
+
+The 'currentTiddler' that submitted the request is sent to the server. Is a skinny tiddler without the text field. If need the text - use the `<<node-red 'topic' '[[filter]]'>>` ''filter'' parameter which sends the complete tiddler(s).
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar.png}}</div>

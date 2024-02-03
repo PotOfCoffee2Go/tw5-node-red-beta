@@ -1,0 +1,8 @@
+created: 20240111090005876
+modified: 20240129043407202
+tags: 
+title: TOC buttons
+type: text/vnd.tiddlywiki
+
+<$button style="font-size: .8em; border-radius: 8px;" actions="<<node-red 'twsync app'>>"> Refresh </$button>
+<$button style="font-size: .8em; border-radius: 8px;" actions="<<node-red 'welcome toc internal'>>"> internal nav </$button>

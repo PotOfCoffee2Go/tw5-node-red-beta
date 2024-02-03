@@ -1,0 +1,8 @@
+created: 20191216101805027
+modified: 20191216103457107
+tags: Subsection [[1.5. Elements of tiddywiki]]
+title: 1.5.4. Tags
+
+Tagging is a way of organizing tiddlers into categories. For example, if you had tiddlers representing various individuals, you could tag them as friend, family, colleague etc to indicate these people's relationships to you. By tagging your tiddlers, you can view, navigate and organize your information.
+
+Tiddlywiki has a Tag manager. Open the tiddler $:/TagManager . With this tiddler you can change the color and add an icon for the tag .

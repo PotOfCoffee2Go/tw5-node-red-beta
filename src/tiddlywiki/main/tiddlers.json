@@ -1,0 +1,19 @@
+[
+  {
+    "title":"$:/config/SyncLogging","text":"no"
+  },
+  {
+    "created": "20230711074635908",
+    "text": "<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>",
+    "tags": "tw5-node-red",
+    "title": "TW5-Node-RED Flow Editor",
+    "modified": "20230711075823660"
+  },
+  {
+    "created": "20230711074635908",
+    "text": "<iframe src=\"/docs\" style=\"width:100%; height:600px\"></iframe>",
+    "tags": "tw5-node-red",
+    "title": "TW5-Node-RED Documentation",
+    "modified": "20230711075823660"
+  }
+]

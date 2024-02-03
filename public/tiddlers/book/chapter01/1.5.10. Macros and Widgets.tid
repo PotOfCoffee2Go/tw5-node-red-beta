@@ -1,0 +1,10 @@
+created: 20191216102324356
+modified: 20191216103425739
+tags: [[1.5. Elements of tiddywiki]] Subsection
+title: 1.5.10. Macros and Widgets
+
+Tiddlywiki is highly customizable. It use macros and widgets to personalize its appearance.
+
+A macro is a named snippet of text. When you use it, Tiddlywiki shows its content.
+
+A widget is a piece of code to perform some actions.

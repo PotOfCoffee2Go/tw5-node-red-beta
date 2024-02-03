@@ -1,0 +1,11 @@
+created: 20191216102200419
+modified: 20191223091902438
+tags: [[1.5. Elements of tiddywiki]] Subsection
+title: 1.5.8. Templates
+
+Is a role a tiddler can have. Is like a shape for other tiddlers. It tells other tiddlers the way they have to display: how to show the title, the tags, its content and the other tiddlers. When you download an empty tiddler the initial template for all tiddlers is:
+
+* `$:/core/ui/ViewTemplate` if the tiddler is in view mode (you are not editing it)
+* `$:/core/ui/EditTemplate` if you are editing the tiddler.
+
+They (View and Edit templates) are tiddlers. You can search them in the advanced search and look for its content. And you can add your own templates.

@@ -1,0 +1,14 @@
+created: 20231127083709394
+fetched: 20231204091259497
+modified: 20231216102926672
+tags: ·node-red· Flotsam
+title: The server
+type: text/vnd.tiddlywiki
+
+There are a few things to notice about the 'better hello' topic right below the 'hello' topic. It starts as a second wire coming out of the green  'From Client' node (mouse over the green node and the name appears as a tooltip). All 'From client' nodes are identical as well as the companion blue 'To Client' nodes. Technically, only a single 'From Client' node could feed all topics in a tab - is a personal preference to use a single or multiple From/To Client nodes. To create one, just copy and paste an existing one.
+
+<div style="max-width: 500px;">{{hello-flow.png}}</div>
+
+The From Client node delivers all `<<node-red ...>>` requests from all clients thus is invariably followed by a 'switch' node to check the msg.topic. When a client makes a request every switch node will receive a copy of the request; only the switch that matches will pass the message on to the next node.
+
+For the blue 'To Client' node at the end of a flow to work properly the flow MUST start with a green 'From Client' node. This is similar to how the Node-Red 'HTTP in' and 'HTTP response' nodes work.

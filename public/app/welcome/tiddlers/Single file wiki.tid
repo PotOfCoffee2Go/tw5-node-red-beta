@@ -1,0 +1,58 @@
+created: 20240108113200984
+modified: 20240113005758384
+tags: Sites
+title: Single file wiki
+type: text/vnd.tiddlywiki
+
+Let's assume the name of a single file wiki is 'hello.html'. There is a '<span class="poc2go-dir">./uibulder/svr/src/wiki/hello.html</span>' wiki already created - but can start from scratch:
+
+ # Download 'empty.html' from https://tiddlywiki.com
+ # Double-click to open 'empty.html' in browser
+ # Drag-n-drop $:/plugins/potofcoffee2go/tw5-node-red/network.js
+ # Optionally install any desired TiddlyWiki plugins
+ # Save as 'hello.html' in server directory '<span class="poc2go-dir">./uibuilder/svr/src/wiki/hello.html</span>'
+ # Go to http://localhost:1880/svr/wiki/hello.html
+
+'hello.html' is now being delivered to the browser from the server. When making changes to hello.html will want to open as a 'file' (double-click from the server's directory); edit and save back to the server directory.
+
+The diagram below shows the normal development environment when creating a TW5-Node-RED site.
+
+<div style="max-width: 800px;display:flex; flex-flow:row wrap;">
+<div style="margin-left: 5%;width: 30%;text-align: left;">[[TW Client Wiki]]</div>
+<div style="width: 30%;text-align: center;">[[Node-Red flows]]</div>
+<div style="margin-right: 5%;width: 30%;text-align: right;">[[Single file wiki]]</div>
+</div>
+
+<div style="max-width: 800px;">{{browser dev.png}}</div>
+
+!!! Startup Development Tools
+
+If not already running - open a command window in the TW5-Node-RED project directory - '<span class="poc2go-dir">tw5-node-red</span>' and start the 'Node-Red Server'.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""npm start
+"""/>
+Open three tabs in the browser:
+
+ * http://localhost:1880/svr/wiki/hello.html
+ ** TW Client Wiki ('hello.html' that users will see via the server)
+ * http://localhost:1880/red
+ ** Node-Red Flow Editor
+ * Double-click 'hello.html' in server directory '<span class="poc2go-dir">./uibuilder/svr/src/wiki</span>'.
+ ** Single file wiki (opened as a 'file').
+
+In the [[Single file wiki]] create tiddler 'My Hello World!' containing this WikiText:
+
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""Press to get <$button actions="<<node-red 'hello' >>" > hello </$button> from Node-Red Server.
+
+Press to run <$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button> flow from Node-Red Server.
+"""/>
+
+The buttons are sending requests to Node-Red to run a 'topic' - a Node-Red flow. 
+
+Press the buttons and Nothing Happens! No worries - is intentional and working fine; by looking at the [[diagram|simple components.png]] can see the 'Single file wiki' is not connected to the server - being open as a 'file' which has nothing to do with Node-Red other than sharing the '<span class="poc2go-dir">./uibuilder/svr/src/wiki</span>' directory where the Single file wiki is stored.
+
+Leave the 'My Hello World!' tiddler open in the story river and replace '<span class="poc2go-dir">./uibuilder/svr/src/wiki/hello.html</span>'.
+
+Reload the [[TW Client Wiki]] and will see the changes. Press the buttons and they will now work.
+
+ See [[Wiki templates]] for more information.

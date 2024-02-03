@@ -1,0 +1,15 @@
+created: 20240108115859673
+list: Sites Applications [[Wiki templates]] [[Browser/server diagrams]]
+modified: 20240113135525500
+tags: TableOfContents
+title: Development
+type: text/vnd.tiddlywiki
+
+TW5-Node-RED is designed for developers of web sites using TiddlyWiki and Node-Red.
+
+There are two methods to create TW5-Node-RED sites. The most familiar is to create or take an existing single file wiki and save on the server. The other method is to use the TiddlyWiki 'server' edition sync server which dynamically stores tiddlers on the server. Both methods are used in concert to construct TW5-Node-Red sites and applications.
+
+In this documentation the TiddlyWiki site being created is 'hello.html' and the application being created is named 'world'.  
+
+See [[Sites]], [[Applications]], and [[Wiki templates]] for more information.
+

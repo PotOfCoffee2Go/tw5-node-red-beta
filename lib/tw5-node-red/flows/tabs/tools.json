@@ -1,0 +1,685 @@
+[
+    {
+        "id": "6c117808e492c2aa",
+        "type": "subflow",
+        "name": "twiki collections",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "ce12bc461c333053"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 320,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "ce12bc461c333053",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "font-awesome/fa-database"
+    },
+    {
+        "id": "ce12bc461c333053",
+        "type": "function",
+        "z": "6c117808e492c2aa",
+        "name": "twiki collections",
+        "func": "const $tw = global.get('$tw'),\n    twikis = global.get('twikis'),\n    rooms = global.get('rooms');\n\nmsg.twikis = {};\nmsg.rooms = {};\n\n// For each twiki create a msg property of the twikiName\n//  then load property with tiddlers from the twiki\nfor (let twikiName in twikis) {\n    if (twikiName !== '$tw.wiki') {\n        msg.twikis[twikiName] =\n            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))\n    }\n}\n\n// For each room create a msg property of the twikiName\n//  then load property with tiddlers from the twiki\nfor (let roomName in rooms) {\n    msg.rooms[roomName] = \n        JSON.parse(rooms[roomName].getTiddlersAsJson('[all[]]'))\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "127607a6bb274a18",
+        "type": "tab",
+        "label": "Tools",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aaa7038931de057a",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "Show tiddlers in all twikis in debug sidebar (except $tw.wiki) ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3574505f9b6b060f",
+            "e79130058eb12a9a",
+            "0a7034832f0df5c0"
+        ],
+        "x": 174,
+        "y": 39,
+        "w": 512,
+        "h": 82
+    },
+    {
+        "id": "7e1d28042993ee2d",
+        "type": "get-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "payload",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 245,
+        "y": 220,
+        "wires": [
+            [
+                "b1d22b6ea5af6c8c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "53cfba302a93975f",
+        "type": "switch",
+        "z": "127607a6bb274a18",
+        "name": "to json",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to json",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "7e1d28042993ee2d"
+            ]
+        ]
+    },
+    {
+        "id": "b1d22b6ea5af6c8c",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "name": "to JSON",
+        "func": "\nmsg.payload.forEach(tiddler => {\n    delete tiddler.fetched;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: JSON.stringify(msg.payload, null, 2),\n    type: 'application/json'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "8e0b5380e71a239e"
+            ]
+        ]
+    },
+    {
+        "id": "8e0b5380e71a239e",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "converttext",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 455,
+        "y": 240,
+        "wires": [
+            [
+                "dad041e7b0ba1a66"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dad041e7b0ba1a66",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "name": "Convert Tiddlers",
+        "func": "msg.payload = `title: Convert Tiddlers\nfilter: ${msg.network.client.sender[0].filter ? msg.network.client.sender[0].filter : '[[GettingStarted]]'}\n\n<$set name=filter value={{!!filter}}>\n<$button actions=\"<<node-red 'to json' '$(filter)$'>>\"> JSON </$button>\n<$button actions=\"<<node-red 'to tid' '$(filter)$'>>\"> .tid </$button>\n</$set>\nFilter: <$edit-text field=filter class=poc2go-edit-text />\n\n<$macrocall $name=\"copy-to-clipboard\" src={{$:/temp/poc2go/converttext}}/>\n\n{{$:/temp/poc2go/converttext}}\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "05f53b0ba8804b02"
+            ]
+        ]
+    },
+    {
+        "id": "05f53b0ba8804b02",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 725,
+        "y": 240,
+        "wires": [
+            [
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "123b82e57831527e",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 815,
+        "y": 240,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "db3503f6c6d0f5ea",
+        "type": "debug",
+        "z": "127607a6bb274a18",
+        "name": "Client Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d6becbc1eb1981a5",
+        "type": "switch",
+        "z": "127607a6bb274a18",
+        "name": "to debug",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to debug",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "52ac23d6fd69ca75"
+            ]
+        ]
+    },
+    {
+        "id": "8b2f8fcaf3696a2b",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "name": "Node-Red debug",
+        "func": "msg.payload = `title: Node-Red debug\n\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\n\\`\\`\\`html\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\\`\\`\\`\n\n<$macrocall $name=\\\"copy-to-clipboard\\\" src={{$:/temp/poc2go/debugtext}}/>\n\n\\`\\`\\`json\n${JSON.stringify(msg, null, 2)}\n\\`\\`\\`\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "e4bc7258380d7124"
+            ]
+        ]
+    },
+    {
+        "id": "e4bc7258380d7124",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "server.tiddlers",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 725,
+        "y": 360,
+        "wires": [
+            [
+                "db3503f6c6d0f5ea",
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5bde851593e32438",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "name": "DebugText tiddler",
+        "func": "msg.debugtext = `title: $:/temp/poc2go/debugtext\n\n${ JSON.stringify(msg, null, 2) }\n`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "7a077d0de73446be"
+            ]
+        ]
+    },
+    {
+        "id": "7a077d0de73446be",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "debugtext",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 255,
+        "y": 360,
+        "wires": [
+            [
+                "dc7833dc679fadd0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dc7833dc679fadd0",
+        "type": "change",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "debugtext",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "8b2f8fcaf3696a2b"
+            ]
+        ]
+    },
+    {
+        "id": "dcd45e6966cda24d",
+        "type": "link call",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "links": [
+            "2d16349559e708d1"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "5bde851593e32438"
+            ]
+        ]
+    },
+    {
+        "id": "52ac23d6fd69ca75",
+        "type": "change",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filter",
+                "pt": "msg",
+                "to": "[[GettingStarted]] [[node-red]]",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "network.client.tiddlers",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "dcd45e6966cda24d"
+            ]
+        ]
+    },
+    {
+        "id": "3574505f9b6b060f",
+        "type": "inject",
+        "z": "127607a6bb274a18",
+        "g": "aaa7038931de057a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "e79130058eb12a9a"
+            ]
+        ]
+    },
+    {
+        "id": "e79130058eb12a9a",
+        "type": "subflow:6c117808e492c2aa",
+        "z": "127607a6bb274a18",
+        "g": "aaa7038931de057a",
+        "name": "",
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "0a7034832f0df5c0"
+            ]
+        ]
+    },
+    {
+        "id": "de29b90b6878e330",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 25,
+        "y": 240,
+        "wires": [
+            [
+                "53cfba302a93975f",
+                "d6becbc1eb1981a5",
+                "0f24b35ddd5713d5",
+                "0a43a979cb79ba2e"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "605736a10c443a62",
+        "type": "get-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "tiddlers",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 245,
+        "y": 260,
+        "wires": [
+            [
+                "384b3178b58d75a3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0f24b35ddd5713d5",
+        "type": "switch",
+        "z": "127607a6bb274a18",
+        "name": "to tid",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to tid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "605736a10c443a62"
+            ]
+        ]
+    },
+    {
+        "id": "384b3178b58d75a3",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "name": "to .tid",
+        "func": "const $tw = global.get('$tw');\n\n// Convert tiddler to .tid format\nfunction tiddlerToTid(inTiddler) {\n    let tiddler = inTiddler.fields ? inTiddler.fields : { fields: inTiddler };\n    let tid = '';\n    Object.keys(tiddler.fields).forEach((fld) => {\n        if (fld !== 'text' && fld !== 'fetched') {\n            if (['created', 'modified'].indexOf(fld) !== -1) {\n                // If date is TW format leave as is\n                if (/^\\d/.test(tiddler.fields[fld])) {\n                    tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n                } else { // need to convert date to TW format\n                    tid += (fld + ': ' + $tw.utils.stringifyDate(tiddler.fields[fld]) + '\\n');\n                }\n            } else { // not a date field\n                tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n            }\n        }\n    })\n    // All fields done - now for the text\n    tid += '\\n';\n    tid += (tiddler.fields['text'] ? tiddler.fields['text'] : '');\n\n    return tid;\n}\n\nvar tids = '';\nvar first = true;\nmsg.tiddlers.forEach(tidd => {\n    if (!first) { tids += '\\n+======+\\n'; }\n    tids += tiddlerToTid(tidd);\n    first = false;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: tids,\n    type: 'text/plain'\n};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "8e0b5380e71a239e"
+            ]
+        ]
+    },
+    {
+        "id": "0a7034832f0df5c0",
+        "type": "debug",
+        "z": "127607a6bb274a18",
+        "g": "aaa7038931de057a",
+        "name": "dbug msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "53fb3fedf84a21e5",
+        "type": "http request",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gist.githubusercontent.com/PotOfCoffee2Go/160f247423751b317b704a1063d8aed6/raw/Hello%2520World.tid",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "42a9532b8df72e2c"
+            ]
+        ]
+    },
+    {
+        "id": "0a43a979cb79ba2e",
+        "type": "switch",
+        "z": "127607a6bb274a18",
+        "name": "get gist",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "get gist",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "53fb3fedf84a21e5"
+            ]
+        ]
+    },
+    {
+        "id": "42a9532b8df72e2c",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 725,
+        "y": 180,
+        "wires": [
+            [
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    }
+]

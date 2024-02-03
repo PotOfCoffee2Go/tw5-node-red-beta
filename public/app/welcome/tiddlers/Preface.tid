@@ -1,0 +1,28 @@
+created: 20231222101226221
+fetched: 20231130180107081
+list: [[Client side]] [[Server side]] [[More client side]]
+modified: 20240116141516838
+tags: Welcome
+title: Preface
+type: text/vnd.tiddlywiki
+
+Handy tips! The home {{$:/poc2go/ui/Buttons/home}} button in the upper-left cleans up the story river and brings you back to this Table of Contents. The 'internal nav' button above determines if links to tiddlers are open in the story river or just replaces the current tiddler displayed in the Table of Contents.
+
+This beta release is experimental and released so people can get a preview look at the TW5-Node-RED system. In the coming months the actual first release will be committed onto GitHub without '-beta' in the name. This repo at that point will be archived. 
+
+<div style="float:right;margin-left: .6em;max-width: 100px">{{arrows.png}}</div>
+
+@@color:pink;
+Note: Will not be keeping track of release levels or changes to this beta project. It is possible that breaking changes will occur such that code or flows created with this beta project will not work in the upcoming release of TW5-Node-RED without making appropriate changes.
+@@
+
+<div  style="clear: both;"></div>
+
+Please excuse the documentation - or lack there-of. The system is all there, but documentation is not one of my strongest skills. Enjoy writing - but have issues organizing. Guess is why a non-linear note taking app like TiddlyWiki works so good for me - collection of interconnected random stuff.
+
+Hope you find TW5-Node-RED fun to work with. Has a lot of moving parts - but can do some amazing stuff with it once you get your head wrapped around it.
+
+Constructive comments are always welcome - @poc2go at https://talk.tiddlywiki.org/ .
+
+PotOfCoffee2Go
+

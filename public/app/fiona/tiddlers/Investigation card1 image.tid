@@ -1,0 +1,10 @@
+caption: Image
+created: 20231231161628339
+fetched: 20231231161628339
+modified: 20240101014432813
+selector: .fiona-card1-image
+tags: Fiona ·node-red· [[Investigation card 1]] to-investigation
+title: Investigation card1 image
+type: text/vnd.tiddlywiki
+
+<img src="files/images/IMG_5354.jpeg" class="card-img-top" alt="card-img-top">

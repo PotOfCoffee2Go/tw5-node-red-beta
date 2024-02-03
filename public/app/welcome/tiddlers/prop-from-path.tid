@@ -1,0 +1,7 @@
+created: 20231220182836749
+modified: 20231221172411143
+tags: properties
+title: prop-from-path
+type: text/vnd.tiddlywiki
+
+The ''Path'' allows tiddlers that are stored in a directory (all files with a .tid extension) or file to be copied. Files can be in tid or JSON format. Tid files can contain multiple tiddlers by using the '+======+' separator.

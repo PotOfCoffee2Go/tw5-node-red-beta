@@ -1,0 +1,47 @@
+created: 20231230072946038
+fetched: 20231128183332930
+modified: 20240102170937264
+tags: Welcome ·node-red·
+title: Server settings
+type: text/vnd.tiddlywiki
+
+The server is a stock Node-Red server installed and started by Node-Red. Initially should not have a need to change the config - so can skip this note until looking to change Node-Red's behavior. The most common are adding your Node-Red user credentials, changing the directory used by the 'server' edition [[Sync server]], and possibly change the Flow Editor's theme.
+
+The configuration is in file <span class="poc2go-dir">./settings.js</span> which is documented at [ext[Node-RED Settings File|https://nodered.org/docs/user-guide/runtime/settings-file]]. Is pretty standard stuff except at the beginning where TiddlyWiki is being booted up and setting up the [[Sync server]].
+
+> Note that whenever Node-Red documentation mentions <span class="poc2go-dir">'~/.node-red'</span> or <span class="poc2go-dir">'$HOME/.node-red'</span> it is the TW5-Node-RED project directory.
+
+<div style="text-align: center;">See [[Sync server]] for description of this diagram.</div>
+
+{{sync-to-flow.png}}
+
+In the beginning of <span class="poc2go-dir">'./settings.js'</span> the default [[Sync server]] settings are:
+
+```js
+// Boot tiddlywiki with path to 'server' edition directory (syncDir)
+const boot = require('./src/tiddlywiki/boot');
+const { $tw, twikis, syncDir } = boot.tiddlywiki('./twserver');
+
+// Start TiddlyWiki 'server' edition server on startup?
+var syncServer = true;
+
+// Path to default tiddlers - sent by 'twserver site' flow
+//  Can be any directory but normally are tiddlers from sync server 'tiddlers' directory.
+var defaultDir = syncDir + '/tiddlers';
+```
+
+<span class="poc2go-dir">"boot.tiddlywiki('./twserver')"</span> tells tiddlywiki what directory the sync server is to use. For example, changing to './public/welcome' would have the sync server use './public/welcome' directory instead of './twserver'. Note that at a minimum the 'tiddlywiki.info' file is required in './public/welcome'... just copy the one that is in './twserver'.
+
+<span class="poc2go-dir">"var defaultDir = syncDir + '/tiddlers';"</span> is the default used by the 'twserver site' flow to send sync server tiddlers to the TW5-Node-RED client wiki. In the diagram is <span class="poc2go-dir">'./twserver/tiddlers'</span>. See [[Applications tab]] for description of the 'twserver site' flow.
+
+<div style="color: aqua;">
+
+> To-do: need a setting to change port used by the sync server.
+
+</div>
+
+See [[Startup]], [[Storage]], [[Sync server]] for more information.
+
+
+
+

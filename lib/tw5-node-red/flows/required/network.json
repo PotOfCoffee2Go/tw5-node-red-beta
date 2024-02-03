@@ -1,0 +1,686 @@
+[
+    {
+        "id": "eb845b8cbc7ac49a",
+        "type": "tab",
+        "label": "Network",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d1d824ed77b66140",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": "Call to request tiddlers from client \\n Place TiddlyWiki filter in 'msg.filter' to select desired tiddlers \\n For Example: \\n ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "43382dce74b3010a",
+            "fde1fed6e12b5da0",
+            "9b88d3454bec6454"
+        ],
+        "x": 128,
+        "y": 691,
+        "w": 644,
+        "h": 236
+    },
+    {
+        "id": "01567b9b6b2e01a1",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": "Starter Template for TiddlyWiki Client flow \\n Click here to select, \\n  Copy (ctrl-c). \\n Go to a different tab \\n Paste (ctrl-v),  \\n ≣ → Groups → Ungroup selection \\n ",
+        "style": {
+            "label": true,
+            "label-position": "s"
+        },
+        "nodes": [
+            "9da0d9942e6c2fc1",
+            "22dee6fb410a27bf",
+            "a28b92d7f528218f",
+            "7cbca5f5615be00e",
+            "681513f781f27975"
+        ],
+        "x": 124,
+        "y": 447,
+        "w": 652,
+        "h": 210
+    },
+    {
+        "id": "e4c2719e30c99637",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": " TiddlyWiki Client Interface  (msg.network)",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "c2642e3fa442ca65",
+            "e0350dac670bea64",
+            "c66da2e2f5754566",
+            "0922a0503ffb4a2a",
+            "dbfa021da3dc04ca"
+        ],
+        "x": 24,
+        "y": 114,
+        "w": 942,
+        "h": 313
+    },
+    {
+        "id": "e0350dac670bea64",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "Heartbeats track client IDs (a new ID occurs when web page reloaded)",
+        "style": {
+            "label": true,
+            "label-position": "n",
+            "stroke": "#777777"
+        },
+        "nodes": [
+            "c7aae36c394ac57c",
+            "3fa65bfb3f190977",
+            "9956e8251c2b37a6",
+            "a74039f7551fdca0"
+        ],
+        "x": 174,
+        "y": 140,
+        "w": 552,
+        "h": 154
+    },
+    {
+        "id": "c66da2e2f5754566",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "Node-Red link nodes handling messages ⊶ from / to ⊷ clients",
+        "style": {
+            "label": true,
+            "label-position": "n",
+            "stroke": "#777777"
+        },
+        "nodes": [
+            "4c9c46b76b72965f",
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 174,
+        "y": 319,
+        "w": 552,
+        "h": 82
+    },
+    {
+        "id": "9b88d3454bec6454",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "d1d824ed77b66140",
+        "name": "Request client tiddlers",
+        "style": {
+            "label": true,
+            "stroke": "#ffff00"
+        },
+        "nodes": [
+            "2d16349559e708d1",
+            "d6044d2db5c9a352",
+            "3c2141c2e87ad46a"
+        ],
+        "x": 154,
+        "y": 819,
+        "w": 592,
+        "h": 82
+    },
+    {
+        "id": "c2642e3fa442ca65",
+        "type": "uibuilder",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "",
+        "topic": "",
+        "url": "svr",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "6.4.1",
+        "showMsgUib": false,
+        "x": 100,
+        "y": 233,
+        "wires": [
+            [
+                "3fa65bfb3f190977"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4c9c46b76b72965f",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "c66da2e2f5754566",
+        "name": "From Client",
+        "mode": "link",
+        "links": [
+            "24408524e1d4766d",
+            "4d92fe16a1cdc7af",
+            "953ae984b4f4c06e",
+            "9da0d9942e6c2fc1",
+            "b6d912c02aed86c4",
+            "cf4153896f871479",
+            "d1cb8f6bba82cf91",
+            "d6ea0c2ee9926639",
+            "de29b90b6878e330",
+            "e1182f32882a4acc",
+            "e49174688546a04d",
+            "f863a67c056367c1",
+            "5c712f0ce8dca9b2",
+            "822afd14ac7a2985",
+            "f3bc83f894bc836e",
+            "90ab04c3ce5393e8",
+            "30c77c05be7866f3",
+            "dd5ea46f096963b9",
+            "f15b36736dfbab83",
+            "7d181c09e1cbb823",
+            "20bdec5d39a32ed9",
+            "1bb0c6fc5d4b21c0",
+            "b475506f1c04a454",
+            "fb747f122378fdb3",
+            "821955a316a5b4d1",
+            "b3f3017b726e9d6d",
+            "432685b6a22a9f0c",
+            "033ee6c5fd9b2921",
+            "6264a9cb314478e8",
+            "30d1b206b8634711",
+            "4bfb1be4b8167a4b",
+            "7df426b3cbeb4f44",
+            "3ba672d713e44792",
+            "082166158d46af41",
+            "7c6ac8311b11bc2a",
+            "f24e0c3fe3980b8a"
+        ],
+        "x": 270,
+        "y": 360,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg",
+        "l": true
+    },
+    {
+        "id": "5f3f98f37ba41eb1",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "c66da2e2f5754566",
+        "name": "To Client",
+        "links": [
+            "0ce5729373969295",
+            "123b82e57831527e",
+            "22dee6fb410a27bf",
+            "35b7aaedbbb217c4",
+            "425a72841789949c",
+            "45b27da691ddd601",
+            "6a40ed1c79cf46ea",
+            "7b92b0207a3e0740",
+            "8c341caadf2b0cc0",
+            "8c99b04967d79353",
+            "bc00d1525b9d48e3",
+            "f4eab1f49fbefa04",
+            "f71b3b25d6865f7c",
+            "f80060ac36d89c4b",
+            "9630213056cdc89a",
+            "8a0a947dc3743e87",
+            "704002cca88ec103",
+            "f0f050fbab58af8a",
+            "ba2b1aab05d32cb7",
+            "192c839a1476110a",
+            "80f6cc12c651bec8",
+            "b943f50af5e3f0df",
+            "b4e52cdc03846635",
+            "2c1f3f9583e66a3b",
+            "e90ca709ace454ef",
+            "2b699ce7937556b8",
+            "70e704d96f1c9db8",
+            "ac5a5c0c6c3c6c8a",
+            "b396fbd59ee28476",
+            "a786cadcaaebc48c",
+            "7b9e83c8c7bad25c",
+            "34a39a844e51115d",
+            "965579dd498a4131",
+            "3439dbc165a1862f",
+            "c0f8a521d6440031",
+            "d1764b3bc58cf21d",
+            "036335366159e325"
+        ],
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [
+                "dbfa021da3dc04ca"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg",
+        "l": true
+    },
+    {
+        "id": "c7aae36c394ac57c",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "Manage \\n clientIds",
+        "func": "// Client Id remains the same until browser reload page\n// All clients\nvar clientIds = global.get('clientIds');\n// This client\nvar cId = msg.network.meta._clientid;\n// Store the socket id of this client\nif (cId) {\n     if (!clientIds[cId]) {\n          msg.clientId = cId;\n          node.send([null, msg]);\n     }\n     clientIds[cId] = { clientId: cId, socketId: msg._socketId }    \n}\n// msg to next node\nnode.send([msg, null])\nnode.done()\nreturn;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "9956e8251c2b37a6"
+            ],
+            [
+                "a74039f7551fdca0"
+            ]
+        ],
+        "icon": "font-awesome/fa-group"
+    },
+    {
+        "id": "3fa65bfb3f190977",
+        "type": "switch",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "heartbeat \\n ⋯ else ⋯ \\n message",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "heartbeat",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 227,
+        "wires": [
+            [
+                "c7aae36c394ac57c"
+            ],
+            [
+                "4c9c46b76b72965f"
+            ]
+        ]
+    },
+    {
+        "id": "9956e8251c2b37a6",
+        "type": "uib-sender",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "url": "svr",
+        "uibId": "c2642e3fa442ca65",
+        "name": "heartbeat \\n (pong)",
+        "topic": "",
+        "passthrough": false,
+        "return": false,
+        "outputs": 0,
+        "x": 620,
+        "y": 193,
+        "wires": []
+    },
+    {
+        "id": "9da0d9942e6c2fc1",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "01567b9b6b2e01a1",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 165,
+        "y": 500,
+        "wires": [
+            [
+                "a28b92d7f528218f"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "22dee6fb410a27bf",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "01567b9b6b2e01a1",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 735,
+        "y": 500,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "a28b92d7f528218f",
+        "type": "switch",
+        "z": "eb845b8cbc7ac49a",
+        "g": "01567b9b6b2e01a1",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "7cbca5f5615be00e"
+            ]
+        ]
+    },
+    {
+        "id": "7cbca5f5615be00e",
+        "type": "set-network",
+        "z": "eb845b8cbc7ac49a",
+        "g": "01567b9b6b2e01a1",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Simple Test\n\nThis is a simple test ;)\n\n<div><b>The 'topic' was blank!</b></div>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 630,
+        "y": 500,
+        "wires": [
+            [
+                "22dee6fb410a27bf"
+            ]
+        ]
+    },
+    {
+        "id": "681513f781f27975",
+        "type": "comment",
+        "z": "eb845b8cbc7ac49a",
+        "g": "01567b9b6b2e01a1",
+        "name": "<= Change the topic \\n               Change the tiddler =>",
+        "info": "",
+        "x": 430,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "2d16349559e708d1",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "9b88d3454bec6454",
+        "name": "Request client tiddlers",
+        "links": [],
+        "x": 280,
+        "y": 860,
+        "wires": [
+            [
+                "d6044d2db5c9a352"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "d6044d2db5c9a352",
+        "type": "uib-sender",
+        "z": "eb845b8cbc7ac49a",
+        "g": "9b88d3454bec6454",
+        "url": "svr",
+        "uibId": "c2642e3fa442ca65",
+        "name": "",
+        "topic": "server.request",
+        "passthrough": false,
+        "return": true,
+        "outputs": 1,
+        "x": 470,
+        "y": 860,
+        "wires": [
+            [
+                "3c2141c2e87ad46a"
+            ]
+        ]
+    },
+    {
+        "id": "3c2141c2e87ad46a",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "9b88d3454bec6454",
+        "name": "Client response",
+        "mode": "return",
+        "links": [],
+        "x": 640,
+        "y": 860,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "43382dce74b3010a",
+        "type": "link call",
+        "z": "eb845b8cbc7ac49a",
+        "g": "d1d824ed77b66140",
+        "name": "",
+        "links": [
+            "2d16349559e708d1"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 540,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fde1fed6e12b5da0",
+        "type": "change",
+        "z": "eb845b8cbc7ac49a",
+        "g": "d1d824ed77b66140",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filter",
+                "pt": "msg",
+                "to": "[[GettingStarted]]",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 780,
+        "wires": [
+            [
+                "43382dce74b3010a"
+            ]
+        ]
+    },
+    {
+        "id": "a74039f7551fdca0",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "new client id",
+        "mode": "link",
+        "links": [
+            "7b194c6b60d52e78"
+        ],
+        "x": 630,
+        "y": 253,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "9ec5ea4d8d2b2542",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "name": "broadcast room (to do)",
+        "func": "var clientIds = global.get('clientIds');\n\n// Send to all clients including the sender\nfor (let cId in clientIds) {\n     //if (cId !== msg.wiki.meta.clientId) {\n          msg._socketId = clientIds[cId].socketId;\n          node.send(msg);\n     //}\n}\nnode.done();\nreturn;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1060,
+        "wires": [
+            [
+                "0a537b317a5e6b75"
+            ]
+        ]
+    },
+    {
+        "id": "fb046c653113d36a",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "name": "Broadcast all",
+        "links": [],
+        "x": 395,
+        "y": 1020,
+        "wires": [
+            [
+                "1ba5b068dfdec80d"
+            ]
+        ]
+    },
+    {
+        "id": "1ba5b068dfdec80d",
+        "type": "change",
+        "z": "eb845b8cbc7ac49a",
+        "name": "broadcast all",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_socketId",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1020,
+        "wires": [
+            [
+                "0a537b317a5e6b75"
+            ]
+        ]
+    },
+    {
+        "id": "0a537b317a5e6b75",
+        "type": "uib-sender",
+        "z": "eb845b8cbc7ac49a",
+        "url": "svr",
+        "uibId": "c2642e3fa442ca65",
+        "name": "To Client's Wiki",
+        "topic": "server.tiddlers",
+        "passthrough": true,
+        "return": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da000cf873f2f5cf",
+        "type": "comment",
+        "z": "eb845b8cbc7ac49a",
+        "name": "WorkInProgress \\n Link in to broadcast \\n to multiple clients.",
+        "info": "",
+        "x": 250,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "0922a0503ffb4a2a",
+        "type": "uib-sender",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "url": "svr",
+        "uibId": "c2642e3fa442ca65",
+        "name": "",
+        "topic": "server.tiddlers",
+        "passthrough": false,
+        "return": false,
+        "outputs": 0,
+        "x": 850,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dbfa021da3dc04ca",
+        "type": "change",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 320,
+        "wires": [
+            [
+                "0922a0503ffb4a2a"
+            ]
+        ]
+    },
+    {
+        "id": "f579597635453142",
+        "type": "comment",
+        "z": "eb845b8cbc7ac49a",
+        "name": "NOTE: THIS 'NETWORK' TAB IS REQUIRED TO COMMUNICATE WITH TIDDLYWIKI CLIENTS !!!",
+        "info": "",
+        "x": 460,
+        "y": 60,
+        "wires": []
+    }
+]

@@ -1,0 +1,10 @@
+caption: Image
+created: 20231231161900057
+fetched: 20231231161900057
+modified: 20240101015416791
+selector: .fiona-card1-image
+tags: Fiona ·node-red· [[Service card 1]] to-service
+title: Service card1 image
+type: text/vnd.tiddlywiki
+
+<img src="files/images/IMG_5352.jpeg" class="card-img-top" alt="card-img-top">

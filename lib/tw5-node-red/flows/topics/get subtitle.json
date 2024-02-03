@@ -1,0 +1,89 @@
+[
+    {
+        "id": "41c6e64f58978218",
+        "type": "set-network",
+        "z": "7d26f7b9de3797b9",
+        "name": "$:/SiteSubtitle",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/SiteSubtitle\n\n{{$:/temp/tw5-node-red/netstat}}\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "9630213056cdc89a",
+                "576df87451a8403e"
+            ]
+        ]
+    },
+    {
+        "id": "b4d03f179184dc54",
+        "type": "switch",
+        "z": "7d26f7b9de3797b9",
+        "name": "get subtitle",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "get subtitle",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "41c6e64f58978218"
+            ]
+        ]
+    },
+    {
+        "id": "f3bc83f894bc836e",
+        "type": "link in",
+        "z": "7d26f7b9de3797b9",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 115,
+        "y": 160,
+        "wires": [
+            [
+                "b4d03f179184dc54"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "9630213056cdc89a",
+        "type": "link out",
+        "z": "7d26f7b9de3797b9",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 525,
+        "y": 160,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    }
+]

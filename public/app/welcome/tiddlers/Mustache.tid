@@ -1,0 +1,52 @@
+created: 20231202195211285
+fetched: 20231203150318127
+modified: 20240117014412777
+tags: ·node-red· [[How it works]]
+title: Mustache
+type: text/vnd.tiddlywiki
+
+<div style="float: left;margin-right: .8em;">{{box-frame-left.png}}</div>
+
+Node-Red uses the [ext[Mustache|https://mustache.github.io/mustache.5.html]] Template system. Normally Mustache uses curly brackets `{{` and `}}` as delimiters. Since WikiText uses curly brackets frequently, the default for Mustache must be changed.
+
+The 'tiddler editor' in this beta release currently defaults to `{%` and `%}`. 
+
+> Warning! These default delimiters are ''maybe'' going to be changed prior to the initial release of TW5-Node-RED!
+
+Mustache allows the server to substitute data into the tiddler that is being created prior to sending to the client wiki. Thus tiddlers can be constructed by the server based on current data held by the server. This feature is most commonly used to create tiddlers from data provided by Node-Red [ext[community flows|https://flows.nodered.org/]] and third party nodes.
+
+The standard [ext[Node-Red 'template' node|https://nodered.org/docs/user-guide/nodes#template]] can be usd to create tiddlers. However, it has `{{` and `}}` as the default Mustache delimiters. Can use `{{={% %}=}}` as the first line in the standard 'template' node editor to change the delimiters. See Mustache [ext[Set-Delimiter|https://mustache.github.io/mustache.5.html#Set-Delimiter]] for details on changing delimiters. The [[Tiddler editor]] can use the same trick to change the delimiters as well - but since the default is `{%` and `%}` the line would be `{%=|< >|=%}` to chamge delimiters to be `|<` and `>|`.
+
+A flow in the 'topic' tab is an example of using text substitution in creating a tiddler.
+
+{{topic-topic-flow.png}}
+
+The 'sample' topic given a ''topic'' as a parameter makes a tiddler with a button that calls the given ''topic''. Kinda silly but is an example of passing parameters.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""Make sample of <$button actions="<<node-red 'sample hello'>>" > topic hello </$button> tiddler.
+"""/>
+
+Make sample tiddler with button that requests <$button actions="<<node-red 'sample hello'>>" > topic hello </$button>.
+
+Notice that the topic has both the topic 'sample' and a parameter 'hello'. There are a few ways to handle the passing of parameters. This example is using a [ext[switch|https://nodered.org/docs/user-guide/nodes#switch]] and [ext[change|https://nodered.org/docs/user-guide/nodes#change]] node. The switch uses a regular expression `^sample .*` which matches a topic that begins with 'sample', followed by a space then any characters. The change node uses a [ext[JSONata|https://jsonata.org]] function '$replace' to remove 'sample ' from the msg.topic. What is left is the parameter.
+
+[ext[JSONata|https://jsonata.org]] has a set of functions that work similar to the functions one finds in worksheets. @@color:pink; Personally, I have a tendency to use the [ext['function' node|https://nodered.org/docs/user-guide/nodes#function]] instead@@ - the JavaScript equivalent
+
+<$macrocall $name=".codesample" n="1" lng="js" eg="""msg.topic = msg.topic.replace('sample ','');
+return msg;
+"""/>
+
+The 'Generate sample' [[Set network]] node has a tiddler in the editor which substitutes {%topic%} (msg.topic) which now only contains the parameter - in this case 'hello'. (Double click the 'Generate sample' node to see the complete markup).
+
+```
+title: Topic '{%topic%}'
+topicbtn: <$button actions="<<node-red '{%topic%}'>>"> {%topic%} </$button>
+topic: {%topic%}
+
+<$button actions="<<node-red '{%topic%}'>>"> {%topic%} </$button>
+
+<$macrocall $name="copy-to-clipboard" src={{!!topicbtn}}/>
+
+ ···
+
+```

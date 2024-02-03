@@ -1,0 +1,61 @@
+created: 20240112061508275
+modified: 20240112105339451
+tags: [[Wiki templates]]
+title: Site development
+type: text/vnd.tiddlywiki
+
+
+<div style="float:left;width:50%;">
+  <h3 style="margin-left: 25%;">Single file wiki</h3>
+  <h3 style="margin-top: -1em;margin-left: 26%;">Development</h3>
+  <div style="max-width: 350px;display:flex; flex-flow:row wrap;">
+    <div style="margin-left: 5%;width: 30%;text-align: left;">[[TW Client Wiki]]</div>
+    <div style="width: 30%;text-align: center;">[[Node-Red Flow Editor|Node-Red flows]]</div>
+    <div style="margin-right: 5%;width: 30%;text-align: right;">[[Single file wiki]]</div>
+    <div style="max-width: 350px;">{{browser dev.png}}</div>
+  </div>
+</div>
+
+<div style="float:right;width:50%;">
+  <h3 style="margin-left: 25%;">TW Sync Wiki</h3>
+  <h3 style="margin-top: -1em;margin-left: 26%;">Development</h3>
+  <div style="max-width: 350px;display:flex; flex-flow:row wrap;">
+    <div style="margin-left: 5%;width: 30%;text-align: left;">[[TW Client Wiki]]</div>
+    <div style="width: 30%;text-align: center;">[[Node-Red Flow Editor|Node-Red flows]]</div>
+    <div style="margin-right: 5%;width: 30%;text-align: right;">[[TW Sync Wiki]]</div>
+    <div style="max-width: 350px;">{{sync browser dev.png}}</div>
+  </div>
+</div>
+
+<div style="clear: both;"></div>
+
+The steps of site development cycle are:
+
+ * Reload the wiki from the server ([[TW Client Wiki]])
+ * Verify changes using [[TW Client Wiki]]
+ * Make modifications
+ ** Modify Node-Red flows and deploy using [[Node-Red Flow Editor|Node-Red flows]]
+ ** Modify site wiki using [[Single file wiki]]
+ ** Modify application tiddlers using [[TW Sync Wiki]]
+ * Repeat 
+
+The [[Single file wiki]] site and [[TW Sync Wiki]] application are created and modified offline from the server. One reason is so existing single file TiddlyWikis and [[TiddlyWikis on Node.js|https://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]] can be copied to the server unmodified and work as expected.
+
+Another reason is offline - `<<node-red ...>>` macro calls can possibly (and probably will) pollute a wiki that is being updated. Let's say making changes to the wiki and have added the macro call `<<node-red 'book'>>` which requests Chapter #1 of a book about TiddlyWiki. There are about 50 tiddlers the server will send to the wiki when the macro runs. When the updated wiki is saved back onto the server those tiddlers will be in the wiki !!! Not what is desired.
+
+Basically, modifications are done using the [[Single file wiki]], [[TW Sync Wiki]], and the [[Node-Red Flow Editor|Node-Red flows]]. [[TW Client Wiki]] is where the server combines all that stuff into one site that is displayed to the user.
+
+> Do not modify the [[TW Client Wiki]] <span style="font-style: italic;">''thinking''</span> it is the [[Single file wiki]]! Can happen easily because they can look almost identical. [[TW Client Wiki]] is what the users see. [[Single file wiki]] ''creates'' what the users see.
+
+<div style="float: left;margin-right: 1em;width: 150px;">{{single file wiki.png}}</div>
+The 'Single file wiki' uses the normal approach of creating a wiki. Copy 'empty.html' from https://tiddlywiki.com, add desired plugins, drag-n-drop $:/plugins/potofcoffee2go/tw5-node-red/network.js. Save the wiki in server directory '<span class="poc2go-dir">./uibuilder/svr/src/wiki</span>'. A user goes to http://localhost:1880/svr/wiki/hello.html to view the wiki. 
+<div style="clear: both;"></div>
+
+<div style="float: left;margin-right: 1em;width: 150px;">{{tw sync wiki.png}}</div>
+The 'TW Sync Wiki' is used to create and store tiddlers on the server '<span class="poc2go-dir">./public/app/''appname''/tiddlers</span>' directory. The tiddlers are delivered by adding '?app=''appname''' to the web address ex: http://localhost:1880/svr/wiki/hello.html?app=appname.
+The server loads the single file wiki then sends the tiddlers created by 'TW Sync Wiki'.
+<div style="clear: both;"></div>
+
+The [[TW Client Wiki]] is the [[Single file wiki]] but instead of offline - is online, delivered by the server. It has access to the server resources, features, Node-Red flows, and applications.
+
+The [[Node-Red Flow Editor|Node-Red flows]] is used to create and modify flows that interact with the [[TW Client Wiki]].

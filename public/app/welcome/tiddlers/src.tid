@@ -1,0 +1,17 @@
+created: 20231208030619617
+modified: 20231217194040446
+tags: Storage
+title: src
+type: text/vnd.tiddlywiki
+
+The <span class="poc2go-dir">'./src'</span> directory contains two sub-directories, <span class="poc2go-dir">'./src/nodes'</span> and <span class="poc2go-dir">'./src/tiddlywiki'</span>.
+
+!!! nodes
+Contains the tiddler nodes JavaScript, HTML, icons,  and language source files. Any changes to these files would require a restart of the server to take effect.
+
+!!! tiddlywiki
+This sub-directory contains the startup script for the embedded TiddlyWiki boot process. It also contains JSON files of the tiddlers to be loaded in the Tiddlyiki.
+
+The first tiddler in <span class="poc2go-dir">'./src/tiddlywiki/tiddlers.json'</span> turns off logging of the 'server' edition syc server dispatch messages. Change the "text" to "yes" if logging to the console is desired.
+
+  

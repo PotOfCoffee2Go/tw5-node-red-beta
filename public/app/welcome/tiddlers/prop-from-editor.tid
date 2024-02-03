@@ -1,0 +1,14 @@
+created: 20231220182250650
+modified: 20231220203904167
+tags: properties
+title: prop-from-editor
+type: text/vnd.tiddlywiki
+
+The ''Tiddler Editor'' allows tiddlers to be added to the Node-Red framework for use by other nodes.
+
+One main advantage is the tiddler is saved in the node thus contained in the Node-Red flowfile. When the node is exported (Node-Red menu `≣ → Export` / `≣ → Import` the tiddler(s) will be included with the node. 
+
+> NOTE!!! By default the 'Editor' checkbox is unchecked. `Insure it is checked!` or the tiddlers in the editor will not be copied. 
+> This is true of all source and destination properties.
+
+Multiple .tid formatted tiddlers can be entered in the editor by separating them with the line '+======+'.

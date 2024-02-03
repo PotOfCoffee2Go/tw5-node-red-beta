@@ -1,0 +1,10 @@
+caption: Image
+created: 20231231161708060
+fetched: 20231231161708061
+modified: 20240101014541894
+selector: .fiona-card1-image
+tags: Fiona ·node-red· [[Environment card 1]] to-environment
+title: Environment card1 image
+type: text/vnd.tiddlywiki
+
+<img src="files/images/IMG_5358.jpeg" class="card-img-top" alt="card-img-top">

@@ -1,0 +1,217 @@
+<script type="text/javascript">
+	RED.nodes.registerType('read-tiddlers',{
+		category: "tiddler",
+		color: "#53f9f0",
+		defaults: {
+			name: {value:""},
+			topic: {value:""},
+			path: {value:"public/tiddlers"},
+			tofield: {value:"payload"},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "font-awesome/fa-file-code-o",
+		align: 'left',
+		label: function(){
+			return this.name || this._("read-tiddlers.defaults.name");
+		},
+		labelStyle: function() {
+			return ""; // this.name?"node_label_italic":"";
+		},
+		info: function() {
+			return ""; //this.name?"# "+this.name+"\n\n---\n\n":"";
+		},
+		oneditprepare: function() {
+			var that = this;
+
+			$("#node-input-path").typedInput({ type:'relfile', types:[{value: 'relfile', label: './'}] })
+
+			$("#node-input-tofield").typedInput({ type:'msg', types:['msg'] });
+			$("#node-input-tofield").typedInput('width', '320px');
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="read-tiddlers">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+	<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;"><span data-i18n="read-tiddlers.section.from"></span></div>
+	<div class="form-row">
+		<label for="node-input-path"><i class="fa fa-tag"></i> <span data-i18n="read-tiddlers.label.path"></span></label>
+		<input type="text" id="node-input-path" data-i18n="[placeholder]read-tiddlers.label.path">
+	</div>
+	<hr>
+	<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;"><span data-i18n="read-tiddlers.section.to"></span></div>
+	<div class="form-row">
+		<label for="node-input-tofield"><i class="fa fa-tag"></i> <span data-i18n="read-tiddlers.label.tofield"></span></label>
+		<input type="text" id="node-input-tofield">
+	</div>
+	<hr>
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]node-red:common.label.topic">
+	</div>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('edit-tiddlers',{
+		category: "tiddler",
+		color: "#53f9f0",
+		defaults: {
+			name: {value:""},
+			topic: {value:""},
+			tofield: {value:"payload"},
+			template: {value:""},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "font-awesome/fa-edit",
+		align: 'left',
+		label: function(){
+			return this.name || this._("edit-tiddlers.defaults.name");
+		},
+		labelStyle: function() {
+			return ""; // this.name?"node_label_italic":"";
+		},
+		info: function() {
+			return ""; //this.name?"# "+this.name+"\n\n---\n\n":"";
+		},
+		oneditprepare: function() {
+			const stateId = RED.editor.generateViewStateId("node", this, "");
+			const nodeId = this.id;
+
+			var that = this;
+
+			$("#node-input-tofield").typedInput({ type:'msg', types:['msg'] });
+			$("#node-input-tofield").typedInput('width', '320px');
+
+			this.editor = RED.editor.createEditor({
+				id: 'node-input-template-editor',
+				mode: 'ace/mode/text',
+				//mode: 'ace/mode/markdown',
+				stateId: stateId,
+				value: $("#node-input-template").val()
+			});
+			this.editor.focus();
+
+			RED.popover.tooltip($("#node-template-expand-editor"), RED._("node-red:common.label.expand"));
+			$("#node-template-expand-editor").on("click", function (e) {
+				e.preventDefault();
+				const value = that.editor.getValue();
+				that.editor.saveView();
+				RED.editor.editText({
+					mode: $("#node-input-format").val(),
+					value: value,
+					stateId: stateId,
+					width: "Infinity",
+					focus: true,
+					complete: function (v, cursor) {
+						that.editor.setValue(v, -1);
+						setTimeout(function () {
+							that.editor.restoreView();
+							that.editor.focus();
+						}, 250);
+					}
+				})
+			})
+		},
+		oneditsave: function() {
+			$("#node-input-template").val(this.editor.getValue());
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditcancel: function() {
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditresize: function(size) {
+			var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+			var height = $("#dialog-form").height();
+			for (var i=0; i<rows.length; i++) {
+				height -= $(rows[i]).outerHeight(true);
+			}
+			var editorRow = $("#dialog-form>div.node-text-editor-row");
+			height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+			$(".node-text-editor").css("height",height+"px");
+			this.editor.resize();
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="edit-tiddlers">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+		<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;"><span data-i18n="edit-tiddlers.section.from"></span></div>
+		<div class="form-row" style="position: relative; margin-bottom: 0px;">
+			<label style="width: auto;" for="node-input-template"><i class="fa fa-file-code-o"></i> <span data-i18n="edit-tiddlers.label.template"></span></label>
+			<input type="hidden" id="node-input-template" autofocus="autofocus">
+			<div style="position: absolute; right:0;display:inline-block; text-align: right; font-size: 0.8em;">
+				<span data-i18n="edit-tiddlers.label.templateaction"></span>:
+				<select id="node-input-format" style="width:110px; font-size: 10px !important;  height: 24px; padding:0;">
+					<!-- option value="text" data-i18n="node-red:template.label.none"></option -->
+					<option value="text" data-i18n="edit-tiddlers.label.templateactionnone"></option>
+					<option value="mustache" data-i18n="edit-tiddlers.label.templateactionmustache"></option>
+				</select>
+				<button type="button" id="node-template-expand-editor" class="red-ui-button red-ui-button-small"><i class="fa fa-expand"></i></button>
+			</div>
+		</div>
+	<div class="form-row node-text-editor-row">
+		<input type="hidden" id="node-input-template" autofocus="autofocus">
+		<div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-template-editor"></div>
+	</div>
+	<hr>
+	<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;"><span data-i18n="edit-tiddlers.section.to"></span></div>
+	<div class="form-row">
+		<label for="node-input-tofield"><i class="fa fa-tag"></i> <span data-i18n="edit-tiddlers.label.tofield"></span></label>
+		<input type="text" id="node-input-tofield">
+	</div>
+	<hr>
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]node-red:common.label.topic">
+	</div>
+	<div>&nbsp;</div>
+</script>
+
+<!--   Help Files  -->
+<script type="text/markdown" data-help-name="edit-tiddlers">
+### Details
+
+Tiddler Editor accepts tiddler(s) in `.tid` or `JSON` format. To enter
+multiple tiddlers in .tid format enter a line with <u><b>exactly</b></u> six equal signs `+======+`
+delimited by '+' between tiddlers. JSON can be a single  object `{ title: "My Tiddler" }` or array
+of objects of tiddler fields.
+
+
+### Input
+There are no required msg properties.
+
+'topic' determines the Node-Red flow
+
+'network' exchanges tiddlers to connected TiddlyWiki clients
+
+### Output
+The following msg fields will be added/updated.
+
+: *topic* (string)               :  Left unchanged. Will be added if not present
+: *network* (object)             :  Left unchanged. Will be added if not present
+: *payload* (array of objects)   :  Tiddler(s) constructed by Tiddler Editor.
+
+`payload` is the default, can specify a different field name in node.
+</script>
+
+<script type="text/markdown" data-help-name="read-tiddlers">
+Receive all messages from all TiddlyWiki Clients via socket.io network
+
+### Inputs
+
+### Outputs
+
+### Details
+
+### References
+</script>

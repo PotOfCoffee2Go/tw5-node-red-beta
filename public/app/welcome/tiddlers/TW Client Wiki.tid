@@ -1,0 +1,29 @@
+created: 20240107125247958
+modified: 20240117064823050
+tags: Applications
+title: TW Client Wiki
+type: text/vnd.tiddlywiki
+
+<h2 style="float:left;"> TW Client Wiki </h2>
+<div style="float:right;">{{bold-border-top.png}}</div>
+<div style="clear:both;"></div>
+<div style="float:right;margin: -35px 0px;">{{bold-border-right.png}}</div>
+<div style="margin-top: -16px;"></div>
+
+When going to a page with-in the address http://localhost:1880/svr/wiki a 'TW Client Wiki' is being displayed. 
+
+If not open - go to http://localhost:1880/svr/wiki/hello.html which is the 'TW Client Wiki' tab.
+
+If already open - reload the page.
+
+The tiddler just created will appear in the story river. Press the buttons now and they will now work.
+
+The ''TW Sync Wiki'' creates the tiddlers, but can not access the Node-Red resources thus the buttons don't work. However, ''TW Client Wiki'' is an image of the wiki site created //by// ''TW Sync Wiki''. ''TW Client Wiki'' does have access to Node-Red.
+
+The first button in the tiddler ''refresh'''s the ''TW Client Wiki'' with tiddler addition and changes done using ''TW Sync Wiki''.
+
+The second button update the wiki subtitle with the status of the TW5-Node-RED connection.
+
+The third button requests from Node-Red to run the flow 'myhello' - which currently does nothing since that flow does not currently exist - let's fix that problem now.
+
+See [[Node-Red flows]] to continue.

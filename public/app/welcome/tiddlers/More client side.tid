@@ -1,0 +1,18 @@
+created: 20231127055517571
+fetched: 20231128063655568
+modified: 20231212023335235
+tags: ·node-red· Flotsam
+title: More client side
+type: text/vnd.tiddlywiki
+
+Every tiddler from the server is tagged with '·node-red·' and the field 'fetched' is updated with the date/time the tiddler was received from the server. See the [[·node-red·]] tiddler for more info.
+
+There is not a whole lot of new stuff to learn to use the server from the client wiki side. There is just the one macro, have played with the idea of making a 'tm-node-red' message and/or an action widget to round out the client side interface. But other than that TiddlyWiki already does most of what is needed. Any new data arriving from the server will automatically display for tiddlers in the story river.
+
+Speaking of which, it is generally poor practice to have the server display to the story unless the user has performed an action and expects the story list to change. Data such as weather data, news feeds, stock prices and such send 'to client', not 'to story'. If the user has the tiddler open it will display the fresh data - if not, then the data is quietly updating the wiki with current information for when the user opens the tiddler. It is really annoying to have the system navigate somewhere else in the story 'out of the blue' when you are updating a journal entry.
+
+Most of this documentation will be dealing with the server side. In most cases I use an empty wiki since the server is going to deliver tiddlers on demand - and only the ones needed to do the task at hand.
+
+The JavaScript plugins need to be installed client side to load when the wiki loads. If dealing with Markdown tiddlers, then the wiki needs to have the Markdown plugin installed. The server could deliver the plugin, but the user (other than using the server locally) does not have access to save the wiki on the server. (Which can be done by uploading but do you really want to allow that? Maybe - on a trusted network?).
+
+Ultimately, using TiddlyWiki as a web client front-end is a game changer. It is so full featured, and EVERYTHING is a tiddler. PDF - is a tiddler, JavaScript is a tiddler, a bunch of tiddlers is a tiddler. Most importantly, the server can control the display (presentation) by just sending a tiddler - rename the site, change the subtitle, the palette, all done with a tiddler. So much easier than existing front-end software like React, Angular, or Vue.

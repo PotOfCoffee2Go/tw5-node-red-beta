@@ -1,0 +1,30 @@
+caption: Diagrams
+created: 20240112104647439
+modified: 20240117071908697
+tags: Development
+title: Browser/server diagrams
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left: auto;margin-right: auto;">{{flourish-top.png}}</div>
+
+!! Single file wiki (Site)
+
+<div style="max-width: 650px;display:flex; flex-flow:row wrap;">
+  <div style="margin-left: 5%;width: 30%;text-align: left;">[[TW Client Wiki]]</div>
+  <div style="width: 30%;text-align: center;">[[Node-Red flows]]</div>
+  <div style="margin-right: 5%;width: 30%;text-align: right;">[[Single file wiki]]</div>
+</div>
+
+<div style="max-width: 650px;">{{simple components.png}}</div>
+
+<hr class="poc2go-hr">
+
+!! TW Sync Wiki (Application)
+
+<div style="max-width: 650px;display:flex; flex-flow:row wrap;">
+  <div style="margin-left: 5%;width: 30%;text-align: left;">[[TW Client Wiki]]</div>
+  <div style="width: 30%;text-align: center;">[[Node-Red flows]]</div>
+  <div style="margin-right: 5%;width: 30%;text-align: right;">[[TW Sync Wiki]]</div>
+</div>
+
+<div style="max-width: 650px;">{{components.png}}</div>

@@ -1,0 +1,162 @@
+[
+    {
+        "id": "44e066ca088db659",
+        "type": "switch",
+        "z": "7d26f7b9de3797b9",
+        "name": "hello",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^hello$",
+                "vt": "str",
+                "case": true
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "4d1fe7705b6bdeeb"
+            ]
+        ]
+    },
+    {
+        "id": "b13da77f6d60b38f",
+        "type": "set-network",
+        "z": "7d26f7b9de3797b9",
+        "name": "set - network",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "425a72841789949c"
+            ]
+        ]
+    },
+    {
+        "id": "4d1fe7705b6bdeeb",
+        "type": "edit-tiddlers",
+        "z": "7d26f7b9de3797b9",
+        "name": "",
+        "topic": "",
+        "tofield": "payload",
+        "template": "title: Hello World!\ntags: hello\n\nThis tidder is from the server ;)\n",
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "b13da77f6d60b38f"
+            ]
+        ]
+    },
+    {
+        "id": "3bfcedbc0435c9c3",
+        "type": "switch",
+        "z": "7d26f7b9de3797b9",
+        "name": "better hello",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "better hello",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "34faacb22d67d2b0"
+            ]
+        ]
+    },
+    {
+        "id": "34faacb22d67d2b0",
+        "type": "set-network",
+        "z": "7d26f7b9de3797b9",
+        "name": "set - network",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Better Hello World!\n\nThis tidder created with less nodes from the server ;)\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "425a72841789949c"
+            ]
+        ]
+    },
+    {
+        "id": "d6ea0c2ee9926639",
+        "type": "link in",
+        "z": "7d26f7b9de3797b9",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "44e066ca088db659",
+                "3bfcedbc0435c9c3"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "425a72841789949c",
+        "type": "link out",
+        "z": "7d26f7b9de3797b9",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 585,
+        "y": 60,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    }
+]

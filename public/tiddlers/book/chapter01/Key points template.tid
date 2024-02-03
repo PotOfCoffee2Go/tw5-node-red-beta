@@ -1,0 +1,10 @@
+title: Key points template
+created: 20191217092613027
+modified: 20230706035618808
+tags: 
+
+<div class="key-points">
+
+!{{!!title}}
+{{!!text}}
+</div>

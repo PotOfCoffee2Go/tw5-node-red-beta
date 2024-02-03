@@ -1,0 +1,43 @@
+created: 20231203145637775
+fetched: 20231204091259494
+list: Startup [[Sync server]]
+modified: 20240129060042874
+tags: TableOfContents ·node-red·
+title: Embedded
+type: text/vnd.tiddlywiki
+
+TiddlyWiki is embedded into the Node-Red global context and accessed by the Node-Red 'function' node by:
+
+<$macrocall $name=".codesample" n="0" lng="js" eg="""const $tw = global.get('$tw');
+"""/>
+
+The function node now has access to all the $tw functions and variables.
+
+Another global context variable 'twikis' s a hash by [[TW twikis]] name which can be used to access twikis (see [[To twiki]] and [[From twiki]]).
+
+An example flow is in the 'topics' tab which displays the twiki names and the tiddlers they contain in the Node-Red debug window as well as log on the console the number of tiddlers in each twiki:
+
+<div style="max-width: 550px">{{twiki-collections-flow.png}}</div>
+
+The function node gets '$tw' and 'twikis' from the Node-Red global context and uses them to populate the msg field 'msg.twikis' with the tiddlers in each twiki.
+
+<$macrocall $name=".codesample" n="1" lng="js" eg="""const $tw = global.get('$tw');
+const twikis = global.get('twikis');
+
+// Place results in the msg
+msg.twikis = {};
+
+// For each twiki create a property in msg.twiki of the twikiName
+//  then load the property with tiddlers from the twiki
+for (let twikiName in twikis) {
+    if (twikiName !== '$tw.wiki') { // exclude main tidder store
+        msg.twikis[twikiName] =
+            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))
+    }
+    $tw.utils.log(`twiki: '${twikiName}' has ` +
+        `${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')
+}
+return msg;
+
+"""/>
+

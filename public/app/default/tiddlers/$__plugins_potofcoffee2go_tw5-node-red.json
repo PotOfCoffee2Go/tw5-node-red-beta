@@ -1,0 +1,53 @@
+{
+    "tiddlers": {
+        "$:/plugins/potofcoffee2go/tw5-node-red/readme": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/readme",
+            "caption": "readme",
+            "author": "PotOfCoffee2Go",
+            "tags": "tw5-node-red",
+            "text": "View this tiddler [[tw5-node-red]]\n\n{{tw5-node-red}}\n\n{{·node-red·}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/settings": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/settings",
+            "caption": "settings",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "View this tiddler [[Settings|$:/tw5-node-red/settings]]\n\n{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/docs": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/docs",
+            "caption": "docs",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/docs/page}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/toys": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/toys",
+            "caption": "toys",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/toys/page}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/tools": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/tools",
+            "caption": "tools",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/tools/page}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/credits": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/credits",
+            "caption": "credits",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/credits/page}}\n"
+        },
+        "$:/plugins/potofcoffee2go/tw5-node-red/license": {
+            "title": "$:/plugins/potofcoffee2go/tw5-node-red/license",
+            "caption": "license",
+            "author": "PotOfCoffee2Go",
+            "tags": "·node-red· tw5-node-red",
+            "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/license/page}}\n\n\n"
+        }
+    }
+}

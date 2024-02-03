@@ -1,0 +1,25 @@
+created: 20231202140427435
+fetched: 20231202141910927
+modified: 20240117014115201
+tags: [[Tiddler nodes]] ·node-red·
+title: Edit tiddlers
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em;">{{edit-tiddlers.png}}</div>
+
+The 'edit tiddlers' node contains a tiddler editor allowing tiddlers to be added to the Node-Red msg for use by other Node-Red nodes.
+
+The 'edit tiddlers' node is also used by TW5-Node-RED to package tiddlers the 'Node-Red way'. Tiddlers entered into the tiddler editor are contained in the node. When the node is copy/pasted or exported/imported the tiddlers go with it. 
+
+Any node with a tiddler editor is saved with the tiddlers that are in the editor, thus contained in the Node-Red flowfile. When the node is exported (Node-Red menu `≣ → Export` / `≣ → Import`) the tiddlers will be included with the node.
+
+
+<div style="max-width: 500px;">{{edit-tiddlers-flow.png}}</div>
+
+<div style="max-width: 550px;">{{edit-tiddlers-properties.png}}</div>
+
+The Node-Red Debug window in the sidebar shows the tiddlers in msg.payload:
+
+<div style="max-width: 350px;">{{edit-tiddler-debug.png}}</div>
+
+

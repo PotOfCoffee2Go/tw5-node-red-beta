@@ -1,0 +1,9 @@
+created: 20191216100151290
+modified: 20191219090144742
+tags: 
+title: Subsection template
+
+@@padding-left: 50px;
+!!{{!!title}}
+@@
+{{!!text}}

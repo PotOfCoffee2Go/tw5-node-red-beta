@@ -1,0 +1,37 @@
+created: 20231202203057894
+fetched: 20231204075728342
+modified: 20240117003359134
+tags: ·node-red· [[How it works]]
+title: Branches
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{decorative-bar.png}}</div>
+
+The [[Set network]] node can be used multiple times in a flow to store tiddlers until sent back to the client wiki.It is common to have a tiddler or some tiddlers to be displayed in the story while others are only to update the client wiki. This requires ''two'' [[Set network]] nodes - one going 'to story' the other 'to client'. Below the 'About some pics' / 'About same pics' tiddler transcludes the image tiddlers.
+
+In the 'topics' tab of the<$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>is the following set of flows:
+
+<div style="max-width: 600px;">{{some-pics-flows-01.png}}</div>
+
+<div></div>
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'some pics'>>" > Some Pics </$button>
+<$button actions="<<node-red 'same pics'>>" > Same Pics </$button>
+"""/>
+
+<$button actions="<<node-red 'some pics'>>" > Some Pics </$button>
+<$button actions="<<node-red 'same pics'>>" > Same Pics </$button>
+
+Both flows/topics 'some pics' and 'same pics' will produce the same result other than the name of the tiddler displayed 'About some Pics' and 'About same Pics' respectively.
+
+> Note the icons are different between 'About some pics' and 'Images' - the thick arrow means the node has 'to story' property set while the thin arrow means the node has 'to client' property set. 
+
+The flow on the top will send a single message back to the client wiki with all the tiddlers - the one to display and the image tiddlers that are only to update the wiki.
+
+The flow on the bottom will send the same tiddlers but will be two messages sent back to the client. Node-Red processes nodes asynchronously - so many factors are at play as to which message will arrive to the client wiki first, the 'About same pics' message or the 'images' message. It does not matter, the TiddlyWiki [ext[RefreshMechanism|https://tiddlywiki.com/static/RefreshMechanism.html]] will render the story river properly regardless of which message arrives first.
+
+
+
+
+
+

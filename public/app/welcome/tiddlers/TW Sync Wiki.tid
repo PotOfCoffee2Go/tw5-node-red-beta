@@ -1,0 +1,26 @@
+created: 20240106160714058
+modified: 20240112095842116
+tags: Applications
+title: TW Sync Wiki
+type: text/vnd.tiddlywiki
+
+!! TW Sync Wiki
+
+The TW Sync Wiki is used to create the tiddlers of the application.
+
+Create tiddler 'My Hello World!' containing this WikiText:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'twsync refresh' >>" > Refresh </$button> to display tiddlers created by TW Sync Wiki.
+
+Press to run <$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button> flow on Node-Red Server.
+
+Press to get <$button actions="<<node-red 'myhello' >>" > myhello </$button> from Node-Red Server.
+"""/>
+
+The buttons are sending requests to Node-Red to run a 'topic' - a Node-Red flow. 
+
+Press the buttons and Nothing Happens! No worries - is intentional and working fine; by looking at the [[diagram|components.png]] can see the TW Sync Wiki is running off of the TW Sync Server - which has nothing to do with Node-Red other than sharing the <span class="poc2go-dir">./public/app/hello</span> directory where the tiddlers are stored.
+
+Leave the tiddler open in the story river.
+
+See [[Node-Red flows]] to continue.

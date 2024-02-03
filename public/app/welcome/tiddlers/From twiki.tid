@@ -1,0 +1,18 @@
+created: 20231202140759748
+fetched: 20231202141910927
+modified: 20231222001029653
+tags: [[Tiddler nodes]] ·node-red·
+title: From twiki
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em -6px;">{{from-wiki.png}}</div>
+In the 'topics' tab of the Flow Editor is a flow which loads and delivers tiddlers from a twiki - 'TW Book'. The standard 'inject' node triggers a msg just once on startup. The content of the message is not used other than to activate the [[To twiki]] node that loads the 'TW Book' twiki with .tid tiddlers from the server './public/tiddlers/book/chapter01' directory.
+
+<div style="max-width: 500px;">{{tw-book-flow.png}}</div>
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'book'>>" > TiddlyWiki Book </$button>
+"""/>
+
+<$button actions="<<node-red 'book'>>" > TiddlyWiki Book </$button>
+
+The 'book' topic sends two tiddlers to the story, one from the tiddler editor and one from the twiki using the filter `[[1. Introduction]]`. Right below that it also sends all the tiddlers of the chapter and the view templates used to transclude the tiddlers into a single tiddler for presentation - '1. Introduction'. 

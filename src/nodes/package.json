@@ -1,0 +1,34 @@
+{
+  "name": "@potofcoffee2go/tw5-nodes",
+  "version": "0.1.3",
+  "description": "Node-Red nodes that manage TiddlyWiki front end systems",
+  "private": true,
+  "author": "PotOfCoffee2Go",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "mustache": "4.2.0"
+  },
+  "node-red": {
+    "version": ">=3.0.0",
+    "nodes": {
+      "tw5-tiddler": "tw5-tiddler.js",
+      "tw5-network": "tw5-network.js",
+      "tw5-twiki": "tw5-twiki.js"
+    }
+  },
+  "main": "tw5-wiki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/potofcoffee2go/tw5-node-red.git"
+  },
+  "keywords": [
+    "tiddlywiki"
+  ],
+  "bugs": {
+    "url": "https://github.com/potofcoffee2go/tw5-node-red/issues"
+  },
+  "homepage": "https://github.com/potofcoffee2go/tw5-node-red#readme"
+}

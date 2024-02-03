@@ -1,0 +1,22 @@
+created: 20231207034933117
+fetched: 20231206142330646
+list: project tiddlywiki flows uibuilder public src lib
+modified: 20240129044622925
+tags: TableOfContents ·node-red·
+title: Storage
+type: text/vnd.tiddlywiki
+
+The server is providing information for multiple services.
+
+ * Node-Red Flow files, settings, plugins, nodes, themes, runtime API.
+ * TiddlyWiki on node.js
+ * Static content-types Mime file types, images, scripts
+ * Communication systems HTTP, websockets, socket.io, mqtt, tcp, udp
+ * Data Exchange CSV, XML, HTML, YAML, JSON, Tiddlers
+ * Security and Session management
+
+Node-Red provides much of this functionality thus the site directory structure is based on Node-Red. TW5-Node-RED uses the [ext[expressjs|https://expressjs.com/]] that is installed and started by Node-Red. In Node-Red documentation this is called 'standalone'. TW5-Node-RED can be run on an existing express server by embedding Node-Red and using the settings in the project directory <span class="poc2go-dir">'./settings.js'</span> file (see [ext[Embedding into an existing app|https://nodered.org/docs/user-guide/runtime/embedding]]).
+
+> Node-Red docs reference <span class="poc2go-dir">'$HOME/.node-red'</span> as the default directory for various files. For TW5-Node-RED - <span class="poc2go-dir">'$HOME/.node-red'</span> is the TW5-Node-RED project directory.
+
+The multi-tid '+======+' separator is not implemented in TiddlyWiki - is on the to-do list to add a plugin. For now if wish to import or drag-n-drop a multiple tiddlers tiddler from the server to a wiki, output as JSON using the [[Tiddler nodes]] or use the `<<node-red 'to json'>>` topic.

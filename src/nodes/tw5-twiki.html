@@ -1,0 +1,656 @@
+<script type="text/javascript">
+	RED.nodes.registerType('to-twiki',{
+		category: "tiddler",
+		color: "#00cdbc",
+		defaults: {
+			name: {value:""},
+			twikiName: {value:"$tw.wiki"},
+			fromTwikiName: {value:""},
+			field: {value:""},
+			file: {value:""},
+			resetOnDeploy: {value:false},
+			inputTask: {value:'no operation'},
+			outputFormat: {value:'passthru'},
+			networkfield: {value:"no"},
+			useListener: {value:false},
+			filter: {value:"[all[]]"},
+			topic: {value:""},
+			outputs: {value:1},
+			template: {value:""},
+			clear: {value:false},
+
+			editorIsOpen: {value:false},
+			settingsIsOpen: {value:false},
+			fromIsOpen:  {value:false},
+
+			editorIsX: {value:false},
+			fileIsX: {value:false},
+			networkIsX: {value:false},
+			twikiIsX: {value:false},
+			fieldIsX: {value:false},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "tiddlywiki.png",
+		align: 'right',
+		label: function(){
+			return this.name || 'to ' + this.twikiName || this._("to-twiki.label.name");
+		},
+        labelStyle: function() {
+            return this.resetOnDeploy?"poc2go-node-label-red":"";
+        },
+		inputLabels: "payload with titles or tiddlers",
+		outputLabels: ["titles/tiddlers based on options","changed tiddlers"],
+
+		oneditprepare: function() {
+			const that = this;
+			const stateId = RED.editor.generateViewStateId("node", this, "");
+
+			const taskAddText = this._("to-twiki.label.task-add");
+			const taskDeleteText = this._("to-twiki.label.task-delete");
+			const resetEnableText = this._("to-twiki.label.resetOnDeploy");
+			const resetDisableText = this._("to-twiki.label.resetOnDeployDisabled");
+			const listenerEnableText = this._("to-twiki.label.useListener");
+			const listenerDisableText = this._("to-twiki.label.useListenerDisabled");
+
+			function setTexts() {
+				if ($("#node-input-inputTask").val() === 'addTiddlers') {
+					$("#node-task-text").text(taskAddText);
+				} else if ($("#node-input-inputTask").val() === 'deleteTiddlers') {
+					$("#node-task-text").text(taskDeleteText);
+				} else {
+					$("#node-task-text").text('');
+				}
+/*				if ($("#node-input-outputFormat").val() === 'none') {
+					$("#node-input-useListener").prop('disabled', true);
+					$("#node-useListener-text").text(listenerDisableText);
+					$("#node-useListener-text").addClass('poc2go-text-red');
+				} else {
+					$("#node-input-useListener").prop('disabled', false);
+					$("#node-useListener-text").text(listenerEnableText);
+					$("#node-useListener-text").removeClass('poc2go-text-red');
+				}
+*/			}
+
+			function handleTwikiName() {
+				if ($("#node-input-twikiName").val() === '$tw.wiki' || $("#node-input-twikiName").val() === '$twsync.wiki') {
+					$("#node-input-resetOnDeploy").addClass('poc2go-invisible');
+					$("#node-resetOnDeploy-label").addClass('poc2go-text-red');
+					$("#node-resetOnDeploy-label").text(resetDisableText);
+				} else {
+					$("#node-input-resetOnDeploy").removeClass('poc2go-invisible');
+					$("#node-resetOnDeploy-label").removeClass('poc2go-text-red');
+					$("#node-resetOnDeploy-label").text(resetEnableText);
+				}
+			}
+
+			$("#node-input-twikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'existing',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames()
+				}, {value:'str', label: 'create', icon: '/images/tiddlywiki.png'}]
+			})
+
+			$("#node-input-fromTwikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'name',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames()
+				}]
+			})
+
+			$("#node-input-inputTask").typedInput({
+				type:'inputTask',
+				types:[{
+					value: 'inputTask',
+					label: 'Task',
+					icon: 'fa fa-list',
+					options: [
+						{ value: 'addTiddlers', label: 'add tiddlers'},
+						{ value: 'deleteTiddlers',   label: 'delete tiddlers'},
+					]
+				}]
+			})
+/*
+			$("#node-input-outputFormat").typedInput({
+				type:'outputFormat',
+				types:[{
+					value: 'outputFormat',
+					label: '',
+					icon: 'fa fa-list',
+					options: [
+						{ value: 'none', label: 'no outputs'},
+						{ value: 'passthru', label: 'same as input'},
+						{ value: 'tiddlers', label: 'tiddlers'},
+						{ value: 'titles', label: 'titles'},
+					]
+				}]
+			})
+*/
+			$("#node-input-networkfield").typedInput({
+				type:'networkfield',
+				types:[{
+					value: 'networkfield',
+					label: 'msg.network.',
+					icon: 'fa fa-list',
+					options: [
+						{ value: 'network.client.tiddlers', label: 'client.tiddlers'},
+						{ value: 'network.server.tiddlers', label: 'server.tiddlers'},
+						{ value: 'network.meta.tiddlers',   label: 'meta.tiddlers'},
+					]
+				}]
+			})
+			$("#node-input-file").typedInput({ type:'relfile', types:[{value: 'relfile', label: './'}] })
+			$("#node-input-networkfield").typedInput('width', '200px');
+
+			$("#node-input-field").typedInput({ type:'optmsg', types:[{value: 'optmsg', label: 'msg.'}] })
+			$("#node-input-field").typedInput('width', '220px');
+
+			$("#node-input-inputTask").on("change", function() { setTexts(); });
+			$("#node-input-twikiName").on("change", function() { handleTwikiName(); })
+			$("#node-details-editor").on("toggle", () => {
+				if ($("#node-details-editor").prop('open')) {
+					this.editorIsOpen = true;
+				} else {
+					this.editorIsOpen = false;
+				}
+			})
+			if (this.editorIsOpen) { $("#node-details-editor").prop('open', true) };
+
+			$("#node-details-settings").on("toggle", () => {
+				if ($("#node-details-settings").prop('open')) {
+					this.settingsIsOpen = true;
+				} else {
+					this.settingsIsOpen = false;
+				}
+			})
+			if (this.settingsIsOpen) { $("#node-details-settings").prop('open', true) };
+
+			$("#node-details-from").on("toggle", () => {
+				if ($("#node-details-from").prop('open')) {
+					this.fromIsOpen = true;
+				} else {
+					this.fromIsOpen = false;
+				}
+			})
+			if (this.fromIsOpen) { $("#node-details-from").prop('open', true) };
+
+
+
+			setTexts();
+			handleTwikiName();
+
+			this.editor = RED.editor.createEditor({
+				id: 'node-input-template-editor',
+				mode: 'ace/mode/text',
+				stateId: stateId,
+				value: $("#node-input-template").val()
+			});
+			this.editor.focus();
+
+			RED.popover.tooltip($("#node-template-expand-editor"), RED._("node-red:common.label.expand"));
+			$("#node-template-expand-editor").on("click", function (e) {
+				e.preventDefault();
+				const value = that.editor.getValue();
+				that.editor.saveView();
+				RED.editor.editText({
+					mode: $("#node-input-format").val(),
+					value: value,
+					stateId: stateId,
+					width: "Infinity",
+					focus: true,
+					complete: function (v, cursor) {
+						that.editor.setValue(v, -1);
+						setTimeout(function () {
+							that.editor.restoreView();
+							that.editor.focus();
+						}, 250);
+					}
+				})
+			})
+		},
+
+		oneditsave: function () {
+			var node = this;
+			if ($("#node-input-twikiName").val() === '$tw.wiki' || $("#node-input-twikiName").val() === '$twsync.wiki') {
+				$("#node-input-resetOnDeploy").prop('checked', false);
+			}
+			node.outputs = $("#node-input-useListener").prop('checked') ? 2 : 1;
+//			node.outputs = $("#node-input-outputFormat").val() === 'none' ? 0 : node.outputs;
+
+			RED.nodes.eachNode(function(n) {
+				if (node.type === 'to-twiki' && node.twikiName === n.twikiName && node.id !== n.id) {
+					n.resetOnDeploy = $("#node-input-resetOnDeploy").prop('checked');
+					n.dirty = true;
+				}
+			})
+
+			$("#node-input-template").val(this.editor.getValue());
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditcancel: function() {
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditresize: function(size) {
+			var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+			var height = $("#dialog-form").height();
+			for (var i=0; i<rows.length; i++) {
+				height -= $(rows[i]).outerHeight(true);
+			}
+			var editorRow = $("#dialog-form>div.node-text-editor-row");
+			height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+			$(".node-text-editor").css("height",height+"px");
+			this.editor.resize();
+		}
+	})
+</script>
+
+<script type="text/x-red" data-template-name="to-twiki">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+	<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;">To</div>
+	<div class="form-row">
+		<label for="node-input-twikiName" style="width: auto;"><i class="fa fa-tag"></i> <span data-i18n="to-twiki.label.twikiName"></span></label>
+		<input type="text" id="node-input-twikiName" style="display: inline-block; width: auto;">
+	</div>
+	<div class="form-row">
+		<label for="node-input-inputTask" style="display: inline-block; width: auto; margin-left: 20px;"> <i class="fa fa-arrow-circle-o-up"></i></label>
+		<input type="text" id="node-input-inputTask" style="display: inline-block; width: auto;"> <span id="node-task-text"> </span>
+	</div>
+	<hr>
+	<details id="node-details-settings">
+		<summary> <span data-i18n="to-twiki.section.settings"></span></summary>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-clear" style="display: inline-block; width: auto;margin-top: .2em; vertical-align: top;"></input>
+			<span data-i18n="to-twiki.label.clear"></span>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-useListener" style="display: inline-block; width: auto; margin-top: .2em; vertical-align: top;"></input>
+			<span data-i18n="to-twiki.label.useListener"></span>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-resetOnDeploy" style="display: inline-block; width: auto; vertical-align: top;"></input>
+			<label style="width: auto;" for="node-input-resetOnDeploy"><span id="node-resetOnDeploy-label"></span></label>
+		</div>
+	</details>
+	<hr>
+
+
+	<details id="node-details-from">
+		<summary> <span data-i18n="to-twiki.section.from"></span><span data-i18n="to-twiki.tip.from"></span></summary>
+
+		<div class="form-row">
+			<input type="checkbox" id="node-input-editorIsX" style="margin-bottom: .5em;display: inline-block; width: auto;">
+			<span data-i18n="to-twiki.label.editor"></span>
+			</input>
+
+			<details id="node-details-editor">
+			<summary style="margin-left: 1.5em;"> <span data-i18n="to-twiki.section.editor"></span></summary>
+				<div class="form-row" style="position: relative; margin-bottom: 0px;">
+					<label style="width: auto;" for="node-input-template"><i class="fa fa-file-code-o"></i> <span data-i18n="to-twiki.label.template"></span></label>
+					<input type="hidden" id="node-input-template" autofocus="autofocus">
+					<div style="position: absolute; right:0;display:inline-block; text-align: right; font-size: 0.8em;">
+						<span data-i18n="to-twiki.label.templateformat"></span>:
+						<select id="node-input-format" style="width:110px; font-size: 10px !important;  height: 24px; padding:0;">
+							<option value="text" data-i18n="node-red:template.label.none"></option>
+							<option value="handlebars">mustache</option>
+						</select>
+						<button type="button" id="node-template-expand-editor" class="red-ui-button red-ui-button-small"><i class="fa fa-expand"></i></button>
+					</div>
+				</div>
+				<div class="form-row node-text-editor-row">
+					<div style="height: 150px; min-height:150px;" class="node-text-editor" id="node-input-template-editor"></div>
+				</div>
+			</details>
+		</div>
+
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fileIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-file" style="display: inline-block; width: auto; margin-right: .5em;"> <span data-i18n="to-twiki.label.file"></span></label>
+			<input type="text" id="node-input-file">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-twikiIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-fromTwikiName" style="width: auto;"> <span data-i18n="to-twiki.label.fromTwikiName"></span></label>
+			<input type="text" id="node-input-fromTwikiName" style="display: inline-block; width: auto;">
+		</div>
+		<div class="form-row">
+			<label for="node-input-filter" style="display: inline-block; width: auto; margin-left: 20px;"><i class="fa fa-arrow-circle-o-up"></i> <span data-i18n="to-twiki.label.filter"></span></label>
+			<input type="text" id="node-input-filter">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-networkIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label id="node-networkfield-label" for="node-input-networkfield" style="width: 60px;"> <span data-i18n="to-twiki.label.networkfield"></span></label>
+			<input type="text" id="node-input-networkfield" style="display: inline-block; width: auto;">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fieldIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-field" style="display: inline-block; width: auto;"> <span data-i18n="to-twiki.label.field"></span></label>
+			<input type="text" id="node-input-field">
+		</div>
+	</details>
+	<hr>
+
+
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]node-red:common.label.topic">
+	</div>
+	<div>&nbsp;</div>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('from-twiki',{
+		category: "tiddler",
+		color: "#00cdbc",
+		defaults: {
+			name: {value:""},
+			twikiName: {value:"$tw.wiki"},
+			toTwikiName: {value:""},
+			resetOnDeploy: {value:false},
+			inputTask: {value:'no operation'},
+			outputFormat: {value:'tiddlers'},
+			field: {value:""},
+			networkfield: {value:"no"},
+			useListener: {value:false},
+			filter: {value:"[all[]]"},
+			file: {value:""},
+			topic: {value:""},
+			outputs: {value:1},
+			tostory: {value:false},
+
+			editorIsOpen: {value:false},
+			settingsIsOpen: {value:false},
+			toIsOpen: {value:false},
+
+			fileIsX: {value:false},
+			networkIsX: {value:false},
+			twikiIsX: {value:false},
+			fieldIsX: {value:false},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "tiddlywiki.png",
+		label: function(){
+			return this.name || 'from ' + this.twikiName || this._("from-twiki.label.name");
+		},
+        labelStyle: function() {
+            return this.resetOnDeploy?"poc2go-node-label-red":"";
+        },
+		oneditprepare: function() {
+			const outputTiddlersText = this._("from-twiki.label.output-tiddlers");
+			const outputTitlesText = this._("from-twiki.label.output-titles");
+
+			const taskAddText = this._("from-twiki.label.task-add");
+			const taskDeleteText = this._("from-twiki.label.task-delete");
+			const resetEnableText = this._("from-twiki.label.resetOnDeploy");
+			const resetDisableText = this._("from-twiki.label.resetOnDeployDisabled");
+			const listenerEnableText = this._("from-twiki.label.useListener");
+			const listenerDisableText = this._("from-twiki.label.useListenerDisabled");
+
+			function setToStoryEnable() {
+				if ($("#node-input-networkfield").val().split('.')[1] !== 'server') {
+					$("#story-btn").typedInput('hide');
+					$("#story-btn-text").css('visibility', 'hidden');
+				} else {
+					$("#story-btn").typedInput('show');
+					$("#story-btn-text").css('visibility', 'visible');
+				}
+			}
+
+			function setTexts() {
+				if ($("#node-input-outputFormat").val() === 'tiddlers') {
+					$("#node-task-text").text(outputTiddlersText);
+				} else if ($("#node-input-outputFormat").val() === 'titles') {
+					$("#node-task-text").text(outputTitlesText);
+				} else {
+					$("#node-task-text").text('');
+				}
+			}
+
+			function handleTwikiName() {
+				if ($("#node-input-twikiName").val() === '$tw.wiki' || $("#node-input-twikiName").val() === '$twsync.wiki') {
+					$("#node-input-resetOnDeploy").addClass('poc2go-invisible');
+					$("#node-resetOnDeploy-label").addClass('poc2go-text-red');
+					$("#node-resetOnDeploy-label").text(resetDisableText);
+				} else {
+					$("#node-input-resetOnDeploy").removeClass('poc2go-invisible');
+					$("#node-resetOnDeploy-label").removeClass('poc2go-text-red');
+					$("#node-resetOnDeploy-label").text(resetEnableText);
+				}
+			}
+
+			$("#node-input-tostory").typedInput({ type:'bool', value: 'false' })
+			$("#node-input-tostory").typedInput('hide');
+
+			$("#node-input-twikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'existing',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames()
+				}, {value:'str', label: 'create', icon: '/images/tiddlywiki.png'}]
+			})
+
+			$("#node-input-toTwikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'name',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames()
+				}]
+			})
+
+			$("#node-input-outputFormat").typedInput({
+				type:'outputFormat',
+				types:[{
+					value: 'outputFormat',
+					label: '',
+					icon: 'fa fa-list',
+					options: [
+						{ value: 'tiddlers', label: 'tiddlers'},
+						{ value: 'titles', label: 'titles'},
+					]
+				}]
+			})
+
+			$("#node-input-networkfield").typedInput({
+				type:'networkfield',
+				types:[{
+					value: 'networkfield',
+					label: 'msg.network.',
+					icon: 'fa fa-list',
+					options: [
+						{ value: 'network.client.tiddlers', label: 'client.tiddlers'},
+						{ value: 'network.server.tiddlers', label: 'server.tiddlers'},
+						{ value: 'network.meta.tiddlers',   label: 'meta.tiddlers'},
+					]
+				}]
+			})
+			$("#node-input-file").typedInput({ type:'relfile', types:[{value: 'relfile', label: './'}] })
+			$("#node-input-networkfield").typedInput('width', '200px');
+
+			$("#node-input-field").typedInput({ type:'optmsg', types:[{value: 'optmsg', label: 'msg.'}] })
+			$("#node-input-field").typedInput('width', '220px');
+
+			$("#node-input-outputFormat").on("change", function() { setTexts(); });
+			$("#node-input-twikiName").on("change", function() { handleTwikiName(); })
+
+			$("#node-input-networkfield").on("change", function() { setToStoryEnable(); });
+
+
+			$("#story-btn").on("change", function(evt, type, value) {
+				if (type === 'toclient') {
+					$("#node-input-tostory").typedInput('value','false');
+					$("#story-btn-text").text(' to client');
+				} else {
+					$("#node-input-tostory").typedInput('value','true');
+					$("#story-btn-text").text(' to story');
+				}
+			})
+
+			$("#story-btn").typedInput({
+				type:'toclient',
+				types:[{
+					value: 'toclient',
+					label: 'to client',
+					icon: '/images/setwiki.svg'
+					},
+					{
+					value: 'tostory',
+					label: 'to story',
+					icon: 'fa fa-mail-forward'
+					}
+				]
+			})
+			$("#story-btn").typedInput('width', '40px');
+
+			// hack until get to bottom of node-red typedinput as 'bool'
+			if (typeof this.tostory === 'string' ? (this.tostory === 'true' ? true : false) : this.tostory) {
+				$("#story-btn").typedInput('type', 'tostory');
+			} else {
+				$("#story-btn").typedInput('type', 'toclient');
+			}
+
+			$("#node-details-editor").on("toggle", () => {
+				if ($("#node-details-editor").prop('open')) {
+					this.editorIsOpen = true;
+				} else {
+					this.editorIsOpen = false;
+				}
+			})
+			if (this.editorIsOpen) { $("#node-details-editor").prop('open', true) };
+
+			$("#node-details-settings").on("toggle", () => {
+				if ($("#node-details-settings").prop('open')) {
+					this.settingsIsOpen = true;
+				} else {
+					this.settingsIsOpen = false;
+				}
+			})
+			if (this.settingsIsOpen) { $("#node-details-settings").prop('open', true) };
+
+			$("#node-details-to").on("toggle", () => {
+				if ($("#node-details-to").prop('open')) {
+					this.toIsOpen = true;
+				} else {
+					this.toIsOpen = false;
+				}
+			})
+			if (this.toIsOpen) { $("#node-details-to").prop('open', true) };
+
+			setTexts();
+			handleTwikiName();
+			setToStoryEnable();
+		},
+		oneditsave: function () {
+			var node = this;
+			this.outputs = $("#node-input-useListener").prop('checked') ? 2 : 1;
+		}
+	})
+</script>
+
+<script type="text/x-red" data-template-name="from-twiki">
+	<input type="text" style="display: none;" id="node-input-tostory">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+	<div style="margin-top:-.5em; margin-bottom:.3em; font-weight: bold;">From</div>
+	<div class="form-row">
+		<label for="node-input-twikiName" style="width: auto;"><i class="fa fa-tag"></i> <span data-i18n="from-twiki.label.twikiName"></span></label>
+		<input type="text" id="node-input-twikiName" style="display: inline-block; width: auto;">
+	</div>
+	<div class="form-row">
+		<label for="node-input-filter" style="display: inline-block; width: auto; margin-left: 20px;"><i class="fa fa-arrow-circle-o-up"></i> <span data-i18n="from-twiki.label.filter"></span></label>
+		<input type="text" id="node-input-filter">
+	</div>
+	<div class="form-row">
+		<label for="node-input-outputFormat" style="display: inline-block; width: auto;"><i class="fa fa-tag"></i></label>
+		<input type="text" id="node-input-outputFormat" style="display: inline-block; width: auto;"> <span id="node-task-text"> </span>
+	</div>
+	<hr>
+	<details id="node-details-settings">
+		<summary> <span data-i18n="from-twiki.section.settings"></span></summary>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-useListener" style="display: inline-block; width: auto; margin-top: .2em; vertical-align: top;"></input>
+			<span data-i18n="from-twiki.label.useListener"></span>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-resetOnDeploy" style="display: inline-block; width: auto; vertical-align: top;"></input>
+			<label style="width: auto;" for="node-input-resetOnDeploy"><span id="node-resetOnDeploy-label"></span></label>
+		</div>
+	</details>
+	<hr>
+	<details id="node-details-to">
+		<summary> <span data-i18n="from-twiki.section.to"></span><span data-i18n="from-twiki.tip.to"></span></summary>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fileIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-file" style="display: inline-block; width: auto; margin-right: .5em;"> <span data-i18n="to-twiki.label.file"></span></label>
+			<input type="text" id="node-input-file">
+			<p style="margin-left: 5em;font-size: .9em;" data-i18n="from-twiki.tip.file"></p>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-twikiIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-toTwikiName" style="width: auto;"> <span data-i18n="from-twiki.label.toTwikiName"></span></label>
+			<input type="text" id="node-input-toTwikiName" style="display: inline-block; width: auto;">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-networkIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label id="node-networkfield-label" for="node-input-networkfield" style="width: 60px;"> <span data-i18n="from-twiki.label.networkfield"></span></label>
+			<input type="text" id="node-input-networkfield">
+			<input type="hidden" id="story-btn"><span id="story-btn-text"></span>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fieldIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-field" style="display: inline-block; width: auto;"> <span data-i18n="from-twiki.label.field"></span></label>
+			<input type="text" id="node-input-field">
+		</div>
+	</details>
+	<hr>
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]node-red:common.label.topic">
+	</div>
+	<div>&nbsp;</div>
+</script>
+
+
+
+
+<!--   Help Files  -->
+<script type="text/markdown" data-help-name="twiki-wiki">
+Create or attach to existing TiddlyWiki wiki
+
+### Inputs
+
+### Outputs
+
+### Details
+
+### References
+</script>
+
+<script type="text/markdown" data-help-name="from-twiki">
+Create or attach to existing TiddlyWiki wiki
+
+### Inputs
+
+### Outputs
+
+### Details
+
+### References
+</script>
+

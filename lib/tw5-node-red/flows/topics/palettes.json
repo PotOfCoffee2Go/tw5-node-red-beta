@@ -1,0 +1,166 @@
+[
+    {
+        "id": "2eca80b06e50c439",
+        "type": "switch",
+        "z": "3bf1a6c5cf43b309",
+        "name": "select \\n palette",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "dark",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "light",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "fire",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "ff71c81f060c1616"
+            ],
+            [
+                "2a2120ce0bec323d"
+            ],
+            [
+                "c31d25fb62ca326f"
+            ]
+        ]
+    },
+    {
+        "id": "e49174688546a04d",
+        "type": "link in",
+        "z": "3bf1a6c5cf43b309",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 35,
+        "y": 260,
+        "wires": [
+            [
+                "2eca80b06e50c439",
+                "58fca2d32eeba857",
+                "2e786c2c50a25ee6",
+                "18acb880d6a0a231"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "ff71c81f060c1616",
+        "type": "set-network",
+        "z": "3bf1a6c5cf43b309",
+        "name": "Dark",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "true",
+        "template": "title: $:/palette\n\n$:/palettes/Twilight",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "f80060ac36d89c4b"
+            ]
+        ]
+    },
+    {
+        "id": "2a2120ce0bec323d",
+        "type": "set-network",
+        "z": "3bf1a6c5cf43b309",
+        "name": "Light",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "true",
+        "template": "title: $:/palette\n\n$:/palettes/SolarizedLight",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "f80060ac36d89c4b"
+            ]
+        ]
+    },
+    {
+        "id": "c31d25fb62ca326f",
+        "type": "set-network",
+        "z": "3bf1a6c5cf43b309",
+        "name": "Dev Fire",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": false,
+        "tostory": "true",
+        "template": "title: $:/palette\n\n$:/palettes/Dev Fire",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "f80060ac36d89c4b"
+            ]
+        ]
+    },
+    {
+        "id": "f80060ac36d89c4b",
+        "type": "link out",
+        "z": "3bf1a6c5cf43b309",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 655,
+        "y": 240,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    }
+]

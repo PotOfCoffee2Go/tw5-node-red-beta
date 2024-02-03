@@ -1,0 +1,7 @@
+# Ignore npm modules directory
+/node_modules
+
+# Ignore hidden files in project directory (are from Node-Red)
+/.*
+# Except gitignore itself
+!/.gitignore

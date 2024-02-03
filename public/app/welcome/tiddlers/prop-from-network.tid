@@ -1,0 +1,7 @@
+created: 20231220185420323
+modified: 20231220232210222
+tags: properties
+title: prop-from-network
+type: text/vnd.tiddlywiki
+
+The ''Network'' property copies tiddlers from the [[client|Client]], [[server|Server]], or [[meta|Meta]] tiddlers from the network.

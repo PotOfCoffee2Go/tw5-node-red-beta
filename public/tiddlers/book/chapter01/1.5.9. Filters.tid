@@ -1,0 +1,8 @@
+created: 20191216102236116
+modified: 20191216103430043
+tags: [[1.5. Elements of tiddywiki]] Subsection
+title: 1.5.9. Filters
+
+You can think of ~TiddlyWiki as a database in which the records are tiddlers. A database typically provides a way of discovering which records match a given pattern, and in ~TiddlyWiki this is done with filters.
+
+A filter is a concise notation for selecting a particular set of tiddlers. For example, to show the titles of all tiddlers tagged with the“learn” tag we can write `{{{ [tag[learn]] }}}`. The `[tag[learn]]` item is the filter and the brackets the way to add the links.

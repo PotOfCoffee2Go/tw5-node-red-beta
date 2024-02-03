@@ -1,0 +1,113 @@
+title: $:/palettes/Dev Fire
+created: 20160302142923732
+creator: Stephen
+description: Dark and Bold
+modified: 20160427120948086
+modifier: Stephen
+name: Dev Fire
+tags: $:/tags/Palette
+type: application/x-tiddler-dictionary
+
+alert-background: #9d7d00
+alert-border: #8e7924
+alert-highlight: #881122
+alert-muted-foreground: #b99e2f
+background: #000000
+blockquote-bar: <<colour muted-foreground>>
+button-background: #3a2f2f
+button-foreground: #ffbf00
+button-border: #666666
+code-background: #3a2f2f
+code-border: #ffbf00
+code-foreground: #fdf3d9
+dirty-indicator: #ff0000
+download-background: #34c734
+download-foreground: <<colour foreground>>
+dragger-background: <<colour foreground>>
+dragger-foreground: <<colour background>>
+dropdown-background: <<colour background>>
+dropdown-border: <<colour muted-foreground>>
+dropdown-tab-background-selected: #ffffff
+dropdown-tab-background: #ececec
+dropzone-background: rgba(0,200,0,0.7)
+external-link-background-hover: inherit
+external-link-background-visited: inherit
+external-link-background: inherit
+external-link-foreground-hover: inherit
+external-link-foreground-visited: #ff0000
+external-link-foreground: #ffbf00
+foreground: #ffdfaa
+message-background: #ecf2ff
+message-border: #cfd6e6
+message-foreground: #547599
+modal-backdrop: <<colour pre-background>>
+modal-background: <<colour background>>
+modal-border: #999999
+modal-footer-background: <<colour muted-background>>
+modal-footer-border: #dddddd
+modal-header-border: #eeeeee
+muted-foreground: #Ffbf00
+notification-background: <<colour pre-background>>
+notification-border: #999999
+page-background: #000000
+pre-background: #3a2f2f
+pre-border: #cccccc
+primary: #5778b8
+sidebar-button-foreground: #Ffbf00
+sidebar-controls-foreground-hover: <<colour sidebar-button-foreground>>
+sidebar-controls-foreground: #aaaaaa
+sidebar-foreground-shadow: 
+sidebar-foreground: #ffbf00
+sidebar-muted-foreground-hover: #444444
+sidebar-muted-foreground: #c0c0c0
+sidebar-tab-background-selected: #ffbf00
+sidebar-tab-background: #604800
+sidebar-tab-border-selected: <<colour tab-border-selected>>
+sidebar-tab-border: #ab0318
+sidebar-tab-divider: #ab0318
+sidebar-tab-foreground-selected: #000000
+sidebar-tab-foreground: #ffd964
+sidebar-tiddler-link-foreground-hover: #464646
+sidebar-tiddler-link-foreground: #ffbf00
+site-title-foreground: #ffca95
+static-alert-foreground: #aaaaaa
+tab-background-selected: #ffbf00
+tab-background: #604800
+tab-border-selected: #ffbf00
+tab-border: #ff9b6a
+tab-divider: #ff9b6a
+tab-foreground-selected: #000000
+tab-foreground: #ffd964
+table-border: #ab0318
+table-footer-background: #a8a8a8
+table-header-background: #710210
+tag-background: #ec6
+tag-foreground: #ffffff
+tiddler-background: <<colour background>>
+tiddler-border: #b08500
+tiddler-controls-foreground-hover: <<colour sidebar-button-foreground>>
+tiddler-controls-foreground-selected: #2d2d2d
+tiddler-controls-foreground: <<colour tiddler-border>>
+tiddler-editor-background: <<colour background>>
+tiddler-editor-border-image: #ffffff
+tiddler-editor-border: #cccccc
+tiddler-editor-fields-even: #85a585
+tiddler-editor-fields-odd: #5f815f
+tiddler-info-background: #710210
+tiddler-info-border: #dddddd
+tiddler-info-tab-background: #f8f8f8
+tiddler-link-background: <<colour background>>
+tiddler-link-foreground: #fe9901
+tiddler-subtitle-foreground: #ffbf00
+tiddler-title-foreground: <<colour site-title-foreground>>
+toolbar-new-button: 
+toolbar-options-button: 
+toolbar-save-button: 
+toolbar-info-button: 
+toolbar-edit-button: 
+toolbar-close-button: 
+toolbar-delete-button: 
+toolbar-cancel-button: 
+toolbar-done-button: 
+untagged-background: #999999
+very-muted-foreground: #888888

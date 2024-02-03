@@ -1,0 +1,28 @@
+created: 20231202140515601
+fetched: 20231202141910927
+modified: 20231230085905717
+tags: [[Tiddler nodes]] ·node-red·
+title: Get network
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em -6px;">{{get-network.png}}</div>
+
+When the 'get network' node is dropped in the Node-Red workspace it will rename itself to 'from client' by default. The node can also copy the 'server.tiddlers' or 'meta.tiddlers' from the network even though is most commonly used to get the 'client.tiddlers'.
+
+The example below (in the flow editor 'topics' tab) will use the 'from client' [[Get network]] and 'to story' [[Set network]] nodes to illustrate the properties of the node.
+
+<div style="max-width: 600px;">{{get-network-flow.png}}</div>
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'test network nodes' '[tag[TableOfContents]]'>>">List TOC level 1 tiddlers</$button> 
+"""/>
+
+<$button actions="<<node-red 'test network nodes' '[tag[TableOfContents]]'>>">List TOC level 1 tiddlers</$button>
+
+The `<<node-red ...>>` macro's second parameter is a filter of the tiddlers the client wiki will send to the server, in this case tiddlers tagged for this TOC - `[tag[TableOfContents]]`. The [[Get network]] 'From Network' property is set to the tiddlers the node is to copy. In this case the client wiki is sending tiddlers tagged ''TableOfContents'' which will be received in 'client.tiddlers'. 
+
+A TiddlyWiki [ext[filter|https://tiddlywiki.com/static/Filters.html]] can be used to select a subset of the client.tiddlers to be copied - in this case will select all of them.
+
+<div style="max-width: 550px;">{{get-network-properties.png}}</div>
+
+The client.tiddlers will be sent to two destinations as indicated by the checkboxes - to the file <span class="poc2go-dir">'./public/testit/testit.tid'</span> and to 'msg.payload'. To output tid format the filename must have the extension '.tid' otherwise the output will be in JSON.
+ 

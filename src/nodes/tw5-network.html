@@ -1,0 +1,539 @@
+<style>
+	summary {
+		font-weight: bold;
+	}
+</style>
+
+<!-- Utility functions -->
+<!-- Is loaded to browser here, but is available to all nodes-->
+<script type="text/javascript">
+	const networkfieldType = {
+		value: 'networkfield',
+		label: 'msg.network.',
+		icon: 'fa fa-list',
+		options: [
+			{ value: 'network.client.tiddlers', label: 'client.tiddlers'},
+			{ value: 'network.server.tiddlers', label: 'server.tiddlers'},
+			{ value: 'network.meta.tiddlers',   label: 'meta.tiddlers'},
+		]
+	}
+
+	function getTwikiNames() {
+		var twikiNameList = ['$tw.wiki', '$twsync.wiki'],
+			twikiNamesOpts = [{ value: '$tw.wiki', label: '$tw.wiki'},{ value: '$twsync.wiki', label: '$twsync.wiki'}];
+		RED.nodes.eachNode(function(n) {
+			if (n.type === 'to-twiki' || n.type === 'from-twiki') {
+				if (!twikiNameList.includes(n.twikiName)) {
+					twikiNameList.push(n.twikiName);
+					twikiNamesOpts.push({ value: n.twikiName, label: n.twikiName});
+				}
+			}
+		})
+		return twikiNamesOpts;
+	}
+
+	function getNodeTostory(node) {
+		return node.updtostory && node.networkfield.split('.')[1] === 'server' ? (node.tostory ==="true" ? true : false) : false;
+	}
+
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('get-network',{
+		category: "tiddler",
+		color: "#00e6d3",
+		defaults: {
+			name: {value:""},
+			topic: {value:""},
+			networkfield: {value:"network.client.tiddlers"},
+			filter: {value:"[all[]]"},
+			twikiName: {value:""},
+			field: {value:""},
+			file: {value:""},
+//			updtostory: {value:false},
+//			tostory: {value:false},
+
+			settingsIsOpen: {value:false},
+			toIsOpen: {value:false},
+
+			fileIsX: {value:false},
+			networkIsX: {value:false},
+			twikiIsX: {value:false},
+			fieldIsX: {value:false},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "getwiki.svg",
+		label: function(){
+			if (this.name) return this.name;
+			return (this.networkfield.split('.')[1] === 'server'
+				? 'from server'
+				: (this.networkfield.split('.')[1] === 'client'
+					? 'from client'
+					: 'from meta' ));
+		},
+
+		oneditprepare: function() {
+//			$("#node-input-tostory").typedInput({ type:'bool' })
+//			$("#node-input-tostory").typedInput('width', '100px');
+
+			$("#node-input-networkfield").typedInput({
+				type:'networkfield',
+				types:[networkfieldType]
+			})
+
+			$("#node-input-twikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'existing',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames()
+				}, {value:'str', label: 'create', icon: '/images/tiddlywiki.png'}]
+			})
+
+			$("#node-input-filter").typedInput({
+				type:'str',
+				types:['str']
+			})
+
+			$("#node-input-field").typedInput({
+				type:'optmsg',
+				types:[{value: 'optmsg', label: 'msg.'}]
+			})
+
+			$("#node-input-file").typedInput({
+				type:'relfile',
+				types:[{value: 'relfile', label: './'}]
+			})
+
+			$("#node-input-networkfield").typedInput('width', '180px');
+			$("#node-input-field").typedInput('width', '320px');
+			$("#node-details-settings").on("toggle", () => {
+				if ($("#node-details-settings").prop('open')) {
+					this.settingsIsOpen = true;
+				} else {
+					this.settingsIsOpen = false;
+				}
+			})
+			if (this.settingsIsOpen) { $("#node-details-settings").prop('open', true) };
+
+			$("#node-details-to").on("toggle", () => {
+				if ($("#node-details-to").prop('open')) {
+					this.toIsOpen = true;
+				} else {
+					this.toIsOpen = false;
+				}
+			})
+			if (this.toIsOpen) { $("#node-details-to").prop('open', true) };
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="get-network">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+	<div style="margin-top:-.5em; margin-bottom:.3em;"><span style="font-weight: bold;" data-i18n="get-network.section.from"></span></div>
+	<div class="form-row">
+		<label for="node-input-networkfield"><i class="fa fa-tag"></i> <span data-i18n="get-network.label.networkfield"></span></label>
+		<input type="text" id="node-input-networkfield">
+	</div>
+	<div class="form-row">
+		<label for="node-input-filter" style="display: inline-block; width: auto; margin-left: 20px;"><i class="fa fa-arrow-circle-o-up"></i> <span data-i18n="get-network.label.filter"></span></label>
+		<input type="text" id="node-input-filter">
+	</div>
+	<hr>
+	<details id="node-details-to">
+		<summary> <span data-i18n="get-network.section.to"></span><span data-i18n="get-network.tip.to"></span></summary>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fileIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-file" style="display: inline-block; width: auto; margin-right: .5em;"> <span data-i18n="get-network.label.file"></span></label>
+			<input type="text" id="node-input-file">
+			<p style="margin-left: 5em;font-size: .9em;" data-i18n="get-network.tip.file"></p>
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-twikiIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-twikiName" style="width: auto;"> <span data-i18n="get-network.label.twikiName"></span></label>
+			<input type="text" id="node-input-twikiName" style="display: inline-block; width: auto;">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fieldIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-field" style="display: inline-block; width: auto;"> <span data-i18n="set-network.label.field"></span></label>
+			<input type="text" id="node-input-field">
+		</div>
+	</details>
+	<hr>
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="get-network.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]set-network.label.topic">
+	</div>
+	<div>&nbsp;</div>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('set-network',{
+		category: "tiddler",
+		color: "#00e6d3",
+		defaults: {
+			name: {value:""},
+			topic: {value:""},
+			networkfield: {value:"network.server.tiddlers"},
+			twikiName: {value:""},
+			filter: {value:"[all[]]"},
+			field: {value:""},
+			file: {value:""},
+			updtostory: {value:false},
+			tostory: {value:false},
+			template: {value:""},
+			clear: {value:false},
+
+//			icon: {value: "setwiki.svg" },
+
+			editorIsOpen: {value:false},
+			settingsIsOpen: {value:false},
+			fromIsOpen: {value:false},
+
+			editorIsX: {value:false},
+			fileIsX: {value:false},
+			networkIsX: {value:false},
+			twikiIsX: {value:false},
+			fieldIsX: {value:false},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: function() { return getNodeTostory(this) ? "font-awesome/fa-mail-forward" :  "setwiki.svg"; },
+
+		label: function() {
+			if (this.name) return this.name;
+
+			return (this.networkfield.split('.')[1] === 'server'
+				? (getNodeTostory(this) ? 'to story' : 'to client')
+				: (this.networkfield.split('.')[1] === 'client'
+					? 'to server'
+					: 'to meta' ));
+		},
+
+		align: 'right',
+
+		oneditprepare: function() {
+			const that = this;
+			const stateId = RED.editor.generateViewStateId("node", this, "");
+
+			function setToStoryEnable() {
+				if ($("#node-input-networkfield").val().split('.')[1] !== 'server') {
+					$("#node-input-updtostory").prop('disabled', true);
+					$("#story-btn").typedInput('hide');
+					$("#story-btn-text").css('visibility', 'hidden');
+					$("#node-updtostory-label").addClass('poc2go-text-strike');
+				} else {
+					$("#node-input-updtostory").prop('disabled', false);
+					$("#story-btn").typedInput('show');
+					$("#story-btn-text").css('visibility', 'visible');
+					$("#node-updtostory-label").removeClass('poc2go-text-strike');
+				}
+				if ($("#node-input-tostory").typedInput('value') === 'false') {
+					$("#story-btn").typedInput('type', 'toclient');
+					$("#story-btn-text").text(' to client');
+				} else {
+					$("#story-btn").typedInput('type', 'tostory');
+					$("#story-btn-text").text(' to story');
+				}
+			}
+
+			$("#node-input-tostory").typedInput({ type:'bool' })
+			$("#node-input-tostory").typedInput('width', '100px');
+			$("#node-input-networkfield").typedInput({ type:'networkfield', types:[networkfieldType] })
+			$("#node-input-filter").typedInput({ type:'str', types:['str'] })
+			$("#node-input-field").typedInput({ type:'optmsg', types:[{value: 'optmsg', label: 'msg.'}] })
+			$("#node-input-file").typedInput({ type:'relfile', types:[{value: 'relfile', label: './'}] })
+
+			$("#node-input-networkfield").typedInput('width', '180px')
+			$("#node-input-field").typedInput('width', '320px');
+
+			$("#node-input-networkfield").on("change", function() { setToStoryEnable(); });
+			$("#node-input-tostory").on("change", function() { setToStoryEnable(); });
+
+			$("#story-btn").on("change", function(evt, type, value) {
+				if (type === 'toclient') {
+					$("#node-input-tostory").typedInput('value','false');
+					$("#node-input-updtostory").prop('checked', true);
+				} else {
+					$("#node-input-tostory").typedInput('value','true');
+					$("#node-input-updtostory").prop('checked', true);
+				}
+			})
+
+			$("#node-details-editor").on("toggle", () => {
+				if ($("#node-details-editor").prop('open')) {
+					this.editorIsOpen = true;
+				} else {
+					this.editorIsOpen = false;
+				}
+			})
+			if (this.editorIsOpen) { $("#node-details-editor").prop('open', true) };
+
+			$("#node-details-settings").on("toggle", () => {
+				if ($("#node-details-settings").prop('open')) {
+					this.settingsIsOpen = true;
+				} else {
+					this.settingsIsOpen = false;
+				}
+			})
+			if (this.settingsIsOpen) { $("#node-details-settings").prop('open', true) };
+
+			$("#node-details-from").on("toggle", () => {
+				if ($("#node-details-from").prop('open')) {
+					this.fromIsOpen = true;
+				} else {
+					this.fromIsOpen = false;
+				}
+			})
+			if (this.fromIsOpen) { $("#node-details-from").prop('open', true) };
+
+
+			$("#story-btn").typedInput({
+				type:'toclient',
+				types:[{
+					value: 'toclient',
+					label: 'to client',
+					icon: '/images/setwiki.svg'
+					},
+					{
+					value: 'tostory',
+					label: 'to story',
+					icon: 'fa fa-mail-forward'
+					}
+				]
+			})
+			$("#story-btn").typedInput('width', '40px');
+			if (this.tostory === 'true') {
+				$("#story-btn").typedInput('type', 'tostory');
+			}
+
+			$("#node-input-twikiName").typedInput({
+				type:'twikiName',
+				types:[{
+					value: 'twikiName',
+					label: 'existing',
+					icon: '/images/tiddlywiki.png',
+					options: getTwikiNames(),
+				}, {value:'str', label: 'create', icon: '/images/tiddlywiki.png'}]
+			})
+
+			setToStoryEnable();
+
+			this.editor = RED.editor.createEditor({
+				id: 'node-input-template-editor',
+				mode: 'ace/mode/text',
+				stateId: stateId,
+				value: $("#node-input-template").val()
+			});
+			this.editor.focus();
+
+			RED.popover.tooltip($("#node-template-expand-editor"), RED._("node-red:common.label.expand"));
+			$("#node-template-expand-editor").on("click", function (e) {
+				e.preventDefault();
+				const value = that.editor.getValue();
+				that.editor.saveView();
+				RED.editor.editText({
+					mode: $("#node-input-format").val(),
+					value: value,
+					stateId: stateId,
+					width: "Infinity",
+					focus: true,
+					complete: function (v, cursor) {
+						that.editor.setValue(v, -1);
+						setTimeout(function () {
+							that.editor.restoreView();
+							that.editor.focus();
+						}, 250);
+					}
+				})
+			})
+		},
+		oneditsave: function() {
+			$("#node-input-template").val(this.editor.getValue());
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditcancel: function() {
+			this.editor.destroy();
+			delete this.editor;
+		},
+		oneditresize: function(size) {
+			var rows = $("#dialog-form>div:not(.node-text-editor-row)");
+			var height = $("#dialog-form").height();
+			for (var i=0; i<rows.length; i++) {
+				height -= $(rows[i]).outerHeight(true);
+			}
+			var editorRow = $("#dialog-form>div.node-text-editor-row");
+			height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+			$(".node-text-editor").css("height",height+"px");
+			this.editor.resize();
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="set-network">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+	</div>
+	<div style="margin-top:-.5em; margin-bottom:.3em;"><span style="font-weight: bold;" data-i18n="set-network.section.to"></span></div>
+	<div class="form-row">
+		<label for="node-input-networkfield"><i class="fa fa-tag"></i> <span data-i18n="set-network.label.networkfield"></span></label>
+		<input type="text" id="node-input-networkfield">
+		<input type="hidden" id="story-btn"><span id="story-btn-text"></span>
+	</div>
+	<hr>
+	<details id="node-details-from">
+		<summary> <span data-i18n="set-network.section.from"></span><span data-i18n="set-network.tip.from"></span></summary>
+
+		<div class="form-row">
+			<input type="checkbox" id="node-input-editorIsX" style="margin-bottom: .5em;display: inline-block; width: auto;">
+			<span data-i18n="set-network.label.editor"></span>
+			</input>
+
+			<details id="node-details-editor">
+			<summary style="margin-left: 1.5em;"> <span data-i18n="set-network.section.editor"></span></summary>
+				<div class="form-row" style="position: relative; margin-bottom: 0px;">
+					<label style="width: auto;" for="node-input-template"><i class="fa fa-file-code-o"></i> <span data-i18n="set-network.label.template"></span></label>
+					<input type="hidden" id="node-input-template" autofocus="autofocus">
+					<div style="position: absolute; right:0;display:inline-block; text-align: right; font-size: 0.8em;">
+						<span data-i18n="set-network.label.templateformat"></span>:
+						<select id="node-input-format" style="width:110px; font-size: 10px !important;  height: 24px; padding:0;">
+							<option value="text" data-i18n="node-red:template.label.none"></option>
+							<option value="handlebars">mustache</option>
+						</select>
+						<button type="button" id="node-template-expand-editor" class="red-ui-button red-ui-button-small"><i class="fa fa-expand"></i></button>
+					</div>
+				</div>
+				<div class="form-row node-text-editor-row">
+					<div style="height: 150px; min-height:150px;" class="node-text-editor" id="node-input-template-editor"></div>
+				</div>
+			</details>
+		</div>
+
+
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fileIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-file" style="display: inline-block; width: auto; margin-right: .5em;"> <span data-i18n="set-network.label.file"></span></label>
+			<input type="text" id="node-input-file">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-twikiIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-twikiName" style="width: auto;"> <span data-i18n="set-network.label.twikiName"></span></label>
+			<input type="text" id="node-input-twikiName" style="display: inline-block; width: auto;">
+		</div>
+		<div class="form-row">
+			<label for="node-input-filter" style="display: inline-block; width: auto; margin-left: 20px;"><i class="fa fa-arrow-circle-o-up"></i> <span data-i18n="set-network.label.filter"></span></label>
+			<input type="text" id="node-input-filter">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-fieldIsX" style="display: inline-block; width: auto;margin-top: .6em; vertical-align: top;"></input>
+			<label for="node-input-field" style="display: inline-block; width: auto;"> <span data-i18n="set-network.label.field"></span></label>
+			<input type="text" id="node-input-field">
+		</div>
+	</details>
+	<hr>
+	<details id="node-details-settings">
+		<summary> <span data-i18n="set-network.section.settings"></span></summary>
+		<div class="form-row" style="display: none;">
+			<input type="checkbox" id="node-input-updtostory" style="margin-bottom: .5em;display: inline-block; width: auto;"></input>
+			<label id="node-updtostory-label" style="width: auto;" for="node-input-updtostory"><span data-i18n="set-network.label.updtostory"></span></label>
+			<input type="text" id="node-input-tostory">
+		</div>
+		<div class="form-row">
+			<input type="checkbox" id="node-input-clear" style="display: inline-block; width: auto;margin-top: .2em; vertical-align: top;"></input>
+			<span data-i18n="set-network.label.clear"></span>
+		</div>
+	</details>
+	<hr>
+	<div class="form-row">
+		<label for="node-input-topic"><i class="fa fa-tag"></i> <span data-i18n="set-network.label.topic"></span></label>
+		<input type="text" id="node-input-topic" data-i18n="[placeholder]set-network.label.topic">
+	</div>
+	<div>&nbsp;</div>
+</script>
+
+
+<!--   Help Files  -->
+<script type="text/markdown" data-help-name="set-network">
+Updates data in msg.wiki
+
+### Inputs
+
+The input messages are from clients via socket.io connected to this Node-Red server.
+
+A 'Send connection related messages' option will output lower level socket
+'connected', 'reconnected', and 'disconnected' topics. Note that the 'disconnected'
+message is unreliable as many Android browsers do not send them at all.
+
+### Outputs
+
+'msg.topic' is used to route the msg to the proper flow.
+'msg.wiki' contains the data content of what was received from a TiddlyWiki client.
+
+'msg.sio' contains network information required by 'wiki out' nodes to send responses
+to clients. Works similar to the Node-Red 'HTTP in' and 'HTTP response' nodes.
+
+Fields of interest:
+
+: *topic* (string)               :  the topic determines the Node-Red flow to process the message.
+: *wiki*  (object)               :  Wiki in standard Javascript arrays and Objects
+: *wiki.client.tiddlers* (array) :  Tiddlers from TiddlyWiki client
+: *wiki.server.tiddlers* (array) :  Tiddlers to TiddlyWiki client
+: *wiki.meta.tiddlers* (array)   :  Tiddlers exchanged for TiddlyWiki/Node-red use
+
+'msg.payload' is considered a working variable and is undefined when output by 'wiki in'
+node.
+
+### Details
+
+All 'wiki-in' nodes share a configuration node which access to
+
+
+If there are multiple 'wiki in' nodes in the Node-Red workspace, each one
+outputs all messages from all clients received by socket.io. 'wiki in' nodes are effectively
+identical copies of each other. In many cases multiple 'wiki in' -> ... -> 'wiki out'
+nodes can reduce visual complexity. Wiring a single 'wiki in' node all
+over the workspace can become ugly very quickly.
+
+
+`msg.topic` is used to direct the message through the proper flow.
+This is usually done by wiring the **wiki in** node to a **switch** node that tests
+for the topic(s) of interest that are wired to flows to process the message.
+
+`msg.wiki` is used as the content of the messages.
+It contains **'meta'**, **'client'**, and **'server'** Objects.
+Each contain a **'tiddlers'** property which is an array of tiddlers fields. The array elements
+are objects containing the fields of each tiddler in the array.
+Is valid for the arrays to be empty, depending on the topic.
+
+
+`wiki.meta.tiddlers` array contains tiddlers fields that are exchanged between server
+and client. If used, normally contains client/server state information.
+
+`wiki.client.tiddlers` array contains the tiddlers sent by the client.
+
+`wiki.server.tiddlers` array is normally empty when received by 'wiki in' node. Is
+populated by the Node-Red flows to be sent back to the client.
+
+### References
+<a target="_blank" href="/docs/#/messages"> Messages </a> - for description of `msg.wiki` properties for TW5-Node-Red. <br>
+ [GitHub]() - the nodes github repository
+</script>
+
+<script type="text/markdown" data-help-name="get-network">
+Receive all messages from all TiddlyWiki Clients via socket.io network
+
+### Inputs
+
+### Outputs
+
+### Details
+
+### References
+</script>

@@ -1,0 +1,160 @@
+[
+    {
+        "id": "b6d912c02aed86c4",
+        "type": "link in",
+        "z": "c58e1993cab59996",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 65,
+        "y": 760,
+        "wires": [
+            [
+                "72819d4ce2773e9b"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "72819d4ce2773e9b",
+        "type": "switch",
+        "z": "c58e1993cab59996",
+        "name": "twfndocs",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "twfndocs",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "6f82e8f80217096a"
+            ]
+        ]
+    },
+    {
+        "id": "6f82e8f80217096a",
+        "type": "template",
+        "z": "c58e1993cab59996",
+        "name": "TW5 func markup",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "text",
+        "syntax": "plain",
+        "template": "/*\nReference TiddlyWiki\nHashmap by name of current TW wikis\n\nPlace these at the top of function node to access '$tw'.\n\n*/\nvar $tw = global.get('$tw');\nOptional:\nvar twikis = global.get('twikis');\n+===+\n<pre><code>var $tw = global.get('$tw');</code></pre>\n\nTW5-Node-RED maintains TiddlyWiki Stores (twikis). Is a\nhashmap of twikis by name\n\n<pre><code>var twikis = global.get('twikis');</code></pre>\n\n\n+======+\n\n/*\nTiddlyWiki Utility Functions\n\n*/\n$tw.utils()\n+===+\n<pre><code>$tw.utils.Animator\n$tw.utils.Crypto\n$tw.utils.HttpClient\n$tw.utils.LinkedList\n$tw.utils.Logger\n$tw.utils.Modal\n$tw.utils.Notifier\n$tw.utils.PageScroller\n$tw.utils.PasswordPrompt\n$tw.utils.Popup\n$tw.utils.addAttributeToParseTreeNode\n$tw.utils.addClass\n$tw.utils.addClassToParseTreeNode\n$tw.utils.addEventListeners\n$tw.utils.addStyleToParseTreeNode\n$tw.utils.base64Decode\n$tw.utils.base64Encode\n$tw.utils.buildCoordinates\n$tw.utils.checkDependencies\n$tw.utils.checkKeyDescriptor\n$tw.utils.checkVersions\n$tw.utils.cleanupTiddlerFiles\n$tw.utils.collectDOMVariables\n$tw.utils.compareVersions\n$tw.utils.convertEventName\n$tw.utils.convertPropertyNameToStyleName\n$tw.utils.convertStyleNameToPropertyName\n$tw.utils.coordinatePrefix\n$tw.utils.copyDirectory\n$tw.utils.copyFile\n$tw.utils.copyStyles\n$tw.utils.copyToClipboard\n$tw.utils.count\n$tw.utils.createDirectory\n$tw.utils.createFileDirectories\n$tw.utils.decodeURIComponentSafe\n$tw.utils.decodeURISafe\n$tw.utils.decryptStoreArea\n$tw.utils.decryptStoreAreaInteractive\n$tw.utils.deepCopy\n$tw.utils.deepDefaults\n$tw.utils.deepFreeze\n$tw.utils.deleteDirectory\n$tw.utils.deleteEmptyDirs\n$tw.utils.deleteTiddlerFile\n$tw.utils.domContains\n$tw.utils.domMaker\n$tw.utils.domMatchesSelector\n$tw.utils.dragEventContainsFiles\n$tw.utils.dragEventContainsType\n$tw.utils.each\n$tw.utils.encodeURIComponentExtended\n$tw.utils.endsWith\n$tw.utils.entityDecode\n$tw.utils.error\n$tw.utils.escape\n$tw.utils.escapeCSS\n$tw.utils.escapeRegExp\n$tw.utils.evalGlobal\n$tw.utils.evalSandboxed\n$tw.utils.extend\n$tw.utils.extendDeepCopy\n$tw.utils.extractEncryptedStoreArea\n$tw.utils.extractVersionInfo\n$tw.utils.findFollowingLineBreak\n$tw.utils.findParseTreeNode\n$tw.utils.findPrecedingLineBreak\n$tw.utils.forceLayout\n$tw.utils.formatDateString\n$tw.utils.formatTitleString\n$tw.utils.generateTiddlerExtension\n$tw.utils.generateTiddlerFileInfo\n$tw.utils.generateTiddlerFilepath\n$tw.utils.getAmPm\n$tw.utils.getAnimationDuration\n$tw.utils.getAttributeValueFromParseTreeNode\n$tw.utils.getBoundingPageRect\n$tw.utils.getComputedStyles\n$tw.utils.getDaySuffix\n$tw.utils.getEditionInfo\n$tw.utils.getFileExtensionInfo\n$tw.utils.getFullScreenApis\n$tw.utils.getHours12\n$tw.utils.getInt\n$tw.utils.getLocationHash\n$tw.utils.getLocationPath\n$tw.utils.getOrderedAttributesFromParseTreeNode\n$tw.utils.getParseTreeText\n$tw.utils.getPassword\n$tw.utils.getRelativeDate\n$tw.utils.getScrollContainer\n$tw.utils.getScrollPosition\n$tw.utils.getSubdirectories\n$tw.utils.getSystemInfo\n$tw.utils.getTypeEncoding\n$tw.utils.getWeek\n$tw.utils.getYearForWeekNo\n$tw.utils.hasClass\n$tw.utils.hashString\n$tw.utils.hop\n$tw.utils.hopArray\n$tw.utils.htmlDecode\n$tw.utils.htmlEncode\n$tw.utils.htmlTextEncode\n$tw.utils.httpRequest\n$tw.utils.hyphenateCss\n$tw.utils.importDataTransfer\n$tw.utils.importPaste\n$tw.utils.insertSortedArray\n$tw.utils.isArray\n$tw.utils.isArrayEqual\n$tw.utils.isDate\n$tw.utils.isDirectory\n$tw.utils.isDirectoryEmpty\n$tw.utils.isLinkExternal\n$tw.utils.isValidFieldName\n$tw.utils.itemHasValidDataType\n$tw.utils.jsonStringify\n$tw.utils.log\n$tw.utils.logTable\n$tw.utils.makeCompareFunction\n$tw.utils.makeDataUri\n$tw.utils.makeDraggable\n$tw.utils.makeTiddlerDictionary\n$tw.utils.nextTick\n$tw.utils.pad\n$tw.utils.parseAttribute\n$tw.utils.parseCSSColor\n$tw.utils.parseCoordinates\n$tw.utils.parseCsvString\n$tw.utils.parseCsvStringWithHeader\n$tw.utils.parseDate\n$tw.utils.parseFields\n$tw.utils.parseFilterVariable\n$tw.utils.parseInt\n$tw.utils.parseJSONSafe\n$tw.utils.parseKeyDescriptor\n$tw.utils.parseMacroInvocation\n$tw.utils.parseMacroInvocationAsTransclusion\n$tw.utils.parseMacroParameter\n$tw.utils.parseMacroParameters\n$tw.utils.parseNumber\n$tw.utils.parseParameterDefinition\n$tw.utils.parseStringArray\n$tw.utils.parseStringLiteral\n$tw.utils.parseTextReference\n$tw.utils.parseTokenRegExp\n$tw.utils.parseTokenString\n$tw.utils.parseVersion\n$tw.utils.parseWhiteSpace\n$tw.utils.popupLocationRegExp\n$tw.utils.pulseElement\n$tw.utils.pushTop\n$tw.utils.querySelectorAllSafe\n$tw.utils.querySelectorSafe\n$tw.utils.readPopupState\n$tw.utils.registerFileType\n$tw.utils.removeArrayEntries\n$tw.utils.removeChildren\n$tw.utils.removeClass\n$tw.utils.removeTrailingSeparator\n$tw.utils.repackPlugin\n$tw.utils.repeat\n$tw.utils.replaceString\n$tw.utils.resizeTextAreaToFit\n$tw.utils.resolvePath\n$tw.utils.roundTripPropertyName\n$tw.utils.sandbox\n$tw.utils.savePassword\n$tw.utils.saveTiddlerToFile\n$tw.utils.saveTiddlerToFileSync\n$tw.utils.setQueryStringParameter\n$tw.utils.setSelectionByPosition\n$tw.utils.setSelectionRangeSafe\n$tw.utils.setStyle\n$tw.utils.setStyles\n$tw.utils.sign\n$tw.utils.skipWhiteSpace\n$tw.utils.slowInSlowOut\n$tw.utils.startsWith\n$tw.utils.strEndsWith\n$tw.utils.stringify\n$tw.utils.stringifyDate\n$tw.utils.stringifyList\n$tw.utils.stringifyNumber\n$tw.utils.tagToCssSelector\n$tw.utils.terminalColour\n$tw.utils.terminalColourLookup\n$tw.utils.timer\n$tw.utils.toSentenceCase\n$tw.utils.toTitleCase\n$tw.utils.toggleClass\n$tw.utils.transliterate\n$tw.utils.transliterateToSafeASCII\n$tw.utils.transliterationPairs\n$tw.utils.trim\n$tw.utils.trimPrefix\n$tw.utils.trimSuffix\n$tw.utils.unHyphenateCss\n$tw.utils.unescapeLineBreaks\n$tw.utils.warning</code></pre>\n\n+======+\n\n/*\nTiddlyWiki Store (wiki) Functions\n\n*/\n$tw.wiki()\n+===+\n<pre><code>$tw.wiki.addEventListener\n$tw.wiki.addIndexersToWiki\n$tw.wiki.addTiddlers\n$tw.wiki.addToHistory\n$tw.wiki.addToStory\n$tw.wiki.checkTiddlerText\n$tw.wiki.clearCache\n$tw.wiki.clearGlobalCache\n$tw.wiki.clearTiddlerEventQueue\n$tw.wiki.compileFilter\n$tw.wiki.constructor\n$tw.wiki.countTiddlers\n$tw.wiki.defineShadowModules\n$tw.wiki.defineTiddlerModules\n$tw.wiki.deleteTextReference\n$tw.wiki.deserializeTiddlers\n$tw.wiki.dispatchEvent\n$tw.wiki.doesPluginInfoRequireReload\n$tw.wiki.doesPluginRequireReload\n$tw.wiki.enqueueTiddlerEvent\n$tw.wiki.extractLinks\n$tw.wiki.extractTiddlerDataItem\n$tw.wiki.filterOperators\n$tw.wiki.filterRunPrefixes\n$tw.wiki.filterTiddlers\n$tw.wiki.findDraft\n$tw.wiki.findListingsOfTiddler\n$tw.wiki.forEachTiddler\n$tw.wiki.generateDraftTitle\n$tw.wiki.generateNewTitle\n$tw.wiki.getCacheForTiddler\n$tw.wiki.getChangeCount\n$tw.wiki.getCreationFields\n$tw.wiki.getFilterOperators\n$tw.wiki.getFilterRunPrefixes\n$tw.wiki.getGlobalCache\n$tw.wiki.getMissingTitles\n$tw.wiki.getModificationFields\n$tw.wiki.getOrphanTitles\n$tw.wiki.getSizeOfTiddlerEventQueue\n$tw.wiki.getSubTiddler\n$tw.wiki.getSubstitutedText\n$tw.wiki.getTagMap\n$tw.wiki.getTextReference\n$tw.wiki.getTextReferenceParserInfo\n$tw.wiki.getTiddlerAsJson\n$tw.wiki.getTiddlerBacklinks\n$tw.wiki.getTiddlerData\n$tw.wiki.getTiddlerDataCached\n$tw.wiki.getTiddlerLinks\n$tw.wiki.getTiddlerList\n$tw.wiki.getTiddlerText\n$tw.wiki.getTiddlers\n$tw.wiki.getTiddlersAsJson\n$tw.wiki.getTiddlersWithTag\n$tw.wiki.importTiddler\n$tw.wiki.initParsers\n$tw.wiki.invokeActionString\n$tw.wiki.invokeUpgraders\n$tw.wiki.isBinaryTiddler\n$tw.wiki.isDraftModified\n$tw.wiki.isImageTiddler\n$tw.wiki.isSystemTiddler\n$tw.wiki.isTemporaryTiddler\n$tw.wiki.isVolatileTiddler\n$tw.wiki.makeTiddlerIterator\n$tw.wiki.makeTranscludeWidget\n$tw.wiki.makeWidget\n$tw.wiki.parseFilter\n$tw.wiki.parseText\n$tw.wiki.parseTextReference\n$tw.wiki.parseTiddler\n$tw.wiki.processSafeMode\n$tw.wiki.readFile\n$tw.wiki.readFileContent\n$tw.wiki.readFiles\n$tw.wiki.relinkTiddler\n$tw.wiki.removeEventListener\n$tw.wiki.renameTiddler\n$tw.wiki.renderText\n$tw.wiki.renderTiddler\n$tw.wiki.search\n$tw.wiki.setText\n$tw.wiki.setTextReference\n$tw.wiki.setTiddlerData\n$tw.wiki.slugify\n$tw.wiki.sortByList\n$tw.wiki.sortTiddlers\n$tw.wiki.addIndexer\n$tw.wiki.addTiddler\n$tw.wiki.allShadowTitles\n$tw.wiki.allTitles\n$tw.wiki.caches\n$tw.wiki.changeCount\n$tw.wiki.changedTiddlers\n$tw.wiki.deleteTiddler\n$tw.wiki.each\n$tw.wiki.eachShadow\n$tw.wiki.eachShadowPlusTiddlers\n$tw.wiki.eachTiddlerPlusShadows\n$tw.wiki.eventListeners\n$tw.wiki.eventsTriggered\n$tw.wiki.filterCache\n$tw.wiki.filterCacheCount\n$tw.wiki.filterRecursionCount\n$tw.wiki.getIndexer\n$tw.wiki.getPluginInfo\n$tw.wiki.getPluginTypes\n$tw.wiki.getShadowSource\n$tw.wiki.getTiddler\n$tw.wiki.globalCache\n$tw.wiki.isShadowTiddler\n$tw.wiki.readPluginInfo\n$tw.wiki.registerPluginTiddlers\n$tw.wiki.tiddlerExists\n$tw.wiki.unpackPluginTiddlers\n$tw.wiki.unregisterPluginTiddlers</code></pre>\n\n+======+\n\n\n\n\n/*\nPush entries onto an array, removing them first if they already exist in the array\n\tarray: array to modify (assumed to be free of duplicates)\n\tvalue: a single value to push or an array of values to push\n*/\n$tw.utils.pushTop = function(array,value) {\n\n+===+\n<pre><code>var arr = [];\n$tw.utils.pushTop(arr,'no dups');\nconsole.dir(arr);\n</code></pre>\n\nIs similar to JavaScript 'push' function while removing the value\nif it already exists in the array\n+======+\n\n/*\nDetermine if a value is a date\n*/\n$tw.utils.isDate = function(value) {\n\n+===+\n<pre><code>console.log($tw.utils.isDate(new Date())); &#47;&#47; true\nconsole.log($tw.utils.isDate('not a date')); &#47;&#47; false</code></pre>\nWould display\ntrue\nfalse\n+======+\n\n/*\nIterate through all the own properties of an object or array. Callback is invoked with (element,title,object)\n*/\n$tw.utils.each = function(object,callback) {\n+======+\n\n/*\nPad a string to a given length with \"0\"s. Length defaults to 2\n*/\n$tw.utils.pad = function(value,length) {\n+===+\n<pre><code>console.log($tw.utils.pad('12345', 8));</code></pre>\n+======+\n\n/*\nConvert a date into UTC YYYYMMDDHHMMSSmmm format\n*/\n$tw.utils.stringifyDate = function(value) {\n+===+\n<pre><code>var twFormattedDate = $tw.utils.stringifyDate(new Date());\nconsole.log(twFormattedDate);</code></pre>\n\nThis function and [[utils.parseDate]] are used to\npopulate tiddler 'created' and 'modified' fields\n+======+\n\n/*\nParse a date from a UTC YYYYMMDDHHMMSSmmm format string\n*/\n$tw.utils.parseDate = function(value) {\n+===+\n\n<pre><code>var osDate = $tw.utils.parseDate('20230902233005886');\nconsole.log(osDate);</code></pre>\n\nThis function and [[utils.stringifyDate]] are used to\npopulate tiddler 'created' and 'modified' fields\n+======+\n\n/*\nStringify an array of tiddler titles into a list string\n*/\n$tw.utils.stringifyList = function(value) {\n+===+\nCreates a TiddlyWiki List with tiddler titles containing spaces\ndelimited by &#91;&#91; / &#93;&#93;\n+======+\n\n/*\nParse a string array from a bracketted list. For example \"OneTiddler &#91;&#91;Another Tiddler&#93;&#93; LastOne\"\n*/\n$tw.utils.parseStringArray = function(value, allowDuplicate) {\n+======+\n\n/*\nParse a block of name:value fields. The 'fields' object is used as the basis for the return value\n*/\n$tw.utils.parseFields = function(text,fields) {\n+======+\n\n/*\nSafely parse a string as JSON\n*/\n$tw.utils.parseJSONSafe = function(text,defaultJSON) {\n+======+\n\n/*\nResolves a source filepath delimited with '/' relative to a specified absolute root filepath.\nIn relative paths, the special folder name '..' refers to immediate parent directory, and the\nname '.' refers to the current directory\n*/\n$tw.utils.resolvePath = function(sourcepath,rootpath) {\n+======+\n\n/*\nReturns true if the version string A is greater than the version string B. Returns true if the versions are the same\n*/\n$tw.utils.checkVersions = function(versionStringA,versionStringB) {\n+======+\n\n\n\n/*\n------------------------------ Tiddler methods ------------------------------\n*/\nTiddler methods\n+======+\n\n/*\nConstruct a tiddler object from a hashmap of tiddler fields. If multiple hasmaps are provided they are merged,\ntaking precedence to the right\n*/\n$tw.Tiddler = function(/* [fields,] fields */) {\n+======+\n\n/*\nCheck if tiddler contains a specific field\n*/\n$tw.Tiddler.prototype.hasField = function(field) {\n+======+\n\n/*\nCompare two tiddlers for equality\ntiddler: the tiddler to compare\nexcludeFields: array of field names to exclude from the comparison\n*/\n$tw.Tiddler.prototype.isEqual = function(tiddler,excludeFields) {\n+======+\n\n\n\n/*\n------------------------------ Wiki methods ------------------------------\n*/\nWiki methods\n+======+\n\n/*\nAdd a tiddler to the store\n*/\n$tw.wiki.addTiddler = function(tiddler) {\n+======+\n\n/*\nDelete a tiddler\n*/\n$tw.wiki.deleteTiddler = function(title) {\n+======+\n\n/*\nGet a tiddler from the store\n*/\n$tw.wiki.getTiddler = function(title) {\n+======+\n\n/*\nGet an array of all tiddler titles\n*/\n$tw.wiki.allTitles = function() {\n+======+\n\n/*\nIterate through all tiddler titles\n*/\n$tw.wiki.each = function(callback) {\n+======+\n\n/*\nGet an array of all shadow tiddler titles\n*/\n$tw.wiki.allShadowTitles = function() {\n+======+\n\n/*\nIterate through all shadow tiddler titles\n*/\n$tw.wiki.eachShadow = function(callback) {\n+======+\n\n/*\nIterate through all tiddlers and then the shadows\n*/\n$tw.wiki.eachTiddlerPlusShadows = function(callback) {\n+======+\n\n/*\nIterate through all the shadows and then the tiddlers\n*/\n$tw.wiki.eachShadowPlusTiddlers = function(callback) {\n+======+\n\n/*\nTest for the existence of a tiddler (excludes shadow tiddlers)\n*/\n$tw.wiki.tiddlerExists = function(title) {\n+======+\n\n/*\nDetermines if a tiddler is a shadow tiddler, regardless of whether it has been overridden by a real tiddler\n*/\n$tw.wiki.isShadowTiddler = function(title) {\n+======+\n\n/*\nAdd an array of tiddlers\n*/\n$tw.wiki.addTiddlers = function(tiddlers) {\n+======+\n\n/*\nExtracts tiddlers from a typed block of text, specifying default field values\n*/\n$tw.wiki.deserializeTiddlers = function(type,text,srcFields,options) {\n+======+\n\n\n\n/*\n------------------------------ Other methods ------------------------------\n*/\nOther methods that are added by $:/core/modules/wiki.js\n+======+\n\n/*\nGenerate an unused title from the specified base\noptions.prefix must be a string\n*/\n$tw.wiki.generateNewTitle = function(baseTitle,options) {\n+======+\n\n/*\nCheck if system tiddler\n*/\n$tw.wiki.isSystemTiddler = function(title) {\n+======+\n\n/*\nCheck if temp tiddler\n*/\n$tw.wiki.isTemporaryTiddler = function(title) {\n+======+\n\n/*\nCheck if volatile tiddler\n*/\n$tw.wiki.isVolatileTiddler = function(title) {\n+======+\n\n/*\nCheck if image tiddler\n*/\n$tw.wiki.isImageTiddler = function(title) {\n+======+\n\n/*\nCheck if binary tiddler\n*/\n$tw.wiki.isBinaryTiddler = function(title) {\n+======+\n\n/*\nLike addTiddler() except it will silently reject any plugin tiddlers that are older than the currently loaded version. Returns true if the tiddler was imported\n*/\n$tw.wiki.importTiddler = function(tiddler) {\n+======+\n\n/*\nReturn a hashmap of the fields that should be set when a tiddler is created\n*/\n$tw.wiki.getCreationFields = function() {\n+======+\n\n/*\nReturn a hashmap of the fields that should be set when a tiddler is modified\n*/\n$tw.wiki.getModificationFields = function() {\n+======+\n\n/*\nReturn a sorted array of tiddler titles.  Options include:\nsortField: field to sort by\nexcludeTag: tag to exclude\nincludeSystem: whether to include system tiddlers (defaults to false)\n*/\n$tw.wiki.getTiddlers = function(options) {\n+======+\n\n/*\nReturn number of tiddlers in wiki\n*/\n$tw.wiki.countTiddlers = function(excludeTag) {\n+======+\n\n/*\nSort an array of tiddler titles by a specified field\n\ttitles: array of titles (sorted in place)\n\tsortField: name of field to sort by\n\tisDescending: true if the sort should be descending\n\tisCaseSensitive: true if the sort should consider upper and lower case letters to be different\n*/\n$tw.wiki.sortTiddlers = function(titles,sortField,\n       isDescending,isCaseSensitive,isNumeric,isAlphaNumeric)\n+======+\n\n/*\nFor every tiddler invoke a callback(title,tiddler) with 'this' set to the wiki object. Options include:\nsortField: field to sort by\nexcludeTag: tag to exclude\nincludeSystem: whether to include system tiddlers (defaults to false)\n*/\n$tw.wiki.forEachTiddler = function(/* [options,]callback */) {\n+======+\n\n/*\nRetrieves a list of the tiddler titles that are tagged with a given tag\n*/\n$tw.wiki.getTiddlersWithTag = function(tag) {\n+======+\n\n/*\nGet a hashmap by tag of arrays of tiddler titles\n*/\n$tw.wiki.getTagMap = function() {\n+======+\n\n/*\nLookup a given tiddler and return a list of all the tiddlers that include it in the specified list field\n*/\n$tw.wiki.findListingsOfTiddler = function(targetTitle,fieldName) {\n+======+\n\n/*\nSorts an array of tiddler titles according to an ordered list\n*/\n$tw.wiki.sortByList = function(array,listTitle) {\n+======+\n\n/*\nRetrieve a tiddler as a JSON string of the fields\n*/\n$tw.wiki.getTiddlerAsJson = function(title) {\n+======+\n\n/*\nRetrieve tiddlers matching filter as an array of JSON string of the fields\n*/\n$tw.wiki.getTiddlersAsJson = function(filter,spaces) {\n+======+\n\n/*\nGet the content of a tiddler as a JavaScript object. How this is done depends on the type of the tiddler:\n\napplication/json: the tiddler JSON is parsed into an object\napplication/x-tiddler-dictionary: the tiddler is parsed as sequence of name:value pairs\n\nOther types currently just return null.\n\ntitleOrTiddler: string tiddler title or a tiddler object\ndefaultData: default data to be returned if the tiddler is missing or doesn't contain data\n\nNote that the same value is returned for repeated calls for the same tiddler data. The value is frozen to prevent modification; otherwise modifications would be visible to all callers\n*/\n$tw.wiki.getTiddlerDataCached = function(titleOrTiddler,defaultData) {\n+======+\n\n/*\nAlternative, uncached version of getTiddlerDataCached(). The return value can be mutated freely and reused\n*/\n$tw.wiki.getTiddlerData = function(titleOrTiddler,defaultData) {\n+======+\n\n/*\nExtract an indexed field from within a data tiddler\n*/\n$tw.wiki.extractTiddlerDataItem = function(titleOrTiddler,index,defaultText) {\n+======+\n\n/*\nSet a tiddlers content to a JavaScript object. Currently this is done by setting the tiddler's type to \"application/json\" and setting the text to the JSON text of the data.\ntitle: title of tiddler\ndata: object that can be serialised to JSON\nfields: optional hashmap of additional tiddler fields to be set\noptions: optional hashmap of options including:\n\tsuppressTimestamp: if true, don't set the creation/modification timestamps\n*/\n$tw.wiki.setTiddlerData = function(title,data,fields,options) {\n+======+\n\n/*\nReturn the content of a tiddler as an array containing each line\n*/\n$tw.wiki.getTiddlerList = function(title,field,index) {\n\nThis is details text.\n\n+======+\n\n/*\nGet the value of a text reference. Text references can have any of these forms:<pre><code>\n  &lt;tiddlertitle&gt;\n  &lt;tiddlertitle&gt;!!&lt;fieldname&gt;\n  !!&lt;fieldname&gt; - specifies a field of the current tiddlers\n  &lt;tiddlertitle>##&lt;index&gt;\n</code></pre>\n*/\n$tw.wiki.getTextReference = function(textRef,defaultText,currTiddlerTitle) {\n+======+\n\n/*\ntodo: grab the textref and event handling stuff\n*/\nWill add these\n+======+\n\n\n/*\nParse a block of text of a specified MIME type\n\ttype: content type of text to be parsed\n\ttext: text\n\toptions: see below\nOptions include:\n\tparseAsInline: if true, the text of the tiddler will be parsed as an inline run\n\t_canonical_uri: optional string of the canonical URI of this content\n*/\n$tw.wiki.parseText = function(type,text,options) {\n+======+\n\n/*\nParse a tiddler according to its MIME type\n*/\n$tw.wiki.parseTiddler = function(title,options) {\n+======+\n\n/*\nReturn an array of tiddler titles that match a search string\n\ttext: The text string to search for\n\toptions: see below\nOptions available:\n\tsource: an iterator function for the source tiddlers, called source(iterator),\n\t\twhere iterator is called as iterator(tiddler,title)\n\texclude: An array of tiddler titles to exclude from the search\n\tinvert: If true returns tiddlers that do not contain the specified string\n\tcaseSensitive: If true forces a case sensitive search\n\tfield: If specified, restricts the search to the specified field, or an array of field names\n\tanchored: If true, forces all but regexp searches to be anchored to the start of text\n\texcludeField: If true, the field options are inverted to specify the fields that are not to be searched\n\n\tThe search mode is determined by the first of these boolean flags to be true\n\t\tliteral: searches for literal string\n\t\twhitespace: same as literal except runs of whitespace are treated as a single space\n\t\tregexp: treats the search term as a regular expression\n\t\twords: (default) treats search string as a list of tokens, and matches if all tokens are found,\n\t\t\tregardless of adjacency or ordering\n\t\tsome: treats search string as a list of tokens, and matches if at least ONE token is found\n*/\n$tw.wiki.search = function(text,options) {\n+======+\n\n/*\nCheck whether the text of a tiddler matches a given value. By default, the comparison is case insensitive, and any spaces at either end of the tiddler text is trimmed\n*/\n$tw.wiki.checkTiddlerText = function(title,targetText,options) {\n+======+\n\n/*\nFind any existing draft of a specified tiddler\n*/\n$tw.wiki.findDraft = function(targetTitle) {\n+======+\n",
+        "output": "str",
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "8b21a1243963fdcd"
+            ]
+        ],
+        "info": "The markup is formatted using line\ndelimiters.\n\n/*\n Comment copied from TiddlyWiki .js\n*/\n\n$tw.utils.pushTop = function(array,value) {\n\n+===+\ntext about the function\n+======+\n\n"
+    },
+    {
+        "id": "8b21a1243963fdcd",
+        "type": "function",
+        "z": "c58e1993cab59996",
+        "name": "func markup to tiddlers",
+        "func": "var text = msg.payload;\n\nfunction extractContent(text, elements) {\n    var lines = text.split('\\n');\n\n    var twfndocs = [], counter = 0;\n    elements.forEach(element => {\n        let twfndoc = {\n            id: ++counter,\n            title: '',\n            tags: 'twfuncdocs',\n            comment: lines.slice(element.commentStx, element.commentEtx).join('<br>')\n                .replace(/\\t/g, '  '),\n            definition: lines.slice(element.contentStx, element.contentEtx).join('<br>')\n                .replace(' = function', '').replace(' {', ''),\n            details: lines.slice(element.detailsStx, element.detailsEtx).join('<br>')\n        }\n        twfndocs.push(twfndoc);\n    })\n    twfndocs.forEach(doc => {\n        doc.title = doc.definition.match(/(\\w+\\.\\w+)\\(/) \n            ? doc.definition.match(/(\\w+\\.\\w+)\\(/)[1]\n          : '';\n        if (doc.title === 'get') {doc.title = 'TiddlyWiki'}\n        doc.row = `|{{!!title}}|{{!!definition}}| \\n |>|{{comment}}|`;\n        doc.text = `{{!!comment}} \\n\\n {{!!definition}} \\n\\n---\\n\\n {{!!details}}`;\n    })\n    return twfndocs;\n}\n\nfunction markContent(text) {\n    var lines = text.split('\\n');\n\n    var elements = [];\n    var newElement = (idx) => {\n        return {\n            commentStx: idx + 1,\n            commentEtx: idx + 1,\n            contentStx: -1,\n            contentEtx: -1,\n            detailsStx: -1,\n            detailsEtx: -1\n        }\n    };\n\n    for (let idx = 0; idx < lines.length; idx++) {\n        let top = elements.length-1;\n        // '/*'\n        if (/^\\/\\*/.test(lines[idx])) {\n            elements.push(newElement(idx))\n        }\n        // '*/'\n        if (/^\\*\\//.test(lines[idx])) {\n            elements[top].commentEtx = idx;\n            elements[top].contentStx = idx + 1;\n            elements[top].contentEtx = idx + 1;\n            elements[top].detailsStx = -1;\n            elements[top].detailsEtx = -1;\n        }\n        // '+===+'\n        if (/^\\+===\\+$/.test(lines[idx])) {\n            elements[top].contentEtx = idx;\n            elements[top].detailsStx = idx + 1;\n            elements[top].detailsEtx = idx + 1;\n        }\n        // '+======+'\n        if (/^\\+======\\+$/.test(lines[idx])) {\n            if (elements[top].contentEtx == elements[top].contentStx ) {\n                elements[top].contentEtx = idx;\n            } else {\n                elements[top].detailsEtx = idx;\n            }\n\n            elements[top].contentEtx = elements[top].contentEtx != elements[top].contentStx \n                ? elements[top].contentEtx\n                : idx;\n        }\n    }\n    return extractContent(text, elements);\n}\n\nfunction tableTiddler(docs) {\n    let table = [];\n    docs.forEach(doc => {\n        if (doc.title === 'tw.Tiddler') {\n            table.push(``);\n            table.push(`<b>Tiddler</b>`)\n            table.push(``);\n        }\n        if (doc.title === 'utils.pushTop') { \n            table.push(``);\n            table.push(`<b>$tw.utils</b>`)\n            table.push(`Handy utility functions`);\n            table.push(``);\n        }\n        if (doc.title === 'wiki.addTiddler') {\n            table.push(``);\n            table.push(`<b>Wiki store (twikis)</b>`);\n            table.push(`Examples are using the default wiki '$tw.wiki'\n\nUse <code>twikis['TW Wiki Name']</code> instead of <code>$tw.wiki</code> to\naccess <b>twikis</b> created by the Tiddler 'to twiki' and 'from twiki' nodes.\n`);\n            table.push(``);\n        }\n        table.push(`|{{[[${doc.title}]]!!title}}|{{${doc.title}!!comment}}|`);\n        table.push(`|~|{{${doc.title}!!definition}}|`);\n    })\n    return table.join('\\n');\n}\n\nmsg.payload = markContent(text);\nmsg.tableTiddler = `title: TW5 Functions\n\nFunctions available for use in Node-Red 'function' node.\n\n${tableTiddler(msg.payload)}\n`\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 760,
+        "wires": [
+            [
+                "a16fff948d8771f4",
+                "7e6fbb4ff42c1489"
+            ]
+        ]
+    },
+    {
+        "id": "a16fff948d8771f4",
+        "type": "set-network",
+        "z": "c58e1993cab59996",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": false,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 740,
+        "y": 780,
+        "wires": [
+            [
+                "7b92b0207a3e0740"
+            ]
+        ]
+    },
+    {
+        "id": "7e6fbb4ff42c1489",
+        "type": "set-network",
+        "z": "c58e1993cab59996",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "tableTiddler",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 740,
+        "y": 740,
+        "wires": [
+            [
+                "7b92b0207a3e0740"
+            ]
+        ]
+    },
+    {
+        "id": "7b92b0207a3e0740",
+        "type": "link out",
+        "z": "c58e1993cab59996",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 835,
+        "y": 760,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    }
+]

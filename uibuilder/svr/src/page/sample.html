@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sample Webpage</title>
+
+		<link rel="icon" type="image/png" href="/tw5-node-red-logo.png" />
+		<!-- Load uibuilder before assigning nodered.sendMsg/nodered.onMsg -->
+		<script src="/svr/page/js/tw5-node-red.js"></script>
+		<style>
+			body {
+				background: #d6d6ff;
+				font-size: 1.2rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="heading"></div>
+
+		<div class="spacer"></div>
+
+		<div class="netstat">&nbsp;</div>
+
+		<div class="std-reply"></div>
+
+		<div class="topic-form"></div>
+
+		<div class="msg-display"></div>
+
+		<script>
+			var aboutExpanded = false;
+			var msgcounts = {
+				sentMessages: 0, sentTiddlers: 0,
+				receivedMessages: 0, receivedTiddlers: 0,
+			}
+
+			function flashTextArea() {
+				if (aboutExpanded) {
+					expandAbout();
+					setTimeout(() => { expandAbout(); }, 2200);
+				}
+			}
+
+
+			function expandAbout() {
+				var aboutMoveBtn = document.getElementById('about-move-btn');
+				var about = document.getElementById('about');
+				var elem = document.getElementById('topic-text');
+				if (aboutExpanded) {
+					about.style.width = ''
+					about.style.float = 'right'
+					elem.style.display = 'block';
+					aboutMoveBtn.innerHTML = abIcons.expand;
+					aboutExpanded = false;
+
+				} else {
+					elem.style.display = 'none';
+					about.style.float = ''
+					about.style.width = '99%'
+					aboutMoveBtn.innerHTML = abIcons.collapse;
+					aboutExpanded = true;
+				}
+			}
+
+			function flashClass(bclass, wait = 0) {
+				if (wait) { setTimeout(() => { flashClass(bclass); }, wait); return }
+				document.querySelector(bclass).style.background = '#a3a3ff';
+				var blinker = setInterval(() => {
+					var vis = document.querySelector(bclass).style.visibility;
+					vis = (!vis || vis === "visible") ? "hidden" : "visible";
+					document.querySelector(bclass).style.visibility = vis;
+				}, 310);
+				setTimeout(() => {
+					clearInterval(blinker);
+					document.querySelector(bclass).style.background = '';
+					document.querySelector(bclass).style.visibility = "visible";
+				}, 2000);
+			}
+
+			function sendTopic() {
+				let topic = document.getElementById("entered-topic").value;
+				let tid = document.getElementById("entered-tid").value;
+				nodered.topic(topic, '.html-display', tid);
+			}
+
+			function resetPage() {
+				document.querySelector('.html-display').innerHTML = '<p>Click Hello.</p>';
+
+				document.getElementById('entered-tid').value = '';
+				document.getElementById('received-tid').value = '';
+
+				document.getElementById('red-req-msg').innerHTML = '';
+				document.getElementById('red-res-msg').innerHTML = '';
+
+				document.getElementById('to-story').innerHTML = "";
+
+				document.getElementById('send-count').innerHTML = `Messages sent: 0 - client.tiddlers: 0`;
+				document.getElementById('receive-count').innerHTML = `Messages received: 0 - server.tiddlers: 0`;
+
+				msgcounts = {
+					sentMessages: 0, sentTiddlers: 0,
+					receivedMessages: 0, receivedTiddlers: 0,
+				}
+			}
+
+			function showHeartbeats() {
+				return document.getElementById('display-hb').checked;
+			}
+
+			function escapeMsgHtml(msg) {
+				var p = document.createElement("p");
+				p.appendChild(document.createTextNode(JSON.stringify(msg, null, 2)));
+				return p.innerHTML;
+			}
+
+			nodered.onSendMsg = async (msg) => {
+				if (!document.getElementById('send-count')) return msg;
+				if (msg.topic === 'heartbeat' && !showHeartbeats()) return msg;
+				msgcounts.sentMessages += 1;
+//				msgcounts.sentTiddlers += 1; // msg.network.client.sender
+				msgcounts.sentTiddlers += msg.network.client.tiddlers.length;
+				document.getElementById('send-count').innerHTML = `Messages sent: ${msgcounts.sentMessages} - client.tiddlers: ${msgcounts.sentTiddlers}`;
+
+				let elem = document.getElementById('red-req-msg');
+				elem.insertAdjacentHTML('afterbegin', '<pre><code>'+escapeMsgHtml(msg)+'</code></pre><hr class="hr-red">');
+				return msg;
+			}
+
+			nodered.onRecvMsg = async (msg) => {
+				if (!document.getElementById('receive-count')) return msg;
+				if (msg.topic === 'heartbeat' && !showHeartbeats()) return msg;
+
+				document.getElementById('to-story').innerHTML =
+					JSON.stringify(msg.network.server.storylist);
+
+				msgcounts.receivedMessages += 1;
+				msgcounts.receivedTiddlers += msg.network.server.tiddlers.length;
+				document.getElementById('receive-count').innerHTML = `Messages received: ${msgcounts.receivedMessages} - server.tiddlers: ${msgcounts.receivedTiddlers}`;
+
+				document.getElementById('red-res-msg')
+					.insertAdjacentHTML('afterbegin', '<pre><code>'+escapeMsgHtml(msg)+'</code></pre><hr class="hr-red">');
+				document.getElementById('received-tid').value =
+					nodered.tiddlersToTid(msg.network.server.tiddlers);
+				return msg;
+			}
+
+			var abIcons = {
+				expand: '<svg width="16pt" height="16pt" class="tc-image-ipk-go-start-fill tc-image-button" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M34 36L22 24L34 12" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 12V36" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+				collapse: '<svg width="16pt" height="16pt" class="tc-image-ipk-go-end-outline tc-image-button" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" fill="black" fill-opacity="0.01"/><path d="M14 12L26 24L14 36" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 12V36" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+			}
+
+			function abIconLoad() {
+				let aboutMoveBtn = document.getElementById('about-move-btn');
+				if (!aboutMoveBtn) {
+					setTimeout(() => { abIconLoad(); return; }, 300);
+					return;
+				}
+				aboutMoveBtn.innerHTML = abIcons.expand;
+			}
+
+			document.addEventListener("DOMContentLoaded", () => {
+				abIconLoad();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+created: 20231128045323374
+fetched: 20231204212620730
+modified: 20240113132403207
+tags: ·node-red· [[How it works]]
+title: Better hello
+type: text/vnd.tiddlywiki
+
+Right below the 'hello' topic is another topic 'better hello' which uses the tiddler editor in the [[Set network]] node instead of using a dedicated [[Edit tiddlers]] node.
+
+<div style="max-width: 500px;">{{hello-flow.png}}</div>
+
+Lets make a button that requests the 'better hello' topic.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'better hello'>>" > better hello </$button>
+"""/>
+
+<$button actions="<<node-red 'better hello'>>" > better hello </$button>
+
+> Is not actually 'better'. Is just more efficient. 
+
+In order to deploy changes to the server<$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>you must be logged onto Node-Red. The user is 'admin' with password of 'password' (default used by Node-Red). There are multiple login/permissions strategies that can be implemented - this particular one is using the bcrypt hashSync method - which is similar to the depreciated MD5 method but more secure. Anyway...
+
+In the upper-right of the flow editor is a 'person' icon - press it and can log onto the server. This will allow flow changes to be 'deployed' to the server - which is a button also in the upper-right which turns red when you make a change.
+
+Double click the 'better hello' topic 'to story' node. The 'To' section of the node directs tiddlers to 'server.tiddlers' and displayed in the story. The 'From' section has four sources which tiddlers can be copied from. In this case is getting tiddlers from the tiddler editor as indicated by the 'Editor' checkbox. The contents of the tiddler editor is a tiddler in tid format :
+
+<div style="max-width: 500px;">{{better-hello-tostory-node.png}}</div>
+
+Lets add another tiddler in the editor:
+
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""title: Better Hello World!
+
+This 'Hello World' uses less Nodes!
+
++======+ 
+title: A second tiddler
+
+This tiddler is from the server too!
+
+"""/>
+
+@@color:pink;
+> NOTE!!! The '+======+' above has a space at the end - <span style="color: red;">the trailing space needs to be removed</span> when copied into the tiddler editor!!!
+@@
+
+Multiple tiddlers can be placed in the tiddler editor by separating them with a line '+======+' - six '=' equals delimited with '+' plus characters. It must be exactly that line, no spaces, tabs, or comments. This works only for tid formatted tiddlers, JSON formatted tiddlers should use the
+[[TiddlyWeb-style JSON files|https://tiddlywiki.com/static/TiddlerFiles.html]] format or format used with plugins to send multiple tiddlers.
+
+Press 'Done' and then the 'Deploy' button.
+
+Press <$button actions="<<node-red 'better hello'>>" > better hello </$button> again and will see both tiddlers.
+

@@ -1,0 +1,29 @@
+created: 20231201031308022
+fetched: 20231203083230350
+modified: 20240117145540852
+tags: ·node-red· [[How it works]]
+title: Switches
+type: text/vnd.tiddlywiki
+
+<div style="width:50%;margin-left:auto;margin-right:auto;">{{victorian-heart-top.png}}</div>
+
+The [ext['switch' node|https://nodered.org/docs/user-guide/nodes#switch]] is a standard Node-Red node that is used a lot in TW5-Node-RED. A switch node can have multiple 'rules' each with their own output. The flow below the 'hello' flow in the 'topics' tab is an example of using a single switch to handle multiple topics.
+
+<div style="max-width: 450px;">{{palette-flow.png}}</div>
+
+The switch above contains three topics; dark, light, and fire. Each rule or test has it's own output.
+
+<div style="">{{palette-flow-switch.png}}</div>
+
+The [[Set network]] nodes send a corresponding '$:/palette' tiddler which will display a different palette.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'dark'>>" > Dark </$button>
+<$button actions="<<node-red 'light'>>" > Light </$button>
+<$button actions="<<node-red 'fire'>>" > Dev Fire </$button>
+"""/>
+
+<$button actions="<<node-red 'dark'>>" > Dark </$button>
+<$button actions="<<node-red 'light'>>" > Light </$button>
+<$button actions="<<node-red 'fire'>>" > Dev Fire </$button>
+
+Dev Fire is a palette by [[skplugins|http://skplugins.tiddlyspot.com/]] that is sent by the server automatically when the client wiki connects to the server. See [[On connect]].

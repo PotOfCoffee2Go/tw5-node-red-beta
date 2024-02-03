@@ -1,0 +1,16 @@
+created: 20231222032726531
+fetched: 20231206142330647
+modified: 20231229053707860
+tags: [[Tiddler nodes]] ·node-red·
+title: Tiddler editor
+type: text/vnd.tiddlywiki
+
+The [[Edit tiddlers]], [[Set network]], and [[To twiki]] nodes have a ''Tiddler editor'' which is similar to the [ext[Node-Red 'template'|https://nodered.org/docs/user-guide/nodes#template]] node but customized to  enter tiddlers in JSON or .tid format.
+
+Tiddlers that are entered in the tiddler editor are saved in the Node-Red flowfile. This allows the tiddlers to be included when exporting/importing Node-Red flows. Thus the flows that store tiddlers in the tiddler editor are self contained and require no special tiddler file handling.
+
+The Tiddler nodes use the TiddlyWeb-style .tid files. Is compatible with TiddlyWeb-style JSON files as well as plugin JSON format. HTML tiddler stores are not currently supported. See [[TiddlerFiles|https://tiddlywiki.com/static/TiddlerFiles.html]]
+
+When in tid format a line containing '+======+' can be used to separate multiple tiddlers. Tiddler nodes 'Path' or 'File' properties with a '.tid' extension will use the '+======+' tiddler separator as well. 
+
+> Note that drag-n-dropping a .tid containing a separator into a TiddlyWiki wiki will not work as expected. Well, as might expect - it will be imported as a single tiddler with the text containing the separators. '+======+' only works with the TW5-Node-RED [[Tiddler nodes]].

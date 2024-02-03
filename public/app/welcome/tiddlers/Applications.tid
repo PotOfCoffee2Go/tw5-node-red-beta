@@ -1,0 +1,91 @@
+created: 20240104205857303
+fetched: 20231203083230348
+list: [[Single file wiki]] [[Quick overview]] [[TW Sync Server]] [[Dev tools]] [[TW Sync Wiki]] [[TW Client Wiki]] [[Node-Red flows]] [[Quick summary]]
+modified: 20240116165547010
+tags: Development
+title: Applications
+type: text/vnd.tiddlywiki
+
+<div style="float:right;">
+<div style="margin: 0 0px -6px -9px;">{{corner1-top.png}}</div>
+<div style="float:right;">{{corner1-right.png}}</div>
+</div>
+
+This is a quick summary of the steps to build an application. Click the section titles for more information.
+
+Open two command widows in the project 'tw5-node-red' directory - in one start TW5-Node-Red (probably already running):
+
+!! [[Quick overview]]
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""npm start
+"""/>
+
+!! [[TW Sync Server]]
+
+In the other command window start 'server' edition server for application 'world':
+
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""npm run syncserver world port=8080
+"""/>
+
+<hr class="poc2go-hr">
+
+!! [[Dev tools]]
+
+Open three tabs in the browser:
+
+ * http://localhost:1880/svr/wiki/hello.html?app=world
+ ** TW Client Wiki
+ * http://localhost:1880/red
+ ** Node-Red Flow Editor
+ * http://localhost:8080
+ ** TW Sync Wiki
+
+Will need to log into the Node-Red Flow Editor in order to deploy (save) changes to the flows. The user is 'admin' the password is 'password'. In the upper-right is a 'person' icon. Press it and can log in from there.
+
+<div style="max-width: 600px;">{{sync browser dev-1.png}}</div>
+
+<hr class="poc2go-hr">
+
+!! [[TW Sync Wiki]]
+
+In the browser '''TW Sync Wiki''' tab, create tiddler 'My Hello World!' containing this WikiText:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'twsync refresh' >>" > Refresh </$button> to display tiddlers created by TW Sync Wiki.
+
+Press to run <$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button> flow on Node-Red Server.
+
+Press to get <$button actions="<<node-red 'myhello' >>" > myhello </$button> from Node-Red Server.
+"""/>
+
+The buttons do not work as expected - see [[Site development]].
+
+Leave the tiddler open in the story river.
+
+<hr class="poc2go-hr">
+
+!! [[TW Client Wiki]]
+
+Go to the browser '''TW Client Wiki''' tab and reload the page.
+
+The tiddler just created will appear in the story river.
+
+ * The 'refresh' button can be used instead of having to reload the page.
+ * The 'get subtitle' will change the sidebar subtitle to show the server connection status.
+ * The third button is broke.
+ ** requests from Node-Red to run the flow 'myhello'
+ **   - which does not exist yet.
+
+<hr class="poc2go-hr">
+
+!! [[Node-Red flows]]
+
+Go to the '''Node-Red Flow Editor''' tab.
+
+Log in and create the 'myhello' flow.
+
+<hr class="poc2go-hr">
+
+!! [[Back to client]]
+
+Return to the ''TW Client Wiki''' and press the 'myhello' button and will display the 'My Hello World!' tiddler.
+

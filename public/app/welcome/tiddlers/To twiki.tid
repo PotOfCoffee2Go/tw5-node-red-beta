@@ -1,0 +1,53 @@
+created: 20231202140713294
+fetched: 20231202141910930
+modified: 20231229135140944
+tags: [[Tiddler nodes]] ·node-red·
+title: To twiki
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em -6px;">{{to-twiki.png}}</div>
+The topic 'test to-twiki' in the 'topics' tab of the flow editor illustrates storing tiddlers from a client to a twiki - 'Testit'.
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'test to-twiki' '[tag[Tiddler nodes]]'>>">List Tiddler nodes tiddlers</$button> 
+"""/>
+
+<$button actions="<<node-red 'test to-twiki' '[tag[Tiddler nodes]]'>>">List 'Tiddler nodes' tiddlers</$button>
+
+<div style="max-width: 500px;">{{test-to-twiki-flow.png}}</div>
+
+The 'client.tiddlers to twiki' <span class="poc2go-dir"> to-twiki</span> node properties are divided into three sections 'To', 'Settings', and 'From'.
+
+The 'To' section has two properties, 'Twiki' selects the destination twiki, while the option below it determines if the node is to add or delete tiddlers from the twiki.
+
+<div style="max-width: 500px;">{{to-wiki-to-properties.png}}</div>
+
+The 'To' Twiki property has two dropdown arrows. The arrow on the ''right'' lists existing twikis, including the main tiddler store $tw.wiki. The dropdown on the ''left'' has an option to create a new twiki. When 'create' is selected the name of a new twiki can be entered - press the red 'Done' and re-open the node. An empty twiki is created and will now show in the list of existing twikis. (If the twiki already exists it will remain unchanged).
+
+<div style="max-width: 300px;">{{to-wiki-tcreate.png}}</div>
+
+The 'settings' section has general options for the twiki.
+
+ * Empty the twiki before applying tiddlers
+ ** Tiddlers in the twiki will be deleted prior to updating the twiki 
+ * Add second output - Watch for updates to this twiki
+ ** An output is added to the node that triggers when tiddlers are added or removed from the twiki
+ * Empty twiki when node is deployed
+ ** remove exiting tiddlers when modifications to the workspace are deployed
+
+Tiddlers can come from five sources that can update a twiki.
+
+<div style="max-width: 450px;">{{to-wiki-from.png}}</div>
+
+{{prop-from-editor}}
+<hr class="poc2go-hr">
+
+{{prop-from-path}}
+<hr class="poc2go-hr">
+
+{{prop-from-twiki}}
+<hr class="poc2go-hr">
+
+{{prop-from-network}}
+<hr class="poc2go-hr">
+
+{{prop-from-field}}

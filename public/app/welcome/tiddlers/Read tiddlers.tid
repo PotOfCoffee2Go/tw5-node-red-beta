@@ -1,0 +1,22 @@
+created: 20231202140256206
+fetched: 20231206142330647
+modified: 20231230052156212
+tags: [[Tiddler nodes]] ·node-red·
+title: Read tiddlers
+type: text/vnd.tiddlywiki
+
+<div style="float:left; max-width: 120px;margin: 16px 1em;">{{read-tiddlers.png}}</div>
+
+'Read tiddlers' is a simple node that loads tiddlers from a directory or file. If a directory is given then all files with the extension of '.tid' are read. A file can be in tid or JSON format. .tid files can use the '+======+' tiddler separator.
+
+This node is used most commonly to add tiddlers to a message that is going to be processed by standard or third party Node-Red nodes. It is compatible with TiddlyWiki Exports in JSON or .tid format.
+
+> TiddlyWiki import does not recognize the '+======+' separator between tiddlers in .tid format thus will be imported as a single tiddler with the other tiddlers in the text.
+
+Is very handy if developing an application where tiddlers are already in an existing TiddlyWiki. Export the tiddlers of interest into a directory and using this node read them into a Node-Red msg.
+
+<div style="max-width: 550px;">{{read-tiddlers-flow.png}}</div>
+
+<div style="max-width: 550px;">{{read-tiddlers-properties.png}}</div>
+
+The standard Node-Red 'write' node can be used to write .tid or JSON tiddlers.

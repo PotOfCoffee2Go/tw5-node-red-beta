@@ -1,0 +1,26 @@
+created: 20231126225744738
+fetched: 20231203083230348
+list: [[Client side]] [[Server side]] [[Better hello]] Switches Mustache Branches [[TW twikis]]
+modified: 20240116035149886
+tags: TableOfContents ·node-red·
+title: How it works
+type: text/vnd.tiddlywiki
+
+Node-RED allows developers to build server-side [[applications|Purpose]] using a drag-n-drop interface of 'nodes' which perform specific tasks in a sequence. TW5-Node-RED provides Node-Red with [[additional nodes|Tiddler nodes]] to handle tiddlers.
+
+In the TiddlyWiki universe most servers are in one form or another a 'sync' server designed to save a copy of your wiki. TW5-Node-RED is not a sync server
+
+> Well, the 'server' edition [[Sync server]] is available since TW5-Node-RED can optionally load it server side. But TW5-Node-RED itself is not a sync server. A replacement sync server is being developed in Node-Red which can sync with any single file TiddlyWiki - with no additional plugins needed client side.
+
+The server is an [[application|Purpose]] server which sends content to a TiddlyWiki client wiki. In a sense it is opposite a sync server which the wiki controls what the server does, in this case it is the server that tells the wiki what to do.
+
+<div style="float:left;width:15%;margin-right:.5em;">{{flower-border-left.png}}</div>
+<div style="float:right;width:15%;margin-left:.5em;">{{flower-border-right.png}}</div>
+
+
+The advantage of single file TiddlyWikis is that they are independent and self contained. The client-side wiki must already have JavaScript plugins (the 'core' being one of them) and possibly content which the server is unaware. Thus the presentation of the content delivered by the server is for the most part controlled by the client wiki. Single file TiddlyWikis allow the server to be data-driven as the front-end wiki does the presentation.
+
+That being said, the server does need to be able to modify presentation settings. For example, the server may have a custom view template in order to display content correctly. To the server the template is just a tiddler like everything else. It sends it and the wiki responds by changing the tiddler views. It can not be stated or shouted from the hill tops enough - one of the most powerful features of TiddlyWiki is that ''everything'' is data - a tiddler.
+
+
+
