@@ -123,7 +123,6 @@ module.exports = function(RED) {
 						fromFile = tids;
 						let updates = fromFile.concat(fromTwiki, fromNetwork, fromMsgField);
 						if (this.clear) {
-	console.log(this.twikiName,'1');
 							this.twiki = new $tw.Wiki;
 							twikis[this.twikiName] = this.twiki;
 						}
@@ -158,7 +157,6 @@ module.exports = function(RED) {
 							// Array order is important
 							let updates = fromFile.concat(fromTwiki, fromNetwork, fromMsgField, fromTemplate);
 							if (this.clear) {
-	console.log(this.twikiName,'2');
 								this.twiki = new $tw.Wiki;
 								twikis[this.twikiName] = this.twiki;
 							}
@@ -175,7 +173,6 @@ module.exports = function(RED) {
 			} else {
 				let updates = fromFile.concat(fromTwiki, fromNetwork, fromMsgField, fromTemplate);
 				if (this.clear) {
-	console.log(this.twikiName,'3');
 					this.twiki = new $tw.Wiki;
 					twikis[this.twikiName] = this.twiki;
 				}
