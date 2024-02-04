@@ -23,11 +23,11 @@
 
 // Allow users to view site without logging on
 // false = Authorization required to see site
-// true = Authorization not required to see site
+// true = Authorization not required - user will be 'Guest'
 // The site can provide 'sign in' buttons for users to
 //   sign in for access to secure parts of the site
 //   regardless of this setting
-var allowAnon = true;
+var allowAnon = false;
 
 // Start TiddlyWiki 'server' edition sync server on startup?
 var syncServer = true;

@@ -5,3 +5,7 @@
 /.*
 # Except gitignore itself
 !/.gitignore
+
+# Node-RED Flowfile Backups
+/flows/*.backup
+
