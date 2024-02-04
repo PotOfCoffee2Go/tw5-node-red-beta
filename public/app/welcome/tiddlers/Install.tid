@@ -1,6 +1,6 @@
 created: 20231126191238250
 fetched: 20231128183332930
-modified: 20240117143403232
+modified: 20240203141021031
 tags: Welcome ·node-red·
 title: Install
 type: text/vnd.tiddlywiki
@@ -9,8 +9,8 @@ type: text/vnd.tiddlywiki
 
 Install server:
 
-<$macrocall $name=".codesample" n="0" lng="cmd" eg="""git clone repo
-cd tw5-node-red
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""git clone https://github.com/PotOfCoffee2Go/tw5-node-red-beta.git
+cd tw5-node-red-beta
 npm install
 """/>
 
