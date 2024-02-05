@@ -149,7 +149,8 @@
             "e0350dac670bea64",
             "c66da2e2f5754566",
             "dbfa021da3dc04ca",
-            "cc84a8e59d36a284"
+            "cc84a8e59d36a284",
+            "e2cc4b9adcfa848f"
         ],
         "x": -26,
         "y": 73,
@@ -634,10 +635,10 @@
             "530c27cac770eeb4",
             "581538b733302aa5"
         ],
-        "x": 8,
+        "x": 3,
         "y": 33,
         "w": 884,
-        "h": 884
+        "h": 854
     },
     {
         "id": "ed8ab1c9492e0a5a",
@@ -896,8 +897,8 @@
             "4cd957658dc2bd9c",
             "98189b2afd7d3e72"
         ],
-        "x": 34,
-        "y": 737,
+        "x": 29,
+        "y": 707,
         "w": 832,
         "h": 154
     },
@@ -3105,7 +3106,7 @@
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
         "name": "Is authorized?",
-        "func": "const $tw = global.get('$tw');\nconst usersDb = global.get('twikis').Users;\nconst allowAnon = global.get(\"allowAnon\");\n\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Get user from the Users database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(clientIds[cId].userid));\n\n// If allowing anonymous login - get the generic 'Guest' db tiddler \nif (userDbTiddler.length === 0 && allowAnon) {\n    userDbTiddler = JSON.parse($tw.wiki.getTiddlersAsJson('Guest'));    \n    if (userDbTiddler.length === 0) {\n        throw new Error(`'Guest' user tiddler not found for anonymous sign-in`);\n    }\n    clientIds[cId].auth.authorized = true;\n}\n\n// Success - add user info to msg.network \n//   check if authorized and the bearer token matches\nif (userDbTiddler.length) {\n    msg.network.user = JSON.parse(JSON.stringify(userDbTiddler[0]));\n    // User is authorized\n    if (clientIds[cId].auth.authorized) {\n        // Get connection token \n        var found = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\n        if (!found) { found = { token: 'this will fail' } }\n        // Tokens must also match\n        //  (if server is rebooted or client reconnects - this will throw once\n        //   but will be ok for requests thereafter)\n        if (found.token !== clientIds[cId].auth._token) {\n            msg.error = 'Client/Server bearer token mismatch';\n        } else {\n            node.send([null, msg]); node.done();\n            return;\n        }\n    }\n}\n\n// Need to log in\nclientIds[cId].auth.authorized = false;\nnode.send(msg); node.done();\nreturn;\n",
+        "func": "const $tw = global.get('$tw');\nconst usersDb = global.get('twikis').Users;\nconst allowAnon = global.get(\"allowAnon\");\nconst guestUser = [{\n\t\"title\": \"Guest\",\n\t\"created\": \"20240204032118657\",\n\t\"modified\": \"20240204032213393\",\n\t\"userid\": \"Guest\",\n\t\"username\": \"Guest\",\n\t\"email\": \"guest@example.com\",\n\t\"pwHash\": \"$2b$08$oxvoOGoMFhLiMUJOLdFtIe8xcQlPiXgyltVhEB/pMZMXQMaruniue\"\n}];\n\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nvar allowGuest = msg.network.meta.source === 'HTML' || allowAnon ? true : false;\n\n// Get bearer token and must match\n//  (if server is rebooted or client reconnects - this will throw once\n//   but will be ok for requests thereafter)\nvar found = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!found) { found = { token: 'this will fail' } }\nif (found.token !== clientIds[cId].auth._token) {\n    msg.error = 'Client/Server bearer token mismatch';\n\tnode.log(msg.error);\n\tnode.warn(msg.error);\n    node.done(); // do not forward the message to the next node\n    return;\n}\n\n// If not Web page and not allowing anonymous access and\n//  connection has not been authorized yet\n// Request a login\nif (!allowGuest && !clientIds[cId].auth.authorized) {\n    node.send(msg); node.done();\n    return;\n}\n\n// Get user from the Users database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(clientIds[cId].userid));\n\n// Do not have a user\nif (!allowGuest && userDbTiddler.length === 0) {\n    msg.error = 'User ID Not Found';\n\tclientIds[cId].auth.authorized = false;\n\tnode.send(msg); node.done();\n\treturn;\n}\n\n// If allowing anonymous login\n//  get a copy of the generic 'Guest' tiddler and authorize it\nif (allowGuest && userDbTiddler.length === 0) {\n\tuserDbTiddler = JSON.parse(JSON.stringify(guestUser));   \n\tclientIds[cId].userid = userDbTiddler.userid;\n\tclientIds[cId].auth.authorized = true;\n}\n\n// Add user to message and send to the flows\nmsg.network.user = JSON.parse(JSON.stringify(userDbTiddler[0]));\nnode.send([null, msg]); node.done();\nreturn;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3126,6 +3127,24 @@
             "Not authorized",
             "Authorized"
         ]
+    },
+    {
+        "id": "e2cc4b9adcfa848f",
+        "type": "debug",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 80,
+        "y": 305,
+        "wires": []
     },
     {
         "id": "509b906f53cc0bc2",
@@ -3310,7 +3329,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Login documentation\n\n|''userid'':|{{!!userid}}|\n|''username'':|{{!!username}}|\n|''email'':|{{!!email}}|\n\n<$button actions=\"<<node-red 'register request'>>\"> Create Account </$button>\n<$button actions=\"<<node-red 'login'>>\"> Sign in </$button>\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n> The system is currently under construction - so currently allows a user to enter a username and will authorize them. Can see the system in the Network' and 'Connect' tabs of the flow editor.\n\nThe Authentication and Authorization system is a template for application developers. The flows have been wired  assuming the following steps will be used - but of course can be changed to match authorization requirements.\n\n * Login screen allowing a user to Sign in or Register\n\n * If user Registers - displays the registration screen\n   ** Verify the email - or whatever using to authenticate\n   ** Success - return to login screen\n   ** Fail - return to Registration screen\n * If user Signs in \n   ** Verify the user is Registered\n      ** Success - set the user as authorized\n      ** Fail - returns to Login screen\n\nWhen a user is logged in, user info is added to 'msg.network.user' for every message received and deleted from the message when responding to the user.\n\nA wire in the Network tab is moved to determine if login is required before viewing site or if anonymous access is allowed. For users can use a 'login' button at any time to have them authorize.\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n\n",
+        "template": "title: Login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Login documentation\n\n|''userid'':|{{!!userid}}|\n|''username'':|{{!!username}}|\n|''email'':|{{!!email}}|\n\n<$button actions=\"<<node-red 'register request'>>\"> Create Account </$button>\n<$button actions=\"<<node-red 'login'>>\"> Sign in </$button>\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n> The system is currently under construction - so currently allows a user to enter a username and will authorize them. Can see the system in the Network' and 'Connect' tabs of the flow editor.\n\nThe Authentication and Authorization system is a template for application developers. The flows have been wired  assuming the following steps will be used - but of course can be changed to match authorization requirements.\n\n * Login screen allowing a user to Sign in or Register\n\n * If user Registers - displays the registration screen\n   ** Verify the email - or whatever using to authenticate\n   ** Success - return to login screen\n   ** Fail - return to Registration screen\n * If user Signs in \n   ** Verify the user is Registered\n      ** Success - set the user as authorized\n      ** Fail - returns to Login screen\n\nWhen a user is logged in, user info is added to 'msg.network.user' for every message received and deleted from the message when responding to the user.\n\nif anonymous access is allowed set the allowAnon flag in <span class=\"poc2g-dir\">./settings.js</span> allowing all users to be initially logged in as 'Guest'. Use `<<node-red 'login'>>` to present a login screen.\n\n---\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -3420,8 +3439,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 820,
+        "x": 405,
+        "y": 790,
         "wires": [
             [
                 "4cd957658dc2bd9c"
@@ -3437,8 +3456,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 75,
-        "y": 813,
+        "x": 70,
+        "y": 783,
         "wires": [
             [
                 "7396102619538ddb"
@@ -3479,8 +3498,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 4,
-        "x": 210,
-        "y": 814,
+        "x": 205,
+        "y": 784,
         "wires": [
             [
                 "750bd45bece7449a"
@@ -3520,8 +3539,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 575,
-        "y": 820,
+        "x": 570,
+        "y": 790,
         "wires": [
             [
                 "98189b2afd7d3e72",
@@ -3539,8 +3558,8 @@
         "links": [
             "509b906f53cc0bc2"
         ],
-        "x": 760,
-        "y": 820,
+        "x": 755,
+        "y": 790,
         "wires": [],
         "l": true
     },

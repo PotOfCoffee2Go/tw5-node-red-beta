@@ -1,5 +1,15 @@
 "use strict";
 
+const tokenBearer = {
+	'title':'$:/temp/tw5-node-red/store',
+	'created':'20240204213930298',
+	'modified':'20240204213930298',
+	'type':'application/json',
+	'text':'{ \"title\": \"$:/temp/tw5-node-red/store\" }',
+	'token':''
+}
+
+
 const noderedUtils = {
 	// modified from $tw.utils.parseFields
 	tidToFields: (text,fields) => {
@@ -135,8 +145,8 @@ const nodered = {
 		if (!Array.isArray(sendTiddlers)) [sendTiddlers];
 		return {
 			meta: { source: 'HTML', version: nodered.version,
-				location: window.location, _clientid: nodered._clientid, tiddlers: [] },
-			client: { topic, selector, sender: [{title: 'web page', selector}],
+				location: window.location, _clientid: nodered._clientid, tiddlers: [tokenBearer] },
+			client: { topic, selector, sender: [{title: 'web page', selector, userid: 'Guest'}],
 				tiddlers: noderedUtils.arrayOfTids(sendTiddlers) },
 			server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
 			};
@@ -192,6 +202,14 @@ const nodered = {
 			}
 			nodered.fieldsToPage(fields);
 		})
+		if (svr.network.meta.tiddlers.length && !nodered.connected) {
+			tokenBearer.token = svr.network.meta.tiddlers[0].token;
+			nodered.topic('client.onload');
+			hbState.startHeartbeat();
+			// Call onLoad
+			nodered.onLoad();
+			nodered.connected = true;
+		}
 	},
 
 	// Listen for uibuilder connections to server
@@ -199,11 +217,7 @@ const nodered = {
 	//  send a 'client.onload' topic on first connect
 	connected: false,
 	onConnect: (evt) => {
-		nodered.bones('heartbeat');
-		if (!nodered.connected) {
-			nodered.topic('client.onload');
-			nodered.connected = true;
-		}
+		nodered.topic('heartbeat');
 	},
 
 	// Initialize the nodered and hbState objects
@@ -228,9 +242,6 @@ const nodered = {
 		// Up and running - start app level heartbeat
 		console.log('TW5-Node-RED interface initialized');
 
-		// Call onLoad and application level heartbeat
-		nodered.onLoad();
-		hbState.startHeartbeat();
 	},
 
 	// Fetch and install uibulder into page header
