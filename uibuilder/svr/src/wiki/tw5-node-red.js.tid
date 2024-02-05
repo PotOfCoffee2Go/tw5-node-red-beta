@@ -6,6 +6,7 @@ type: application/javascript
 module-type: macro
 
 /*\
+ * v0.2.0
 Macro that interfaces TiddlyWiki Client to Node-Red server.
 Node-Red flows expect the message and data structures sent
 by this macro.
@@ -26,7 +27,7 @@ const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
 // Tiddler sent on connect
 const settingsSender = '$:/tw5-node-red/settings';
 const settingsSendFilter = '[[$:/tw5-node-red/settings]]';
-const bearerToken = '$:/temp/tw5-node-red/token';
+const serverAuthorized = '$:/temp/tw5-node-red/authorized';
 
 /*
  System tiddler of default server settings
@@ -293,7 +294,6 @@ const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic =
 
 // Update the wiki with array of tiddlers from server
 const updateWiki = (svr) => {
-	console.log(svr);
 	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
 	svr.server.tiddlers.forEach(fields => {
 		if (svr.server.storylist.includes(fields.title)) {
@@ -358,12 +358,14 @@ const initialize = () => {
 
 		// Tiddlers from server
 		if (msg.topic === 'server.tiddlers') {
-			updateWiki(msg.network);
-			// bearer token indictes ready for tiddlers
-			if (msg.network.server.tiddlers[0].title === bearerToken) {
+			// Is authorized by server so client connected
+			if (msg.network.server.tiddlers.length &&
+					msg.network.server.tiddlers[0].title === serverAuthorized) {
 				emit('client.onload',createMessage('client.onload',
 					settingsSendFilter, settingsSender));
+				msg.network.server.tiddlers.shift();
 			}
+			updateWiki(msg.network);
 		}
 		// Server requesting tiddlers
 		else if (msg.topic === 'server.request') {

@@ -3,15 +3,6 @@
     "title":"$:/config/SyncLogging","text":"no"
   },
   {
-    "title": "Guest",
-    "created": "20240204032118657",
-    "modified": "20240204032213393",
-    "userid": "Guest",
-    "username": "Guest",
-    "email": "guest@example.com",
-    "pwHash": "$2b$08$oxvoOGoMFhLiMUJOLdFtIe8xcQlPiXgyltVhEB/pMZMXQMaruniue"
-  },
-  {
     "created": "20230711074635908",
     "text": "<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>",
     "tags": "tw5-node-red",

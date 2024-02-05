@@ -30,7 +30,7 @@
 var allowAnon = false;
 
 // Start TiddlyWiki 'server' edition sync server on startup?
-var syncServer = true;
+var syncServer = false;
 
 // Directory which Tiddlywiki will use for output
 const twOutput = './tiddlywiki/twmain'; // default is './tiddlywiki/twmain'
