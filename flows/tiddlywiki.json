@@ -149,8 +149,7 @@
             "e0350dac670bea64",
             "c66da2e2f5754566",
             "dbfa021da3dc04ca",
-            "cc84a8e59d36a284",
-            "e2cc4b9adcfa848f"
+            "cc84a8e59d36a284"
         ],
         "x": -26,
         "y": 73,
@@ -170,7 +169,7 @@
             "a04cbaa536c3e91d"
         ],
         "x": 128,
-        "y": 793,
+        "y": 738,
         "w": 564,
         "h": 274
     },
@@ -330,7 +329,7 @@
             "822afd14ac7a2985"
         ],
         "x": 104,
-        "y": 527,
+        "y": 492,
         "w": 612,
         "h": 214
     },
@@ -479,9 +478,9 @@
             "7b9e83c8c7bad25c",
             "e6a464527b5ef777"
         ],
-        "x": 204,
+        "x": 189,
         "y": 219,
-        "w": 442,
+        "w": 462,
         "h": 82
     },
     {
@@ -743,7 +742,7 @@
             "325145ba78e22609"
         ],
         "x": 154,
-        "y": 919,
+        "y": 864,
         "w": 512,
         "h": 122
     },
@@ -761,7 +760,7 @@
             "666befd3477d7aba"
         ],
         "x": 194,
-        "y": 819,
+        "y": 764,
         "w": 402,
         "h": 82
     },
@@ -878,7 +877,7 @@
         "x": 74,
         "y": 307,
         "w": 752,
-        "h": 369
+        "h": 384
     },
     {
         "id": "530c27cac770eeb4",
@@ -1334,7 +1333,7 @@
         "repair": false,
         "outputs": 1,
         "x": 290,
-        "y": 980,
+        "y": 925,
         "wires": [
             [
                 "68a113f373cb6891",
@@ -1352,7 +1351,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 195,
-        "y": 980,
+        "y": 925,
         "wires": [
             [
                 "7f3dc513caf95a47"
@@ -1384,7 +1383,7 @@
         "twikiIsX": true,
         "fieldIsX": false,
         "x": 470,
-        "y": 1000,
+        "y": 945,
         "wires": [
             [
                 "bc00d1525b9d48e3"
@@ -1402,7 +1401,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 625,
-        "y": 980,
+        "y": 925,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -1431,7 +1430,7 @@
         "twikiIsX": true,
         "fieldIsX": false,
         "x": 470,
-        "y": 960,
+        "y": 905,
         "wires": [
             [
                 "bc00d1525b9d48e3"
@@ -1457,7 +1456,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 310,
-        "y": 860,
+        "y": 805,
         "wires": [
             [
                 "666befd3477d7aba"
@@ -1493,7 +1492,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 500,
-        "y": 860,
+        "y": 805,
         "wires": [
             []
         ]
@@ -1637,7 +1636,7 @@
         "repair": false,
         "outputs": 1,
         "x": 240,
-        "y": 600,
+        "y": 565,
         "wires": [
             [
                 "a69da9a11fa9944c"
@@ -1668,7 +1667,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 420,
-        "y": 600,
+        "y": 565,
         "wires": [
             [
                 "dc550f72fb4b0b99"
@@ -1699,7 +1698,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 580,
-        "y": 600,
+        "y": 565,
         "wires": [
             [
                 "8c99b04967d79353"
@@ -1725,7 +1724,7 @@
         "repair": false,
         "outputs": 1,
         "x": 240,
-        "y": 680,
+        "y": 645,
         "wires": [
             [
                 "593346b7484e719c",
@@ -1757,7 +1756,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 440,
-        "y": 660,
+        "y": 625,
         "wires": [
             [
                 "f4eab1f49fbefa04"
@@ -1788,7 +1787,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 440,
-        "y": 700,
+        "y": 665,
         "wires": [
             [
                 "f4eab1f49fbefa04"
@@ -1806,7 +1805,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 675,
-        "y": 600,
+        "y": 565,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -1821,7 +1820,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 575,
-        "y": 680,
+        "y": 645,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -1835,7 +1834,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 145,
-        "y": 600,
+        "y": 565,
         "wires": [
             [
                 "190f4b09096d84e9"
@@ -1853,7 +1852,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 145,
-        "y": 680,
+        "y": 645,
         "wires": [
             [
                 "679c15ceb725216c"
@@ -1875,7 +1874,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 1200,
+        "y": 1130,
         "wires": []
     },
     {
@@ -1896,7 +1895,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 430,
-        "y": 1140,
+        "y": 1070,
         "wires": [
             [
                 "cda87663ace72d4b",
@@ -1913,7 +1912,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 95,
-        "y": 1140,
+        "y": 1070,
         "wires": [
             [
                 "a9df6e178df88c8c"
@@ -1931,7 +1930,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 715,
-        "y": 1140,
+        "y": 1070,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -1959,7 +1958,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 600,
-        "y": 1140,
+        "y": 1070,
         "wires": [
             [
                 "ac5a5c0c6c3c6c8a"
@@ -1984,7 +1983,7 @@
         "repair": false,
         "outputs": 1,
         "x": 230,
-        "y": 1140,
+        "y": 1070,
         "wires": [
             [
                 "247774e5f3ec1d76"
@@ -2019,7 +2018,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 400,
-        "y": 1280,
+        "y": 1210,
         "wires": [
             [
                 "c4207496ef76b641"
@@ -2044,7 +2043,7 @@
         "repair": false,
         "outputs": 1,
         "x": 190,
-        "y": 1280,
+        "y": 1210,
         "wires": [
             [
                 "01b3f687e63b3e4b"
@@ -2060,7 +2059,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 85,
-        "y": 1280,
+        "y": 1210,
         "wires": [
             [
                 "9755a151d273ca6a"
@@ -2078,7 +2077,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 715,
-        "y": 1340,
+        "y": 1270,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -2096,7 +2095,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
-        "y": 1400,
+        "y": 1330,
         "wires": []
     },
     {
@@ -2110,7 +2109,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 380,
-        "y": 1340,
+        "y": 1270,
         "wires": [
             [
                 "e2449bdf9e7bed88",
@@ -2142,7 +2141,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 580,
-        "y": 1340,
+        "y": 1270,
         "wires": [
             [
                 "b396fbd59ee28476"
@@ -3129,24 +3128,6 @@
         ]
     },
     {
-        "id": "e2cc4b9adcfa848f",
-        "type": "debug",
-        "z": "eb845b8cbc7ac49a",
-        "g": "e4c2719e30c99637",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 80,
-        "y": 305,
-        "wires": []
-    },
-    {
         "id": "509b906f53cc0bc2",
         "type": "link in",
         "z": "fb90098a1998250c",
@@ -3171,14 +3152,14 @@
         "z": "fb90098a1998250c",
         "g": "bfac12ca49095e92",
         "name": "Authorize",
-        "func": "const bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\n\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\nuserDbTiddler = userDbTiddler[0];\n\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Authorize this client\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n// send authorization success\nmsg.network.user = userDbTiddler;\nnode.send([null, msg]);\n\n// Send landing application\nmsg.topic = 'client.onload';\nnode.send(msg); node.done();\nreturn;\n",
+        "func": "// Authoze a sign-in from the login tiddler\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\n// Check for required fields\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Look up userid from database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\n\n// User ID is not found\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Reference the stored user data\nuserDbTiddler = userDbTiddler[0];\n\n// Verify the password\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\n\n// Authorize this client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n// send authorization success\nmsg.network.user = userDbTiddler;\nnode.send([null, msg]);\nreturn;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 525,
         "y": 400,
         "wires": [
             [
@@ -3218,7 +3199,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Login\nmustache: yes\nuserid: {%network.user.userid%}\npassword: {%network.user.password%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Register request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis registration request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|Password*|<$edit-text field=\"password\"/>| password used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$button actions=\"<<node-red 'register user'>>\"> Create account </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n",
+        "template": "title: $:/tw5-node-red/account\nmustache: yes\nuserid: {%network.user.userid%}\npassword: {%network.user.password%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Register request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis registration request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|Password*|<$edit-text field=\"password\"/>| password used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$button actions=\"<<node-red 'register user'>>\"> Create account </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -3228,8 +3209,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 550,
-        "y": 525,
+        "x": 555,
+        "y": 485,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -3252,11 +3233,6 @@
             },
             {
                 "t": "eq",
-                "v": "heartbeat",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
                 "v": "register request",
                 "vt": "str"
             },
@@ -3268,6 +3244,11 @@
             {
                 "t": "eq",
                 "v": "login docs",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "heartbeat",
                 "vt": "str"
             },
             {
@@ -3284,9 +3265,6 @@
                 "54d80eaa9d3610c7"
             ],
             [
-                "cfee1305fe93f1c8"
-            ],
-            [
                 "3acd500998d87b22"
             ],
             [
@@ -3294,6 +3272,9 @@
             ],
             [
                 "750bd45bece7449a"
+            ],
+            [
+                "cfee1305fe93f1c8"
             ],
             [
                 "cac2c9295125e3b0"
@@ -3339,8 +3320,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 550,
-        "y": 600,
+        "x": 545,
+        "y": 565,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -3357,8 +3338,8 @@
         "links": [
             "210019cdd0a834d4"
         ],
-        "x": 555,
-        "y": 560,
+        "x": 550,
+        "y": 525,
         "wires": [],
         "l": true
     },
@@ -3376,7 +3357,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n<div style=\"\">\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n</div>\n\n---\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
+        "template": "title: $:/temp/tw5-node-red/authorized\n\nThis tiddler MUST BE FIRST!!\n\n+======+\ntitle: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n<div style=\"\">\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n</div>\n\n---\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -3418,11 +3399,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 550,
-        "y": 485,
+        "x": 545,
+        "y": 605,
         "wires": [
             [
-                "ac5ce25a67192096"
+                "cac2c9295125e3b0"
             ]
         ]
     },
@@ -3709,7 +3690,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Login\nmustache: yes\nuserid: {%network.user.userid%}\nemail: {%network.user.email%}\nusername: {%network.user.username%}\npassword: {%typedpassword%}\n\n!!! Account created\n\nThis registration success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\nThis is the last time this password will be displayed\n\n@@ ''Copy to a safe place'' @@\n\n|''userid'':|{{!!userid}}|\n|''password'':|{{!!password}}|\n|''username'':|{{!!username}}|\n|''email'':|{{!!email}}|\n\n\n<$button actions=\"<<node-red 'authorize'>>\"> Login </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n",
+        "template": "title: $:/tw5-node-red/account\nmustache: yes\nuserid: {%network.user.userid%}\nemail: {%network.user.email%}\nusername: {%network.user.username%}\npassword: {%typedpassword%}\n\n!!! Account created\n\nThis registration success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\nThis is the last time this password will be displayed\n\n@@ ''Copy to a safe place'' @@\n\n|''userid'':|{{!!userid}}|\n|''password'':|{{!!password}}|\n|''username'':|{{!!username}}|\n|''email'':|{{!!email}}|\n\n\n<$button actions=\"<<node-red 'authorize'>>\"> Login </$button>\n\n---\n\n```\n{%&temp%}\n```\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -3825,8 +3806,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 550,
-        "y": 635,
+        "x": 545,
+        "y": 650,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -5261,7 +5242,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Test css\nselector: head\ninsertHTML: beforeend\n\n\t\t<style>\n\t\t\t.html-display svg {\n\t\t\t\tmargin: .6em 1em .6em 1em;\n\t\t\t}\n\n\t\t\t/* The navigation bar */\n\t\t\t.navbar {\n\t\t\t  overflow: hidden;\n\t\t\t  background-color: #4747ff;\n\t\t\t  position: fixed; /* Set the navbar to fixed position */\n\t\t\t  top: 0; left: 0; /* Position the navbar at the top of the page */\n\t\t\t  width: 100%; /* Full width */\n\t\t\t}\n\n\t\t\t.navbar img {\n\t\t\t\tfloat: left;\n\t\t\t\twidth: 28px;\n\t\t\t\tmargin: 6px 1em 0 10px;\n\t\t\t}\n\n\t\t\t/* Links inside the navbar */\n\t\t\t.navbar a {\n\t\t\t  float: left;\n\t\t\t  display: block;\n\t\t\t  color: #f2f2f2;\n\t\t\t  text-align: center;\n\t\t\t  padding: 14px 16px;\n\t\t\t  text-decoration: none;\n\t\t\t  cursor: pointer;\n\t\t\t}\n\n\t\t\t/* Change background on mouse-over */\n\t\t\t.navbar a:hover {\n\t\t\t  background: #d6d6ff;\n\t\t\t  color: black;\n\t\t\t}\n\n\t\t\t/* Avoid content overlay */\n\t\t\t.spacer {\n\t\t\t  margin-top: 60px;\n\t\t\t}\n\n\t\t\t.topic-form {\n\t\t\t\tmargin: 0 0 1em 0;\n\t\t\t}\n\n\t\t\ttextarea {\n\t\t\t\twidth: 99%;\n\t\t\t\tmin-width: 45%;\n\t\t\t\tmax-width: 99%;\n\t\t\t\tmin-height: 3em;\n\t\t\t\tz-index: 100;\n\t\t\t}\n\n\t\t\t.tidText {\n\t\t\t\tmin-height: 3em;\n\t\t\t\tpadding-left: .5em;\n\t\t\t}\n\n\t\t\t#about {\n\t\t\t\tbackground: #3b3b92;\n\t\t\t\tcolor: aliceblue;\n\t\t\t\tfont-size: 1.1rem;\n\t\t\t\toverflow-y:auto;\n\t\t\t\tmin-height: 190px;\n\t\t\t\tmax-height: 190px;\n\t\t\t\tpadding-left: 1em;\n\t\t\t\tborder-radius: 10px;\n\t\t\t}\n\n\t\t\t.bdr {\n\t\t\t\tbackground: #c7c7ff;\n\t\t\t\tborder: 1px solid black;\n\t\t\t\tborder-radius: 6px;\n\t\t\t\tmargin-bottom: .5em;\n\t\t\t\tborder-radius: 15px;\n\t\t\t}\n\n\t\t\t.half-block {\n\t\t\t\twidth: 48%;\n\t\t\t}\n\n\t\t\t#red-req-msg, #red-res-msg {\n\t\t\t\tfont-family: monospace;\n\t\t\t\tfont-size: .8em;\n\t\t\t}\n\n\t\t\t.hr-red {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #ff0000;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 3em 1em 3em;\n\t\t\t}\n\t\t\t.hr-blue {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #0000ff;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 5em 1em 5em;\n\t\t\t}\n\t\t</style>\n+======+\ntitle: Heading Section\nselector: .heading\n\n\t\t<div class=\"navbar\">\n\t\t\t<img src=\"/tw5-node-red-logo.png\">\n\t\t\t<a onclick=\"nodered.topic('hello', '.html-display');\">Hello</a>\n\t\t\t<a onclick=\"nodered.topic('book', '.html-display');\">Book</a>\n\t\t\t<a onclick=\"nodered.topic('icons', '.html-display');\">Icons</a>\n\t\t\t<a onclick=\"resetPage();\">Clear</a>\n\t\t</div>\n+======+\ntitle: Standard Replies\nselector: .std-reply\n\n\t\t<div class=\"html-display bdr tidText\"><p>Click Hello.</p></div>\n\n+======+\ntitle: Topic Form\nselector: .topic-form\n\n\t\t<div id=\"topic-text\" class=\"half-block\" style=\"float: left;\">\n\t\t\t<input type=\"text\" id=\"entered-topic\" name=\"entered-topic\" placeholder=\"Enter topic\"/>\n\t\t\t<button id=\"topic-bttn\" onclick=\"sendTopic();\" >Send</button>\n\t\t\t<br>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"entered-tid\" name=\"entered-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Enter tiddler(s) - .tid format\"></textarea>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"received-tid\" name=\"received-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Received tiddlers\"></textarea>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<span id=\"about-move-btn\" onclick=\"expandAbout();\" style=\"margin-left: 5%;\"></span>\n\t\t<div id=\"about\" class=\"half-block\" style=\"float: right;\"></div>\n\t\t<div style=\"clear: both;\"></div>\n+======+\ntitle: Message Display\nselector: .msg-display\n\n\t\t<div id=\"hb-check\" class=\"half-block bdr\" style=\"float: left;\">\n\t\t\t<input type=\"checkbox\" id=\"display-hb\" name=\"display-hb\" />\n\t\t\t<label for=\"display-hb\">Heartbeats</label>\n\t\t</div>\n\n\t\t<div class=\"half-block bdr\" style=\"float: right;\">\n\t\t\t<span style=\"padding-left: 1em;\" > to story: </span><span id=\"to-story\"></span>\n\t\t</div>\n\t\t<div style=\"clear:both;\"></div>\n\t\t<div id=\"send-count\" style=\"float:left;\" class=\"half-block\">Messages sent: 0 - client.tiddlers: 0</div>\n\t\t<div id=\"receive-count\" style=\"float:right;\" class=\"half-block\">Messages received: 0 - server.tiddlers: 0</div>\n\t\t<div id=\"red-req-msg\" class=\"bdr half-block\" style=\"float:left;  height: 500px; overflow: auto; width: 48%;\"></div>\n\t\t<div id=\"red-res-msg\" class=\"bdr half-block\" style=\"float:right; height: 500px; overflow: auto; width: 48%;\"></div>\n+======+\ntitle: About\nselector: #about\n\n<p>This page is a regular web page that does not use TiddlyWiki client-side. The '/svr/page/js/network.js' script interfaces to TW5-Node-RED using tiddlers. The page can be used to see the tiddlers that are being exchanged between client and server - which can be helpful in debugging messages.</p>\n\n<p>Let's look at the simplest message exchange - press <button onclick=\"resetPage();nodered.bones('hello', '.html-display');\">Hello</button> to see a basic message layout. The box <button onclick=\"flashClass('.html-display');\">above</button> displays the text of the tiddler(s). The lower <button onclick=\"flashTextArea();flashClass('#received-tid');\">edit box</button> on the left displays the tiddlers received in .tid format.</p>\n\n<p>Look at the <button onclick=\"flashClass('#red-req-msg');\">Sent</button> message. All fields except 'selector' are required. 'selector' is only used for web page clients (not TiddlyWiki clients). Is the CSS Selector of the element(s) to insert the text of the returned tiddlers.</p>\n\n<p>The other required field is 'network' which contains three sub-fields; meta, client, and server.\nEach sub-field has a 'tiddlers' array which is populated by the 'client' (this web page), the 'server', while 'meta' can updated by both client and/or server.</p>\n\n<p>The <b>topic</b> sent is \"hello\" which the server uses to route the request. The <button onclick=\"flashClass('#red-res-msg');\">returned</button> <b>topic</b> is \"server.tiddlers\" to indicate there are reply tiddlers in <b>network.server.tiddlers</b>. As is  normal - 'network.meta.tiddlers' and 'network.client.tiddlers' are the same as the sent message.</p>\n\n<p><b>network.server.storylist</b> is the list of tiddler titles in <b>network.server.tiddlers</b> that are to be copied into 'selector' element or to the story river of TiddlyWiki clients.</p>\n",
+        "template": "title: Test css\nselector: head\ninsertHTML: beforeend\n\n\t\t<style>\n\t\t\t.html-display svg {\n\t\t\t\tmargin: .6em 1em .6em 1em;\n\t\t\t}\n\n\t\t\t/* The navigation bar */\n\t\t\t.navbar {\n\t\t\t  overflow: hidden;\n\t\t\t  background-color: #4747ff;\n\t\t\t  position: fixed; /* Set the navbar to fixed position */\n\t\t\t  top: 0; left: 0; /* Position the navbar at the top of the page */\n\t\t\t  width: 100%; /* Full width */\n\t\t\t}\n\n\t\t\t.navbar img {\n\t\t\t\tfloat: left;\n\t\t\t\twidth: 28px;\n\t\t\t\tmargin: 6px 1em 0 10px;\n\t\t\t}\n\n\t\t\t/* Links inside the navbar */\n\t\t\t.navbar a {\n\t\t\t  float: left;\n\t\t\t  display: block;\n\t\t\t  color: #f2f2f2;\n\t\t\t  text-align: center;\n\t\t\t  padding: 14px 16px;\n\t\t\t  text-decoration: none;\n\t\t\t  cursor: pointer;\n\t\t\t}\n\n\t\t\t/* Change background on mouse-over */\n\t\t\t.navbar a:hover {\n\t\t\t  background: #d6d6ff;\n\t\t\t  color: black;\n\t\t\t}\n\n\t\t\t/* Avoid content overlay */\n\t\t\t.spacer {\n\t\t\t  margin-top: 60px;\n\t\t\t}\n\n\t\t\t.topic-form {\n\t\t\t\tmargin: 0 0 1em 0;\n\t\t\t}\n\n\t\t\ttextarea {\n\t\t\t\twidth: 99%;\n\t\t\t\tmin-width: 45%;\n\t\t\t\tmax-width: 99%;\n\t\t\t\tmin-height: 3em;\n\t\t\t\tz-index: 100;\n\t\t\t}\n\n\t\t\t.tidText {\n\t\t\t\tmin-height: 3em;\n\t\t\t\tpadding-left: .5em;\n\t\t\t}\n\n\t\t\t#about {\n\t\t\t\tbackground: #3b3b92;\n\t\t\t\tcolor: aliceblue;\n\t\t\t\tfont-size: 1.1rem;\n\t\t\t\toverflow-y:auto;\n\t\t\t\tmin-height: 190px;\n\t\t\t\tmax-height: 190px;\n\t\t\t\tpadding-left: 1em;\n\t\t\t\tborder-radius: 10px;\n\t\t\t}\n\n\t\t\t.bdr {\n\t\t\t\tbackground: #c7c7ff;\n\t\t\t\tborder: 1px solid black;\n\t\t\t\tborder-radius: 6px;\n\t\t\t\tmargin-bottom: .5em;\n\t\t\t\tborder-radius: 15px;\n\t\t\t}\n\n\t\t\t.half-block {\n\t\t\t\twidth: 48%;\n\t\t\t}\n\n\t\t\t#red-req-msg, #red-res-msg {\n\t\t\t\tfont-family: monospace;\n\t\t\t\tfont-size: .8em;\n\t\t\t}\n\n\t\t\t.hr-red {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #ff0000;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 3em 1em 3em;\n\t\t\t}\n\t\t\t.hr-blue {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #0000ff;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 5em 1em 5em;\n\t\t\t}\n\t\t</style>\n+======+\ntitle: Heading Section\nselector: .heading\n\n\t\t<div class=\"navbar\">\n\t\t\t<img src=\"/tw5-node-red-logo.png\">\n\t\t\t<a onclick=\"nodered.topic('hello', '.html-display');\">Hello</a>\n\t\t\t<a onclick=\"nodered.topic('book', '.html-display');\">Book</a>\n\t\t\t<a onclick=\"nodered.topic('icons', '.html-display');\">Icons</a>\n\t\t\t<a onclick=\"resetPage();\">Clear</a>\n\t\t</div>\n+======+\ntitle: Standard Replies\nselector: .std-reply\n\n\t\t<div class=\"html-display bdr tidText\"><p>Click Hello.</p></div>\n\n+======+\ntitle: Topic Form\nselector: .topic-form\n\n\t\t<div id=\"topic-text\" class=\"half-block\" style=\"float: left;\">\n\t\t\t<input type=\"text\" id=\"entered-topic\" name=\"entered-topic\" placeholder=\"Enter topic\"/>\n\t\t\t<button id=\"topic-bttn\" onclick=\"sendTopic();\" >Send</button>\n\t\t\t<br>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"entered-tid\" name=\"entered-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Enter tiddler(s) - .tid format\"></textarea>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"received-tid\" name=\"received-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Received tiddlers\"></textarea>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<span id=\"about-move-btn\" onclick=\"expandAbout();\" style=\"margin-left: 5%;\"></span>\n\t\t<div id=\"about\" class=\"half-block\" style=\"float: right;\"></div>\n\t\t<div style=\"clear: both;\"></div>\n+======+\ntitle: Message Display\nselector: .msg-display\n\n\t\t<div id=\"hb-check\" class=\"half-block bdr\" style=\"float: left;\">\n\t\t\t<input type=\"checkbox\" id=\"display-hb\" name=\"display-hb\" />\n\t\t\t<label for=\"display-hb\">Heartbeats</label>\n\t\t</div>\n\n\t\t<div class=\"half-block bdr\" style=\"float: right;\">\n\t\t\t<span style=\"padding-left: 1em;\" > to story: </span><span id=\"to-story\"></span>\n\t\t</div>\n\t\t<div style=\"clear:both;\"></div>\n\t\t<div id=\"send-count\" style=\"float:left;\" class=\"half-block\">Messages sent: 0 - client.tiddlers: 0</div>\n\t\t<div id=\"receive-count\" style=\"float:right;\" class=\"half-block\">Messages received: 0 - server.tiddlers: 0</div>\n\t\t<div id=\"red-req-msg\" class=\"bdr half-block\" style=\"float:left;  height: 500px; overflow: auto; width: 48%;\"></div>\n\t\t<div id=\"red-res-msg\" class=\"bdr half-block\" style=\"float:right; height: 500px; overflow: auto; width: 48%;\"></div>\n+======+\ntitle: About\nselector: #about\n\n<p>This page is a regular web page that does not use TiddlyWiki client-side. The '/svr/page/js/network.js' script interfaces to TW5-Node-RED using tiddlers. The page can be used to see the tiddlers that are being exchanged between client and server - which can be helpful in debugging messages.</p>\n\n<p>Let's look at the simplest message exchange - press <button onclick=\"resetPage();nodered.topic('hello', '.html-display');\">Hello</button> to see a basic message layout. The box <button onclick=\"flashClass('.html-display');\">above</button> displays the text of the tiddler(s). The lower <button onclick=\"flashTextArea();flashClass('#received-tid');\">edit box</button> on the left displays the tiddlers received in .tid format.</p>\n\n<p>Look at the <button onclick=\"flashClass('#red-req-msg');\">Sent</button> message. All fields except 'selector' are required. 'selector' is only used for web page clients (not TiddlyWiki clients). Is the CSS Selector of the element(s) to insert the text of the returned tiddlers.</p>\n\n<p>The other required field is 'network' which contains three sub-fields; meta, client, and server.\nEach sub-field has a 'tiddlers' array which is populated by the 'client' (this web page), the 'server', while 'meta' can updated by both client and/or server.</p>\n\n<p>The <b>topic</b> sent is \"hello\" which the server uses to route the request. The <button onclick=\"flashClass('#red-res-msg');\">returned</button> <b>topic</b> is \"server.tiddlers\" to indicate there are reply tiddlers in <b>network.server.tiddlers</b>. As is  normal - 'network.meta.tiddlers' and 'network.client.tiddlers' are the same as the sent message.</p>\n\n<p><b>network.server.storylist</b> is the list of tiddler titles in <b>network.server.tiddlers</b> that are to be copied into 'selector' element or to the story river of TiddlyWiki clients.</p>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5316,7 +5297,7 @@
         "type": "set-network",
         "z": "2e264bd071bbb666",
         "g": "768d32daf0185aaa",
-        "name": "sample",
+        "name": "sample iframe",
         "topic": "",
         "networkfield": "network.server.tiddlers",
         "twikiName": "$tw.wiki",
@@ -5335,7 +5316,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 500,
+        "x": 490,
         "y": 260,
         "wires": [
             [
@@ -5352,7 +5333,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 245,
+        "x": 230,
         "y": 260,
         "wires": [
             [
@@ -5371,7 +5352,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 605,
+        "x": 610,
         "y": 260,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -5394,7 +5375,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 340,
+        "x": 325,
         "y": 260,
         "wires": [
             [

@@ -1,5 +1,5 @@
 "use strict";
-
+// v0.2.0
 const tokenBearer = {
 	'title':'$:/temp/tw5-node-red/store',
 	'created':'20240204213930298',
@@ -8,7 +8,8 @@ const tokenBearer = {
 	'text':'{ \"title\": \"$:/temp/tw5-node-red/store\" }',
 	'token':''
 }
-
+// To-do: tiddler sent when server has authorized user
+const serverAuthorized = '$:/temp/tw5-node-red/authorized';
 
 const noderedUtils = {
 	// modified from $tw.utils.parseFields
