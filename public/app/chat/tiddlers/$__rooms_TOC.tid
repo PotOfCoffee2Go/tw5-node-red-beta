@@ -1,0 +1,14 @@
+created: 20240207015543719
+modified: 20240207021114272
+tags: 
+title: $:/rooms/TOC
+type: text/vnd.tiddlywiki
+
+ <$macrocall
+	$name="toc-tabbed-internal-nav"
+	tag="TableOfContents"
+	template="$:/poc2go/ui/ViewTemplate/body"
+	selectedTiddler="$:/poc2go/toc/selectedRoom"
+	unselectedText="""<p>Select rooms to join or leave. Press <$button actions="<<node-red 'rooms show'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Show Rooms </$button>.</p>"""
+	missingText="<p>Missing Room.</p>"
+/>

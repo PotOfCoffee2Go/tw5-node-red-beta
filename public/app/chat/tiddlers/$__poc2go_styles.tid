@@ -1,0 +1,47 @@
+created: 20240207013049478
+modified: 20240207104502372
+tags: $:/tags/Stylesheet
+title: $:/poc2go/styles
+type: text/vnd.tiddlywiki
+
+/* hide the tiddler controls - info, edit, close */
+[data-tags*="$:/tags/poc2go/hidecontrols"].tc-tiddler-view-frame .tc-tiddler-controls {
+    display: none;
+}
+/* hide tags display */
+[data-tags*="$:/tags/poc2go/hidecontrols"].tc-tiddler-view-frame .tc-tags-wrapper {
+    display: none;
+}
+
+/* Show directory paths in monospace */
+.poc2go-dir {
+	font-family: monospace;
+    font-size: .9em;
+}
+/* section separator */
+.poc2go-hr {
+    margin: 0 10% 0 10%;
+    opacity: .3;
+}
+
+.rooms-post {
+    right:50px;
+}
+
+/*  <$button class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> */
+.flow-editor-btn {
+    margin: 0 .5em;
+    border: 1px solid #888888;
+    border-radius: 8px;
+    padding: 0 .6em 0 .6em;
+}
+
+/*
+.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item > a:hover  {
+	text-decoration: none;
+	border-top: 1px solid <<colour tab-border>>;
+	border-left: 1px solid <<colour tab-border>>;
+	border-bottom: 1px solid <<colour tab-border>>;
+	background: <<colour download-background>>;
+}
+*/
