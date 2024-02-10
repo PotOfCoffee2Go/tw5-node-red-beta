@@ -165,7 +165,8 @@
             "e0350dac670bea64",
             "c66da2e2f5754566",
             "dbfa021da3dc04ca",
-            "cc84a8e59d36a284"
+            "cc84a8e59d36a284",
+            "379f3550af8b837e"
         ],
         "x": -26,
         "y": 73,
@@ -1052,7 +1053,7 @@
         "type": "junction",
         "z": "e659339e762fe7e5",
         "x": 410,
-        "y": 100,
+        "y": 240,
         "wires": [
             [
                 "fadcc7977bd64445"
@@ -1063,8 +1064,8 @@
         "id": "fadcc7977bd64445",
         "type": "junction",
         "z": "e659339e762fe7e5",
-        "x": 730,
-        "y": 100,
+        "x": 800,
+        "y": 240,
         "wires": [
             [
                 "99057ddafac07874"
@@ -2491,7 +2492,9 @@
             [
                 "3fa65bfb3f190977"
             ],
-            []
+            [
+                "379f3550af8b837e"
+            ]
         ]
     },
     {
@@ -2890,8 +2893,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1460,
+        "x": 600,
+        "y": 1560,
         "wires": [
             [
                 "0a537b317a5e6b75"
@@ -2904,13 +2907,14 @@
         "z": "eb845b8cbc7ac49a",
         "name": "Broadcast all",
         "links": [],
-        "x": 335,
-        "y": 1420,
+        "x": 390,
+        "y": 1520,
         "wires": [
             [
                 "1ba5b068dfdec80d"
             ]
-        ]
+        ],
+        "l": true
     },
     {
         "id": "1ba5b068dfdec80d",
@@ -2929,8 +2933,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1420,
+        "x": 570,
+        "y": 1520,
         "wires": [
             [
                 "0a537b317a5e6b75"
@@ -2948,8 +2952,8 @@
         "passthrough": true,
         "return": false,
         "outputs": 1,
-        "x": 640,
-        "y": 1440,
+        "x": 900,
+        "y": 1530,
         "wires": [
             []
         ]
@@ -2961,7 +2965,7 @@
         "name": "WorkInProgress \\n Link in to broadcast \\n to multiple clients.",
         "info": "",
         "x": 190,
-        "y": 1440,
+        "y": 1540,
         "wires": []
     },
     {
@@ -3231,6 +3235,55 @@
             "Not authorized",
             "Authorized"
         ]
+    },
+    {
+        "id": "a03e67d3c6af9466",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "name": "Connection status",
+        "links": [
+            "379f3550af8b837e"
+        ],
+        "x": 190,
+        "y": 1370,
+        "wires": [
+            [
+                "6caff008aa37f65b"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "6caff008aa37f65b",
+        "type": "debug",
+        "z": "eb845b8cbc7ac49a",
+        "name": "Status to debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1370,
+        "wires": []
+    },
+    {
+        "id": "379f3550af8b837e",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "Connection status",
+        "mode": "link",
+        "links": [
+            "a03e67d3c6af9466"
+        ],
+        "x": 130,
+        "y": 300,
+        "wires": [],
+        "l": true
     },
     {
         "id": "509b906f53cc0bc2",
@@ -4506,9 +4559,9 @@
         "id": "2b2c59048a21c639",
         "type": "function",
         "z": "e659339e762fe7e5",
-        "name": "Rooms \\n ·  show \\n ·  join \\n · post \\n ·  leave \\n · create",
-        "func": "const $tw = global.get('$tw');\n\n\nconst roomsDb = global.get('twikis').Rooms;\n\n// Determine action requested\nvar args = msg.topic.split(',');\nif (args.length < 2) { args = ['rooms', 'show']; }\nvar route = args[1];\n\nmsg.payload = {};\n\nconst senderdata = msg.network.client.sender[0];\n\nswitch (route) {\n\tcase 'show': show(); break;\n\tcase 'join': join(); break;\n\tcase 'post': post(); break;\n\tcase 'leave': leave(); break;\n\tcase 'create': create(); break;\n\tdefault:\n\t\tshow();\n}\nnode.done();\nreturn;\n\nfunction init() {\n\tconst clientIds = global.get('clientIds');\n\tconst cId = msg.network.meta._clientid;\n\tconst clientdata = clientIds[cId];\n\tif (!clientdata.roomTocInitialized) {\n\t\tvar alreadyJoined = $tw.utils.parseStringArray(msg.network.user.joined);\n\t\talreadyJoined.forEach(function (element) {\n\t\t\tmsg.payload.room = element;\n\t\t\tnode.send([null, msg, null, null, null]);\n\t\t});\n\t\tclientdata.roomTocInitialized = true;\n\t}\n}\n\nfunction show() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tinit();\n\tnode.send([msg, null, null, null, null]);\n}\n\nfunction join() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tmsg.payload.room = args[2];\n\tmsg.network.user.joined = senderdata.joined;\n\tnode.send([null, msg, null, null, null]);\n}\n\nfunction post() {\n\tmsg.payload.room = args[2];\n\tmsg.network.user.joined = senderdata.joined;\n\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tvar previousContent = roomTiddler.getFieldString('text')\n\n\tconst posting = msg.network.client.tiddlers[0] || { text: '' };\n\tposting.text = posting.text.replace(/\\n/g,'<br>');\n\t\n\t// Current date/time in TW format \n\tvar dateTiddler = new $tw.Tiddler($tw.wiki.getCreationFields());\n\tvar fieldModule = $tw.Tiddler.fieldModules['created'];\n\tvar postDate = fieldModule.stringify.call(dateTiddler, dateTiddler.fields.created);\n\n\tmsg.payload.roomContent = previousContent + `<hr class=\"poc2go-hr\">\\n''` +\n\t\t`<$list filter=\"[[${postDate}]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> ` +\n\t\tmsg.network.user.username + `''<br>` + posting.text;\n\troomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { text: msg.payload.roomContent }));\n\tnode.send([null, null, msg, null, null]);\n}\n\nfunction leave() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tmsg.network.user.joined = senderdata.joined;\n\tmsg.payload.leave = args[2];\n\tnode.send([null, null, null, msg, null]);\n}\n\nfunction create() {\n\tif (!senderdata.createroom) { return; }\n\tconst roomDbData = JSON.parse(roomsDb.getTiddlersAsJson(senderdata.createroom));\n\tif (roomDbData.length > 0) {\n\t\tjoin();\n\t\treturn;\n\t}\n\troomsDb.addTiddler(new $tw.Tiddler(\n\t\t$tw.wiki.getCreationFields(),\n\t\t$tw.wiki.getModificationFields(),\n\t\t{\ttitle: senderdata.createroom,\n\t\t\tlist:\"\",\n\t\t\ttext:\"\",\n\t\t\tcreator: msg.network.user.username\n\t\t}\n\t));\n\targs = ['rooms', 'join', senderdata.createroom];\n\tvar joined = $tw.utils.parseStringArray(senderdata.joined);\n\tjoined.push(senderdata.createroom);\n\tsenderdata.joined = $tw.utils.stringifyList(joined);\n\tjoin();\n//\tnode.send([null, null, null, null, msg]);\n}\n\n\n/*\n$tw.utils.stringifyList('one','two', 'three four');\n\n\n$tw.utils.parseStringArray('one two [three four]]');\n\n\ntitle: roomname\nlist:\n\n*/\n",
-        "outputs": 5,
+        "name": "Rooms \\n ·  join \\n · post \\n ·  leave \\n ·  show",
+        "func": "/*\n * This code is over documented as the Chat System\n * is used as a tutorial showing the features of TW5-Node-RED\n*/\n\n// Access to TiddlyWiki codebase\nconst $tw = global.get('$tw');\n\n// Rooms twiki database\n// Instead of using nodes will use JS to maintain the Rooms Db\nconst roomsDb = global.get('twikis').Rooms;\n\n// Sender is the client 'currentTiddler' tiddler that sent the request\n//  (It is possible to have multiple senders when the server requests tiddlers\n//   from the client - server does not request tiddlers for this app)\nconst senderdata = msg.network.client.sender[0];\n\n// Determine action requested\n// Using commas between topic commands\n//  to simplify room names containing spaces\n// Default to show the rooms\nvar args = msg.topic.split(',');\nif (args.length < 2) {\n\targs = ['rooms', 'show'];\n}\n\n// Initialize payload which will hold data to\n//  create the tiddlers of the Chat system\nmsg.payload = {};\n\n// The following actions are available\nvar action = args[1];\nswitch (action) {\n\tcase 'join': join(); break;\n\tcase 'post': post(); break;\n\tcase 'leave': leave(); break;\n\tcase 'show': show(); break;\n\tcase 'create': create(); break;\n\tdefault:\n\t\tshow();\n}\n// Inform Node-RED that this msg is done\nnode.done();\nreturn;\n\n// Join rooms that user had joined from a previous connection\n// Each connection has a unique clientid provided\n//  by the TW5-Node-RED macro client side - stored in\n//  'msg.network.meta._clientid' \nfunction show() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Get client information for this connection\n\tconst clientIds = global.get('clientIds');\n\tconst clientdata = clientIds[msg.network.meta._clientid];\n\t// Check flag indicating init() already been run\n\tif (!clientdata.roomTocInitialized) {\n\t\t// Get the joined rooms from the UserDb database\n\t\tsenderdata.joined = msg.network.user.joined;\n\t\t// 'msg.msg.network.user' is the twiki 'UsersDb' record (tiddler)\n\t\t//  (in all msgs from the client)\n\t\t//  for this user - which stores a 'joined' list\n\t\tvar alreadyJoined = $tw.utils.parseStringArray(msg.network.user.joined);\n\t\t// Send a 'join' msg for each room\n\t\tif (alreadyJoined) {\n\t\t\talreadyJoined.forEach((room) => {\n\t\t\t\targs[2] = room;\n\t\t\t\tjoin();\n\t\t\t});\n\t\t}\n\t\t// Flag the init() has been done\n\t\tclientdata.roomTocInitialized = true;\n\t}\n\tnode.send([null, null, null, msg]);\n}\n\n// Join a room 'rooms,join,room name'\n// Output to nodes by placing information into msg.payload \nfunction join() {\n\t// Get the titles of the tiddlers in the RoomsDB\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Third parameter in args contains the room\n\tmsg.payload.room = args[2];\n\t// List of rooms already joined is in 'currentTiddler' 'joined' field\n\tmsg.network.user.joined = senderdata.joined;\n\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\t// Get the content stored for this room\n\tmsg.payload.roomContent = roomTiddler.getFieldString('text')\n\n\t//roomTiddler = JSON.parse(JSON.stringify(roomTiddler));\n\t// Update Room with clientId\n\tvar roomclientids = $tw.utils.parseStringArray(roomTiddler.fields.roomclientids);\n\t$tw.utils.pushTop(roomclientids, msg.network.meta._clientid);\n\troomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { roomclientids: $tw.utils.stringifyList(roomclientids) }));\n\n\tnode.send([msg, null, null, null]);\n}\n\n// Post a message to a room\nfunction post() {\n\t// Flag used by flow to route message\n\tmsg.payload.isPost = true;\n\tmsg.payload.room = args[2];\n\tmsg.network.user.joined = senderdata.joined;\n\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tvar previousContent = roomTiddler.getFieldString('text')\n\n\tconst posting = msg.network.client.tiddlers[0] || { text: '' };\n\tposting.text = posting.text.replace(/\\n/g,'<br>');\n\t\n\t// Current date/time in TW format \n\tvar dateTiddler = new $tw.Tiddler($tw.wiki.getCreationFields());\n\tvar postDate = dateTiddler.getFieldString('created');\n\n\tmsg.payload.roomContent = previousContent + `<hr class=\"poc2go-hr\">\\n''` +\n\t\t`<$list filter=\"[[${postDate}]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> ` +\n\t\tmsg.network.user.username + `''<br>` +\n\t\t'<div style=\"width: max-content; background:aliceblue; color:blue; border:1px solid blue; border-radius: 8px; margin:0 0 0 1em; padding: .3em 1em .3em 1em;\">' +\n\t\tposting.text +\n\t\t'</div>'\n\troomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { text: msg.payload.roomContent }));\n\tnode.send([null, msg, null, null]);\n}\n\nfunction leave() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tmsg.network.user.joined = senderdata.joined;\n\tmsg.payload.leave = args[2];\n\tnode.send([null, null, msg, null]);\n}\n\n\nfunction create() {\n\tif (!senderdata.createroom) { return; }\n\tconst roomDbData = JSON.parse(roomsDb.getTiddlersAsJson(senderdata.createroom));\n\tif (roomDbData.length > 0) {\n\t\tjoin();\n\t\treturn;\n\t}\n\troomsDb.addTiddler(new $tw.Tiddler(\n\t\t$tw.wiki.getCreationFields(),\n\t\t$tw.wiki.getModificationFields(),\n\t\t{\ttitle: senderdata.createroom,\n\t\t\tlist:\"\",\n\t\t\ttext:\"\",\n\t\t\tcreator: msg.network.user.username,\n\t\t\troomclientids: msg.network.meta._clientid\n\t\t}\n\t));\n\targs = ['rooms', 'join', senderdata.createroom];\n\tvar joined = $tw.utils.parseStringArray(senderdata.joined);\n\tjoined.push(senderdata.createroom);\n\tsenderdata.joined = $tw.utils.stringifyList(joined);\n\tjoin();\n//\tnode.send([null, null, null, null, msg]);\n}\n",
+        "outputs": 4,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -4517,9 +4570,6 @@
         "x": 270,
         "y": 160,
         "wires": [
-            [
-                "768032b1dcfcd148"
-            ],
             [
                 "8154c40e02a24a45"
             ],
@@ -4530,7 +4580,7 @@
                 "579553b08ab3eb6f"
             ],
             [
-                "911eeb7fcf10b4b8"
+                "768032b1dcfcd148"
             ]
         ]
     },
@@ -4564,7 +4614,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: TableOfContents subtitle\nmustache: yes\n\n{% network.user.username %}\n+======+\ntitle: $:/poc2go/toc/selectedRoom\n\n$:/poc2go/rooms/show\n+======+\ntitle: $:/poc2go/rooms/show\ncreated: 20240206063358517\nmodified: 20240206064414842\nmustache: yes\ntags: \njoined: {% network.user.joined %}\ncaption: Rooms...\ntags: TableOfContents\n\n!!! Show rooms\n\n<$edit-text field=\"createroom\"/>\n<$button actions=\"<<node-red 'rooms,create'>>\"> Create </$button>\n\n\n{%# payload.roomnames %}\n<span style=\"white-space:nowrap; margin-right: 1em;\"><$checkbox listField=\"joined\" checked=\"{%.%}\" checkactions=\"<<node-red 'rooms,join,{%.%}'>>\" uncheckactions=\"<<node-red 'rooms,leave,{%.%}'>>\"> [[{%.%}|$:/rooms/{%.%}]] </$checkbox></span>\n{%/ payload.roomnames %}\n",
+        "template": "title: TableOfContents subtitle\nmustache: yes\n\n{% network.user.username %}\n+======+\ntitle: $:/poc2go/toc/selectedRoom\n\n$:/poc2go/rooms/show\n+======+\ntitle: $:/poc2go/rooms/show\ncreated: 20240206063358517\nmodified: 20240206064414842\nmustache: yes\ntags: \njoined: {% network.user.joined %}\ncaption: Rooms...\ntags: TableOfContents\n\n!!! Show rooms\n\n<$edit-text field=\"createroom\"/>\n<$button actions=\"<<node-red 'rooms,create'>>\"> Create </$button>\n\n\n{%# payload.roomnames %}\n<span style=\"white-space:nowrap; margin-right: 1em;\"><$checkbox listField=\"joined\" checked=\"{%.%}\" checkactions=\"<<node-red 'rooms,join,{%.%}'>>\" uncheckactions=\"<<node-red 'rooms,leave,{%.%}'>>\"> {%.%} </$checkbox></span>\n{%/ payload.roomnames %}\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4574,7 +4624,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 890,
+        "x": 920,
         "y": 220,
         "wires": [
             [
@@ -4591,8 +4641,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 1055,
-        "y": 200,
+        "x": 1075,
+        "y": 180,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -4600,7 +4650,7 @@
         "id": "8154c40e02a24a45",
         "type": "to-twiki",
         "z": "e659339e762fe7e5",
-        "name": "Users Db",
+        "name": "Users Db add room",
         "twikiName": "Users",
         "fromTwikiName": "$tw.wiki",
         "field": "network.user",
@@ -4623,11 +4673,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 470,
-        "y": 140,
+        "x": 500,
+        "y": 100,
         "wires": [
             [
-                "b1bd6d4843367aba"
+                "9a19c39ceaa81097"
             ]
         ]
     },
@@ -4654,8 +4704,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 660,
-        "y": 160,
+        "x": 720,
+        "y": 150,
         "wires": [
             [
                 "4c070c455d94eebd"
@@ -4685,8 +4735,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 660,
-        "y": 220,
+        "x": 720,
+        "y": 200,
         "wires": [
             [
                 "99057ddafac07874"
@@ -4697,7 +4747,7 @@
         "id": "579553b08ab3eb6f",
         "type": "to-twiki",
         "z": "e659339e762fe7e5",
-        "name": "Users Db",
+        "name": "Users Db remove room",
         "twikiName": "Users",
         "fromTwikiName": "$tw.wiki",
         "field": "network.user",
@@ -4720,8 +4770,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 470,
-        "y": 220,
+        "x": 520,
+        "y": 200,
         "wires": [
             [
                 "193dc50c3509e49e"
@@ -4732,7 +4782,7 @@
         "id": "9a19c39ceaa81097",
         "type": "set-network",
         "z": "e659339e762fe7e5",
-        "name": "Post content",
+        "name": "Room content",
         "topic": "",
         "networkfield": "network.server.tiddlers",
         "twikiName": "$tw.wiki",
@@ -4751,8 +4801,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 480,
-        "y": 180,
+        "x": 490,
+        "y": 150,
         "wires": [
             [
                 "b1bd6d4843367aba"
@@ -4764,13 +4814,11 @@
         "type": "switch",
         "z": "e659339e762fe7e5",
         "name": "Is post?",
-        "property": "payload.roomContent",
+        "property": "payload.isPost",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "istype",
-                "v": "string",
-                "vt": "string"
+                "t": "true"
             },
             {
                 "t": "else"
@@ -4779,8 +4827,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 890,
-        "y": 160,
+        "x": 920,
+        "y": 150,
         "wires": [
             [
                 "d768dd2a6fd581b5"
@@ -4851,7 +4899,7 @@
         "type": "function",
         "z": "e659339e762fe7e5",
         "name": "function 3",
-        "func": "msg.payload.forEach((room, idx) => {\n    msg.payload[idx].text = '';\n})\nreturn msg;",
+        "func": "msg.payload.forEach((room, idx) => {\n    msg.payload[idx].roomclientids = '';\n//    delete msg.payload[idx].roomclientids;\n//    msg.payload[idx].text = '';\n})\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
