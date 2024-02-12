@@ -675,10 +675,28 @@
             "befe33e64a70264a",
             "03ebfda3187b4bce"
         ],
-        "x": 64,
-        "y": 45,
+        "x": 54,
+        "y": 185,
         "w": 592,
         "h": 306
+    },
+    {
+        "id": "a2ae9a08fd4b0a90",
+        "type": "group",
+        "z": "ab56271e77c6f866",
+        "name": "If do not want to update the TiddlyWiki twiki database with \\n every update disconnect the wire \\n \\n This includes updates done in the 'function' nodes too! \\n ",
+        "style": {
+            "label": true,
+            "label-position": "s"
+        },
+        "nodes": [
+            "8741680a85a43754",
+            "60af93695972cb17"
+        ],
+        "x": 124,
+        "y": 24,
+        "w": 422,
+        "h": 124
     },
     {
         "id": "ed8ab1c9492e0a5a",
@@ -966,24 +984,6 @@
         "h": 152
     },
     {
-        "id": "a2ae9a08fd4b0a90",
-        "type": "group",
-        "z": "ab56271e77c6f866",
-        "name": "If do not want to update the TiddlyWiki twiki database with \\n every update disconnect the wire \\n \\n This includes updates done in the 'function' nodes too! \\n ",
-        "style": {
-            "label": true,
-            "label-position": "s"
-        },
-        "nodes": [
-            "8741680a85a43754",
-            "60af93695972cb17"
-        ],
-        "x": 174,
-        "y": 394,
-        "w": 422,
-        "h": 124
-    },
-    {
         "id": "7c48a995b12f0315",
         "type": "junction",
         "z": "9e01fcb7c734b8a9",
@@ -1077,8 +1077,8 @@
         "type": "junction",
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
-        "x": 200,
-        "y": 420,
+        "x": 150,
+        "y": 50,
         "wires": [
             []
         ]
@@ -1088,8 +1088,8 @@
         "type": "junction",
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
-        "x": 570,
-        "y": 420,
+        "x": 520,
+        "y": 50,
         "wires": [
             []
         ]
@@ -2618,15 +2618,15 @@
         "type": "function",
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
-        "name": "Bearer \\n  token",
-        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authorized\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n    // Set the token to be sent to the client\n    const found = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\n    if (!found) { throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')}\n    found.token = clientIds[cId].auth._token;\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nclientIds[cId].socketId = msg._socketId\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
+        "name": "Connect & \\n Bearer token",
+        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authorized\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n    node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n    node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    node.send([null, msg]);\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 430,
         "y": 160,
         "wires": [
             [
@@ -3237,50 +3237,16 @@
         ]
     },
     {
-        "id": "a03e67d3c6af9466",
-        "type": "link in",
-        "z": "eb845b8cbc7ac49a",
-        "name": "Connection status",
-        "links": [
-            "379f3550af8b837e"
-        ],
-        "x": 190,
-        "y": 1370,
-        "wires": [
-            [
-                "6caff008aa37f65b"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "6caff008aa37f65b",
-        "type": "debug",
-        "z": "eb845b8cbc7ac49a",
-        "name": "Status to debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 1370,
-        "wires": []
-    },
-    {
         "id": "379f3550af8b837e",
         "type": "link out",
         "z": "eb845b8cbc7ac49a",
         "g": "e4c2719e30c99637",
-        "name": "Connection status",
+        "name": "ConnectionDb",
         "mode": "link",
         "links": [
             "a03e67d3c6af9466"
         ],
-        "x": 130,
+        "x": 120,
         "y": 300,
         "wires": [],
         "l": true
@@ -3907,8 +3873,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 160,
-        "y": 190,
+        "x": 150,
+        "y": 330,
         "wires": [
             [],
             [
@@ -3942,8 +3908,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 430,
-        "y": 190,
+        "x": 420,
+        "y": 330,
         "wires": [
             []
         ]
@@ -3976,8 +3942,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 160,
-        "y": 310,
+        "x": 150,
+        "y": 450,
         "wires": [
             [],
             [
@@ -4011,8 +3977,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 440,
-        "y": 310,
+        "x": 430,
+        "y": 450,
         "wires": [
             []
         ]
@@ -4045,8 +4011,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 450,
-        "y": 150,
+        "x": 440,
+        "y": 290,
         "wires": [
             []
         ]
@@ -4068,8 +4034,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 150,
+        "x": 160,
+        "y": 290,
         "wires": [
             [
                 "c8ec67c0de0b50e2"
@@ -4088,8 +4054,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 270,
+        "x": 160,
+        "y": 410,
         "wires": [
             [
                 "03ebfda3187b4bce"
@@ -4124,8 +4090,149 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 450,
-        "y": 270,
+        "x": 440,
+        "y": 410,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a03e67d3c6af9466",
+        "type": "link in",
+        "z": "ab56271e77c6f866",
+        "name": "ConnectionDb",
+        "links": [
+            "379f3550af8b837e"
+        ],
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "c88f50c805560073"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "6caff008aa37f65b",
+        "type": "debug",
+        "z": "ab56271e77c6f866",
+        "name": "Status to debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5d85994367fc1ef4",
+        "type": "to-twiki",
+        "z": "ab56271e77c6f866",
+        "name": "",
+        "twikiName": "ConnectionDb",
+        "fromTwikiName": "$tw.wiki",
+        "field": "payload",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 570,
+        "y": 580,
+        "wires": [
+            [
+                "6caff008aa37f65b"
+            ]
+        ]
+    },
+    {
+        "id": "c88f50c805560073",
+        "type": "function",
+        "z": "ab56271e77c6f866",
+        "name": "Connect/Disconnect Tiddler",
+        "func": "const $tw = global.get('$tw');\n\n// Only interested in connects and disconnects\nif (msg.uibuilderCtrl !== 'client connect' &&\n        msg.uibuilderCtrl !== 'client disconnect') {\n    node.done();\n    return;\n}\n\nvar payload = msg;\nmsg = { payload };\nmsg.topic = msg.payload.uibuilderCtrl;\nmsg.payload.title = msg.payload._socketId;\n\n// Server's clientId for this connection\nconst connectionDb = global.get('twikis').ConnectionDb;\nconst connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg.payload._socketId}]]`));\n\n// Create the connection tiddler\nif (connectDbTiddler.length === 0) {\n    node.send(msg)\n    node.done()\n    return;\n}\n/*\nif (msg.payload.uibuilderCtrl === 'client connect') {\n    // Tag connection tiddler with this socket Id\n    var tags = $tw.utils.parseStringArray(connectDbTiddler[0].tags);\n    if (!tags) { tags = [] }\n    tags.push(msg.payload._socketId);\n    msg.payload.tags = $tw.utils.stringifyList(tags);\n//    connectionDb.addTiddler(connectDbTiddler[0]);\n}\n*/\n\nif (msg.payload.uibuilderCtrl === 'client disconnect') {\n    connectionDb.deleteTiddler(msg.payload._socketId);\n    node.done();\n    return;\n}\nnode.done();\nreturn;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "5d85994367fc1ef4"
+            ]
+        ]
+    },
+    {
+        "id": "d8d9252f34c0e3a9",
+        "type": "inject",
+        "z": "ab56271e77c6f866",
+        "name": "Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "48c4eb692312c061"
+            ]
+        ]
+    },
+    {
+        "id": "48c4eb692312c061",
+        "type": "to-twiki",
+        "z": "ab56271e77c6f866",
+        "name": "Create ConnectionDb",
+        "twikiName": "ConnectionDb",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": false,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 320,
+        "y": 540,
         "wires": [
             []
         ]
