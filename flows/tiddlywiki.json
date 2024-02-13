@@ -229,7 +229,7 @@
             "49e8ade023549ff5"
         ],
         "x": 44,
-        "y": 439,
+        "y": 339,
         "w": 662,
         "h": 82
     },
@@ -320,8 +320,8 @@
             "e5c2695061c28c3d"
         ],
         "x": 44,
-        "y": 559,
-        "w": 482,
+        "y": 459,
+        "w": 532,
         "h": 82
     },
     {
@@ -362,7 +362,7 @@
             "3891c3049d5ff01d"
         ],
         "x": 44,
-        "y": 319,
+        "y": 219,
         "w": 442,
         "h": 82
     },
@@ -523,7 +523,7 @@
             "844b316ad04edad7"
         ],
         "x": 44,
-        "y": 139,
+        "y": 39,
         "w": 552,
         "h": 142
     },
@@ -610,8 +610,8 @@
             "03ebfda3187b4bce",
             "a2ae9a08fd4b0a90"
         ],
-        "x": 54,
-        "y": 65,
+        "x": 64,
+        "y": 145,
         "w": 632,
         "h": 459
     },
@@ -632,8 +632,8 @@
             "c88f50c805560073",
             "d8d9252f34c0e3a9"
         ],
-        "x": 14,
-        "y": 577,
+        "x": 24,
+        "y": 657,
         "w": 682,
         "h": 154
     },
@@ -654,27 +654,8 @@
             "6e07db47e20f3499"
         ],
         "x": 54,
-        "y": 279,
+        "y": 299,
         "w": 792,
-        "h": 82
-    },
-    {
-        "id": "4e3f07be3be3818f",
-        "type": "group",
-        "z": "127607a6bb274a18",
-        "name": "Show all twikis in debug panel",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "588e7321eef68b14",
-            "a93b0937257cf944",
-            "0bb01e40dbeddabe"
-        ],
-        "x": 34,
-        "y": 39,
-        "w": 552,
         "h": 82
     },
     {
@@ -690,7 +671,7 @@
             "c1e23170a15882f7"
         ],
         "x": 54,
-        "y": 679,
+        "y": 579,
         "w": 392,
         "h": 82
     },
@@ -728,7 +709,7 @@
             "42a9532b8df72e2c"
         ],
         "x": 14,
-        "y": 799,
+        "y": 699,
         "w": 872,
         "h": 322
     },
@@ -909,7 +890,7 @@
         "type": "group",
         "z": "ab56271e77c6f866",
         "g": "b900c252078e7f0f",
-        "name": "If do not want to update the TiddlyWiki twiki database with \\n every update - disconnect the wire \\n \\n This includes updates done in the 'function' nodes too! \\n ",
+        "name": "If do not want to write the TiddlyWiki twiki database to disk with \\n every update - disconnect the wire \\n \\n This includes updates done in the 'function' nodes too! \\n ",
         "style": {
             "label": true,
             "label-position": "s"
@@ -918,8 +899,8 @@
             "8741680a85a43754",
             "60af93695972cb17"
         ],
-        "x": 144,
-        "y": 374,
+        "x": 154,
+        "y": 454,
         "w": 422,
         "h": 124
     },
@@ -1209,6 +1190,25 @@
         "h": 152
     },
     {
+        "id": "4e3f07be3be3818f",
+        "type": "group",
+        "z": "ab56271e77c6f866",
+        "name": "Show all clientIds &  twiki databases in debug panel",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "588e7321eef68b14",
+            "a93b0937257cf944",
+            "0bb01e40dbeddabe"
+        ],
+        "x": 84,
+        "y": 19,
+        "w": 552,
+        "h": 82
+    },
+    {
         "id": "7c48a995b12f0315",
         "type": "junction",
         "z": "9e01fcb7c734b8a9",
@@ -1277,8 +1277,8 @@
         "id": "768032b1dcfcd148",
         "type": "junction",
         "z": "e659339e762fe7e5",
-        "x": 410,
-        "y": 240,
+        "x": 280,
+        "y": 230,
         "wires": [
             [
                 "fadcc7977bd64445"
@@ -1289,8 +1289,8 @@
         "id": "fadcc7977bd64445",
         "type": "junction",
         "z": "e659339e762fe7e5",
-        "x": 800,
-        "y": 240,
+        "x": 710,
+        "y": 230,
         "wires": [
             [
                 "99057ddafac07874"
@@ -1302,8 +1302,8 @@
         "type": "junction",
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
-        "x": 170,
-        "y": 400,
+        "x": 180,
+        "y": 480,
         "wires": [
             []
         ]
@@ -1313,8 +1313,8 @@
         "type": "junction",
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
-        "x": 540,
-        "y": 400,
+        "x": 550,
+        "y": 480,
         "wires": [
             []
         ]
@@ -2845,7 +2845,7 @@
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
         "name": "Connect & \\n Bearer token",
-        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authorized\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n    node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n    node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    node.send([null, msg]);\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
+        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authorized\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n    node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n    node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    if (msg.topic === 'heartbeat') {\n        node.send([msg, null]);\n    } else {\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -4058,7 +4058,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\"/>| Your password to sign in |\n\n<div style=\"\">\n<$button actions=\"<<node-red 'authorize'>>\"> Sign in </$button>\n</div>\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n",
+        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authorize'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<div style=\"\">\n<$button actions=\"<<signin>>\"> Sign in </$button>\n</div>\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4104,8 +4104,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 150,
-        "y": 210,
+        "x": 160,
+        "y": 290,
         "wires": [
             [],
             [
@@ -4139,8 +4139,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 440,
-        "y": 210,
+        "x": 450,
+        "y": 290,
         "wires": [
             []
         ]
@@ -4173,8 +4173,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 150,
-        "y": 330,
+        "x": 160,
+        "y": 410,
         "wires": [
             [],
             [
@@ -4208,8 +4208,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 450,
-        "y": 330,
+        "x": 460,
+        "y": 410,
         "wires": [
             []
         ]
@@ -4242,8 +4242,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 440,
-        "y": 170,
+        "x": 450,
+        "y": 250,
         "wires": [
             []
         ]
@@ -4265,8 +4265,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 160,
-        "y": 170,
+        "x": 170,
+        "y": 250,
         "wires": [
             [
                 "c8ec67c0de0b50e2"
@@ -4285,8 +4285,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 160,
-        "y": 290,
+        "x": 170,
+        "y": 370,
         "wires": [
             [
                 "03ebfda3187b4bce"
@@ -4321,8 +4321,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 460,
-        "y": 290,
+        "x": 470,
+        "y": 370,
         "wires": [
             []
         ]
@@ -4336,8 +4336,8 @@
         "links": [
             "379f3550af8b837e"
         ],
-        "x": 110,
-        "y": 690,
+        "x": 120,
+        "y": 770,
         "wires": [
             [
                 "c88f50c805560073"
@@ -4359,8 +4359,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 650,
+        "x": 580,
+        "y": 730,
         "wires": []
     },
     {
@@ -4391,8 +4391,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 570,
-        "y": 690,
+        "x": 580,
+        "y": 770,
         "wires": [
             [
                 "6caff008aa37f65b"
@@ -4412,8 +4412,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 690,
+        "x": 340,
+        "y": 770,
         "wires": [
             [
                 "5d85994367fc1ef4"
@@ -4432,8 +4432,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 120,
-        "y": 650,
+        "x": 130,
+        "y": 730,
         "wires": [
             [
                 "48c4eb692312c061"
@@ -4468,10 +4468,67 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 320,
-        "y": 650,
+        "x": 330,
+        "y": 730,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "588e7321eef68b14",
+        "type": "inject",
+        "z": "ab56271e77c6f866",
+        "g": "4e3f07be3be3818f",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "0bb01e40dbeddabe"
+            ]
+        ]
+    },
+    {
+        "id": "a93b0937257cf944",
+        "type": "debug",
+        "z": "ab56271e77c6f866",
+        "g": "4e3f07be3be3818f",
+        "name": "twikis » debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0bb01e40dbeddabe",
+        "type": "link call",
+        "z": "ab56271e77c6f866",
+        "g": "4e3f07be3be3818f",
+        "name": "",
+        "links": [
+            "2ffe59e5768f9620"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "a93b0937257cf944"
+            ]
         ]
     },
     {
@@ -4875,7 +4932,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 275,
-        "y": 880,
+        "y": 780,
         "wires": [
             [
                 "b1d22b6ea5af6c8c"
@@ -4902,7 +4959,7 @@
         "repair": false,
         "outputs": 1,
         "x": 180,
-        "y": 880,
+        "y": 780,
         "wires": [
             [
                 "7e1d28042993ee2d"
@@ -4923,7 +4980,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 880,
+        "y": 780,
         "wires": [
             [
                 "8e0b5380e71a239e"
@@ -4954,7 +5011,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 485,
-        "y": 900,
+        "y": 800,
         "wires": [
             [
                 "dad041e7b0ba1a66"
@@ -4975,7 +5032,7 @@
         "finalize": "",
         "libs": [],
         "x": 610,
-        "y": 900,
+        "y": 800,
         "wires": [
             [
                 "05f53b0ba8804b02"
@@ -5006,7 +5063,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 755,
-        "y": 900,
+        "y": 800,
         "wires": [
             [
                 "123b82e57831527e"
@@ -5025,7 +5082,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 845,
-        "y": 900,
+        "y": 800,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5044,7 +5101,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 1080,
+        "y": 980,
         "wires": []
     },
     {
@@ -5066,7 +5123,7 @@
         "repair": false,
         "outputs": 1,
         "x": 190,
-        "y": 960,
+        "y": 860,
         "wires": [
             [
                 "52ac23d6fd69ca75"
@@ -5086,7 +5143,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 1020,
+        "y": 920,
         "wires": [
             [
                 "e4bc7258380d7124"
@@ -5116,7 +5173,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 755,
-        "y": 1020,
+        "y": 920,
         "wires": [
             [
                 "db3503f6c6d0f5ea",
@@ -5138,7 +5195,7 @@
         "finalize": "",
         "libs": [],
         "x": 160,
-        "y": 1020,
+        "y": 920,
         "wires": [
             [
                 "7a077d0de73446be"
@@ -5169,7 +5226,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 285,
-        "y": 1020,
+        "y": 920,
         "wires": [
             [
                 "dc7833dc679fadd0"
@@ -5196,7 +5253,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 1020,
+        "y": 920,
         "wires": [
             [
                 "8b2f8fcaf3696a2b"
@@ -5215,7 +5272,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 570,
-        "y": 960,
+        "y": 860,
         "wires": [
             [
                 "5bde851593e32438"
@@ -5250,7 +5307,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 960,
+        "y": 860,
         "wires": [
             [
                 "dcd45e6966cda24d"
@@ -5267,7 +5324,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 55,
-        "y": 900,
+        "y": 800,
         "wires": [
             [
                 "53cfba302a93975f",
@@ -5297,7 +5354,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 275,
-        "y": 920,
+        "y": 820,
         "wires": [
             [
                 "384b3178b58d75a3"
@@ -5324,7 +5381,7 @@
         "repair": false,
         "outputs": 1,
         "x": 180,
-        "y": 920,
+        "y": 820,
         "wires": [
             [
                 "605736a10c443a62"
@@ -5344,7 +5401,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 920,
+        "y": 820,
         "wires": [
             [
                 "8e0b5380e71a239e"
@@ -5369,7 +5426,7 @@
         "senderr": false,
         "headers": [],
         "x": 380,
-        "y": 840,
+        "y": 740,
         "wires": [
             [
                 "42a9532b8df72e2c"
@@ -5395,7 +5452,7 @@
         "repair": false,
         "outputs": 1,
         "x": 190,
-        "y": 840,
+        "y": 740,
         "wires": [
             [
                 "53fb3fedf84a21e5"
@@ -5426,7 +5483,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 755,
-        "y": 840,
+        "y": 740,
         "wires": [
             [
                 "123b82e57831527e"
@@ -5458,7 +5515,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 560,
-        "y": 480,
+        "y": 380,
         "wires": [
             [
                 "49e8ade023549ff5"
@@ -5478,7 +5535,7 @@
         "return": false,
         "outputs": 1,
         "x": 280,
-        "y": 480,
+        "y": 380,
         "wires": [
             [
                 "5cb34faaf5e14207"
@@ -5504,7 +5561,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 410,
-        "y": 480,
+        "y": 380,
         "wires": [
             [
                 "dee53a18f9af7b3c"
@@ -5519,7 +5576,7 @@
         "name": "Hide Sidebar",
         "links": [],
         "x": 140,
-        "y": 480,
+        "y": 380,
         "wires": [
             [
                 "1d23e008fde4d932"
@@ -5536,7 +5593,7 @@
         "mode": "return",
         "links": [],
         "x": 665,
-        "y": 480,
+        "y": 380,
         "wires": []
     },
     {
@@ -5544,59 +5601,21 @@
         "type": "function",
         "z": "127607a6bb274a18",
         "g": "47b83acc6a54da80",
-        "name": "twiki collections",
-        "func": "const $tw = global.get('$tw');\nconst twikis = global.get('twikis');\n\n// Place results in the msg\nmsg.twikis = {};\n\n// For each twiki create a property in msg.twiki of the twikiName\n//  then load the property with tiddlers from the twiki\nfor (let twikiName in twikis) {\n    if (twikiName !== '$tw.wiki' && twikiName !== '$twsync.wiki') { // exclude main tidder store\n        msg.twikis[twikiName] =\n            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))\n    }\n    $tw.utils.log(`twiki: '${twikiName}' has ${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')\n}\nreturn msg;\n",
+        "name": "clientIds & twiki databases",
+        "func": "const $tw = global.get('$tw');\nconst twikis = global.get('twikis');\n\nif (typeof msg.payload !== 'object') {\n    msg.payload = {};\n}\n\n// Place clientIds results in the msg\nmsg.payload.clientIds = global.get('clientIds');\n\n// Place twiki results in the msg\nmsg.payload.twikis = {};\n\n// For each twiki create a property in msg.twiki of the twikiName\n//  then load the property with tiddlers from the twiki\nfor (let twikiName in twikis) {\n    if (twikiName !== '$tw.wiki' && twikiName !== '$twsync.wiki') { // exclude main tidder store\n        msg.payload.twikis[twikiName] =\n            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))\n    }\n    $tw.utils.log(`twiki: '${twikiName}' has ${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')\n}\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 600,
+        "x": 370,
+        "y": 500,
         "wires": [
             [
                 "e5c2695061c28c3d"
             ]
         ]
-    },
-    {
-        "id": "588e7321eef68b14",
-        "type": "inject",
-        "z": "127607a6bb274a18",
-        "g": "4e3f07be3be3818f",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 130,
-        "y": 80,
-        "wires": [
-            [
-                "0bb01e40dbeddabe"
-            ]
-        ]
-    },
-    {
-        "id": "a93b0937257cf944",
-        "type": "debug",
-        "z": "127607a6bb274a18",
-        "g": "4e3f07be3be3818f",
-        "name": "twikis » debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "twikis",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 460,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "2ffe59e5768f9620",
@@ -5606,7 +5625,7 @@
         "name": "set msg.twikis",
         "links": [],
         "x": 140,
-        "y": 600,
+        "y": 500,
         "wires": [
             [
                 "1c83c2ba47bdb96a"
@@ -5622,28 +5641,9 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 485,
-        "y": 600,
+        "x": 535,
+        "y": 500,
         "wires": []
-    },
-    {
-        "id": "0bb01e40dbeddabe",
-        "type": "link call",
-        "z": "127607a6bb274a18",
-        "g": "4e3f07be3be3818f",
-        "name": "",
-        "links": [
-            "2ffe59e5768f9620"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 280,
-        "y": 80,
-        "wires": [
-            [
-                "a93b0937257cf944"
-            ]
-        ]
     },
     {
         "id": "d679dc2c7fb5ad4c",
@@ -5659,7 +5659,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 360,
+        "y": 260,
         "wires": [
             [
                 "3891c3049d5ff01d"
@@ -5674,7 +5674,7 @@
         "name": "TW Commander",
         "links": [],
         "x": 150,
-        "y": 360,
+        "y": 260,
         "wires": [
             [
                 "d679dc2c7fb5ad4c"
@@ -5691,7 +5691,7 @@
         "mode": "return",
         "links": [],
         "x": 445,
-        "y": 360,
+        "y": 260,
         "wires": []
     },
     {
@@ -5709,7 +5709,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 330,
-        "y": 720,
+        "y": 620,
         "wires": []
     },
     {
@@ -5731,7 +5731,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 170,
-        "y": 720,
+        "y": 620,
         "wires": [
             [
                 "a07af28ade3a49a2"
@@ -5746,7 +5746,7 @@
         "name": "TW5-Node-RED Core",
         "links": [],
         "x": 170,
-        "y": 180,
+        "y": 80,
         "wires": [
             [
                 "8a6999c14f732048"
@@ -5778,7 +5778,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 360,
-        "y": 180,
+        "y": 80,
         "wires": [
             [
                 "c9bbe0f3f12e859e"
@@ -5809,7 +5809,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 500,
-        "y": 180,
+        "y": 80,
         "wires": [
             [
                 "47d0e6a8f8415aa2"
@@ -5840,7 +5840,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 410,
-        "y": 240,
+        "y": 140,
         "wires": [
             [
                 "99b7abd4d3bc5b40"
@@ -5856,7 +5856,7 @@
         "mode": "return",
         "links": [],
         "x": 555,
-        "y": 240,
+        "y": 140,
         "wires": []
     },
     {
@@ -5884,7 +5884,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 220,
-        "y": 240,
+        "y": 140,
         "wires": [
             []
         ]
@@ -5897,8 +5897,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 55,
-        "y": 160,
+        "x": 45,
+        "y": 40,
         "wires": [
             [
                 "934db7b26914d13d"
@@ -5924,8 +5924,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 140,
-        "y": 160,
+        "x": 130,
+        "y": 40,
         "wires": [
             [
                 "2b2c59048a21c639"
@@ -5937,15 +5937,15 @@
         "type": "function",
         "z": "e659339e762fe7e5",
         "name": "Rooms \\n ·  join \\n · post \\n ·  leave \\n ·  show",
-        "func": "/*\n * This code is over documented as the Chat System\n * is used as a tutorial showing the features of TW5-Node-RED\n*/\n\n// Access to TiddlyWiki codebase\nconst $tw = global.get('$tw');\n\n// Data server-side about this client connection\nconst clientIds = global.get('clientIds');\n\n// Rooms twiki database\n// Instead of using nodes will use JS to maintain the Rooms Db\nconst roomsDb = global.get('twikis').Rooms;\n\n// Sender is the client 'currentTiddler' tiddler that sent the request\n//  (It is possible to have multiple senders when the server requests tiddlers\n//   from the client - server does not request tiddlers for this app)\nconst senderdata = msg.network.client.sender[0];\n\n// Determine action requested\n// Using commas between topic commands\n//  to simplify room names containing spaces\n// Default to show the rooms\nvar args = msg.topic.split(',');\nif (args.length < 2) {\n\targs = ['rooms', 'show'];\n}\n\n// Initialize payload which will hold data to\n//  create the tiddlers of the Chat system\nmsg.payload = {};\n\n// The following actions are available\nvar action = args[1];\nswitch (action) {\n\tcase 'join': join(); break;\n\tcase 'post': post(); break;\n\tcase 'leave': leave(); break;\n\tcase 'show': show(); break;\n\tcase 'create': create(); break;\n\tdefault:\n\t\tshow();\n}\n// Inform Node-RED that this msg is done\nnode.done();\nreturn;\n\n// Join rooms that user had joined from a previous connection\n// Each connection has a unique clientid provided\n//  by the TW5-Node-RED macro client side - stored in\n//  'msg.network.meta._clientid' \nfunction show() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Get client information for this connection\n\tvar clientData = clientIds[msg.network.meta._clientid];\n\n\t// Check flag indicating init() already been run\n\tif (!clientData.roomTocInitialized) {\n\t\t// Get the joined rooms from the UserDb database\n\t\tclientData.joined = $tw.utils.parseStringArray(msg.network.user.joined) || [];\n\t\tsenderdata.joined = msg.network.user.joined;\n\t\t// Send a 'join' msg for each room\n\t\tclientData.joined.forEach((room) => {\n\t\t\targs[2] = room;\n\t\t\tjoin(true);\n\t\t});\n\t\t// Flag the init() has been done\n\t\tclientData.roomTocInitialized = true;\n\t}\n\tnode.send([null, null, null, msg]);\n}\n\n// Join a room 'rooms,join,room name'\n// Output to nodes by placing information into msg.payload \nfunction join(initialize = false) {\n\t// Get the titles of the tiddlers in the RoomsDB\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Third parameter in args contains the room\n\tmsg.payload.room = args[2];\n\t// List of rooms already joined is in 'currentTiddler' 'joined' field\n\tmsg.network.user.joined = senderdata.joined;\n\n\t// Get the content stored for this room\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tmsg.payload.roomContent = roomTiddler.getFieldString('text')\n\n\tnode.send([msg, null, null, null]);\n\n\t// Add room to clientId for broadcasting posts\n\tif (!initialize) {\n\t\tvar clientData = clientIds[msg.network.meta._clientid];\n\t\t$tw.utils.pushTop(clientData.joined, msg.payload.room);\n\t}\n}\n\n// Post a message to a room\nfunction post() {\n\t// Flag used by flow to route message\n\tmsg.payload.isPost = true;\n\tmsg.payload.room = args[2];\n\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tvar previousContent = roomTiddler.getFieldString('text')\n\n\tconst posting = msg.network.client.tiddlers[0] || { text: '' };\n\tposting.text = posting.text.replace(/\\n/g,'<br>');\n\t\n\t// Current date/time in TW format \n\tvar dateTiddler = new $tw.Tiddler($tw.wiki.getCreationFields());\n\tvar postDate = dateTiddler.getFieldString('created');\n\n\tmsg.payload.roomContent = previousContent + `<hr class=\"poc2go-hr\">\\n''` +\n\t\t`<$list filter=\"[[${postDate}]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> ` +\n\t\tmsg.network.user.username + `''<br>` +\n\t\t'<div style=\"width: max-content; background:aliceblue; color:blue; border:1px solid blue; border-radius: 8px; margin:0 0 0 1em; padding: .3em 1em .3em 1em;\">' +\n\t\tposting.text +\n\t\t'</div>'\n\troomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { text: msg.payload.roomContent }));\n\n\t// Update senders wiki\n\tnode.send([null, msg, null, null]);\n\n\t// Broadcast to others that have joined the room\n\tfor (let cid in clientIds) {\n\t\tif (clientIds[cid].joined.includes(msg.payload.room) &&\n\t\t\t\tcid !== msg.network.meta._clientid) {\n\t\t\tmsg.clientid = cid;\n\t\t\tnode.send([null, msg, null, null]);\n\t\t}\n\t}\n}\n\nfunction leave() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tmsg.network.user.joined = senderdata.joined;\n\tvar clientData = clientIds[msg.network.meta._clientid];\n\tclientData.joined = $tw.utils.parseStringArray(senderdata.joined) || [];\n\tmsg.payload.leave = args[2];\n\tnode.send([null, null, msg, null]);\n}\n\n\nfunction create() {\n\tif (!senderdata.createroom) { return; }\n\tconst roomDbData = JSON.parse(roomsDb.getTiddlersAsJson(senderdata.createroom));\n\tif (roomDbData.length > 0) {\n\t\tjoin();\n\t\treturn;\n\t}\n\troomsDb.addTiddler(new $tw.Tiddler(\n\t\t$tw.wiki.getCreationFields(),\n\t\t$tw.wiki.getModificationFields(),\n\t\t{\ttitle: senderdata.createroom,\n\t\t\tlist:\"\",\n\t\t\ttext:\"\",\n\t\t\tcreator: msg.network.user.username,\n\t\t\troomclientids: msg.network.meta._clientid\n\t\t}\n\t));\n\targs = ['rooms', 'join', senderdata.createroom];\n\tvar joined = $tw.utils.parseStringArray(senderdata.joined);\n\tjoined.push(senderdata.createroom);\n\tsenderdata.joined = $tw.utils.stringifyList(joined);\n\tjoin();\n}\n",
+        "func": "/*\n * This code is over documented as the Chat System\n * is used as a tutorial showing the features of TW5-Node-RED\n*/\n\n// Access to TiddlyWiki codebase\nconst $tw = global.get('$tw');\n\n// Data server-side about this client connection\nconst clientIds = global.get('clientIds');\n\n// Rooms twiki database\n// Instead of using nodes will use JS to maintain the Rooms Db\nconst roomsDb = global.get('twikis').Rooms;\n\n// Sender is the client 'currentTiddler' tiddler that sent the request\n//  (It is possible to have multiple senders when the server requests tiddlers\n//   from the client - server does not request tiddlers for this app)\nconst senderdata = msg.network.client.sender[0];\n\n// Determine action requested\n// Using commas between topic commands\n//  to simplify room names containing spaces\n// Default to show the rooms\nvar args = msg.topic.split(',');\nif (args.length < 2) {\n\targs = ['rooms', 'show'];\n}\n\n// Initialize payload which will hold data to\n//  create the tiddlers of the Chat system\nmsg.payload = {};\n\n// The following actions are available\nvar action = args[1];\nswitch (action) {\n\tcase 'join': join(); break;\n\tcase 'post': post(); break;\n\tcase 'leave': leave(); break;\n\tcase 'show': show(); break;\n\tcase 'create': create(); break;\n\tdefault:\n\t\tshow();\n}\n// Inform Node-RED that this msg is done\nnode.done();\nreturn;\n\n// Join rooms that user had joined from a previous connection\n// Each connection has a unique clientid provided\n//  by the TW5-Node-RED macro client side - stored in\n//  'msg.network.meta._clientid' \nfunction show() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Get client information for this connection\n\tvar clientData = clientIds[msg.network.meta._clientid];\n\n\t// Check flag indicating init() already been run\n\tif (!clientData.roomTocInitialized) {\n\t\t// Get the joined rooms from the UserDb database\n\t\tclientData.joined = $tw.utils.parseStringArray(msg.network.user.joined) || [];\n\t\tsenderdata.joined = msg.network.user.joined;\n\t\t// Send a 'join' msg for each room\n\t\tclientData.joined.forEach((room) => {\n\t\t\targs[2] = room;\n\t\t\tjoin(true);\n\t\t});\n\t\t// Flag the init() has been done\n\t\tclientData.roomTocInitialized = true;\n\t}\n\tnode.send([null, null, null, msg]);\n}\n\n// Join a room 'rooms,join,room name'\n// Output to nodes by placing information into msg.payload \nfunction join(initialize = false) {\n\t// Get the titles of the tiddlers in the RoomsDB\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\t// Third parameter in args contains the room\n\tmsg.payload.room = args[2];\n\t// List of rooms already joined is in 'currentTiddler' 'joined' field\n\tmsg.network.user.joined = senderdata.joined;\n\n\t// Get the content stored for this room\n\tmarkupContent(msg.network.user.userid);\n\n\tnode.send([msg, null, null, null]);\n\n\t// Add room to clientId for broadcasting posts\n\tif (!initialize) {\n\t\tvar clientData = clientIds[msg.network.meta._clientid];\n\t\t$tw.utils.pushTop(clientData.joined, msg.payload.room);\n\t}\n}\n\n// Post a message to a room\nfunction post() {\n\t// Flag used by flow to route message\n\tmsg.payload.isPost = true;\n\tmsg.payload.room = args[2];\n\n\n\t// Current date/time in TW format \n\tvar dateTiddler = new $tw.Tiddler($tw.wiki.getCreationFields());\n\tvar postDate = dateTiddler.getFieldString('created');\n\n\tstorePost(postDate, msg.network.user.userid);\n\n\tmarkupContent(msg.network.user.userid);\n\n\t// Update senders wiki\n\tnode.send([null, msg, null, null]);\n\n\t// Broadcast to others that have joined the room\n\tfor (let cid in clientIds) {\n\t\tif (clientIds[cid].joined.includes(msg.payload.room) &&\tcid !== msg.network.meta._clientid) {\n\t\t\tmsg.clientid = cid;\n\t\t\tmarkupContent(clientIds[cid].userid);\n\t\t\tnode.send([null, msg, null, null]);\n\t\t}\n\t}\n}\n\nfunction leave() {\n\tmsg.payload.roomnames = roomsDb.getTiddlers();\n\tmsg.network.user.joined = senderdata.joined;\n\tvar clientData = clientIds[msg.network.meta._clientid];\n\tclientData.joined = $tw.utils.parseStringArray(senderdata.joined) || [];\n\tmsg.payload.leave = args[2];\n\tnode.send([null, null, msg, null]);\n}\n\n\nfunction create() {\n\tif (!senderdata.createroom) { return; }\n\tconst roomDbData = JSON.parse(roomsDb.getTiddlersAsJson(senderdata.createroom));\n\tif (roomDbData.length > 0) {\n\t\tjoin();\n\t\treturn;\n\t}\n\troomsDb.addTiddler(new $tw.Tiddler(\n\t\t$tw.wiki.getCreationFields(),\n\t\t$tw.wiki.getModificationFields(),\n\t\t{\n\t\t\ttitle: senderdata.createroom,\n\t\t\ttext: \"\",\n\t\t\tcreator: msg.network.user.username\n\t\t}\n\t));\n\targs = ['rooms', 'join', senderdata.createroom];\n\tvar joined = $tw.utils.parseStringArray(senderdata.joined);\n\tjoined.push(senderdata.createroom);\n\tsenderdata.joined = $tw.utils.stringifyList(joined);\n\tjoin();\n}\n\nfunction storePost(postDate, userid) {\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tvar previousContent = roomTiddler.getFieldString('text')\n\n\tconst posting = msg.network.client.tiddlers[0] || { text: '' };\n\tposting.text = posting.text.replace(/\\n/g, '<br>');\n\n\tvar roomContent = previousContent + `<hr class=\"poc2go-hr\" style=\"clear: both;\">\\n` +\n\t\t`<div class=\"post-sender-${userid}\">` +\n\t\t`${msg.network.user.username} <span class=\"post-time\">` + \n\t\t`<$list filter=\"[[${postDate}]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> ` +\n\t\t`</span><br>` +\n\t\tposting.text +\n\t\t'</div>'\n\troomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { text: roomContent }));\n}\n\n\nfunction markupContent(userid) {\n\tvar roomTiddler = roomsDb.getTiddler(msg.payload.room);\n\tvar content = roomTiddler.getFieldString('text')\n\n\tconst senderclass = new RegExp(`class=\"post-sender-${userid}\"`, 'g');\n\tconst recipientclass = new RegExp(`class=\"post-sender-[^\"]+\"`, 'g');\n\tmsg.payload.roomContent = content\n\t\t.replace(senderclass, `class=\"poc2go-room-post-sender\"`)\n\t\t.replace(recipientclass, `class=\"poc2go-room-post-recipient\"`);\n}\n",
         "outputs": 4,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 160,
+        "x": 130,
+        "y": 147,
         "wires": [
             [
                 "8154c40e02a24a45"
@@ -5959,6 +5959,12 @@
             [
                 "768032b1dcfcd148"
             ]
+        ],
+        "outputLabels": [
+            "Join",
+            "Post",
+            "Leave",
+            "Show"
         ]
     },
     {
@@ -5976,7 +5982,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 320,
+        "y": 340,
         "wires": []
     },
     {
@@ -5992,7 +5998,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: TableOfContents subtitle\nmustache: yes\n\n{% network.user.username %}\n+======+\ntitle: $:/poc2go/toc/selectedRoom\n\n$:/poc2go/rooms/show\n+======+\ntitle: $:/poc2go/rooms/show\ncreated: 20240206063358517\nmodified: 20240206064414842\nmustache: yes\ntags: \njoined: {% network.user.joined %}\ncaption: Rooms...\ntags: TableOfContents\n\n!!! Show rooms\n\n<$edit-text field=\"createroom\"/>\n<$button actions=\"<<node-red 'rooms,create'>>\"> Create </$button>\n\n\n{%# payload.roomnames %}\n<span style=\"white-space:nowrap; margin-right: 1em;\"><$checkbox listField=\"joined\" checked=\"{%.%}\" checkactions=\"<<node-red 'rooms,join,{%.%}'>>\" uncheckactions=\"<<node-red 'rooms,leave,{%.%}'>>\"> {%.%} </$checkbox></span>\n{%/ payload.roomnames %}\n",
+        "template": "title: TableOfContents subtitle\nmustache: yes\n\n{% network.user.username %}\n+======+\ntitle: $:/poc2go/toc/selectedRoom\n\n$:/poc2go/rooms/show\n+======+\ntitle: $:/poc2go/rooms/show\nmustache: yes\ntags: \njoined: {% network.user.joined %}\ncaption: Rooms...\ntags: TableOfContents\n\n<$button actions=\"<<node-red 'rooms,show'>>\" class=\"flow-editor-btn tc-btn-invisible tc-tiddlylink\"> Reload rooms </$button>.\n\n<$edit-text field=\"createroom\"/>\n<$button actions=\"<<node-red 'rooms,create'>>\"> Create </$button>\n\n{%# payload.roomnames %}\n<span style=\"white-space:nowrap; margin-right: 1em;\"><$checkbox listField=\"joined\" checked=\"{%.%}\" checkactions=\"<<node-red 'rooms,join,{%.%}'>>\" uncheckactions=\"<<node-red 'rooms,leave,{%.%}'>>\"> {%.%} </$checkbox></span>\n{%/ payload.roomnames %}\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -6002,8 +6008,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 920,
-        "y": 220,
+        "x": 870,
+        "y": 190,
         "wires": [
             [
                 "d768dd2a6fd581b5"
@@ -6019,8 +6025,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 1075,
-        "y": 180,
+        "x": 1045,
+        "y": 170,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6051,8 +6057,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 500,
-        "y": 100,
+        "x": 370,
+        "y": 70,
         "wires": [
             [
                 "9a19c39ceaa81097"
@@ -6072,7 +6078,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/poc2go/toc/selectedRoom\nmustache: yes\n\n$:/rooms/{% payload.room %}\n+======+\ntitle: $:/rooms/{% payload.room %}-post\nmustache: yes\n\nthis is a test\n+======+\ntitle: $:/rooms/{% payload.room %}\ncaption: {% payload.room %}\nmustache: yes\ntags: TableOfContents\n\n!!! Room {% payload.room %}\n\n{{$:/rooms/{% payload.room %}-content}}\n\n---\n\n<$button actions=\"<<node-red 'rooms,post,{% payload.room %}' '[[$:/rooms/{% payload.room %}-post]] [[$:/rooms/{% payload.room %}-content]]'>>\"> Send </$button>\n\n<$edit-text tiddler=\"$:/rooms/{% payload.room %}-post\" class=\"rooms-post\" rows=\"2\" tag=\"textarea\"/>\n",
+        "template": "title: $:/poc2go/toc/selectedRoom\nmustache: yes\n\n$:/rooms/{% payload.room %}\n+======+\ntitle: $:/rooms/{% payload.room %}\ncaption: {% payload.room %}\nmustache: yes\ntags: TableOfContents\n\n\\define sendmsg()\n<<node-red 'rooms,post,{% payload.room %}' '[[$:/rooms/{% payload.room %}-post]]'>>\n<$action-setfield $tiddler=\"$:/rooms/{% payload.room %}-post\" $field=\"text\" $value=\"\"/>\n\\end\n\n!!! Room {% payload.room %}\n\n{{$:/rooms/{% payload.room %}-content}}\n\n---\n\n<$button actions=\"<<sendmsg>>\"> Send </$button>\n\n<$edit-text tiddler=\"$:/rooms/{% payload.room %}-post\" class=\"rooms-post\" tag=\"textarea\" placeholder=\"Enter message\" focus=\"yes\"/>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -6082,8 +6088,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 760,
-        "y": 150,
+        "x": 710,
+        "y": 140,
         "wires": [
             [
                 "4c070c455d94eebd"
@@ -6113,8 +6119,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 720,
-        "y": 200,
+        "x": 630,
+        "y": 190,
         "wires": [
             [
                 "99057ddafac07874"
@@ -6148,8 +6154,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 520,
-        "y": 200,
+        "x": 390,
+        "y": 190,
         "wires": [
             [
                 "193dc50c3509e49e"
@@ -6179,8 +6185,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 490,
-        "y": 150,
+        "x": 360,
+        "y": 120,
         "wires": [
             [
                 "13925b62d8a60166"
@@ -6205,8 +6211,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 920,
-        "y": 150,
+        "x": 880,
+        "y": 140,
         "wires": [
             [
                 "d768dd2a6fd581b5"
@@ -6233,7 +6239,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 150,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "824a0e2f6149e974"
@@ -6267,7 +6273,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 290,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "ce217325ac5781bf"
@@ -6280,7 +6286,7 @@
         "z": "e659339e762fe7e5",
         "g": "068e97372887ec43",
         "name": "JS Utility",
-        "func": "// Clear room client ids\nmsg.payload.forEach((room, idx) => {\n//    msg.payload[idx].roomclientids = '';\n    delete msg.payload[idx].roomclientids;\n//    msg.payload[idx].text = '';\n})\nreturn msg;",
+        "func": "// Clear room client ids\nmsg.payload.forEach((room, idx) => {\n//    msg.payload[idx].roomclientids = '';\n//    delete msg.payload[idx].roomclientids;\n    msg.payload[idx].text = '';\n})\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6288,7 +6294,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "6e07db47e20f3499"
@@ -6324,7 +6330,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 580,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "911eeb7fcf10b4b8"
@@ -6349,8 +6355,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 750,
-        "y": 100,
+        "x": 550,
+        "y": 120,
         "wires": [
             [
                 "04895925eade208c"
@@ -6368,13 +6374,13 @@
         "id": "04895925eade208c",
         "type": "link out",
         "z": "e659339e762fe7e5",
-        "name": "Broadcast msg",
+        "name": "Broadcast post",
         "mode": "link",
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 950,
-        "y": 90,
+        "x": 720,
+        "y": 100,
         "wires": [],
         "l": true
     },
@@ -7868,7 +7874,7 @@
         "resetOnDeploy": false,
         "inputTask": "no operation",
         "outputFormat": "tiddlers",
-        "field": "payload",
+        "field": "test",
         "networkfield": "network.client.tiddlers",
         "useListener": false,
         "filter": "[all[]]",
