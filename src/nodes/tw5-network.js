@@ -270,7 +270,6 @@ module.exports = function(RED) {
 	RED.log.info(dashitall);
 	RED.log.info(`| tiddlywiki v${RED.settings.functionGlobalContext.$tw.version} boot successful`);
 	RED.log.info(`| TW sync 'server' directory '${RED.settings.functionGlobalContext.syncDir}'`);
-	RED.log.info(`| tw5-node-red default directory '${RED.settings.functionGlobalContext.defaultDir}'`);
 	RED.log.info(`| tw5-node-red v${require(__dirname + '/package').version} @potofcoffee2go/tw5-nodes initialized`);
 	RED.log.info(dashitall);
 };
