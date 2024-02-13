@@ -189,8 +189,11 @@ const emit = (topic, network) => {
 
 // Send barebones message with just a topic
 const sendTopic = (topic) => {
+	// Meta data and tiddlers
+	let metaTiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(`${settings.autoSend}`))
+
 	emit(topic, {
-		meta: { source: 'TW5', version: 'v' + $tw.version, _clientid, tiddlers: [] },
+		meta: { source: 'TW5', version: 'v' + $tw.version, _clientid, tiddlers: metaTiddlers },
 		client: { topic, sender: [{title: 'barebones'}], tiddlers: [] },
 		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
 	});

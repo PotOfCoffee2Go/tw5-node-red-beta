@@ -1,0 +1,13 @@
+caption: Connection ids
+created: 20240211162427090
+modified: 20240211162901155
+tags: Flotsam
+title: Connection ids
+type: text/vnd.tiddlywiki
+
+There are three ids which can be used to direct messages to recipients
+
+ * serverClientId
+ * clientClientId
+ * socketId
+ 

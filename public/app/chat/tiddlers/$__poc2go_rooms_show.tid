@@ -1,0 +1,8 @@
+caption: Rooms...
+created: 20240208085648142
+modified: 20240208090312479
+tags: TableOfContents
+title: $:/poc2go/rooms/show
+type: text/vnd.tiddlywiki
+
+Press <$button actions="<<node-red 'rooms,show'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Show Rooms </$button>.

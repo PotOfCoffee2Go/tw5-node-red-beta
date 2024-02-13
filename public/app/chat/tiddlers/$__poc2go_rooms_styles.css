@@ -1,8 +1,29 @@
-created: 20240207013049478
-modified: 20240207104502372
-tags: $:/tags/Stylesheet
-title: $:/poc2go/styles
-type: text/vnd.tiddlywiki
+.post-time {
+  font-size: .8em;
+}
+
+.poc2go-room-post-recipient {
+  width: max-content;
+  max-width: 450px;
+  background:aliceblue;
+  color:blue; 
+  border:1px solid blue;
+  border-radius: 8px;
+  margin:0 0 0 1em;
+  padding: .3em 1em .3em 1em;
+}
+
+.poc2go-room-post-sender {
+  float:right;
+  width: max-content;
+  max-width: 450px;
+  background:#e6ffe6;
+  color:#002e00; 
+  border:1px solid #002e00;
+  border-radius: 8px;
+  margin:0 0 0 1em;
+  padding: .3em 1em .3em 1em;
+}
 
 /* hide the tiddler controls - info, edit, close */
 [data-tags*="$:/tags/poc2go/hidecontrols"].tc-tiddler-view-frame .tc-tiddler-controls {
