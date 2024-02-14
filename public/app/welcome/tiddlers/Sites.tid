@@ -1,5 +1,5 @@
 created: 20240112100107899
-modified: 20240116163014560
+modified: 20240214020429430
 tags: Development
 title: Sites
 type: text/vnd.tiddlywiki
@@ -26,6 +26,6 @@ Will see a button - press it and nothing happens. Must save/replace 'mywiki.html
 
 <hr class="poc2go-hr">
 
-There is generally very little needed to do on a site wiki as most tiddlers can come from the server. It is important to install any JavaScript macros/plugins since the server can not dynamically install JS macros. For example, the Markdown plugin would need to be installed and saved in the site wiki if planning on the server delivering Markdown type tiddlers.
+There is generally very little needed to do on a site wiki as most tiddlers can come from the server. It is important to install any JavaScript macros/plugins since the server can not dynamically install JS macros. For example, the Markdown plugin would need to be installed and saved on the server if planning on  delivering Markdown tiddlers.
 
 <div style="width:50%;margin-left:auto;margin-right:auto;">{{steel-bar3.png}}</div>

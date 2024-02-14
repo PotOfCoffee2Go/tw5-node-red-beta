@@ -1,8 +1,8 @@
 created: 20240204185202328
-modified: 20240204210559412
+modified: 20240214021259068
 tags: Security
 title: Bearer token
 type: text/vnd.tiddlywiki
 
-TW5-Node-RED implements a unique server generated [[JSON Web Token (JWT)|https://jwt.io/]] access/bearer token which is required for socket.io requests (which carry the tiddlers) to be accepted by the server. Bearer tokens are not implemented for HTTP requests (such as static content and 'http-in' nodes). There are Node-RED nodes that can be used to implement various security strategies.  
+TW5-Node-RED implements a unique server generated [[JSON Web Token (JWT)|https://jwt.io/]] access/bearer token which is required for socket.io requests (which carry the tiddlers) to be accepted by the server. Bearer tokens are not implemented for HTTP requests (such as static content and 'http-in' nodes). There are Node-RED nodes that can be used to implement various HTTP security strategies.  
 

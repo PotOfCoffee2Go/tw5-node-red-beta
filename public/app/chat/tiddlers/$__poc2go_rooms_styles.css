@@ -2,6 +2,11 @@
   font-size: .8em;
 }
 
+.post-textarea {
+  width: 500px;
+  max-width: 500px;
+}
+
 .poc2go-room-post-recipient {
   width: max-content;
   max-width: 450px;
