@@ -1,3 +1,9 @@
+.room-tiddler-content {
+  max-height: 250px;
+  overflow: auto;
+  padding: 0 1em;
+}
+
 .post-time {
   font-size: .8em;
 }

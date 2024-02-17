@@ -1,0 +1,16 @@
+caption: Welcome
+created: 20240215032324192
+modified: 20240215084850501
+mustache: yes
+tags: TableOfContentsDocs
+title: $:/poc2go/docs/welcome
+type: text/vnd.tiddlywiki
+
+!! Welcome {% network.user.username %}
+
+!!! Sign-in
+
+When connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.
+
+When experimenting will want a few accounts to see interactions between users.
+

@@ -1,6 +1,6 @@
 created: 20240207011035136
-modified: 20240214035001435
-tags: $:/tags/poc2go/hidecontrols
+modified: 20240215194628653
+tags: 
 title: Chat Rooms
 type: text/vnd.tiddlywiki
 
@@ -9,4 +9,9 @@ type: text/vnd.tiddlywiki
 {{$:/poc2go/ui/PageTemplate/pagecontrols}}
 <div style="font-size: .85em; margin: 0 0 -1em 60px; min-height: 2.5em;min-width: 520px;">&nbsp;{{$:/temp/tw5-node-red/netstat}}</div>
 
-{{$:/rooms/TOC}}
+{{$:/poc2go/rooms/TOC}}
+
+<div style="float:right;">
+Application devs see 
+<$button to="Documentation" class="tc-btn-invisible tc-tiddlylink"> Developer Documentation </$button>
+</div>
