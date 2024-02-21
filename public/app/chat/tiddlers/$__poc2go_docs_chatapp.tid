@@ -1,6 +1,6 @@
 caption: Chat app
 created: 20240215084902744
-modified: 20240215200727993
+modified: 20240218151627962
 mustache: yes
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/chatapp
@@ -8,9 +8,9 @@ type: text/vnd.tiddlywiki
 
 !! Chat application
 
-The Chat Application is an example of communicating between client wikis connected to the server. Any TiddlyWiki is a candidate to use the app - just import $:/plugins/potofcoffee2go/tw5-node-red/network.js macro and save on the server in directory <span class="poc2go-dir"> './uibuilder/svr/src/wiki'</span>. The address would be `http://localhost:1880/svr/wiki/{saved-name}.html?app=chat`.
+The Chat Application is an example of communicating between client wikis connected to the server. Any TiddlyWiki is a candidate to use the app - just import  macro and save on the server in directory <span class="poc2go-dir"> './uibuilder/svr/src/wiki'</span>. The web address would be `http://localhost:1880/svr/wiki/{saved-name}.html?app=chat`.
 
-There are a set of TiddlyWikis already on the server which a chat user can use.
+There are a set of TiddlyWikis already on the server with $:/plugins/potofcoffee2go/tw5-node-red/network.js installed which a chat user can use.
 
  * [ext[empty|/svr/wiki/empty.html?app=chat]]
  ** empty.html downloaded from https://tiddlywiki.com

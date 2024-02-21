@@ -1,11 +1,21 @@
 caption: Sync server
 created: 20240215052023953
-modified: 20240215052157734
+modified: 20240218155300858
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/syncserver
 type: text/vnd.tiddlywiki
 
 !! Sync Server
 
+The beginning of building an application is to start up a 'server' edition sync server. It is used to build the foundation tiddlers when the app starts up. These tiddlers contain non-JS macros, stylesheets, welcome tiddlers, TiddlyWiki settings for the application. This documentation, for example, was written using the sync server.
 
+From the project directory:
 
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""npm run syncserver chat
+"""/>
+
+to see the tiddlers initially sent to the client on Chat startup.
+
+> Any tiddlers that are open in the sync server story river will be opened when the user logs on.
+
+The tiddlers are stored in <span class="poc2go-dir">'./public/app/chat/tiddlers'</span>.

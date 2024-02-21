@@ -1,0 +1,16 @@
+caption: Nodes #3-4
+created: 20240220030539867
+modified: 20240220123358251
+tags: $:/poc2go/docs/flows
+title: $:/poc2go/docs/flows/part-2
+type: text/vnd.tiddlywiki
+
+!! Join Room and Post message flow (cont)
+
+Node #3 is a switch which tests to see if the field 'msg.clientid' is present in the msg. 'msg.clientid' is a TW5-Node-RED field that the communications system can use to route a msg to a different connection (ie: client TiddlyWiki).
+
+[img[$:/poc2go/docs/images/chat-flows-01.png]]
+
+When a user posts a message, the 'post' flow will be run multiple times - once for the user posting the message (sender) and once for each user that has joined the room (recipient). For the recipients the content tiddler (Node #2) is updated and broadcast (Node #4 - a link node) to their TiddlyWiki thus receiving the new content of the room. 
+
+For someone 'join'ing or sender is 'post'ing - the flow continues to Node #5.

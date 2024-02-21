@@ -1,0 +1,85 @@
+caption: Create
+created: 20240219002026143
+modified: 20240220160048923
+tags: $:/poc2go/docs/logic
+title: $:/poc2go/docs/logic/part-3
+type: text/vnd.tiddlywiki
+
+!! Create
+
+One of the more challenging parts of the Chat app is creating a new room.
+
+ * Insure the room does not already exist
+ * Create the tiddler of the room and add to the RoomsDb twiki
+ * Update the list of rooms for all users of the system
+ ** For the creator join the room and display in story
+ ** For other users update the client TiddlyWiki quietly
+ * Broadcast the room list update to all online users
+
+```
+// Create a new room
+function create() {
+	// Insure 'currentTiddler' has 'createroom' field
+	if (!currentTiddler.createroom) { return; }
+	// Set args to join the room
+	args = ['rooms', 'join', currentTiddler.createroom];
+	// See if room already created
+	const roomDbData = JSON.parse(roomsDb.getTiddlersAsJson(currentTiddler.createroom));
+	// Yes - already exists so join it
+	if (roomDbData.length > 0) {
+		join();
+		return;
+	}
+```
+Unlike the 'join', 'post', and 'leave' actions which have the room name as the third parameter;
+the 'create' action requires the name of the room to create to be in the 'currentTiddler'
+'createroom' field. If not present then no action to perform.
+
+Set up the args to perform a 'join' which is going to happen whether the room is already existing
+or created.
+
+Try to get the room from the roomsDB. The reason using the JSON.parse() of a getTiddlersAsJson()
+is ti insure we have a copy of the tiddler representing the room.
+
+If room already exists then just join it.
+
+```
+	// Not created - so add to the Rooms twiki database
+	roomsDb.addTiddler(new $tw.Tiddler(
+		$tw.wiki.getCreationFields(),
+		$tw.wiki.getModificationFields(),
+		{
+			title: currentTiddler.createroom,
+			text: "",
+			creator: userData.username
+		}
+	));
+```
+
+This is pretty much the standard way of creating and adding a tiddler to a TiddlyWiki
+wiki. The twiki has a 'addTiddler()' function which adds a tiddler to the wiki or replaces
+the tiddler with the same title. The 'new $tw.Tiddler()' function creates the tiddler
+to be added.
+
+$tw.wiki.getCreationFields()/$tw.wiki.getModificationFields() assign created/modified
+fields and the title/text/creator fields are assigned.
+
+
+```
+	msg.payload.roomnames = roomsDb.getTiddlers();
+	// Add this room to 'currentTiddler' joined field
+	var joined = $tw.utils.parseStringArray(currentTiddler.joined);
+	$tw.utils.pushTop(joined, currentTiddler.createroom);
+	currentTiddler.joined = $tw.utils.stringifyList(joined);
+	// Join the newly created room
+	join();
+	showNewRoom();
+}
+```
+
+Now that the room has been created and added to roomsDB, get the new list of rooms.
+Add the room the currentTiddler. '$tw.utils.parseStringArray()' makes a JS array of
+a TiddlyWiki list while '$tw.utils.stringifyList()' takes an array and makes a list.
+
+Join the room for the requesting user and broadcast the new room list to other users.
+

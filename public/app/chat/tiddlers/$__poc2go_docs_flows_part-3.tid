@@ -1,0 +1,68 @@
+caption: Node #5
+created: 20240220122745550
+modified: 20240220161033798
+tags: $:/poc2go/docs/flows
+title: $:/poc2go/docs/flows/part-3
+type: text/vnd.tiddlywiki
+
+!! Join Room and Post message flow (cont)
+
+Node #5 generates the chat tiddler for a room. Is a fairly busy tiddler so will look at it then break it down. Assume the room name is 'restless'.
+
+There is a header with the room name and the creator of the room. Below that is the section that displays the posts, this section is scrollable to keep the height sane. The bottom section has the post button, a link allowing the message to be edited as a tiddler, and textarea to type a message.
+
+<div style="max-width: 600px;">
+[img[$:/poc2go/docs/images/chat-flows-03.png]]
+</div>
+
+Node #5 is processed by Node-RED when a user joins a room or posts a message.
+
+[img[$:/poc2go/docs/images/chat-flows-01.png]]
+
+In the tiddler editor - the tiddler starts off with setting the fields:
+
+ * title of the tiddler - `$:\rooms\restless`
+ * caption is used by the TiddlyWiki [ext[Table-of-Contents Macro|https://tiddlywiki.com/static/Table-of-Contents%2520Macros.html]]
+ * mustache - tells TW5-Node-RED to use Mustache when generating the Tiddler
+ * tags - is also used by the Table-of-Contents Macro
+ 
+The fields are followed by a macro define that is used when the user presses the 'Post' button. It will send a 'post' request to the server. The second parameter of the `node-red` macro is a [[filter|https://tiddlywiki.com/static/Filters.html]] of the tiddlers to send with the request - in this case, the tiddler with the text being posted.
+
+`<<node-red 'rooms,post,restless' '[[$:/rooms/restless-post]]'>>`
+
+then clears the `$:/rooms/restless-post` tiddler in preparation of the next post.
+
+```
+title: $:/rooms/{% payload.room %}
+caption: {% payload.room %}
+mustache: yes
+tags: TableOfContents
+
+\define sendmsg()
+<<node-red 'rooms,post,{% payload.room %}' '[[$:/rooms/{% payload.room %}-post]]'>>
+<$action-setfield $tiddler="$:/rooms/{% payload.room %}-post" $field="text" $value=""/>
+\end
+
+<span style="float: right;">room by {% payload.creator %}</span>
+<h2> {% payload.room %} </h2>
+
+<$scrollable class="room-tiddler-content" bind="$:/poc2go/rooms/{% payload.room %}-position">
+{{$:/rooms/{% payload.room %}-content}}
+</$scrollable>
+
+<hr style="clear: both;">
+
+<$button actions="<<sendmsg>>"> Post </$button> on ''{% payload.room %}'' from //{% network.user.username %}//
+<$button style="float: right;" actions='<$action-sendmessage $message="tm-edit-tiddler" $param="$:/rooms/{% payload.room %}-post"/>' class="tc-btn-invisible tc-tiddlylink"> {{$:/core/images/edit-button}}&nbsp;Edit as a tiddler</$button>
+
+<$edit-text tiddler="$:/rooms/{% payload.room %}-post" class="post-textarea" tag="textarea" placeholder="Enter message" focus="no"/>
+
+```
+
+The macro definition is followed by the header.
+
+Then contained within a scrollable widget is the content of the room. The widget is bound to `$:\rooms\restless-position` (see Node #2) to automatically scroll to the bottom when a new post arrives. The content of the `<$scrollable>` widget is the content of the room `$:\rooms\restless-content` (also from Node #2).
+
+The next section starts with the button which submits the post request and a button (that looks like a link) to allow creating the post as a tiddler titled `$:\rooms\restless-post`.
+
+Finally the textarea to enter a message to post - the message is stored in the tiddler `$:\rooms\restless-post`. 

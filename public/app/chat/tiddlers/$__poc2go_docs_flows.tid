@@ -1,0 +1,28 @@
+caption: Flows
+created: 20240219161039013
+modified: 20240220161450070
+tags: TableOfContentsDocs
+title: $:/poc2go/docs/flows
+type: text/vnd.tiddlywiki
+
+!! Flows
+
+The function node at the beginning of the flows performs the [[logic|$:/poc2go/docs/logic]] of the Chat app. The flows are used to generate the tiddlers for connected users which are unique based on the rooms a user has joined and if a post is from the user or from another user.
+
+[img[$:/poc2go/docs/images/chat-flows-00.png]]
+
+Will look at each node and using the built-in [ext[Mustache|https://mustache.github.io/mustache.5.html]] template engine 
+to substitute user and room specific information when generating tiddlers.
+
+Nodes are numbered to help documenting the nodes. Is recommended to read through all of them as some handy information is only mentioned once on the first node that uses that feature.
+
+Nodes #1 and #8 are identical and update the Users twiki database. The database is 
+automatically written to disk by a flow in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'Databases' tab.
+
+!!! <$link to="$:/poc2go/docs/flows/part-1"><$view tiddler="$:/poc2go/docs/flows/part-1" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-2"><$view tiddler="$:/poc2go/docs/flows/part-2" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-3"><$view tiddler="$:/poc2go/docs/flows/part-3" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-4"><$view tiddler="$:/poc2go/docs/flows/part-4" field="caption"/></$link>
+
+[img[$:/poc2go/docs/images/chat-flows-01.png]]
+
+!!! todo
+[img[$:/poc2go/docs/images/chat-flows-02.png]]
+
