@@ -1,6 +1,6 @@
 caption: Databases
 created: 20240218160112733
-modified: 20240218162853941
+modified: 20240224175903476
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/databases
 type: text/vnd.tiddlywiki
@@ -9,6 +9,6 @@ type: text/vnd.tiddlywiki
 
 Databases in TW5-Node-RED are TiddlyWiki wikis (ie: instances of $tw.Wiki). They are called ''twiki''s to differentiate from other wikis in the system. The jargon 'twiki' and 'database' can be used interchangeably. The query language is TiddlyWiki [ext[filters|https://tiddlywiki.com/static/Filters.html]] - which states "You can think of TiddlyWiki as a database in which the records are tiddlers.".
 
-The Chat app uses two twikis, UsersDb and RoomsDb. UsersDb is loaded and updated by 'Database' tab flows and maintained by the 'Security' tab flows when an account is created and authorized. The Chat app stores the rooms that a user has ''joined'' in UsersDb.
+The Chat app uses two twikis, Users and Rooms. Users is loaded and updated by <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'Database' tab flows and maintained by the 'Security' tab flows when an account is created and authorized. The Chat app stores the rooms that a user has ''joined'' in Users database.
 
-RoomsDB contains a tiddler for each room which 'text' field contains the messages posted to the room. Nodes could have been used to maintain the RooomDb twiki but is being done in JavaScript to show examples of accessing twikis using JavaScript.
+Rooms database contains a tiddler for each room which 'text' field contains the messages posted to the room. Nodes could have been used to maintain the Rooms twiki but is being done in JavaScript to show examples of accessing twikis using JavaScript.

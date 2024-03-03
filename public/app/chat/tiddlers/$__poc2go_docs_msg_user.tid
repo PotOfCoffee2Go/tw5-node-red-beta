@@ -1,0 +1,60 @@
+caption: User data
+created: 20240223103000609
+modified: 20240224172719882
+tags: $:/poc2go/docs/msg
+title: $:/poc2go/docs/msg/user
+type: text/vnd.tiddlywiki
+
+!! msg,network.user
+
+|msg |>|>| |>|>|h
+| |network |>|>|>| |h
+| | |user |>| |User Data (tiddler)|h
+| | | |title | string |Same as userid|
+| | | |userid | string |Unique ID of user|
+| | | |username | string |Display name of user|
+| | | |email | string |User email address|
+| | | |pwHash | string |bcrypt hash of password|
+| | | |palette | string |User default palette|
+
+'msg.network.user' is a tiddler which is stored in the Users twiki database. It is populated for each message as part of the token verification process when the message is authorized.
+It contains the standard fields expected in a tiddler - 'created', 'modified', 'tags', etc.
+
+!!! title
+The title of the tiddler is the same as the 'userid' field.
+
+!!! userid
+The user ID is used to lookup the user on the Users twiki database.
+
+!!! username
+The name to use when displaying the user to other users.
+
+!!! email
+The email address of the user. Currently this field is not used during the authentication process. It is a common field that in the future can be used to authenticate the user.
+
+!!! pwHash
+The users password is made into a hash by the [[bcrypt|https://en.wikipedia.org/wiki/Bcrypt]] module to keep the password secure when stored on the databse. Is used to authorize the user when logging into the system.
+
+!!! palette
+The preferred palette which the user would like to use once logged on.
+
+!!! joined
+'joined' is a field which the Chat system maintains on the Users twiki database. Is only present if the user uses the Chat system.
+
+The following example is the 'msg.network.user' field of the user 'poc'.
+
+```
+    "user": {
+      "created": "20240215055357288",
+      "modified": "20240215055438195",
+      "title": "poc",
+      "userid": "poc",
+      "username": "PotOfCoffee2Go",
+      "email": "",
+      "fetched": "20240215055357288",
+      "tags": "·node-red·",
+      "pwHash": "$2b$08$UbkQanp/.gZggA9ooomj5uYZhUu3ULLx3cwPCv4Prz5s25q5Bj6dS",
+      "joined": "restless",
+      "palette": "$:/palettes/Twilight-Node-Red"
+    }
+```

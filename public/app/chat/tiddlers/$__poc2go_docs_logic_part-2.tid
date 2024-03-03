@@ -1,6 +1,6 @@
 caption: Request
 created: 20240218205455301
-modified: 20240220145347287
+modified: 20240227103541676
 tags: $:/poc2go/docs/logic
 title: $:/poc2go/docs/logic/part-2
 type: text/vnd.tiddlywiki
@@ -61,8 +61,6 @@ display depending on if the sender or a recipient.
 ```
 // Post a message to a room - second output
 function post() {
-	// Flag used by flow to route message
-	msg.payload.isPost = true;
 	// Third parameter in args contains the room
 	msg.payload.room = args[2];
 	// Save the posted message in Rooms twiki database
@@ -71,9 +69,6 @@ function post() {
 	sendToJoined();
 }
 ```
-
-''msg.payload.isPost'' is a flag used by the flows to route new posts
-to all recipients that have joined the room.
 
 ''msg.payload.room'' assigned the room name to post the message.
 

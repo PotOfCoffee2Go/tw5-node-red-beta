@@ -1,10 +1,30 @@
-caption: Nodes #8-9
+caption: Focus room
 created: 20240220222946640
-modified: 20240220223123581
+modified: 20240303012945368
 tags: $:/poc2go/docs/flows
 title: $:/poc2go/docs/flows/part-5
 type: text/vnd.tiddlywiki
 
-!! Leave and Show Rooms
+!! Focus Room
 
+[img[$:/poc2go/docs/images/chat-03.png]]
+
+'Create is a switch that will broadcast the room list to all clients that are using the chat app. This occurs when a new room is created.
+
+if is a 'rooms,show' request from a user then have the TOC focus (display) the room list using tiddlers in 'Focus room'. 
+
+Focus room:
+
+```
+title: TableOfContents subtitle
+mustache: yes
+
+{% network.user.username %}
++======+
+title: $:/poc2go/toc/selectedRoom
+
+$:/poc2go/rooms/show
+```
+
+Set the subtitle of the TOC to the user name. Have TOC select (display) the users room list ($:/poc2go/rooms/show).
 

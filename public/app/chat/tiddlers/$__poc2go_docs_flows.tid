@@ -1,28 +1,46 @@
 caption: Flows
 created: 20240219161039013
-modified: 20240220161450070
+modified: 20240303005812209
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/flows
 type: text/vnd.tiddlywiki
 
 !! Flows
 
-The function node at the beginning of the flows performs the [[logic|$:/poc2go/docs/logic]] of the Chat app. The flows are used to generate the tiddlers for connected users which are unique based on the rooms a user has joined and if a post is from the user or from another user.
+The JavaScript [[logic function|$:/poc2go/docs/logic]] node at the beginning of the flows performs the logic of the Chat app. It sets the values in the Node-RED msg used by the flows to generate the tiddlers for connected users. The generated tiddlers are unique based on the rooms a user has joined and if a post is from the user or from another user.
 
-[img[$:/poc2go/docs/images/chat-flows-00.png]]
+[img[$:/poc2go/docs/images/chat-01.png]]
+
+The JS  sets values based on interactions with the connected users. The flows have a few switches to redirect the path of the message based on the tasks to be performed. 
 
 Will look at each node and using the built-in [ext[Mustache|https://mustache.github.io/mustache.5.html]] template engine 
-to substitute user and room specific information when generating tiddlers.
+to substitute user and room specific information when generating tiddlers to be sent to the users.
 
-Nodes are numbered to help documenting the nodes. Is recommended to read through all of them as some handy information is only mentioned once on the first node that uses that feature.
+There are a set of tiddlers for each room a user has joined. For example room 'restless':
 
-Nodes #1 and #8 are identical and update the Users twiki database. The database is 
-automatically written to disk by a flow in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'Databases' tab.
+ * `$:/rooms/restless`
+ ** Displays the room header
+ ** Displays the messages that have been posted to the room
+ ** Buttons and textarea to post a message to the room
+ * `$:/rooms/restless-post`
+ ** WikiText of new post to be added to the room
+ * `$:/poc2go/rooms/restless-postion`
+ ** Used by scrollable widget to position visible room content
+ ** Scroll values used to scroll to bottom
+ *** (the most recent post)
+ * `$:/rooms/restless-content`
+ ** The posts submitted to the room
 
-!!! <$link to="$:/poc2go/docs/flows/part-1"><$view tiddler="$:/poc2go/docs/flows/part-1" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-2"><$view tiddler="$:/poc2go/docs/flows/part-2" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-3"><$view tiddler="$:/poc2go/docs/flows/part-3" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-4"><$view tiddler="$:/poc2go/docs/flows/part-4" field="caption"/></$link>
+<hr class="poc2go-hr">
 
-[img[$:/poc2go/docs/images/chat-flows-01.png]]
+!!! <$link to="$:/poc2go/docs/flows/part-1"><$view tiddler="$:/poc2go/docs/flows/part-1" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-2"><$view tiddler="$:/poc2go/docs/flows/part-2" field="caption"/></$link>
 
-!!! todo
-[img[$:/poc2go/docs/images/chat-flows-02.png]]
+[img[$:/poc2go/docs/images/chat-02.png]]
+
+!!! <$link to="$:/poc2go/docs/flows/part-3"><$view tiddler="$:/poc2go/docs/flows/part-3" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-4"><$view tiddler="$:/poc2go/docs/flows/part-4" field="caption"/></$link>
+
+[img[$:/poc2go/docs/images/chat-03.png]]
+
+
+
 
