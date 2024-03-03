@@ -1,0 +1,26 @@
+caption: Welcome
+created: 20240215032324192
+modified: 20240218151135316
+mustache: yes
+tags: TableOfContentsDocs
+title: $:/poc2go/docs/welcome
+type: text/vnd.tiddlywiki
+
+!! Welcome {% network.user.username %}
+
+This Chat app is to demonstrate the steps taken to build a TW5-Node-RED application and is not a full functioned Chat app as wanted to keep complexity to a minimum. Even with that goal, it has a lot of moving parts - so let's get started!
+
+The logic of an application will normally be written using JavaScript, with the flow and content of tiddlers being managed by Node-RED flows. The Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'chat' tab contains the logic of the Chat application.
+
+> It is possible to use the built-in JSONata and Mustache packages instead of JavaScript - but IMHO when all said and done, is much easier to just use JS.   
+
+!!! About user accounts
+
+When connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to <$button actions="<<node-red 'register request'>>" class="tc-btn-invisible tc-tiddlylink">Create account</$button> - Only requires a user ID, password, and display name. No other info is kept - other than optional email which is not used by the demo site.
+
+@@color:pink;
+> Accounts are periodically deleted from this demo site as well as messages posted to chat rooms
+@@
+
+When experimenting will want a few accounts to see interactions between users.
+

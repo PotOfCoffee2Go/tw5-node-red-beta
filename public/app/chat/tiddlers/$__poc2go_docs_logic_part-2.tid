@@ -1,0 +1,133 @@
+caption: Request
+created: 20240218205455301
+modified: 20240227103541676
+tags: $:/poc2go/docs/logic
+title: $:/poc2go/docs/logic/part-2
+type: text/vnd.tiddlywiki
+
+!! Execute request
+
+The JavaScript for switching to the proper flow and to perform the 'join', 'post', and 'leave'
+could have been done with Node-RED 'switch' and 'change' Nodes. The helper functions would be 
+placed in 'function' nodes.
+
+Using Node-Red nodes would complicate the wiring of the app, which is already complicated 
+enough to generate all the tiddlers needed by the app.
+
+```
+// Perform one of the following actions
+function execRequest() {
+	var action = args[1];
+	switch (action) {
+		case 'join': join(); break;
+		case 'post': post(); break;
+		case 'leave': leave(); break;
+		case 'show': show(); break;
+		case 'create': create(); break;
+		default: show();
+	}
+}
+```
+
+''execRequest()'' is equivalent to a Node-RED 'switch' node. Runs one of the functions
+below based on the action requested. 
+
+```
+// Join a room 'rooms,join,room name' - first output
+function join() {
+	// Third parameter in args contains the room
+	msg.payload.room = args[2];
+	// List of rooms joined is in 'currentTiddler' 'joined' field
+	userData.joined = currentTiddler.joined;
+	// Get the content stored for this room
+	markupContent(userData.userid);
+	// Output to flow
+	node.send([msg, null, null, null]);
+}
+```
+
+''msg.payload.room'' assigned the room name to join from the request - ''args[2]''
+
+''userData.joined'' is updated with the list of rooms this user has already joined.
+The client 'currentTiddler' has the field 'joined' which contains the list.  In this
+case, the list would contain the room being joined.
+
+''markupContent()'' helper function substitutes class names depending on the user that posted the 
+message to the room. This function places the message on the right or left of the
+display depending on if the sender or a recipient. 
+
+''node.send()'' output the msg out the first output.
+
+```
+// Post a message to a room - second output
+function post() {
+	// Third parameter in args contains the room
+	msg.payload.room = args[2];
+	// Save the posted message in Rooms twiki database
+	storePost();
+	// Send to  users that have joined the room
+	sendToJoined();
+}
+```
+
+''msg.payload.room'' assigned the room name to post the message.
+
+''storePost()'' helper function saves the new post to the roomsDB twiki.
+
+''sendToJoined()'' helper function broadcasts the post to all joined users.
+The function will output the msg for each user joined to the room out the
+second output.
+
+```
+// Leave a room - third output
+function leave() {
+	// Third parameter in args contains the room
+	msg.payload.leave = args[2];
+	// List of rooms joined is in 'currentTiddler' 'joined' field
+	userData.joined = currentTiddler.joined;
+	// Output to flow
+	node.send([null, null, msg, null]);
+}
+```
+
+''msg.payload.leave'' is the room the user wishes to leave (unjoin).
+
+''userData.joined'' is updated with the list of rooms this user has already joined.
+The client 'currentTiddler' has the field 'joined' which contains the list. In this
+case, the list would not contain the room.
+
+''node.send()'' the msg out the third output.
+
+```
+// Show users join status of each room - fourth output
+function show() {
+	// Update currentTiddler with list of rooms from UserDb
+	currentTiddler.joined = userData.joined;
+	// Get the joined rooms from the UserDb database
+	var joined = $tw.utils.parseStringArray(userData.joined) || [];
+	// Send a 'join' msg for each room
+	joined.forEach((room) => {
+		args[2] = room;
+		join();
+	});
+	clientData.chatInitialized = true;
+	// Output to flow
+	node.send([null, null, null, msg]);
+}
+```
+
+''currentTiddler.joined'' is updated from (the copy) of the user's
+tiddler on UsersDB. ''Note that this is opposite from the other functions
+described above''. Instead of using the list of joined rooms from the
+client - will be giving to the client the list of joined rooms from
+the UserDb twiki.
+
+''joined'' is calling a TiddlyWiki function which converts a list of
+tiddler titles to a JavaScript array. It handles the tiddlers with
+spaces (of the form `[[tiddler title]]`) properly.
+
+For each joined room call the 'join()' function above - to send the
+posts that are in that room to the client.
+
+''node.send()'' the msg to the fourth output to update the list of
+joined rooms on the client.

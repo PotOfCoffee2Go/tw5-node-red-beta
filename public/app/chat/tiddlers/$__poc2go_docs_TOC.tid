@@ -1,0 +1,14 @@
+created: 20240215031907740
+modified: 20240215034213026
+tags: 
+title: $:/poc2go/docs/TOC
+type: text/vnd.tiddlywiki
+
+ <$macrocall
+	$name="toc-tabbed-internal-nav"
+	tag="TableOfContentsDocs"
+	template="$:/poc2go/ui/ViewTemplate/body"
+	selectedTiddler="$:/poc2go/docs/toc/selectedTiddler"
+	unselectedText="""<p>Select a different topic</p>"""
+	missingText="<p>Missing Topic.</p>"
+/>

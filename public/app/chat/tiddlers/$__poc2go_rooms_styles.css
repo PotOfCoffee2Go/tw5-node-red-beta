@@ -1,5 +1,21 @@
+.room-titles {
+  white-space:nowrap;
+  margin-right: 1em;
+}
+
+.room-tiddler-content {
+  max-height: 250px;
+  overflow: auto;
+  padding: 0 1em;
+}
+
 .post-time {
   font-size: .8em;
+}
+
+.post-textarea {
+  width: 500px;
+  max-width: 500px;
 }
 
 .poc2go-room-post-recipient {
@@ -23,6 +39,10 @@
   border-radius: 8px;
   margin:0 0 0 1em;
   padding: .3em 1em .3em 1em;
+}
+
+code {
+  font-size: .9em;
 }
 
 /* hide the tiddler controls - info, edit, close */

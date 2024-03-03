@@ -1,0 +1,50 @@
+caption: Join / Post
+created: 20240220025230973
+modified: 20240228141252922
+tags: $:/poc2go/docs/flows
+title: $:/poc2go/docs/flows/part-1
+type: text/vnd.tiddlywiki
+
+!! Join Room and Post message flow
+
+The actions required to join a room and posting a new message to a room require similar tasks. The join action changes the user's 'joined' field by adding to the rooms that they joined.
+
+[img[$:/poc2go/docs/images/chat-02.png]]
+
+!!! Users Db add room
+This 'to-twiki' node updates the Users database with the room the user has joined. That information is used when a user logs in to remember what rooms the user joined in prior logins. The database is automatically written to disk by a flow in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'Databases' tab.
+
+
+!!! Room content
+ 
+Generates two tiddlers using the node's tiddler editor - separated by '+======+' :
+
+```
+title: $:/rooms/{% payload.room %}-content
+mustache: yes
+
+{% &payload.roomContent %}
+
++======+
+title: $:/poc2go/rooms/{% payload.room %}-position
+mustache: yes
+scroll-left: 0
+scroll-top: 20000
+
+
+```
+
+> Normally Mustache uses `{{` and `}}` as a delimiter. Since WikiText uses those frequently the default for the tiddler editor is `{%` and `%}` instead. Also note `{% &payload.roomContent %}` the field name begins with a `&` which informs Mustache to not HTML encode the characters - `<>` would be `&lt;&gt;` if `&` not used. As a personal preference the field names can have leading and trailing spaces - but not required.
+
+The first tiddler being generated contains the WikiText content of the room. Let's say the room name is 'restless'. the title of the tiddler will be `$:/rooms/restless-content`. That tiddler will be transcluded `{{$:/rooms/restless-content}}` wherever the contents of the room is to be displayed.
+
+The 'mustache' field tells TW5-Node-RED that the tiddler fields and/or text contains Mustache tags to be substituted when generating the tiddler. Otherwise the tiddler will not be processed by Mustache.
+
+The second tiddler automatically scrolls the room content to the bottom - thus displaying the most recent posts. The TiddlyWiki `<$scrollable>` widget uses the tiddler to control the scrollbars (see [[Display room|$:/poc2go/docs/flows/part-2]]).
+
+!!! Post? switch
+
+If the action being performed is a post, the flow links to the 'broadcast' flow otherwise is a 'join' action which continues to be processed by [[Display room|$:/poc2go/docs/flows/part-2]] node.
+
+!!! Broadcast link
+The Broadcast link sends the msg to the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'Network' tab.

@@ -1,0 +1,31 @@
+caption: Logic
+created: 20240218165211547
+modified: 20240220153751845
+tags: TableOfContentsDocs
+title: $:/poc2go/docs/logic
+type: text/vnd.tiddlywiki
+
+!! Logic
+
+The Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'chat' tab contains a JavaScript function node that manages the data of the chat app.
+
+<div style="float: left;max-width:150px; margin-right: 1em;">
+[img[$:/poc2go/docs/images/chat-flows-04.png]]
+</div>
+
+Most of the JavaScript could have been performed using Node-RED nodes. The variable assigns would be done using the [ext[change|https://nodered.org/docs/user-guide/nodes#change]] node, the request switch statement done with a [ext[switch|https://nodered.org/docs/user-guide/nodes#switch]] node, looping through arrays with the [ext[split and join|https://cookbook.nodered.org/basic/operate-on-array]] nodes and database updates using the TW5-Node-RED 'to-twiki' node.
+
+The reason JavaScript was used is for simplicity and wanted to show examples of using TiddlyWiki function calls to perform common twiki/tiddler tasks.
+
+<div style="clear: both;">
+
+The actions that can be requested are:
+
+ * join   - join a chat room
+ * post   - post a message to a room
+ * leave  - leave a chat room
+ * show   - list of rooms 
+ * create - create a new room
+
+> 'create' uses 'join' and 'show' outputs
+ 

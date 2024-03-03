@@ -1,0 +1,28 @@
+caption: Leave room
+created: 20240220122745550
+modified: 20240302133758988
+tags: $:/poc2go/docs/flows
+title: $:/poc2go/docs/flows/part-3
+type: text/vnd.tiddlywiki
+
+!! Leave Room
+
+When leaving a room the User twiki database is updated with the room removed from the room list for that user.
+
+'Leave room' generates the `$:/rooms/restless` tiddler which will overwrite the existing `$:/rooms/restless` on the user's TiddlyWiki. 'msg.payload.leave' is the room name to leave.
+
+```
+title: $:/rooms/{% payload.leave %}
+caption: {% payload.leave %}
+mustache: yes
+tags: 
+
+!!! Room {% payload.leave %}
+
+Notice 'TableOfContents' has been removed from 'tags'
+so room comes off of the TOC
+
+```
+
+Notice the removal of the 'TableOfContents' tag (root tag) which will result in removing the room from the [ext[TOC macro|https://tiddlywiki.com/static/Table-of-Contents%2520Macros.html]].
+

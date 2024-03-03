@@ -1,0 +1,46 @@
+caption: Flows
+created: 20240219161039013
+modified: 20240303005812209
+tags: TableOfContentsDocs
+title: $:/poc2go/docs/flows
+type: text/vnd.tiddlywiki
+
+!! Flows
+
+The JavaScript [[logic function|$:/poc2go/docs/logic]] node at the beginning of the flows performs the logic of the Chat app. It sets the values in the Node-RED msg used by the flows to generate the tiddlers for connected users. The generated tiddlers are unique based on the rooms a user has joined and if a post is from the user or from another user.
+
+[img[$:/poc2go/docs/images/chat-01.png]]
+
+The JS  sets values based on interactions with the connected users. The flows have a few switches to redirect the path of the message based on the tasks to be performed. 
+
+Will look at each node and using the built-in [ext[Mustache|https://mustache.github.io/mustache.5.html]] template engine 
+to substitute user and room specific information when generating tiddlers to be sent to the users.
+
+There are a set of tiddlers for each room a user has joined. For example room 'restless':
+
+ * `$:/rooms/restless`
+ ** Displays the room header
+ ** Displays the messages that have been posted to the room
+ ** Buttons and textarea to post a message to the room
+ * `$:/rooms/restless-post`
+ ** WikiText of new post to be added to the room
+ * `$:/poc2go/rooms/restless-postion`
+ ** Used by scrollable widget to position visible room content
+ ** Scroll values used to scroll to bottom
+ *** (the most recent post)
+ * `$:/rooms/restless-content`
+ ** The posts submitted to the room
+
+<hr class="poc2go-hr">
+
+!!! <$link to="$:/poc2go/docs/flows/part-1"><$view tiddler="$:/poc2go/docs/flows/part-1" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-2"><$view tiddler="$:/poc2go/docs/flows/part-2" field="caption"/></$link>
+
+[img[$:/poc2go/docs/images/chat-02.png]]
+
+!!! <$link to="$:/poc2go/docs/flows/part-3"><$view tiddler="$:/poc2go/docs/flows/part-3" field="caption"/></$link> - <$link to="$:/poc2go/docs/flows/part-4"><$view tiddler="$:/poc2go/docs/flows/part-4" field="caption"/></$link>
+
+[img[$:/poc2go/docs/images/chat-03.png]]
+
+
+
+

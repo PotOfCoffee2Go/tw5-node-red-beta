@@ -1,0 +1,68 @@
+caption: Client data
+created: 20240223102753348
+modified: 20240224154043608
+tags: $:/poc2go/docs/msg
+title: $:/poc2go/docs/msg/client
+type: text/vnd.tiddlywiki
+
+!! msg,network.client
+
+|msg |>|>| |>|>|h
+| |network |>|>|>| |h
+| | |client |>| |Client Data |h
+| | | |topic | string |Original topic requested|
+| | | |sender | array |currentTidder sending request|
+| | | |tiddlers | array |Tiddlers sent with this request|
+
+!!! topic
+This field contains the original topic requested by the client TiddlyWiki. The main 'msg.topic' can change as a msg is routed through the flows. 'msg.network.client.topic' can be used to determine the original topic requested.
+
+!!! sender
+The sender field is an array of tiddlers. The first element in the array 'msg.network.client.sender[0]' is always present and is the 'currentTiddler' of the original request (Note that it is a //skinny// tiddler which excludes the 'text' field). When a request initiates a flow where the server requests additional tiddlers from the client, an entry is added to the sender array of the server's request for additional data from the client.
+
+!!! tiddlers
+'msg.network.client.tiddlers' are tiddlers that are sent with the request. It is the tiddlers from the result of the `[[filter]]` query in the `<<node-red 'topic' '[[filter]]'>>` macro call.
+
+The example below shows the client data sent on a 'client.onload' request which is sent automatically after a connection with the client TiddlyWiki has been established and the user has signed in. The flow that processes the request is the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'onConnect' tab.
+
+The 'currentTiddler' that sends the request `<<node-red 'client.onload' '[[$:/tw5-node-red/settings]]'>>` is `$:/tw5-node-red/settings` which also sends itself as additional tiddlers with the request.
+
+The 'client.onload' request also sends the same `$:/tw5-node-red/settings` as a tiddler with the request. Notice that the 'sender' does not contain the 'text' field (//skinny//) while the 'tiddlers' version of `$:/tw5-node-red/settings` does contain the 'text' field.
+
+```
+    "client": {
+      "topic": "client.onload",
+      "sender": [
+        {
+          "title": "$:/tw5-node-red/settings",
+          "tags": "tw5-node-red",
+          "type": "text/vnd.tiddlywiki",
+          "redNetstat": "$:/temp/tw5-node-red/netstat",
+          "redStore": "$:/temp/tw5-node-red/store",
+          "redData": "$:/temp/tw5-node-red/data",
+          "autoLoadPlugin": "no",
+          "autoSend": "[[$:/temp/tw5-node-red/store]] [[$:/temp/tw5-node-red/data]]",
+          "autoTags": "[[·node-red·]]",
+          "tagWithTopic": "no",
+          "heartbeatInterval": "10000"
+        }
+      ],
+      "tiddlers": [
+        {
+          "title": "$:/tw5-node-red/settings",
+          "tags": "tw5-node-red",
+          "type": "text/vnd.tiddlywiki",
+          "redNetstat": "$:/temp/tw5-node-red/netstat",
+          "redStore": "$:/temp/tw5-node-red/store",
+          "redData": "$:/temp/tw5-node-red/data",
+          "autoLoadPlugin": "no",
+          "autoSend": "[[$:/temp/tw5-node-red/store]] [[$:/temp/tw5-node-red/data]]",
+          "autoTags": "[[·node-red·]]",
+          "tagWithTopic": "no",
+          "heartbeatInterval": "10000",
+          "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}"
+        }
+      ]
+    },
+```
+

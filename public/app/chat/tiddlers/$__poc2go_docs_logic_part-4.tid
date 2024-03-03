@@ -1,0 +1,169 @@
+caption: Helpers
+created: 20240219120625102
+modified: 20240220160610103
+tags: $:/poc2go/docs/logic
+title: $:/poc2go/docs/logic/part-4
+type: text/vnd.tiddlywiki
+
+!! Helper functions
+
+> If not into JavaScript can skip this document
+
+These helper functions perform the lower level processing of the Chat app.
+
+```
+// Construct post
+function constructPost(posting) {
+	// Current date/time in TW format
+	// Create a tiddler with the 'created' field 
+	var dateTiddler = new $tw.Tiddler($tw.wiki.getCreationFields());
+	var postDate = dateTiddler.getFieldString('created');
+
+	// Create post
+	return `<hr class="poc2go-hr" style="clear: both;">\n` +
+		`<div class="post-sender-${userData.userid}">` +
+		`${userData.username} <span class="post-time">` +
+		`<$list filter="[[${postDate}]format:date[0hh:0mm:0ss]]"><$text text=<<currentTiddler>>/></$list> ` +
+		`</span><br><span>\n\n` +
+		posting.text +
+		'\n</span></div>';
+}
+```
+
+A poor-man's way of getting a date in TiddlyWiki format is to create a tiddler which generates
+the date in TiddlyWiki format. 'getFieldString()' returns the value of a tiddler field.
+
+The post text is wrapped with HTML to display the post on the left (recipient)/right (sender).
+The 'post-sender-${userData.userid}' class is a placeholder which will be changed by the 
+'markupContent()' (below) to the actual class needed to format the post.
+
+```
+// Add post to the room in Rooms twiki database
+function storePost() {
+	// Get the messsages already posted to the room
+	var roomTiddler = roomsDb.getTiddler(msg.payload.room);
+	var previousContent = roomTiddler.getFieldString('text')
+	// Get message being posted sent by client
+	const posting = msg.network.client.tiddlers[0] || { text: '' };
+	// Wrap message into HTML and TW widgets for display
+	var roomContent = previousContent + constructPost(posting);
+	// Update the Rooms twiki database
+	roomsDb.addTiddler(new $tw.Tiddler(roomTiddler, { text: roomContent }));
+}
+```
+
+This helper function updates the room tiddler in the roomsDb database. Get the
+tiddler and previous posts in the room.
+
+When the client TiddlyWiki sends a post request it also sends a tiddler `$:/rooms/roomname-post`
+which contains the WikiText of the post. The tiddler is the first (and only) tiddler
+in 'msg.network.client.tiddlers'.
+
+Append the post to the previous room content. The 'constructPost()' (above) wraps the
+post in the HTML needed to display the post.
+
+Update roomsDb with the appended  post. The database is automatically written to disk
+(see the RoomsDb flow in Flow Editor tab 'databases').
+
+```
+// Markup room content based on the user being the sender or recipient
+function markupContent(userid) {
+	// Get the messsages already posted to the room
+	var roomTiddler = roomsDb.getTiddler(msg.payload.room);
+	var content = roomTiddler.getFieldString('text')
+	// Get creator to display with the room
+	msg.payload.creator = roomTiddler.getFieldString('creator');
+	// Class for sender (display  right) and recipientcl (display left)
+	const senderclass = new RegExp(`class="post-sender-${userid}"`, 'g');
+	const recipientclass = new RegExp(`class="post-sender-[^"]+"`, 'g');
+	// Replace class placeholder with sender/recipient based on given userid
+	msg.payload.roomContent = content
+		.replace(senderclass, `class="poc2go-room-post-sender"`)
+		.replace(recipientclass, `class="poc2go-room-post-recipient"`);
+}
+```
+
+This helper changes the class used to display the post depending on if
+the post is being displayed on the senders story or a recipient story.
+When sender is displayed on the right, for recipient is displayed on the
+left.
+
+Get the room content from the database and the creator to 'msg.payload' the
+be used when the chat flows generate the tiddlers.
+
+Regular expressions are used to replace the class placeholder with the actual
+class used to display the post on the left or right of the tiddler.
+
+Place the updated room content into 'msg.payload' for flows to generate the
+tiddlers sent to the client(s).
+
+```
+// Loop thru the clientIds and send post to clients that have joined the room 
+function sendToJoined() {
+	for (let cid in clientIds) {
+		// client using chat system and not the client posting the message 
+		if (clientIds[cid].chatInitialized) {
+			// See if user has joined the room
+			if (userIsJoined(clientIds[cid].userid, msg.payload.room)) {
+				msg.clientid = cid;
+				markupContent(clientIds[cid].userid);
+				node.send([null, msg, null, null]);
+			}
+		}
+	}
+}
+```
+
+This function loops through the connected clients and sends the room content for those
+that have joined the room. Flows perform the generation and broadcasting of
+the tiddlers to each client.
+
+The clientIds JS object contains information used by the communications system. The 
+chat system sets some flags in clientIds to determine which connected clients are
+using the chat app 'clientIds[cid].chatInitialized'.
+
+The 'userIsJoined()' (below) function return true if the user has already joined the
+room, thus needs to be sent the updated room content. The content is modified depending
+on if the posts are the sender or recipient - 'markupContent()'.
+
+```
+// Loop thru the clientIds and send post to clients that have joined the room 
+function showNewRoom() {
+	var originalNetwork = JSON.parse(JSON.stringify(msg.network));
+	for (let cid in clientIds) {
+		// client using chat system
+		if (clientIds[cid].chatInitialized) {
+			msg.clientid = cid;
+			var user = usersDb.getTiddler(clientIds[cid].userid);
+			if (user) {
+				msg.network.user = user.getFieldStrings();
+				node.send([null, null, null, msg]);
+			}
+		}
+	}
+	msg.network = originalNetwork;
+}
+```
+
+This function selects clients that are to receive updates to the room list. 
+Flows perform the generation and broadcasting of the tiddlers to each client.
+
+Loop through the connected clients and if using the chat app switch the msg
+to 'that' user and output to the flow that sends the room list.
+
+At the beginning remember the current user. Since will be changing the user
+to someone else to update their room list. When done put the original user
+back into the msg.
+
+```
+// Has user joined the room? 
+function userIsJoined(userid, room) {
+	return usersDb.getTiddlerList(userid, 'joined').includes(room);
+}
+```
+
+This helper looks up the user from the UserDB twiki and checks if they have
+joined the room.
+
+The TiddlyWiki getTiddlerList() function parses a TiddlyWiki list into a JS array
+which is the checked to see if it has the room.

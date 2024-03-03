@@ -1,0 +1,90 @@
+caption: Assigns
+created: 20240218170747828
+modified: 20240220155357163
+tags: $:/poc2go/docs/logic
+title: $:/poc2go/docs/logic/part-1
+type: text/vnd.tiddlywiki
+
+!! Assignment of variables
+
+```
+// Access to TiddlyWiki codebase
+const $tw = global.get('$tw');
+
+// User and Rooms twiki databases
+const usersDb = global.get('twikis').Users;
+const roomsDb = global.get('twikis').Rooms;
+
+// Each connection has server-side in-memory info by clientId
+const clientIds = global.get('clientIds');
+```
+
+''$tw'' allows access to all TiddlyWiki variables and functions
+
+''usersDb'' is the TW5-Node-RED user accounts tiddler database
+
+''roomsDb'' is tiddler database of chat rooms
+
+''clientIds'' contains server-side connection information of each web page connected to the server. The information stored is maintained by the 'Network' and 'Security' <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> tabs and used by the communications system to broadcast replies to multiple connections. The Chat app adds a field to indicate the connection is using the chat system.
+
+```
+// Get information for this connection
+var clientData = clientIds[msg.network.meta._clientid];
+
+// msg.network.user is same data that is on UserDb
+//  when msg was authorized 
+const userData = msg.network.user;
+
+// Get the client 'currentTiddler' tiddler
+//   that sent the request
+const currentTiddler = msg.network.client.sender[0];
+```
+
+''clientData'' is shorthand for the connection information for this client
+making the request.
+
+''userData'' is shorthand for 'msg.network.user' which is this
+user from UsersDb database.
+
+''currentTiddler'' is the client-side 'currentTiddler' which
+sent the request. Is received from the client in 'msg.network.client.sender[0]'.
+
+```
+// Initialize msg.payload which will hold data to client
+// Get the titles of the tiddlers in the Rooms twiki database
+msg.payload = {};
+msg.payload.roomnames = roomsDb.getTiddlers();
+```
+
+By convention will be placing the data for the flows into 'msg.payload'.
+The flows will use 'mustache' template engine to substitute the
+data into tiddlers and then sent to the client(s).
+
+''msg.payload.roomnames'' is the list of the tiddler titles from the
+RoomsDb twiki which are the rooms.
+
+```
+// Parse request - using commas since room names can contain spaces
+// If not specified - the default is to show the rooms
+var args = msg.topic.split(',');
+if (args.length < 2) {
+	args = ['rooms', 'show'];
+}
+```
+
+The requests will be 'rooms,{action},{room}'. If an action is not
+present will show the list of rooms
+
+```
+// Execute user's request
+execRequest();
+
+// Exit - informing Node-RED this node is done with msg
+node.done();
+return;
+
+```
+''execRequest()'' processes the request using the variables that have been assigned.
+
+''node.done()'' is a convention used to inform Node-RED this node is finished with the
+message - is only required when doing async stuff, but is a good habit to get into.
