@@ -1,5 +1,5 @@
 created: 20240214180949798
-modified: 20240215081342388
+modified: 20240303140112702
 tags: $:/poc2go/rooms/show
 title: Help
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 This simple Chat System will be used to demonstrate how to build an TW5-Node-RED application. Application developers see 
 <$button class="tc-btn-invisible tc-tiddlylink">
-<$action-setfield $tiddler="$:/StoryList" list="Documentation [[Chat Rooms]]"/>
+<$action-setfield $tiddler="$:/StoryList" list="[[Chat App Documentation]] [[Chat Rooms]]"/>
 Developer Documentation
 </$button>
 </div>

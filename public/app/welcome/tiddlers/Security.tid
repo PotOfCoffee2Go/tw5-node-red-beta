@@ -1,10 +1,10 @@
 created: 20240204183210154
 list: [[Bearer token]] [[Create account]] [[Login tiddler]] [[Logout tiddler]]
-modified: 20240204210515919
+modified: 20240305012927949
 tags: TableOfContents
 title: Security
 type: text/vnd.tiddlywiki
 
-TW5-Node-RED is designed to face the internet. There are a set of requirements to secure the server, enabling HTTPS Access, enable HTTPS access, secure the Flow Editor by password or better yet disable access entirely. See [[Securing Node-RED|https://nodered.org/docs/user-guide/runtime/securing-node-red#enabling-https-access]] which describes Node-RED itself - noting that 'users' are Node-RED users not the TiddlyWiki application users.
+TW5-Node-RED is designed to face the internet. There are a set of requirements to secure the server, enable HTTPS access, secure the Flow Editor by password or better yet disable access entirely. See [[Securing Node-RED|https://nodered.org/docs/user-guide/runtime/securing-node-red#enabling-https-access]] which describes Node-RED itself - noting that 'users' are Node-RED users not the TiddlyWiki application users.
 
 To secure even further a reverse proxy can be placed between the server and the web. In most cases maintaining a proxy server and keeping up with new vulnerabilities requires skilled cyber security personnel. An internet reverse proxy provider such as [[ngrok|https://ngrok.com/]] can be used to simplify implementation of a reverse proxy and can also provide HTTPS access to a HTTP server via a secure tunnel.
