@@ -1,0 +1,84 @@
+caption: Messages
+created: 20240223013249157
+list: $:/poc2go/docs/msg/meta $:/poc2go/docs/msg/client $:/poc2go/docs/msg/server $:/poc2go/docs/msg/user
+modified: 20240303153642422
+tags: TableOfContents
+title: $:/poc2go/docs/msg
+type: text/vnd.tiddlywiki
+
+!! TW5-Node-RED msg
+
+
+All Node-RED msgs received from client TiddlyWikis have the same format. There are five top-level fields:
+
+|Field|Type|Description|h
+|topic|string|The required topic of the message|
+|network|object|The TW5-Node-RED data from client TiddlyWiki|
+|_socketId|string|socket.io socket ID|
+|_msgid|string|Node-RED message ID|
+|_event|string|uiBuiler event node ID|
+
+The last three fields that begin with underbar `_` are used by the routing and communication system and should be left alone.
+
+!!! msg.network
+
+TiddlyWiki sends a request `<<node-red 'topic' '[[filter]]'>>` which fills the 'network' object.
+
+|msg |>|>| |>|>|h
+| |topic |>| |string |Topic of the request|
+| |network |>|>|>| |h
+| | |meta |>| |Meta Data |>|h
+| | | |source | string |Source of message - TW5/Node-red/HTML|
+| | | |version | string |Version of source|
+| | | |location | object |Browser 'window.location' object|
+| | | |_clientid | string |Client-side generated ID|
+| | | |tiddlers | array |Data-tiddlers sent with every msg|
+| | |client |>| |Client Data |h
+| | | |topic | string |Original topic requested|
+| | | |sender | array |currentTidder sending request|
+| | | |tiddlers | array |Tiddlers sent with this request|
+| | |server |>| |Server Data |h
+| | | |topic | string |Topic of response|
+| | | |tiddlers | array |Tiddlers sent with this response|
+| | | |storylist | array |Tiddlers to add to story|
+| | |user |>| |User Data (tiddler)|h
+| | | |title | string |Same as userid|
+| | | |userid | string |Unique ID of user|
+| | | |username | string |Display name of user|
+| | | |email | string |User email address|
+| | | |pwHash | string |bcrypt hash of password|
+| | | |palette | string |User default palette|
+| |_socketId |>| |string |socket.io socket ID|
+| |_msgid |>| |string |Node-RED message ID|
+| |_event |>| |string |uiBuilder event|
+
+An example  - some fields shortened to [· · ·] / {· · ·}.
+
+```
+{
+  "topic": "rooms,show",
+  "network": {
+    "meta": {
+      "source": "TW5",
+      "version": "v5.3.3",
+      "location": {· · ·},
+      "_clientid": "879d5d9b5f4b667a",
+      "tiddlers": [· · ·]
+    },
+    "client": {
+      "topic": "client.onload",
+      "sender": [· · ·],
+      "tiddlers": [· · ·]
+    },
+    "server": {
+      "topic": "server.tiddlers",
+      "tiddlers": [],
+      "storylist": []
+    },
+    "user": {· · ·}
+  },
+  "_socketId": "QqcVUUmI5b-X2WisAAAT",
+  "_msgid": "9ff2f97b608d5ce9",
+  "_event": "node:4c9c46b76b72965f"
+}
+```

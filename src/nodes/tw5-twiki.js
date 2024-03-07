@@ -289,7 +289,7 @@ module.exports = function(RED) {
 					})
 					tids = tids.join('+======+\n');
 				} else {
-					tids = JSON.stringify(filteredTwiki);
+					tids = JSON.stringify(filteredTwiki, null, RED.settings.flowFilePretty ? 2 : null);
 				}
 				fs.promises.writeFile(fname, tids)
 					.then(() => {

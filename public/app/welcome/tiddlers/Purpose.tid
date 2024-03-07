@@ -1,7 +1,7 @@
 created: 20231128073017185
 fetched: 20231130180107081
 list: [[Client side]] [[Server side]] [[More client side]]
-modified: 20240130130539638
+modified: 20240303215205531
 tags: Welcome
 title: Purpose
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 <div style="margin: 0 0 -6px -9px;">{{swirl-top.png}}</div>
 <div style="float:left;">{{swirl-left.png}}</div>
 
-The tiddlers that you are reading right now have come from the server. They are the ''application'' 'TW5-Node-RED Documentation'. This specific wiki is 'empty.html' from https:/tiddlywiki.com with the [[markdown|$:/plugins/tiddlywiki/markdown]] and [[highlight|$:/plugins/tiddlywiki/highlight]] plugins installed. Neither is required but Markdown is used in other applications and code highlighted looks pretty.
+The tiddlers that you are reading right now have come from the server. They are the ''application'' 'welcome'. This specific wiki is 'empty.html' from https:/tiddlywiki.com with the [[markdown|$:/plugins/tiddlywiki/markdown]] and [[highlight|$:/plugins/tiddlywiki/highlight]] plugins installed. Neither is required but Markdown is used in other applications and code highlighted looks pretty.
 
 To illustrate what an application is, go to [ext[/svr/wiki/wikilabs.html?app=welcome|/svr/wiki/wikilabs.html?app=welcome]]  - which is a copy of [[PMarios 'WikiLabs'|https://wikilabs.github.io]] out-of-the-box with [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] drag-n-dropped and saved in the server directory <span class="poc2go-dir">'./uibuilder/svr/src/wiki/wikilabs.html'</span>. 
 

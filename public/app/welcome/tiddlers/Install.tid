@@ -1,6 +1,6 @@
 created: 20231126191238250
 fetched: 20231128183332930
-modified: 20240203141021031
+modified: 20240306144118427
 tags: Welcome ·node-red·
 title: Install
 type: text/vnd.tiddlywiki
@@ -30,4 +30,4 @@ Start the server:
 <$macrocall $name=".codesample" n="2" lng="cmd" eg="""npm start
 """/>
 
-Browse to http://localhost:1880/svr/wiki/nodered.html?app=welcome. A TiddyWiki will open which is this wiki you are looking at right now.
+Browse to http://localhost:1880/svr/wiki/nodered.html?app=welcome. A TiddyWiki will open which is this wiki you are looking at right now. Can use ''demo'' password ''demo'' to log in or create an account.

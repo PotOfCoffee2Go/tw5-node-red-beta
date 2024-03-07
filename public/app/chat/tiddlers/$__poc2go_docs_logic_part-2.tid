@@ -1,6 +1,6 @@
 caption: Request
 created: 20240218205455301
-modified: 20240227103541676
+modified: 20240303142549865
 tags: $:/poc2go/docs/logic
 title: $:/poc2go/docs/logic/part-2
 type: text/vnd.tiddlywiki
@@ -13,6 +13,8 @@ placed in 'function' nodes.
 
 Using Node-Red nodes would complicate the wiring of the app, which is already complicated 
 enough to generate all the tiddlers needed by the app.
+
+<hr class="poc2go-hr">
 
 ```
 // Perform one of the following actions
@@ -29,8 +31,9 @@ function execRequest() {
 }
 ```
 
-''execRequest()'' is equivalent to a Node-RED 'switch' node. Runs one of the functions
-below based on the action requested. 
+''execRequest()'' is equivalent to a Node-RED 'switch' node. Runs one of the functions below based on the action requested. 
+
+<hr class="poc2go-hr">
 
 ```
 // Join a room 'rooms,join,room name' - first output
@@ -49,14 +52,13 @@ function join() {
 ''msg.payload.room'' assigned the room name to join from the request - ''args[2]''
 
 ''userData.joined'' is updated with the list of rooms this user has already joined.
-The client 'currentTiddler' has the field 'joined' which contains the list.  In this
-case, the list would contain the room being joined.
+The client 'currentTiddler' has the field 'joined' which contains the list.  The list is maintained client-side by a TiddlyWiki `<$checkbox>` widget. In this case, the list would also contain the room being joined.
 
-''markupContent()'' helper function substitutes class names depending on the user that posted the 
-message to the room. This function places the message on the right or left of the
-display depending on if the sender or a recipient. 
+''markupContent()'' helper function substitutes class names depending on the user that posted the message to the room. This function places the message on the right or left of the display depending on if the sender or a recipient. 
 
 ''node.send()'' output the msg out the first output.
+
+<hr class="poc2go-hr">
 
 ```
 // Post a message to a room - second output
@@ -78,6 +80,8 @@ function post() {
 The function will output the msg for each user joined to the room out the
 second output.
 
+<hr class="poc2go-hr">
+
 ```
 // Leave a room - third output
 function leave() {
@@ -97,6 +101,8 @@ The client 'currentTiddler' has the field 'joined' which contains the list. In t
 case, the list would not contain the room.
 
 ''node.send()'' the msg out the third output.
+
+<hr class="poc2go-hr">
 
 ```
 // Show users join status of each room - fourth output
