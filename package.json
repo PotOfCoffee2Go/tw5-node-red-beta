@@ -18,7 +18,7 @@
     "node-red-contrib-users": "^0.1.10"
   },
   "scripts": {
-    "start": "./node_modules/node-red/red.js -s ./settings.js",
+    "start": "node ./node_modules/node-red/red.js -s ./settings.js",
     "syncserver": "node ./syncserver",
     "mon": "nodemon --ext js,html,json --watch src/nodes /usr/lib/node_modules/node-red/red.js --settings ./settings.js"
   },
