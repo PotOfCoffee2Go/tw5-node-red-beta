@@ -1,6 +1,6 @@
 created: 20231126235752363
 fetched: 20231130165635244
-modified: 20240122193823499
+modified: 20240306145825832
 tags: [[How it works]] ·node-red·
 title: Client side
 type: text/vnd.tiddlywiki
@@ -18,7 +18,7 @@ Let's do the obligatory 'Hello World' exercise. The server has a 'hello' topic w
 
 <$button actions="<<node-red 'hello'>>" > Hello World </$button>
 
-Press the button and a request to run the 'hello' flow will be sent to the server. A 'Hello World' is tiddler returned and displayed in the story.
+Press the button and a request to run the 'hello' flow will be sent to the server. A 'Hello World' tiddler is returned and displayed in the story.
 
 The 'currentTiddler' that submitted the request is sent to the server. Is a skinny tiddler without the text field. If need the text - use the `<<node-red 'topic' '[[filter]]'>>` ''filter'' parameter which sends the complete tiddler(s).
 

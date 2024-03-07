@@ -123,11 +123,11 @@ module.exports = {
     adminAuth: {
         type: "credentials",
         users: [
-//            {
-//                username: "admin",
-//                password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
-//                permissions: "*"
-//           },
+            {
+                username: "admin",
+                password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
+                permissions: "*"
+            },
             {
                 username: "poc2go",
                 password: "$2b$08$ZCVNHfiBHkyxAaoWop6gLOqeJ0qERLZDM2GN/8G.K5t9G/CyZtoxm",

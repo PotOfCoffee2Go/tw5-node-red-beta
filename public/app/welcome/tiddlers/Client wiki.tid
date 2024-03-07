@@ -1,11 +1,11 @@
 created: 20231230061556284
 fetched: 20231128183332930
-modified: 20240305164549111
+modified: 20240306143246372
 tags: Welcome ·node-red·
 title: Client wiki
 type: text/vnd.tiddlywiki
 
-When first connecting to the server will need to create an account or can use user ''demo'' password ''demo''. The account information is stored in a the 'User' twiki database.
+When first connecting to the server will need to create an account or can use user ''demo'' password ''demo''. The account information is stored in a the 'User' twiki database in the file <span class="poc2go-dir">'./tiddlywiki/dn/users.json'</span> on the server.
 
 There are a set of TiddlyWikis on the server with $:/plugins/potofcoffee2go/tw5-node-red/network.js already installed which a user can use.
 
