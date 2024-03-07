@@ -1947,7 +1947,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Topic '{%topic%}'\ntopicbtn: <$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\ntopic: {%topic%}\n\n<$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\n\n<$macrocall $name=\"copy-to-clipboard\" src={{!!topicbtn}}/>\n\n```\n<$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\n```\n\n---\n\nTopic: <$edit-text field=topic class=poc2go-edit-text />\n\n<$set name=topic value={{!!topic}}>\n<$button actions=\"<<node-red 'sample $(topic)$'>>\"> Generate Sample </$button>\n</$set>\n",
+        "template": "title: Topic '{%topic%}'\nmustache: yes\ntopicbtn: <$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\ntopic: {%topic%}\n\n<$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\n\n<$macrocall $name=\"copy-to-clipboard\" src={{!!topicbtn}}/>\n\n```\n<$button actions=\"<<node-red '{%topic%}'>>\"> {%topic%} </$button>\n```\n\n---\n\nTopic: <$edit-text field=topic class=poc2go-edit-text />\n\n<$set name=topic value={{!!topic}}>\n<$button actions=\"<<node-red 'sample $(topic)$'>>\"> Generate Sample </$button>\n</$set>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,

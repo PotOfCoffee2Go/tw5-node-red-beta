@@ -1,6 +1,6 @@
 created: 20231202195211285
 fetched: 20231203150318127
-modified: 20240117014412777
+modified: 20240307132235311
 tags: ·node-red· [[How it works]]
 title: Mustache
 type: text/vnd.tiddlywiki
@@ -38,8 +38,12 @@ return msg;
 
 The 'Generate sample' [[Set network]] node has a tiddler in the editor which substitutes {%topic%} (msg.topic) which now only contains the parameter - in this case 'hello'. (Double click the 'Generate sample' node to see the complete markup).
 
+
+> @@color:pink; Note: the field `mustache: yes` is required for TW5-Node-RED to process the tiddler using the Mustache template engine to perform the substitutions.@@
+
 ```
 title: Topic '{%topic%}'
+mustache: yes
 topicbtn: <$button actions="<<node-red '{%topic%}'>>"> {%topic%} </$button>
 topic: {%topic%}
 
