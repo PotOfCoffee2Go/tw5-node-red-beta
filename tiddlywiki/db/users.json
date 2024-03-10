@@ -37,5 +37,16 @@
     "pwHash": "$2b$08$UbkQanp/.gZggA9ooomj5uYZhUu3ULLx3cwPCv4Prz5s25q5Bj6dS",
     "joined": "hypnothize floor flexible sleepless",
     "palette": "$:/palettes/Twilight-Node-Red"
+  },
+  {
+    "created": "20240310133138722",
+    "modified": "20240310133201392",
+    "title": "pocc",
+    "userid": "pocc",
+    "username": "second poc",
+    "email": "",
+    "fetched": "20240310133138722",
+    "tags": "·node-red·",
+    "pwHash": "$2b$08$7LYFYQwEGC3wiZ5A25BcU.vbL4mCAHJviaA0Rc5kNclfipgrgDdmK"
   }
 ]

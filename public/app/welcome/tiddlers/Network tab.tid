@@ -1,6 +1,55 @@
 created: 20231230190526904
 list: Network
-modified: 20231230190715042
+modified: 20240310150139674
 tags: [[Node-Red tabs]]
 title: Network tab
 type: text/vnd.tiddlywiki
+
+!! Flow Editor Network Tab
+
+The Network tab does the routing of all socket.io messages received by the server.
+
+!!! Inbound node
+This node is used by the communications system to pass a message to Node-RED.
+
+!!! Connect & Bearer token node
+This node routes heartbeats. The first message the server will receive when a client connects is a heartbeat. That heartbeat is used to generate and send the bearer token (JSON Web Token) that must be included in future messages. The bearer token and authorization is not verified for heartbeats - which are light-weight messages.
+
+When a new connection the heartbeat is sent to the [[Security tab]] for processing.
+
+!!! heartbeat pong node
+This node sends the response to a heartbeat.
+
+!!! Message to flows node
+This 'link in' node is used by the [[Security tab]] flows to submit a message for authorization after going through the security process. The node can also be used if a flow changes the topic and wishes to 're-run' the message as if that topic was requested by the client.
+
+!!! Is authorized? node
+For topics other than heartbeats, the message is checked by the 'Is authorized?' node to see if authorized.
+
+ * Bearer token is verified
+ ** if not present or invalid a message is displayed on console
+ ** the message is discarded
+ * Insure the connection is authorized
+ ** if not authorized will respond with a log in request to the client via the [[security system|Security tab]]
+ * Insure have the user's database record (tiddler)
+ ** if user not found/assigned replies with a log in request to the client via the [[security system|Security tab]]
+
+Passing those checks the [[User's data tiddler|$:/poc2go/docs/msg/user]] is added to the message and sent to the flows.
+
+!!! to Security System node
+When is the first heartbeat or a message did not pass authorization it is sent to the [[security system|Security tab]].
+
+!!! ConnectionDb node
+Is a 'link out' node that processes uiBuilder 'control' messages. These messages inform the server when a socket.io connection is connected, disconnected, and other connection monitoring messages. These messages are processed by the 'Connect/Disconnect Client' node in the [[Databases tab]].
+
+!!! From Client node
+This is a 'link out' node which sends the message to the flows is the workspace.
+
+!!! To Client node
+This link in node sends a message back to the client.
+
+!!! Remove cruft
+Removes commonly used 'working' fields (such as msg.payload) from the message prior to sending to the client.
+
+!!! Outbound node
+Passes the message off to the communications system.

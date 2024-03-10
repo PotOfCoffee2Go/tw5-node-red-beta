@@ -1,6 +1,15 @@
 created: 20231222125146347
-list: Network
-modified: 20231230190520371
+list: [[Topics tab]] [[Network tab]] [[Security tab]] [[Database tab]]
+modified: 20240310010826053
 tags: TableOfContents
 title: Node-Red tabs
 type: text/vnd.tiddlywiki
+
+The <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> workspace is organized using tabs. Is a little confusing as the menu options call these tabs 'flows' but once have used the Flow Editor interface for a while will get used to it. Node-RED [ext[documentation|https://nodered.org/docs/user-guide/editor/workspace/flows]] states:
+
+<div class="tc-message-box" style="font-size: 1rem;">
+Note : The term "flow" is also used to informally describe a single set of connected nodes. So a flow (tab) can contain multiple flows (sets of connected nodes).
+</div>
+
+TW5-Node-RED requires the [[Network|Network tab]], [[Security|Security tab]], and [[Database|Database tab]] tabs. It is possible to re-wire Network nodes to bypass the Security system or can set the 'allowAnon' flag in the <span class="poc2go-dir"> './settings.js' </span> file.
+

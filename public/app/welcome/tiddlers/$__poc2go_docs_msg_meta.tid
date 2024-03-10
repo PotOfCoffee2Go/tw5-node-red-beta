@@ -1,11 +1,11 @@
 caption: Meta data
 created: 20240223102305598
-modified: 20240303154236432
+modified: 20240310162142236
 tags: $:/poc2go/docs/msg
 title: $:/poc2go/docs/msg/meta
 type: text/vnd.tiddlywiki
 
-!! msg,network.meta
+!! msg.network.meta
 
 |msg |>|>| |>|>|h
 | |network |>|>|>| |h

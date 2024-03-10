@@ -1,0 +1,12 @@
+created: 20240310003314942
+modified: 20240310132558576
+tags: [[Node-Red tabs]]
+title: Security tab
+type: text/vnd.tiddlywiki
+
+!! Flow Editor Security Tab
+
+!!! Security System node
+The link-in 'Security System' node is the entry point of the security system. A message should be sent to the system whenever it does not pass authorization checks.
+
+
