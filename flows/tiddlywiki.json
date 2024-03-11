@@ -115,7 +115,7 @@
         "id": "d1d824ed77b66140",
         "type": "group",
         "z": "eb845b8cbc7ac49a",
-        "name": "Call to request tiddlers from client \\n Place TiddlyWiki filter in 'msg.filter' to select desired tiddlers \\n For Example: \\n ",
+        "name": "Server Inquiry: \\n Call to request tiddlers from client \\n Place TiddlyWiki filter in 'msg.filter' to select desired tiddlers \\n For Example: \\n ",
         "style": {
             "label": true,
             "label-position": "n"
@@ -126,9 +126,9 @@
             "9b88d3454bec6454"
         ],
         "x": 78,
-        "y": 701,
+        "y": 685,
         "w": 644,
-        "h": 236
+        "h": 252
     },
     {
         "id": "01567b9b6b2e01a1",
@@ -1122,7 +1122,7 @@
         "type": "group",
         "z": "eb845b8cbc7ac49a",
         "g": "3cefbe58652ddd1b",
-        "name": "Start 'server' edition on port 8080",
+        "name": "Start 'server' edition on port 8100",
         "style": {
             "label": true,
             "color": "#ffffff",
@@ -1227,9 +1227,9 @@
             "1872fb3e9892e498",
             "d24091429b7ee2fe"
         ],
-        "x": 119,
+        "x": 94,
         "y": 669,
-        "w": 722,
+        "w": 767,
         "h": 152
     },
     {
@@ -3078,7 +3078,7 @@
         "g": "9b88d3454bec6454",
         "url": "svr",
         "uibId": "c2642e3fa442ca65",
-        "name": "",
+        "name": "Inquiry",
         "topic": "server.request",
         "passthrough": false,
         "return": true,
@@ -3839,7 +3839,7 @@
         "type": "switch",
         "z": "fb90098a1998250c",
         "g": "530c27cac770eeb4",
-        "name": "Login docs \\n & Register request \\n & Login request \\n & Logout",
+        "name": "Login docs \\n Register request \\n Login \\n Logout",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -3867,7 +3867,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 4,
-        "x": 230,
+        "x": 220,
         "y": 544,
         "wires": [
             [
@@ -3937,7 +3937,7 @@
         "type": "function",
         "z": "fb90098a1998250c",
         "g": "581538b733302aa5",
-        "name": "Authentication",
+        "name": "New User Authentication",
         "func": "const $tw = global.get('$tw');\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'register request';\nmsg.payload = userdata;\n\n// Required fields - send error node's first output\nif (!(userdata.userid && userdata.username && userdata.password)) {\n  msg.error = `All fields with '*' are required.`;\n  node.send(msg); node.done();\n  return;\n}\n\n// See if userid already exists - send error node's first output\nconst userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\nif (userDbTiddler.length) {\n  msg.error = `'${userdata.userid}' already registered`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Generate the encrypted hash of the password\nconst pwHash = await bcrypt.hash(userdata.password, 8);\n\n// Reply with information about the successful account registration\nmsg.typedpassword = userdata.password + ''\ndelete userdata.password;\ndelete userdata.mustache;\n\nuserdata.title = userdata.userid;\nuserdata.pwHash = pwHash;\n\n// payload will be stored on the Users twiki\nmsg.payload = userdata;\n// data to be displayed in the reply\nmsg.network.user = userdata;\n\n// Success comes out the node's second output \nreturn [null, msg];\n",
         "outputs": 2,
         "timeout": 0,
@@ -3945,7 +3945,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 255,
+        "x": 260,
         "y": 760,
         "wires": [
             [
@@ -3969,7 +3969,7 @@
         "links": [
             "bd6c95b1f4f345ec"
         ],
-        "x": 225,
+        "x": 200,
         "y": 710,
         "wires": [
             [
@@ -4006,7 +4006,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 455,
+        "x": 475,
         "y": 780,
         "wires": [
             [
@@ -4024,7 +4024,7 @@
         "links": [
             "96d69fda963f66a2"
         ],
-        "x": 465,
+        "x": 485,
         "y": 740,
         "wires": [],
         "l": true
@@ -4053,7 +4053,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 655,
+        "x": 675,
         "y": 780,
         "wires": [
             [
@@ -4071,7 +4071,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 800,
+        "x": 820,
         "y": 780,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -5425,15 +5425,15 @@
                 "t": "set",
                 "p": "filter",
                 "pt": "msg",
-                "to": "[[GettingStarted]] [[node-red]]",
+                "to": "[[GettingStarted]] [[New Tiddler]]",
                 "tot": "str"
             },
             {
                 "t": "set",
-                "p": "network.client.tiddlers",
+                "p": "network.client.tiddlersOriginal",
                 "pt": "msg",
-                "to": "[]",
-                "tot": "json"
+                "to": "network.client.tiddlers",
+                "tot": "msg"
             }
         ],
         "action": "",

@@ -1,6 +1,6 @@
 created: 20231230190759433
 list: Network
-modified: 20240310025058336
+modified: 20240310200953379
 tags: [[Node-Red tabs]]
 title: Topics tab
 type: text/vnd.tiddlywiki
@@ -11,31 +11,52 @@ This tab has flows that are used while describing [[how the system works|How it 
 
 !!! 'hello' flow
 <$button actions="<<node-red 'hello'>>"> Hello World </$button>
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'hello'>>" > Hello World </$button>
+"""/>
 
 !!! 'better hello' flow
 <$button actions="<<node-red 'better hello'>>"> Better Hello World </$button>
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""<$button actions="<<node-red 'better hello'>>"> Better Hello World </$button>
+"""/>
 
 !!! 'get subtitle' flow
 <$button actions="<<node-red 'get subtitle'>>"> Status to subtitle </$button>
+<$macrocall $name=".codesample" n="2" lng="cmd" eg="""<$button actions="<<node-red 'get subtitle'>>"> Status to subtitle </$button>
+"""/>
 
 !!! 'select palette' flow
 <$button actions="<<node-red 'light'>>"> Light </$button>
 <$button actions="<<node-red 'dark'>>"> Dark </$button>
 <$button actions="<<node-red 'fire'>>"> Fire </$button>
+<$macrocall $name=".codesample" n="3" lng="cmd" eg="""<$button actions="<<node-red 'light'>>"> Light </$button>
+<$button actions="<<node-red 'dark'>>"> Dark </$button>
+<$button actions="<<node-red 'fire'>>"> Fire </$button>
+"""/>
 
 !!! 'sample' flow
 Tiddler with hello button <$button actions="<<node-red 'Generate sample hello'>>"> Sample </$button>
+<$macrocall $name=".codesample" n="4" lng="cmd" eg="""<$button actions="<<node-red 'Generate sample hello'>>"> Sample </$button>
+"""/>
 
 !!! 'some pics & same pics' flows
 <$button actions="<<node-red 'some pics'>>"> Some picks </$button>
 <$button actions="<<node-red 'same pics'>>"> Same pics </$button>
+<$macrocall $name=".codesample" n="5" lng="cmd" eg="""<$button actions="<<node-red 'some pics'>>"> Some picks </$button>
+<$button actions="<<node-red 'same pics'>>"> Same pics </$button>
+"""/>
 
 !!! 'TiddlyWiki Book - Chapter 1' flows
 <$button actions="<<node-red 'book'>>"> Chapter 1 </$button>
+<$macrocall $name=".codesample" n="6" lng="cmd" eg="""<$button actions="<<node-red 'book'>>"> Chapter 1 </$button>
+"""/>
 
 !!! 'test network nodes' flow
 <$button actions="<<node-red 'test network nodes'>>"> test network nodes </$button>
+<$macrocall $name=".codesample" n="7" lng="cmd" eg="""<$button actions="<<node-red 'test network nodes'>>"> test network nodes </$button>
+"""/>
 
 !!! 'test to-twiki' flow
 <$button actions="<<node-red 'test to-twiki'>>"> test to-twiki </$button>
+<$macrocall $name=".codesample" n="8" lng="cmd" eg="""<$button actions="<<node-red 'test to-twiki'>>"> test to-twiki </$button>
+"""/>
 

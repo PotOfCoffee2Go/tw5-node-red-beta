@@ -1,6 +1,6 @@
 caption: Client data
 created: 20240223102753348
-modified: 20240224154043608
+modified: 20240311152532784
 tags: $:/poc2go/docs/msg
 title: $:/poc2go/docs/msg/client
 type: text/vnd.tiddlywiki
@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
 This field contains the original topic requested by the client TiddlyWiki. The main 'msg.topic' can change as a msg is routed through the flows. 'msg.network.client.topic' can be used to determine the original topic requested.
 
 !!! sender
-The sender field is an array of tiddlers. The first element in the array 'msg.network.client.sender[0]' is always present and is the 'currentTiddler' of the original request (Note that it is a //skinny// tiddler which excludes the 'text' field). When a request initiates a flow where the server requests additional tiddlers from the client, an entry is added to the sender array of the server's request for additional data from the client.
+The sender field is an array of tiddlers. The first element in the array 'msg.network.client.sender[0]' is always present and is the 'currentTiddler' of the original request (Note that it is a //skinny// tiddler which excludes the 'text' field). When a request initiates a flow where the server requests additional tiddlers from the client( [[Server Inquiry|Network tab inquiry]] ), an entry is added to the sender array of the server's request for additional data from the client.
 
 !!! tiddlers
 'msg.network.client.tiddlers' are tiddlers that are sent with the request. It is the tiddlers from the result of the `[[filter]]` query in the `<<node-red 'topic' '[[filter]]'>>` macro call.
