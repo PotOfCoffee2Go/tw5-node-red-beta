@@ -42,15 +42,15 @@
     {
         "id": "127607a6bb274a18",
         "type": "tab",
-        "label": "Tools",
+        "label": "Utilities",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "e659339e762fe7e5",
+        "id": "48bfd625e1f82a45",
         "type": "tab",
-        "label": "Chat",
+        "label": "Tools",
         "disabled": false,
         "info": "",
         "env": []
@@ -59,6 +59,14 @@
         "id": "2e264bd071bbb666",
         "type": "tab",
         "label": "Webpages",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e659339e762fe7e5",
+        "type": "tab",
+        "label": "Chat",
         "disabled": false,
         "info": "",
         "env": []
@@ -229,7 +237,7 @@
             "49e8ade023549ff5"
         ],
         "x": 44,
-        "y": 339,
+        "y": 449,
         "w": 662,
         "h": 82
     },
@@ -323,7 +331,7 @@
             "e5c2695061c28c3d"
         ],
         "x": 44,
-        "y": 459,
+        "y": 569,
         "w": 532,
         "h": 82
     },
@@ -365,7 +373,7 @@
             "3891c3049d5ff01d"
         ],
         "x": 44,
-        "y": 219,
+        "y": 329,
         "w": 442,
         "h": 82
     },
@@ -525,7 +533,7 @@
             "844b316ad04edad7"
         ],
         "x": 44,
-        "y": 39,
+        "y": 149,
         "w": 552,
         "h": 142
     },
@@ -672,48 +680,10 @@
             "a07af28ade3a49a2",
             "c1e23170a15882f7"
         ],
-        "x": 54,
-        "y": 579,
+        "x": 44,
+        "y": 39,
         "w": 392,
         "h": 82
-    },
-    {
-        "id": "06a7cfc21197c2d2",
-        "type": "group",
-        "z": "127607a6bb274a18",
-        "name": "Misc dev utilities",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "7e1d28042993ee2d",
-            "53cfba302a93975f",
-            "b1d22b6ea5af6c8c",
-            "8e0b5380e71a239e",
-            "dad041e7b0ba1a66",
-            "05f53b0ba8804b02",
-            "123b82e57831527e",
-            "db3503f6c6d0f5ea",
-            "d6becbc1eb1981a5",
-            "8b2f8fcaf3696a2b",
-            "e4bc7258380d7124",
-            "5bde851593e32438",
-            "7a077d0de73446be",
-            "dc7833dc679fadd0",
-            "dcd45e6966cda24d",
-            "52ac23d6fd69ca75",
-            "de29b90b6878e330",
-            "605736a10c443a62",
-            "0f24b35ddd5713d5",
-            "384b3178b58d75a3",
-            "53fb3fedf84a21e5",
-            "0a43a979cb79ba2e",
-            "42a9532b8df72e2c"
-        ],
-        "x": 14,
-        "y": 699,
-        "w": 872,
-        "h": 322
     },
     {
         "id": "f89444a08d4ee71f",
@@ -857,6 +827,44 @@
         "y": 419,
         "w": 832,
         "h": 82
+    },
+    {
+        "id": "06a7cfc21197c2d2",
+        "type": "group",
+        "z": "48bfd625e1f82a45",
+        "name": "Misc dev utilities",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7e1d28042993ee2d",
+            "53cfba302a93975f",
+            "b1d22b6ea5af6c8c",
+            "8e0b5380e71a239e",
+            "dad041e7b0ba1a66",
+            "05f53b0ba8804b02",
+            "123b82e57831527e",
+            "db3503f6c6d0f5ea",
+            "d6becbc1eb1981a5",
+            "8b2f8fcaf3696a2b",
+            "e4bc7258380d7124",
+            "5bde851593e32438",
+            "7a077d0de73446be",
+            "dc7833dc679fadd0",
+            "dcd45e6966cda24d",
+            "52ac23d6fd69ca75",
+            "de29b90b6878e330",
+            "605736a10c443a62",
+            "0f24b35ddd5713d5",
+            "384b3178b58d75a3",
+            "53fb3fedf84a21e5",
+            "0a43a979cb79ba2e",
+            "42a9532b8df72e2c"
+        ],
+        "x": 14,
+        "y": 59,
+        "w": 872,
+        "h": 322
     },
     {
         "id": "78ab404cb9f85fe4",
@@ -5049,584 +5057,6 @@
         ]
     },
     {
-        "id": "7e1d28042993ee2d",
-        "type": "get-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.client.tiddlers",
-        "filter": "[all[]]",
-        "twikiName": "$tw.wiki",
-        "field": "payload",
-        "file": "",
-        "settingsIsOpen": false,
-        "toIsOpen": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 275,
-        "y": 780,
-        "wires": [
-            [
-                "b1d22b6ea5af6c8c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "53cfba302a93975f",
-        "type": "switch",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "to json",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "to json",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 180,
-        "y": 780,
-        "wires": [
-            [
-                "7e1d28042993ee2d"
-            ]
-        ]
-    },
-    {
-        "id": "b1d22b6ea5af6c8c",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "to JSON",
-        "func": "\nmsg.payload.forEach(tiddler => {\n    delete tiddler.fetched;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: JSON.stringify(msg.payload, null, 2),\n    type: 'application/json'\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 780,
-        "wires": [
-            [
-                "8e0b5380e71a239e"
-            ]
-        ]
-    },
-    {
-        "id": "8e0b5380e71a239e",
-        "type": "set-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "converttext",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "",
-        "clear": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 485,
-        "y": 800,
-        "wires": [
-            [
-                "dad041e7b0ba1a66"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "dad041e7b0ba1a66",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "Convert Tiddlers",
-        "func": "msg.payload = `title: Convert Tiddlers\nfilter: ${msg.network.client.sender[0].filter ? msg.network.client.sender[0].filter : '[[]]'}\n\n<$set name=filter value={{!!filter}}>\n<$button actions=\"<<node-red 'to json' '$(filter)$'>>\"> JSON </$button>\n<$button actions=\"<<node-red 'to tid' '$(filter)$'>>\"> .tid </$button>\n</$set>\nFilter: <$edit-text field=filter class=poc2go-edit-text />\n\n<$macrocall $name=\"copy-to-clipboard\" src={{$:/temp/poc2go/converttext}}/>\n\n{{$:/temp/poc2go/converttext}}\n`;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 800,
-        "wires": [
-            [
-                "05f53b0ba8804b02"
-            ]
-        ]
-    },
-    {
-        "id": "05f53b0ba8804b02",
-        "type": "set-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 755,
-        "y": 800,
-        "wires": [
-            [
-                "123b82e57831527e"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "123b82e57831527e",
-        "type": "link out",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 845,
-        "y": 800,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "db3503f6c6d0f5ea",
-        "type": "debug",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "Client Debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "d6becbc1eb1981a5",
-        "type": "switch",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "to debug",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "to debug",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 190,
-        "y": 860,
-        "wires": [
-            [
-                "52ac23d6fd69ca75"
-            ]
-        ]
-    },
-    {
-        "id": "8b2f8fcaf3696a2b",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "Node-Red debug",
-        "func": "msg.payload = `title: Node-Red debug\n\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\n\\`\\`\\`html\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\\`\\`\\`\n\n<$macrocall $name=\\\"copy-to-clipboard\\\" src={{$:/temp/poc2go/debugtext}}/>\n\n\\`\\`\\`json\n${JSON.stringify(msg, null, 2)}\n\\`\\`\\`\n`;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 640,
-        "y": 920,
-        "wires": [
-            [
-                "e4bc7258380d7124"
-            ]
-        ]
-    },
-    {
-        "id": "e4bc7258380d7124",
-        "type": "set-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "server.tiddlers",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 755,
-        "y": 920,
-        "wires": [
-            [
-                "db3503f6c6d0f5ea",
-                "123b82e57831527e"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5bde851593e32438",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "DebugText tiddler",
-        "func": "msg.debugtext = `title: $:/temp/poc2go/debugtext\n\n${ JSON.stringify(msg, null, 2) }\n`\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 920,
-        "wires": [
-            [
-                "7a077d0de73446be"
-            ]
-        ]
-    },
-    {
-        "id": "7a077d0de73446be",
-        "type": "set-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "debugtext",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "",
-        "clear": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 285,
-        "y": 920,
-        "wires": [
-            [
-                "dc7833dc679fadd0"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "dc7833dc679fadd0",
-        "type": "change",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "debugtext",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 920,
-        "wires": [
-            [
-                "8b2f8fcaf3696a2b"
-            ]
-        ]
-    },
-    {
-        "id": "dcd45e6966cda24d",
-        "type": "link call",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "links": [
-            "2d16349559e708d1"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 570,
-        "y": 860,
-        "wires": [
-            [
-                "5bde851593e32438"
-            ]
-        ]
-    },
-    {
-        "id": "52ac23d6fd69ca75",
-        "type": "change",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filter",
-                "pt": "msg",
-                "to": "[[GettingStarted]] [[New Tiddler]]",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "network.client.tiddlersOriginal",
-                "pt": "msg",
-                "to": "network.client.tiddlers",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 370,
-        "y": 860,
-        "wires": [
-            [
-                "dcd45e6966cda24d"
-            ]
-        ]
-    },
-    {
-        "id": "de29b90b6878e330",
-        "type": "link in",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 55,
-        "y": 800,
-        "wires": [
-            [
-                "53cfba302a93975f",
-                "d6becbc1eb1981a5",
-                "0f24b35ddd5713d5",
-                "0a43a979cb79ba2e"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "605736a10c443a62",
-        "type": "get-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.client.tiddlers",
-        "filter": "[all[]]",
-        "twikiName": "$tw.wiki",
-        "field": "tiddlers",
-        "file": "",
-        "settingsIsOpen": false,
-        "toIsOpen": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 275,
-        "y": 820,
-        "wires": [
-            [
-                "384b3178b58d75a3"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "0f24b35ddd5713d5",
-        "type": "switch",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "to tid",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "to tid",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 180,
-        "y": 820,
-        "wires": [
-            [
-                "605736a10c443a62"
-            ]
-        ]
-    },
-    {
-        "id": "384b3178b58d75a3",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "to .tid",
-        "func": "const $tw = global.get('$tw');\n\n// Convert tiddler to .tid format\nfunction tiddlerToTid(inTiddler) {\n    let tiddler = inTiddler.fields ? inTiddler.fields : { fields: inTiddler };\n    let tid = '';\n    Object.keys(tiddler.fields).forEach((fld) => {\n        if (fld !== 'text' && fld !== 'fetched') {\n            if (['created', 'modified'].indexOf(fld) !== -1) {\n                // If date is TW format leave as is\n                if (/^\\d/.test(tiddler.fields[fld])) {\n                    tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n                } else { // need to convert date to TW format\n                    tid += (fld + ': ' + $tw.utils.stringifyDate(tiddler.fields[fld]) + '\\n');\n                }\n            } else { // not a date field\n                tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n            }\n        }\n    })\n    // All fields done - now for the text\n    tid += '\\n';\n    tid += (tiddler.fields['text'] ? tiddler.fields['text'] : '');\n\n    return tid;\n}\n\nvar tids = '';\nvar first = true;\nmsg.tiddlers.forEach(tidd => {\n    if (!first) { tids += '\\n+======+\\n'; }\n    tids += tiddlerToTid(tidd);\n    first = false;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: tids,\n    type: 'text/plain'\n};\n\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 820,
-        "wires": [
-            [
-                "8e0b5380e71a239e"
-            ]
-        ]
-    },
-    {
-        "id": "53fb3fedf84a21e5",
-        "type": "http request",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "https://gist.githubusercontent.com/PotOfCoffee2Go/160f247423751b317b704a1063d8aed6/raw/Hello%2520World.tid",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 380,
-        "y": 740,
-        "wires": [
-            [
-                "42a9532b8df72e2c"
-            ]
-        ]
-    },
-    {
-        "id": "0a43a979cb79ba2e",
-        "type": "switch",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "get gist",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "get gist",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 190,
-        "y": 740,
-        "wires": [
-            [
-                "53fb3fedf84a21e5"
-            ]
-        ]
-    },
-    {
-        "id": "42a9532b8df72e2c",
-        "type": "set-network",
-        "z": "127607a6bb274a18",
-        "g": "06a7cfc21197c2d2",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 755,
-        "y": 740,
-        "wires": [
-            [
-                "123b82e57831527e"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "dee53a18f9af7b3c",
         "type": "set-network",
         "z": "127607a6bb274a18",
@@ -5650,7 +5080,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 560,
-        "y": 380,
+        "y": 490,
         "wires": [
             [
                 "49e8ade023549ff5"
@@ -5670,7 +5100,7 @@
         "return": false,
         "outputs": 1,
         "x": 280,
-        "y": 380,
+        "y": 490,
         "wires": [
             [
                 "5cb34faaf5e14207"
@@ -5696,7 +5126,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 410,
-        "y": 380,
+        "y": 490,
         "wires": [
             [
                 "dee53a18f9af7b3c"
@@ -5711,7 +5141,7 @@
         "name": "Hide Sidebar",
         "links": [],
         "x": 140,
-        "y": 380,
+        "y": 490,
         "wires": [
             [
                 "1d23e008fde4d932"
@@ -5728,7 +5158,7 @@
         "mode": "return",
         "links": [],
         "x": 665,
-        "y": 380,
+        "y": 490,
         "wires": []
     },
     {
@@ -5745,7 +5175,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 500,
+        "y": 610,
         "wires": [
             [
                 "e5c2695061c28c3d"
@@ -5760,7 +5190,7 @@
         "name": "set msg.twikis",
         "links": [],
         "x": 140,
-        "y": 500,
+        "y": 610,
         "wires": [
             [
                 "1c83c2ba47bdb96a"
@@ -5777,7 +5207,7 @@
         "mode": "return",
         "links": [],
         "x": 535,
-        "y": 500,
+        "y": 610,
         "wires": []
     },
     {
@@ -5794,7 +5224,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 260,
+        "y": 370,
         "wires": [
             [
                 "3891c3049d5ff01d"
@@ -5809,7 +5239,7 @@
         "name": "TW Commander",
         "links": [],
         "x": 150,
-        "y": 260,
+        "y": 370,
         "wires": [
             [
                 "d679dc2c7fb5ad4c"
@@ -5826,7 +5256,7 @@
         "mode": "return",
         "links": [],
         "x": 445,
-        "y": 260,
+        "y": 370,
         "wires": []
     },
     {
@@ -5843,8 +5273,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 330,
-        "y": 620,
+        "x": 320,
+        "y": 80,
         "wires": []
     },
     {
@@ -5865,8 +5295,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 620,
+        "x": 160,
+        "y": 80,
         "wires": [
             [
                 "a07af28ade3a49a2"
@@ -5881,7 +5311,7 @@
         "name": "TW5-Node-RED Core",
         "links": [],
         "x": 170,
-        "y": 80,
+        "y": 190,
         "wires": [
             [
                 "8a6999c14f732048"
@@ -5913,7 +5343,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 360,
-        "y": 80,
+        "y": 190,
         "wires": [
             [
                 "c9bbe0f3f12e859e"
@@ -5944,7 +5374,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 500,
-        "y": 80,
+        "y": 190,
         "wires": [
             [
                 "47d0e6a8f8415aa2"
@@ -5975,7 +5405,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 410,
-        "y": 140,
+        "y": 250,
         "wires": [
             [
                 "99b7abd4d3bc5b40"
@@ -5991,7 +5421,7 @@
         "mode": "return",
         "links": [],
         "x": 555,
-        "y": 140,
+        "y": 250,
         "wires": []
     },
     {
@@ -6019,9 +5449,1104 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 220,
-        "y": 140,
+        "y": 250,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "7e1d28042993ee2d",
+        "type": "get-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "payload",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 275,
+        "y": 140,
+        "wires": [
+            [
+                "b1d22b6ea5af6c8c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "53cfba302a93975f",
+        "type": "switch",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "to json",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to json",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "7e1d28042993ee2d"
+            ]
+        ]
+    },
+    {
+        "id": "b1d22b6ea5af6c8c",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "to JSON",
+        "func": "\nmsg.payload.forEach(tiddler => {\n    delete tiddler.fetched;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: JSON.stringify(msg.payload, null, 2),\n    type: 'application/json'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "8e0b5380e71a239e"
+            ]
+        ]
+    },
+    {
+        "id": "8e0b5380e71a239e",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "converttext",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 485,
+        "y": 160,
+        "wires": [
+            [
+                "dad041e7b0ba1a66"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dad041e7b0ba1a66",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "Convert Tiddlers",
+        "func": "msg.payload = `title: Convert Tiddlers\nfilter: ${msg.network.client.sender[0].filter ? msg.network.client.sender[0].filter : '[[]]'}\n\n<$set name=filter value={{!!filter}}>\n<$button actions=\"<<node-red 'to json' '$(filter)$'>>\"> JSON </$button>\n<$button actions=\"<<node-red 'to tid' '$(filter)$'>>\"> .tid </$button>\n</$set>\nFilter: <$edit-text field=filter class=poc2go-edit-text />\n\n<$macrocall $name=\"copy-to-clipboard\" src={{$:/temp/poc2go/converttext}}/>\n\n{{$:/temp/poc2go/converttext}}\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "05f53b0ba8804b02"
+            ]
+        ]
+    },
+    {
+        "id": "05f53b0ba8804b02",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 755,
+        "y": 160,
+        "wires": [
+            [
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "123b82e57831527e",
+        "type": "link out",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 845,
+        "y": 160,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "db3503f6c6d0f5ea",
+        "type": "debug",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "Client Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d6becbc1eb1981a5",
+        "type": "switch",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "to debug",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to debug",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "52ac23d6fd69ca75"
+            ]
+        ]
+    },
+    {
+        "id": "8b2f8fcaf3696a2b",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "Node-Red debug",
+        "func": "msg.payload = `title: Node-Red debug\n\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\n\\`\\`\\`html\n<$button actions=\"<<node-red 'to debug' '[[$:/tw5-node-red/settings]]'>>\"> to debug </$button>\n\\`\\`\\`\n\n<$macrocall $name=\\\"copy-to-clipboard\\\" src={{$:/temp/poc2go/debugtext}}/>\n\n\\`\\`\\`json\n${JSON.stringify(msg, null, 2)}\n\\`\\`\\`\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "e4bc7258380d7124"
+            ]
+        ]
+    },
+    {
+        "id": "e4bc7258380d7124",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "server.tiddlers",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 755,
+        "y": 280,
+        "wires": [
+            [
+                "db3503f6c6d0f5ea",
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5bde851593e32438",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "DebugText tiddler",
+        "func": "msg.debugtext = `title: $:/temp/poc2go/debugtext\n\n${ JSON.stringify(msg, null, 2) }\n`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "7a077d0de73446be"
+            ]
+        ]
+    },
+    {
+        "id": "7a077d0de73446be",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "debugtext",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 285,
+        "y": 280,
+        "wires": [
+            [
+                "dc7833dc679fadd0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dc7833dc679fadd0",
+        "type": "change",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "debugtext",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "8b2f8fcaf3696a2b"
+            ]
+        ]
+    },
+    {
+        "id": "dcd45e6966cda24d",
+        "type": "link call",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "links": [
+            "2d16349559e708d1"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "5bde851593e32438"
+            ]
+        ]
+    },
+    {
+        "id": "52ac23d6fd69ca75",
+        "type": "change",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filter",
+                "pt": "msg",
+                "to": "[[GettingStarted]] [[New Tiddler]]",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "network.client.tiddlersOriginal",
+                "pt": "msg",
+                "to": "network.client.tiddlers",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "dcd45e6966cda24d"
+            ]
+        ]
+    },
+    {
+        "id": "de29b90b6878e330",
+        "type": "link in",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 55,
+        "y": 160,
+        "wires": [
+            [
+                "53cfba302a93975f",
+                "d6becbc1eb1981a5",
+                "0f24b35ddd5713d5",
+                "0a43a979cb79ba2e"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "605736a10c443a62",
+        "type": "get-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "tiddlers",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 275,
+        "y": 180,
+        "wires": [
+            [
+                "384b3178b58d75a3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0f24b35ddd5713d5",
+        "type": "switch",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "to tid",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "to tid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "605736a10c443a62"
+            ]
+        ]
+    },
+    {
+        "id": "384b3178b58d75a3",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "to .tid",
+        "func": "const $tw = global.get('$tw');\n\n// Convert tiddler to .tid format\nfunction tiddlerToTid(inTiddler) {\n    let tiddler = inTiddler.fields ? inTiddler.fields : { fields: inTiddler };\n    let tid = '';\n    Object.keys(tiddler.fields).forEach((fld) => {\n        if (fld !== 'text' && fld !== 'fetched') {\n            if (['created', 'modified'].indexOf(fld) !== -1) {\n                // If date is TW format leave as is\n                if (/^\\d/.test(tiddler.fields[fld])) {\n                    tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n                } else { // need to convert date to TW format\n                    tid += (fld + ': ' + $tw.utils.stringifyDate(tiddler.fields[fld]) + '\\n');\n                }\n            } else { // not a date field\n                tid += (fld + ': ' + tiddler.fields[fld] + '\\n');\n            }\n        }\n    })\n    // All fields done - now for the text\n    tid += '\\n';\n    tid += (tiddler.fields['text'] ? tiddler.fields['text'] : '');\n\n    return tid;\n}\n\nvar tids = '';\nvar first = true;\nmsg.tiddlers.forEach(tidd => {\n    if (!first) { tids += '\\n+======+\\n'; }\n    tids += tiddlerToTid(tidd);\n    first = false;\n})\n\nmsg.converttext = {\n    title: '$:/temp/poc2go/converttext',\n    text: tids,\n    type: 'text/plain'\n};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "8e0b5380e71a239e"
+            ]
+        ]
+    },
+    {
+        "id": "53fb3fedf84a21e5",
+        "type": "http request",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gist.githubusercontent.com/PotOfCoffee2Go/160f247423751b317b704a1063d8aed6/raw/Hello%2520World.tid",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "42a9532b8df72e2c"
+            ]
+        ]
+    },
+    {
+        "id": "0a43a979cb79ba2e",
+        "type": "switch",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "get gist",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "get gist",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "53fb3fedf84a21e5"
+            ]
+        ]
+    },
+    {
+        "id": "42a9532b8df72e2c",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "g": "06a7cfc21197c2d2",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 755,
+        "y": 100,
+        "wires": [
+            [
+                "123b82e57831527e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "cb07b3e5b5c4cdc9",
+        "type": "link in",
+        "z": "2e264bd071bbb666",
+        "g": "7d0cda13723c5e21",
+        "name": "Webpages",
+        "links": [],
+        "x": 185,
+        "y": 120,
+        "wires": [
+            [
+                "3641f98bb5b86807"
+            ]
+        ]
+    },
+    {
+        "id": "9633e22af88fd74a",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "g": "7d0cda13723c5e21",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 655,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ed5874185a4d04b9",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "7d0cda13723c5e21",
+        "name": "sample",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Test css\nselector: head\ninsertHTML: beforeend\n\n\t\t<style>\n\t\t\t.html-display svg {\n\t\t\t\tmargin: .6em 1em .6em 1em;\n\t\t\t}\n\n\t\t\t/* The navigation bar */\n\t\t\t.navbar {\n\t\t\t  overflow: hidden;\n\t\t\t  background-color: #4747ff;\n\t\t\t  position: fixed; /* Set the navbar to fixed position */\n\t\t\t  top: 0; left: 0; /* Position the navbar at the top of the page */\n\t\t\t  width: 100%; /* Full width */\n\t\t\t}\n\n\t\t\t.navbar img {\n\t\t\t\tfloat: left;\n\t\t\t\twidth: 28px;\n\t\t\t\tmargin: 6px 1em 0 10px;\n\t\t\t}\n\n\t\t\t/* Links inside the navbar */\n\t\t\t.navbar a {\n\t\t\t  float: left;\n\t\t\t  display: block;\n\t\t\t  color: #f2f2f2;\n\t\t\t  text-align: center;\n\t\t\t  padding: 14px 16px;\n\t\t\t  text-decoration: none;\n\t\t\t  cursor: pointer;\n\t\t\t}\n\n\t\t\t/* Change background on mouse-over */\n\t\t\t.navbar a:hover {\n\t\t\t  background: #d6d6ff;\n\t\t\t  color: black;\n\t\t\t}\n\n\t\t\t/* Avoid content overlay */\n\t\t\t.spacer {\n\t\t\t  margin-top: 60px;\n\t\t\t}\n\n\t\t\t.topic-form {\n\t\t\t\tmargin: 0 0 1em 0;\n\t\t\t}\n\n\t\t\ttextarea {\n\t\t\t\twidth: 99%;\n\t\t\t\tmin-width: 45%;\n\t\t\t\tmax-width: 99%;\n\t\t\t\tmin-height: 3em;\n\t\t\t\tz-index: 100;\n\t\t\t}\n\n\t\t\t.tidText {\n\t\t\t\tmin-height: 3em;\n\t\t\t\tpadding-left: .5em;\n\t\t\t}\n\n\t\t\t#about {\n\t\t\t\tbackground: #3b3b92;\n\t\t\t\tcolor: aliceblue;\n\t\t\t\tfont-size: 1.1rem;\n\t\t\t\toverflow-y:auto;\n\t\t\t\tmin-height: 190px;\n\t\t\t\tmax-height: 190px;\n\t\t\t\tpadding-left: 1em;\n\t\t\t\tborder-radius: 10px;\n\t\t\t}\n\n\t\t\t.bdr {\n\t\t\t\tbackground: #c7c7ff;\n\t\t\t\tborder: 1px solid black;\n\t\t\t\tborder-radius: 6px;\n\t\t\t\tmargin-bottom: .5em;\n\t\t\t\tborder-radius: 15px;\n\t\t\t}\n\n\t\t\t.half-block {\n\t\t\t\twidth: 48%;\n\t\t\t}\n\n\t\t\t#red-req-msg, #red-res-msg {\n\t\t\t\tfont-family: monospace;\n\t\t\t\tfont-size: .8em;\n\t\t\t}\n\n\t\t\t.hr-red {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #ff0000;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 3em 1em 3em;\n\t\t\t}\n\t\t\t.hr-blue {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #0000ff;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 5em 1em 5em;\n\t\t\t}\n\t\t</style>\n+======+\ntitle: Heading Section\nselector: .heading\n\n\t\t<div class=\"navbar\">\n\t\t\t<img src=\"/tw5-node-red-logo.png\">\n\t\t\t<a onclick=\"nodered.topic('hello', '.html-display');\">Hello</a>\n\t\t\t<a onclick=\"nodered.topic('book', '.html-display');\">Book</a>\n\t\t\t<a onclick=\"nodered.topic('icons', '.html-display');\">Icons</a>\n\t\t\t<a onclick=\"resetPage();\">Clear</a>\n\t\t</div>\n+======+\ntitle: Standard Replies\nselector: .std-reply\n\n\t\t<div class=\"html-display bdr tidText\"><p>Click Hello.</p></div>\n\n+======+\ntitle: Topic Form\nselector: .topic-form\n\n\t\t<div id=\"topic-text\" class=\"half-block\" style=\"float: left;\">\n\t\t\t<input type=\"text\" id=\"entered-topic\" name=\"entered-topic\" placeholder=\"Enter topic\"/>\n\t\t\t<button id=\"topic-bttn\" onclick=\"sendTopic();\" >Send</button>\n\t\t\t<br>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"entered-tid\" name=\"entered-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Enter tiddler(s) - .tid format\"></textarea>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"received-tid\" name=\"received-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Received tiddlers\"></textarea>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<span id=\"about-move-btn\" onclick=\"expandAbout();\" style=\"margin-left: 5%;\"></span>\n\t\t<div id=\"about\" class=\"half-block\" style=\"float: right;\"></div>\n\t\t<div style=\"clear: both;\"></div>\n+======+\ntitle: Message Display\nselector: .msg-display\n\n\t\t<div id=\"hb-check\" class=\"half-block bdr\" style=\"float: left;\">\n\t\t\t<input type=\"checkbox\" id=\"display-hb\" name=\"display-hb\" />\n\t\t\t<label for=\"display-hb\">Heartbeats</label>\n\t\t</div>\n\n\t\t<div class=\"half-block bdr\" style=\"float: right;\">\n\t\t\t<span style=\"padding-left: 1em;\" > to story: </span><span id=\"to-story\"></span>\n\t\t</div>\n\t\t<div style=\"clear:both;\"></div>\n\t\t<div id=\"send-count\" style=\"float:left;\" class=\"half-block\">Messages sent: 0 - client.tiddlers: 0</div>\n\t\t<div id=\"receive-count\" style=\"float:right;\" class=\"half-block\">Messages received: 0 - server.tiddlers: 0</div>\n\t\t<div id=\"red-req-msg\" class=\"bdr half-block\" style=\"float:left;  height: 500px; overflow: auto; width: 48%;\"></div>\n\t\t<div id=\"red-res-msg\" class=\"bdr half-block\" style=\"float:right; height: 500px; overflow: auto; width: 48%;\"></div>\n+======+\ntitle: About\nselector: #about\n\n<p>This page is a regular web page that does not use TiddlyWiki client-side. The '/svr/page/js/network.js' script interfaces to TW5-Node-RED using tiddlers. The page can be used to see the tiddlers that are being exchanged between client and server - which can be helpful in debugging messages.</p>\n\n<p>Let's look at the simplest message exchange - press <button onclick=\"resetPage();nodered.topic('hello', '.html-display');\">Hello</button> to see a basic message layout. The box <button onclick=\"flashClass('.html-display');\">above</button> displays the text of the tiddler(s). The lower <button onclick=\"flashTextArea();flashClass('#received-tid');\">edit box</button> on the left displays the tiddlers received in .tid format.</p>\n\n<p>Look at the <button onclick=\"flashClass('#red-req-msg');\">Sent</button> message. All fields except 'selector' are required. 'selector' is only used for web page clients (not TiddlyWiki clients). Is the CSS Selector of the element(s) to insert the text of the returned tiddlers.</p>\n\n<p>The other required field is 'network' which contains three sub-fields; meta, client, and server.\nEach sub-field has a 'tiddlers' array which is populated by the 'client' (this web page), the 'server', while 'meta' can updated by both client and/or server.</p>\n\n<p>The <b>topic</b> sent is \"hello\" which the server uses to route the request. The <button onclick=\"flashClass('#red-res-msg');\">returned</button> <b>topic</b> is \"server.tiddlers\" to indicate there are reply tiddlers in <b>network.server.tiddlers</b>. As is  normal - 'network.meta.tiddlers' and 'network.client.tiddlers' are the same as the sent message.</p>\n\n<p><b>network.server.storylist</b> is the list of tiddler titles in <b>network.server.tiddlers</b> that are to be copied into 'selector' element or to the story river of TiddlyWiki clients.</p>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "9633e22af88fd74a"
+            ]
+        ]
+    },
+    {
+        "id": "3641f98bb5b86807",
+        "type": "switch",
+        "z": "2e264bd071bbb666",
+        "g": "7d0cda13723c5e21",
+        "name": "Page router",
+        "property": "network.meta.location.pathname",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "sample.html",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "ed5874185a4d04b9"
+            ],
+            [
+                "ae299d9a01ca8590"
+            ]
+        ]
+    },
+    {
+        "id": "9bc1f269acde9ac9",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "768d32daf0185aaa",
+        "name": "sample iframe",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Sample Web Page\n\n<iframe src=\"/svr/page/sample.html\" style=\"height:800px;width: 100%;\"/>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "7b9e83c8c7bad25c"
+            ]
+        ]
+    },
+    {
+        "id": "30d1b206b8634711",
+        "type": "link in",
+        "z": "2e264bd071bbb666",
+        "g": "768d32daf0185aaa",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "e6a464527b5ef777"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "7b9e83c8c7bad25c",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "g": "768d32daf0185aaa",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 610,
+        "y": 240,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "e6a464527b5ef777",
+        "type": "switch",
+        "z": "2e264bd071bbb666",
+        "g": "768d32daf0185aaa",
+        "name": "web page",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "web page",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 325,
+        "y": 240,
+        "wires": [
+            [
+                "9bc1f269acde9ac9"
+            ]
+        ]
+    },
+    {
+        "id": "ad42a88ed21e5660",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "home",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "Fiona",
+        "filter": "[tag[to-home]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 610,
+        "y": 400,
+        "wires": [
+            [
+                "3439dbc165a1862f"
+            ]
+        ]
+    },
+    {
+        "id": "7df426b3cbeb4f44",
+        "type": "link in",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 155,
+        "y": 480,
+        "wires": [
+            [
+                "3016b1c70c0454f5"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "3439dbc165a1862f",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 815,
+        "y": 480,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "3016b1c70c0454f5",
+        "type": "switch",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "fiona-page",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^fiona-page .*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 270,
+        "y": 480,
+        "wires": [
+            [
+                "2187d045fd511912"
+            ]
+        ]
+    },
+    {
+        "id": "2187d045fd511912",
+        "type": "function",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "Fiona Pages",
+        "func": "// Remove the topic from msg.topic - leaving the page name \nvar page = msg.topic.replace('fiona-page ', '');\n\n// Output msg based on page name\nswitch (page) {\n    case 'home':\n        return [msg, null, null, null, null];\n    case 'experience':\n        return [null, msg, null, null, null];\n    case 'environment':\n        return [null, null, msg, null, null];\n    case 'investigation':\n        return [null, null, null, msg, null];\n    case 'services':\n        return [null, null, null, null, msg];\n    default:\n        node.error(`Unknown fiona page: ${page}`)\n        node.done();\n}\n",
+        "outputs": 5,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "ad42a88ed21e5660"
+            ],
+            [
+                "8fcad8f983b1ff60"
+            ],
+            [
+                "52bd7eda399c5b06"
+            ],
+            [
+                "3a66d6960b195fe4"
+            ],
+            [
+                "d7cea583cbe3fea9"
+            ]
+        ],
+        "outputLabels": [
+            "home page",
+            "experience page",
+            "environment page",
+            "investigation page",
+            "services page"
+        ]
+    },
+    {
+        "id": "8fcad8f983b1ff60",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "experience",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "Fiona",
+        "filter": "[tag[to-experience]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "3439dbc165a1862f"
+            ]
+        ]
+    },
+    {
+        "id": "52bd7eda399c5b06",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "environment",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "Fiona",
+        "filter": "[tag[to-environment]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "3439dbc165a1862f"
+            ]
+        ]
+    },
+    {
+        "id": "3a66d6960b195fe4",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "investigation",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "Fiona",
+        "filter": "[tag[to-investigation]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "3439dbc165a1862f"
+            ]
+        ]
+    },
+    {
+        "id": "d7cea583cbe3fea9",
+        "type": "set-network",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "services",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "Fiona",
+        "filter": "[tag[to-service]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 620,
+        "y": 560,
+        "wires": [
+            [
+                "3439dbc165a1862f"
+            ]
+        ]
+    },
+    {
+        "id": "7add3e3ed518c8bf",
+        "type": "inject",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "0a13840cbd5684fe"
+            ]
+        ]
+    },
+    {
+        "id": "2bc27304b1b0ee44",
+        "type": "to-twiki",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "Fiona tiddler Db",
+        "twikiName": "Fiona",
+        "fromTwikiName": "$tw.wiki",
+        "field": "payload",
+        "file": "public/app/fiona/tiddlers",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "",
+        "clear": true,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 440,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a13840cbd5684fe",
+        "type": "function",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "fiona app",
+        "func": "const $tw = global.get('$tw');\nconst wiki = new $tw.Wiki;\n\nvar tiddlers = $tw.loadTiddlersFromPath('./public/app/fiona/tiddlers');\n\n$tw.utils.each(tiddlers, (tiddlerInfo) => {\n    $tw.utils.each(tiddlerInfo.tiddlers, (tiddler) => {\n        wiki.importTiddler(new $tw.Tiddler(tiddler));\n    });\n});\n\nmsg.payload = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\n\nnode.send(msg);\nnode.done();\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "2bc27304b1b0ee44"
+            ]
         ]
     },
     {
@@ -6692,523 +7217,6 @@
         "y": 260,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "cb07b3e5b5c4cdc9",
-        "type": "link in",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "Webpages",
-        "links": [],
-        "x": 185,
-        "y": 120,
-        "wires": [
-            [
-                "3641f98bb5b86807"
-            ]
-        ]
-    },
-    {
-        "id": "9633e22af88fd74a",
-        "type": "link out",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "Return",
-        "mode": "return",
-        "links": [],
-        "x": 655,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "ed5874185a4d04b9",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "sample",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "title: Test css\nselector: head\ninsertHTML: beforeend\n\n\t\t<style>\n\t\t\t.html-display svg {\n\t\t\t\tmargin: .6em 1em .6em 1em;\n\t\t\t}\n\n\t\t\t/* The navigation bar */\n\t\t\t.navbar {\n\t\t\t  overflow: hidden;\n\t\t\t  background-color: #4747ff;\n\t\t\t  position: fixed; /* Set the navbar to fixed position */\n\t\t\t  top: 0; left: 0; /* Position the navbar at the top of the page */\n\t\t\t  width: 100%; /* Full width */\n\t\t\t}\n\n\t\t\t.navbar img {\n\t\t\t\tfloat: left;\n\t\t\t\twidth: 28px;\n\t\t\t\tmargin: 6px 1em 0 10px;\n\t\t\t}\n\n\t\t\t/* Links inside the navbar */\n\t\t\t.navbar a {\n\t\t\t  float: left;\n\t\t\t  display: block;\n\t\t\t  color: #f2f2f2;\n\t\t\t  text-align: center;\n\t\t\t  padding: 14px 16px;\n\t\t\t  text-decoration: none;\n\t\t\t  cursor: pointer;\n\t\t\t}\n\n\t\t\t/* Change background on mouse-over */\n\t\t\t.navbar a:hover {\n\t\t\t  background: #d6d6ff;\n\t\t\t  color: black;\n\t\t\t}\n\n\t\t\t/* Avoid content overlay */\n\t\t\t.spacer {\n\t\t\t  margin-top: 60px;\n\t\t\t}\n\n\t\t\t.topic-form {\n\t\t\t\tmargin: 0 0 1em 0;\n\t\t\t}\n\n\t\t\ttextarea {\n\t\t\t\twidth: 99%;\n\t\t\t\tmin-width: 45%;\n\t\t\t\tmax-width: 99%;\n\t\t\t\tmin-height: 3em;\n\t\t\t\tz-index: 100;\n\t\t\t}\n\n\t\t\t.tidText {\n\t\t\t\tmin-height: 3em;\n\t\t\t\tpadding-left: .5em;\n\t\t\t}\n\n\t\t\t#about {\n\t\t\t\tbackground: #3b3b92;\n\t\t\t\tcolor: aliceblue;\n\t\t\t\tfont-size: 1.1rem;\n\t\t\t\toverflow-y:auto;\n\t\t\t\tmin-height: 190px;\n\t\t\t\tmax-height: 190px;\n\t\t\t\tpadding-left: 1em;\n\t\t\t\tborder-radius: 10px;\n\t\t\t}\n\n\t\t\t.bdr {\n\t\t\t\tbackground: #c7c7ff;\n\t\t\t\tborder: 1px solid black;\n\t\t\t\tborder-radius: 6px;\n\t\t\t\tmargin-bottom: .5em;\n\t\t\t\tborder-radius: 15px;\n\t\t\t}\n\n\t\t\t.half-block {\n\t\t\t\twidth: 48%;\n\t\t\t}\n\n\t\t\t#red-req-msg, #red-res-msg {\n\t\t\t\tfont-family: monospace;\n\t\t\t\tfont-size: .8em;\n\t\t\t}\n\n\t\t\t.hr-red {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #ff0000;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 3em 1em 3em;\n\t\t\t}\n\t\t\t.hr-blue {\n\t\t\t  height: 3px;\n\t\t\t  background-color: #0000ff;\n\t\t\t  border: none;\n\t\t\t  margin: 1em 5em 1em 5em;\n\t\t\t}\n\t\t</style>\n+======+\ntitle: Heading Section\nselector: .heading\n\n\t\t<div class=\"navbar\">\n\t\t\t<img src=\"/tw5-node-red-logo.png\">\n\t\t\t<a onclick=\"nodered.topic('hello', '.html-display');\">Hello</a>\n\t\t\t<a onclick=\"nodered.topic('book', '.html-display');\">Book</a>\n\t\t\t<a onclick=\"nodered.topic('icons', '.html-display');\">Icons</a>\n\t\t\t<a onclick=\"resetPage();\">Clear</a>\n\t\t</div>\n+======+\ntitle: Standard Replies\nselector: .std-reply\n\n\t\t<div class=\"html-display bdr tidText\"><p>Click Hello.</p></div>\n\n+======+\ntitle: Topic Form\nselector: .topic-form\n\n\t\t<div id=\"topic-text\" class=\"half-block\" style=\"float: left;\">\n\t\t\t<input type=\"text\" id=\"entered-topic\" name=\"entered-topic\" placeholder=\"Enter topic\"/>\n\t\t\t<button id=\"topic-bttn\" onclick=\"sendTopic();\" >Send</button>\n\t\t\t<br>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"entered-tid\" name=\"entered-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Enter tiddler(s) - .tid format\"></textarea>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<textarea id=\"received-tid\" name=\"received-tid\" rows=\"5\"\n\t\t\t\t\tplaceholder=\"Received tiddlers\"></textarea>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<span id=\"about-move-btn\" onclick=\"expandAbout();\" style=\"margin-left: 5%;\"></span>\n\t\t<div id=\"about\" class=\"half-block\" style=\"float: right;\"></div>\n\t\t<div style=\"clear: both;\"></div>\n+======+\ntitle: Message Display\nselector: .msg-display\n\n\t\t<div id=\"hb-check\" class=\"half-block bdr\" style=\"float: left;\">\n\t\t\t<input type=\"checkbox\" id=\"display-hb\" name=\"display-hb\" />\n\t\t\t<label for=\"display-hb\">Heartbeats</label>\n\t\t</div>\n\n\t\t<div class=\"half-block bdr\" style=\"float: right;\">\n\t\t\t<span style=\"padding-left: 1em;\" > to story: </span><span id=\"to-story\"></span>\n\t\t</div>\n\t\t<div style=\"clear:both;\"></div>\n\t\t<div id=\"send-count\" style=\"float:left;\" class=\"half-block\">Messages sent: 0 - client.tiddlers: 0</div>\n\t\t<div id=\"receive-count\" style=\"float:right;\" class=\"half-block\">Messages received: 0 - server.tiddlers: 0</div>\n\t\t<div id=\"red-req-msg\" class=\"bdr half-block\" style=\"float:left;  height: 500px; overflow: auto; width: 48%;\"></div>\n\t\t<div id=\"red-res-msg\" class=\"bdr half-block\" style=\"float:right; height: 500px; overflow: auto; width: 48%;\"></div>\n+======+\ntitle: About\nselector: #about\n\n<p>This page is a regular web page that does not use TiddlyWiki client-side. The '/svr/page/js/network.js' script interfaces to TW5-Node-RED using tiddlers. The page can be used to see the tiddlers that are being exchanged between client and server - which can be helpful in debugging messages.</p>\n\n<p>Let's look at the simplest message exchange - press <button onclick=\"resetPage();nodered.topic('hello', '.html-display');\">Hello</button> to see a basic message layout. The box <button onclick=\"flashClass('.html-display');\">above</button> displays the text of the tiddler(s). The lower <button onclick=\"flashTextArea();flashClass('#received-tid');\">edit box</button> on the left displays the tiddlers received in .tid format.</p>\n\n<p>Look at the <button onclick=\"flashClass('#red-req-msg');\">Sent</button> message. All fields except 'selector' are required. 'selector' is only used for web page clients (not TiddlyWiki clients). Is the CSS Selector of the element(s) to insert the text of the returned tiddlers.</p>\n\n<p>The other required field is 'network' which contains three sub-fields; meta, client, and server.\nEach sub-field has a 'tiddlers' array which is populated by the 'client' (this web page), the 'server', while 'meta' can updated by both client and/or server.</p>\n\n<p>The <b>topic</b> sent is \"hello\" which the server uses to route the request. The <button onclick=\"flashClass('#red-res-msg');\">returned</button> <b>topic</b> is \"server.tiddlers\" to indicate there are reply tiddlers in <b>network.server.tiddlers</b>. As is  normal - 'network.meta.tiddlers' and 'network.client.tiddlers' are the same as the sent message.</p>\n\n<p><b>network.server.storylist</b> is the list of tiddler titles in <b>network.server.tiddlers</b> that are to be copied into 'selector' element or to the story river of TiddlyWiki clients.</p>\n",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 500,
-        "y": 100,
-        "wires": [
-            [
-                "9633e22af88fd74a"
-            ]
-        ]
-    },
-    {
-        "id": "3641f98bb5b86807",
-        "type": "switch",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "Page router",
-        "property": "network.meta.location.pathname",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "cont",
-                "v": "sample.html",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 310,
-        "y": 120,
-        "wires": [
-            [
-                "ed5874185a4d04b9"
-            ],
-            [
-                "ae299d9a01ca8590"
-            ]
-        ]
-    },
-    {
-        "id": "9bc1f269acde9ac9",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "768d32daf0185aaa",
-        "name": "sample iframe",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "title: Sample Web Page\n\n<iframe src=\"/svr/page/sample.html\" style=\"height:800px;width: 100%;\"/>\n",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 490,
-        "y": 240,
-        "wires": [
-            [
-                "7b9e83c8c7bad25c"
-            ]
-        ]
-    },
-    {
-        "id": "30d1b206b8634711",
-        "type": "link in",
-        "z": "2e264bd071bbb666",
-        "g": "768d32daf0185aaa",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 230,
-        "y": 240,
-        "wires": [
-            [
-                "e6a464527b5ef777"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "7b9e83c8c7bad25c",
-        "type": "link out",
-        "z": "2e264bd071bbb666",
-        "g": "768d32daf0185aaa",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 610,
-        "y": 240,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "e6a464527b5ef777",
-        "type": "switch",
-        "z": "2e264bd071bbb666",
-        "g": "768d32daf0185aaa",
-        "name": "web page",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "web page",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 1,
-        "x": 325,
-        "y": 240,
-        "wires": [
-            [
-                "9bc1f269acde9ac9"
-            ]
-        ]
-    },
-    {
-        "id": "ad42a88ed21e5660",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "home",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "Fiona",
-        "filter": "[tag[to-home]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 610,
-        "y": 400,
-        "wires": [
-            [
-                "3439dbc165a1862f"
-            ]
-        ]
-    },
-    {
-        "id": "7df426b3cbeb4f44",
-        "type": "link in",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 155,
-        "y": 480,
-        "wires": [
-            [
-                "3016b1c70c0454f5"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "3439dbc165a1862f",
-        "type": "link out",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 815,
-        "y": 480,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "3016b1c70c0454f5",
-        "type": "switch",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "fiona-page",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "^fiona-page .*$",
-                "vt": "str",
-                "case": false
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 1,
-        "x": 270,
-        "y": 480,
-        "wires": [
-            [
-                "2187d045fd511912"
-            ]
-        ]
-    },
-    {
-        "id": "2187d045fd511912",
-        "type": "function",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "Fiona Pages",
-        "func": "// Remove the topic from msg.topic - leaving the page name \nvar page = msg.topic.replace('fiona-page ', '');\n\n// Output msg based on page name\nswitch (page) {\n    case 'home':\n        return [msg, null, null, null, null];\n    case 'experience':\n        return [null, msg, null, null, null];\n    case 'environment':\n        return [null, null, msg, null, null];\n    case 'investigation':\n        return [null, null, null, msg, null];\n    case 'services':\n        return [null, null, null, null, msg];\n    default:\n        node.error(`Unknown fiona page: ${page}`)\n        node.done();\n}\n",
-        "outputs": 5,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 480,
-        "wires": [
-            [
-                "ad42a88ed21e5660"
-            ],
-            [
-                "8fcad8f983b1ff60"
-            ],
-            [
-                "52bd7eda399c5b06"
-            ],
-            [
-                "3a66d6960b195fe4"
-            ],
-            [
-                "d7cea583cbe3fea9"
-            ]
-        ],
-        "outputLabels": [
-            "home page",
-            "experience page",
-            "environment page",
-            "investigation page",
-            "services page"
-        ]
-    },
-    {
-        "id": "8fcad8f983b1ff60",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "experience",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "Fiona",
-        "filter": "[tag[to-experience]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 630,
-        "y": 440,
-        "wires": [
-            [
-                "3439dbc165a1862f"
-            ]
-        ]
-    },
-    {
-        "id": "52bd7eda399c5b06",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "environment",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "Fiona",
-        "filter": "[tag[to-environment]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 630,
-        "y": 480,
-        "wires": [
-            [
-                "3439dbc165a1862f"
-            ]
-        ]
-    },
-    {
-        "id": "3a66d6960b195fe4",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "investigation",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "Fiona",
-        "filter": "[tag[to-investigation]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 630,
-        "y": 520,
-        "wires": [
-            [
-                "3439dbc165a1862f"
-            ]
-        ]
-    },
-    {
-        "id": "d7cea583cbe3fea9",
-        "type": "set-network",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "services",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "Fiona",
-        "filter": "[tag[to-service]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 620,
-        "y": 560,
-        "wires": [
-            [
-                "3439dbc165a1862f"
-            ]
-        ]
-    },
-    {
-        "id": "7add3e3ed518c8bf",
-        "type": "inject",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "Startup",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 140,
-        "y": 400,
-        "wires": [
-            [
-                "0a13840cbd5684fe"
-            ]
-        ]
-    },
-    {
-        "id": "2bc27304b1b0ee44",
-        "type": "to-twiki",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "Fiona tiddler Db",
-        "twikiName": "Fiona",
-        "fromTwikiName": "$tw.wiki",
-        "field": "payload",
-        "file": "public/app/fiona/tiddlers",
-        "resetOnDeploy": false,
-        "inputTask": "addTiddlers",
-        "outputFormat": "passthru",
-        "networkfield": "network.client.tiddlers",
-        "useListener": false,
-        "filter": "[all[]]",
-        "topic": "",
-        "outputs": 1,
-        "template": "",
-        "clear": true,
-        "editorIsOpen": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 440,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0a13840cbd5684fe",
-        "type": "function",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "fiona app",
-        "func": "const $tw = global.get('$tw');\nconst wiki = new $tw.Wiki;\n\nvar tiddlers = $tw.loadTiddlersFromPath('./public/app/fiona/tiddlers');\n\n$tw.utils.each(tiddlers, (tiddlerInfo) => {\n    $tw.utils.each(tiddlerInfo.tiddlers, (tiddler) => {\n        wiki.importTiddler(new $tw.Tiddler(tiddler));\n    });\n});\n\nmsg.payload = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\n\nnode.send(msg);\nnode.done();\nreturn;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 400,
-        "wires": [
-            [
-                "2bc27304b1b0ee44"
-            ]
-        ]
     },
     {
         "id": "57c7e27a6d3f23bd",

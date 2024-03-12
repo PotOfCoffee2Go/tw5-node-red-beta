@@ -1,5 +1,6 @@
+caption: FlowFiles
 created: 20231208030440881
-modified: 20231217193643199
+modified: 20240312173727166
 tags: Storage
 title: flows
 type: text/vnd.tiddlywiki
@@ -8,7 +9,7 @@ Node-Red stores the nodes that are wired together in the Flow Editor in a JSON f
 
 The <span class="poc2go-dir">'./flows'</span> directory contains these files.
 
-When starting the system it is common to add the flowfile as a parameter. The default flowfile is <span class="poc2go-dir">'./flows/tiddlywiki.json'</span> as specified in the 'settings.js' file. To load a different flowfile use the '--flowfile' option when starting the server.
+When starting the system it is common to add the flowfile as a parameter. The default flowfile is <span class="poc2go-dir">'./flows/tiddlywiki.json'</span> as specified in the <span class="poc2go-dir"> 'settings.js' </span> file. To load a different flowfile change the default in the <span class="poc2go-dir"> 'settings.js' </span> file or use the '--flowfile' option when starting the server.
 
 ```
 npm start --flowfile ./flows/docs-builder.json
@@ -16,4 +17,4 @@ npm start --flowfile ./flows/docs-builder.json
 
 An empty flowfile will be created if the file does not exist.
 
-> For TW5-Node-RED to communicate with the clients the flows in the 'network' tab must be imported to an empty flowfile. See [[lib]] for details.
+> For TW5-Node-RED to communicate with the clients the flows in required tabs must be imported into an empty flowfile. See [[Node-Red tabs]] for details about required <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> tabs.

@@ -1,5 +1,5 @@
 created: 20231208030321089
-modified: 20240117044953856
+modified: 20240312171558922
 tags: Storage
 title: project
 type: text/vnd.tiddlywiki
@@ -32,13 +32,13 @@ Is a normal npm package. Can use the Node-Red Flow Editor [ext[Menu -> Manage Pa
   },
 ```
 
- * [ext[@node-red-contrib-themes/theme-collection|https://github.com › node-red-contrib-themes › theme-collection]]
+ * [ext[@node-red-contrib-themes/theme-collection|https://github.com/node-red-contrib-themes/theme-collection]]
  ** Palettes and themes for the Node-Red Flow Editor
- * [ext[@node-red/library-file-store|https://github.com › node-red › node-red-library-file-store]]
+ * [ext[@node-red/library-file-store|https://github.com/node-red/node-red-library-file-store]]
  ** Implements saving flow files into the local Node-Red flow library
  * @potofcoffee2go/tw5-nodes
  ** The six 'tiddler' nodes - will be published as npm package when finalized for initial release.
- * [ext[node-red-contrib-uibuilder|https://flows.nodered.org › node › node-red-contrib-uibuilder]]
+ * [ext[node-red-contrib-uibuilder|https://flows.nodered.org/node/node-red-contrib-uibuilder]]
  ** Client/server socket.io communications interface for data-driven applications
  * [ext[node-red|https://nodered.org/]]
  ** Low-code programming for event-driven applications
@@ -52,4 +52,5 @@ Contains the Node-Red configuration settings. See [[Server settings]] and [[Star
 Contains a few styles for Node-Red Flow Editor that are personalized for TW5-Node-RED, logo, etc.
 
 !!! .gitignore
-Ignores the node_modules directory and Node-Red hidden runtime files.
+Ignores the node_modules directory, Node-Red hidden runtime files, and Node-RED Flowfile Backups.
+
