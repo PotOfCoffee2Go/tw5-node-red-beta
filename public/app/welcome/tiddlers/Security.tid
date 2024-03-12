@@ -1,18 +1,23 @@
 created: 20240204183210154
 list: [[Bearer token]] [[Create account]] [[Login tiddler]] [[Logout tiddler]]
-modified: 20240310155558380
+modified: 20240312033238238
 tags: TableOfContents
 title: Security
 type: text/vnd.tiddlywiki
 
-TW5-Node-RED is designed to face the internet. There are a set of requirements to secure the server, enable HTTPS access, secure the Flow Editor by password or better yet disable access entirely. See [[Securing Node-RED|https://nodered.org/docs/user-guide/runtime/securing-node-red#enabling-https-access]] which describes Node-RED itself - noting that 'users' are Node-RED users not the TiddlyWiki application users.
+TW5-Node-RED is designed to face the internet. There are a set of requirements to secure the server, enable HTTPS access, secure the Flow Editor by password or better yet disable Flow Editor access entirely. See [[Securing Node-RED|https://nodered.org/docs/user-guide/runtime/securing-node-red#enabling-https-access]] which describes Node-RED itself - noting that 'users' are Node-RED users not the TiddlyWiki application users.
 
 To secure even further a reverse proxy can be placed between the server and the web. In most cases maintaining a proxy server and keeping up with new vulnerabilities requires skilled cyber security personnel. An internet reverse proxy provider such as [[ngrok|https://ngrok.com/]] can be used to simplify implementation of a reverse proxy and can also provide HTTPS access to a HTTP server via a secure tunnel.
 
-The security system is based on a two step process authentication and authorization. Authentication confirms that users are who they say they are. Authorization gives those users permission to access a resource.
+The security system is based on a three step process for authentication and authorization. Authentication confirms that users are who they say they are. Authorization gives those users permission to access resources.
 
-Authentication is performed upon user log in by the 'Authenticate' node in the [[Security tab]]. The client receives a special tiddler `$:/temp/tw5-node-red/authenticated` when the authentication is successful allowing any client-side action deemed necessary once authenticated by the server. A flag is set `clientIds[cId].auth.authorized` which is used for both authenticated and authorized. If that flag is set to `false` the security system kicks in and the user will have to log in again.
+!!! Step 1 - New User Authentication
+When a [[user creates an account|Security tab users database]] a record (tiddler) is stored in the Users twiki database. To authenticate a user depends on the strategy being used. If using a provider such as Google or GitHub the procedure to follow can differ. WebHooks would have a totally different process. The built-in system just verifies the User ID, password, user name, and optional email address. The password is encrypted.
 
-By default the 'Authenticate' node allows any user that has created an account access to the system. Embellish as required.
+!!! Step 2 - Authentication on login
+When a user logs onto the system the login request is [[authenticated|Security tab]] by verifying the encryption of the typed in password matches the encrypted one saved in the Users twiki database during Step 1. By default the [[Security tab]] 'Authenticate' node allows any user that has created an account access to the system. 
 
-Authorization is done on a per message basis. When a connection has been authenticated the `clientIds[cId].auth.authorized` flag is set to `true`. The 'Is authorized?' node in the [[Network tab]] performs the authorization checks - if the message is not authorized set the `clientIds[cId].auth.authorized` flag to `false` and route the message to the [[security system|Security tab]]. Again, embellish as required.
+The client receives a special tiddler `$:/temp/tw5-node-red/authenticated` when the authentication is successful allowing any client-side action deemed necessary once login is authenticated by the server. A flag is set server-side `clientIds[cId].auth.authorized` which is used for both authenticated and authorized. If that flag is set to `false` the security system kicks in and the user will have to log in again.
+
+!!! Step 3 - Authorization
+Authorization is done on a per message basis. The 'Is authorized?' node in the [[Network tab]] performs the bearer token ( created [[Network tab]] 'Connect & Bearer token' node )  and authorization checks. When a login has been authenticated in Step 2 the `clientIds[cId].auth.authorized` flag is set to `true`. If the message is not authorized the message is routed to the [[security system|Security tab]].

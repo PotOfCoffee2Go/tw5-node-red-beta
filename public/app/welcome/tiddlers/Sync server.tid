@@ -1,13 +1,11 @@
 created: 20231208011318887
 fetched: 20231204091259494
-modified: 20240103170705843
+modified: 20240312104614064
 tags: ·node-red· Embedded
 title: Sync server
 type: text/vnd.tiddlywiki
 
-The 'server' edition sync server is a handy tool for creating tiddlers when developing applications or can be used as a dashboard. By default tiddlers are written to './twsync/tiddlers' by the sync server automatically. Is a convenient way of creating tiddlers and roughing in an application.
-
-In most cases the default directory <span class="poc2go-dir">'./twsync'</span> is all that is needed to create tiddlers - then copy the .tid files of interest to other directories. 
+The 'server' edition sync server is a handy tool for creating tiddlers when developing applications or can be used as a dashboard. See [[TW Sync Server]] and [[Network tab syncserver]]. Is a convenient way of creating tiddlers and roughing in an application.
 
 TW5-Node-RED 'twserver site' flow in the [[Applications tab]] of Node-Red reads tiddlers from <span class="poc2go-dir">'./twserver/tiddlers'</span>, converts any <span class="poc2go-dir">'.meta'</span> files to .tid format and sends to the client wiki connected to TW5-Node-RED port 1880.
 
@@ -26,9 +24,7 @@ The sync server creates .tid files for most tiddlers - specifically tiddlers of 
 
 The server can have multiple [[sync server|Sync server]] directories with each containing a unique application. However, the sync server can only be connected to a single directory at a time (it is linked into $tw.boot.files at startup - is one of the idiosyncrasies of the 'server' edition). Thus a reboot is required to change the directory the sync server is connected to.
 
-
-
-The flows that implement the sync server are in the [[Applications tab]] of Node-Red:
+The flows that implement the sync server are in the [[Network tab]] of Node-Red:
 
 <div style="max-width: 550px;">{{twserver-app.png}}</div>
 
@@ -36,7 +32,7 @@ The top flow has an 'inject' node which when the server starts sends a '--listen
 
 > If do not wish to launch the sync server - can change the 'syncServer' variable in './settings.js' to `false` or can disable the 'listen' inject node, double-click and notice a 'Enabled' button on the bottom left of the properties window which disables the inject.
 
-The flow in the middle accepts a 'twserver site' topic which calls the flow on the bottom and sends the results to the client wiki that requested the `<<node-red 'twserve site'>>`. This refreshes all the tiddlers on the client, handy to refresh tiddlers wihen changing them via the [[Sync server]].
+The flow in the middle accepts a 'twserver site' topic which calls the flow on the bottom and sends the results to the client wiki that requested the `<<node-red 'twserve site'>>`. This refreshes all the tiddlers on the client, handy to refresh tiddlers when changing them via the [[Sync server]].
 
 The bottom flow uses [[Set network]] to copy all the tiddlers from the sync server './twserver/tiddlers' folder to 'server.tiddlers'. The TOC node copies ./twserver/tiddlers/Table Of Contents.tid' to the story. Calls the [[Hide Sidebar]] flow so story river goes wide-screen.
 

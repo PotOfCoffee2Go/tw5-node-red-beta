@@ -1,0 +1,28 @@
+caption: Users Database
+created: 20240311223354802
+modified: 20240312005036425
+tags: [[Security tab]]
+title: Security tab users database
+type: text/vnd.tiddlywiki
+
+!! Security Tab Users Database
+
+<hr class="poc2go-hr">
+
+!!! New User Authentication
+This node does some basic checking and encrypts the password. If anything fails it re-runs the msg through the security system. If using a login provider or email link to confirm the user's identity this is the node that would be expanded to provide that strategy. 
+
+<hr class="poc2go-hr">
+
+!!! Message to flows
+Re-runs the msg from the beginning as if had just been requested by the client. 
+
+<hr class="poc2go-hr">
+
+!!! New user to Db
+Add the user information to the Users twiki database.
+
+<hr class="poc2go-hr">
+
+!!! Report success
+This sends a tiddler that informs the user the account was created successfully. It also displays the typed-in (unencrypted) password for the user. It is the last time the password will be known.
