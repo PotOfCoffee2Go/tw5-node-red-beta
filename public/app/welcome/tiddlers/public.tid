@@ -1,5 +1,5 @@
 created: 20231208030555436
-modified: 20231217193916151
+modified: 20240312210108884
 tags: Storage
 title: public
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ The <span class="poc2go-dir">'./public'</span> directory is the root for deliver
 
 <$macrocall $name=".codesample" n="0" lng="" eg="""<!DOCTYPE html>
 <!-- This index page rediects to the site landing page -->
-<html data-destination="/uibtw/index.html">
+<html data-destination="/svr/wiki/index.html">
   <meta charset="utf-8" />
   <head>
     <script>
@@ -21,3 +21,4 @@ The <span class="poc2go-dir">'./public'</span> directory is the root for deliver
 
 """/>
 
+In the above case, the URL is redirected to another 'index.html' `/svr/wiki/index.html` which is itself a redirect to the actual wiki to load.
