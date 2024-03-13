@@ -1,0 +1,18 @@
+caption: SyncServer
+created: 20240311135602073
+modified: 20240311142645865
+tags: [[Network tab]]
+title: Network tab syncserver
+type: text/vnd.tiddlywiki
+
+!! Network Tab SyncServer
+
+TW5-Node-RED has a 'server' edition TiddlyWiki built in. This sync server in intended to be used as a dashboard for the server but any sync directory can be assigned.
+
+> The built-in sync server will be replaced by the [ext[MultiWikiServer|https://talk.tiddlywiki.org/t/announcing-the-multiwikiserver-plugin/9033]] when released by TiddlyWiki. 
+
+The SyncServer flow starts up the built-in 'server' edition sync server. This option is set at the beginning of the <span class="poc2go-dir"> './settings.js' </span> file `syncServer` flag, followed by the `twsyncOutput` of a 'server' edition directory (containing the 'tiddlywiki.info' file, 'tiddlers' directory, etc.).
+
+On startup the flow checks the `syncServer` flag and if true calls the sync server TW Commander to start up the server.
+
+The 'Startup' node sets the port to 8100. By default, the sync server can only be accessed by the local machine - to allow network access add `,"host=0.0.0.0"` parameter to the 'msg.commands' property.

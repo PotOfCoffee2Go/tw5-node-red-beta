@@ -27,7 +27,7 @@ const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
 // Tiddler sent on connect
 const settingsSender = '$:/tw5-node-red/settings';
 const settingsSendFilter = '[[$:/tw5-node-red/settings]]';
-const serverAuthorized = '$:/temp/tw5-node-red/authorized';
+const serverAuthenticated = '$:/temp/tw5-node-red/authenticated';
 
 /*
  System tiddler of default server settings
@@ -361,9 +361,9 @@ const initialize = () => {
 
 		// Tiddlers from server
 		if (msg.topic === 'server.tiddlers') {
-			// Is authorized by server so client connected
+			// Is authenticated by server - so client connection is complete
 			if (msg.network.server.tiddlers.length &&
-					msg.network.server.tiddlers[0].title === serverAuthorized) {
+					msg.network.server.tiddlers[0].title === serverAuthenticated) {
 				emit('client.onload',createMessage('client.onload',
 					settingsSendFilter, settingsSender));
 				msg.network.server.tiddlers.shift();

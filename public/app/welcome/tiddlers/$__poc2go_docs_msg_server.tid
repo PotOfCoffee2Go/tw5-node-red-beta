@@ -1,6 +1,6 @@
 caption: Server data
 created: 20240223102841991
-modified: 20240224165844427
+modified: 20240312050001667
 tags: $:/poc2go/docs/msg
 title: $:/poc2go/docs/msg/server
 type: text/vnd.tiddlywiki
@@ -18,10 +18,10 @@ type: text/vnd.tiddlywiki
 This field contains the topic that will be sent to the TiddlyWiki client. By default is set to 'server.tiddlers' which should be left as is. There are topics which handle heartbeats and the server requesting tiddlers from the client but those topics would not be used unless really getting down in the weeds. 
 
 !!! tiddlers
-'tiddlers' is an array of the tiddlers that are to be delivered to the client TiddlyWiki. The tiddler 'set-network' node populates this array from selected sources.
+'tiddlers' is an array of the tiddlers that are to be delivered to the client TiddlyWiki. The tiddler [[Set network]] node populates this array from selected sources.
 
 !!! storylist
-The 'storylist' field adds or updates this list of tiddlers to the story river. The field is automatically maintained by the 'to client' or 'to story' option in the 'set-network' node. 
+The 'storylist' field adds or updates this list of tiddlers to the story river. The field is automatically maintained by the 'to client' or 'to story' option in the [[Set network]] node. 
 
 This example is the server data as a result of a chat 'post' request
 

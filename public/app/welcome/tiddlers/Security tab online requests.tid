@@ -1,0 +1,45 @@
+caption: Online-requests
+created: 20240311192153434
+modified: 20240311201422197
+tags: [[Security tab]]
+title: Security tab online requests
+type: text/vnd.tiddlywiki
+
+!! Security Tab Online Requests
+The security system topic switch is only processed when a flow links to the 'Security System' link-in node. The Online Requests allow `<<node-red 'topic'>>` macro to access the security system when logged in.
+
+There are four topics that can be accessed by the `<<node-red 'topic'>>` macro:
+
+ * login docs
+ * register request
+ * login
+ * logout
+
+!!! Login docs
+<$button actions="<<node-red 'login docs'>>"> Login docs </$button>
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'login docs'>>"> Login docs </$button>
+"""/>
+
+This topic sends users security system help tiddlers. The user remains logged in.
+
+<hr class="poc2go-hr">
+
+!!! Register request
+<$button actions="<<node-red 'register request'>>"> Create account </$button>
+<$macrocall $name=".codesample" n="1" lng="cmd" eg="""<$button actions="<<node-red 'register request'>>"> Create account </$button>
+"""/>
+
+The user is unauthorized and a tiddler is sent with a form to be filled in by the user to create a new account. The topic 'register user' is sent when the form is submitted.
+
+<hr class="poc2go-hr">
+
+!!! Login and logout
+<$button actions="<<node-red 'login'>>"> Login </$button>
+<$button actions="<<node-red 'logout'>>"> Logout </$button>
+<$macrocall $name=".codesample" n="2" lng="cmd" eg="""<$button actions="<<node-red 'login'>>"> Login </$button>
+<$button actions="<<node-red 'logout'>>"> Logout </$button>
+"""/>
+
+Both topics 'login' and 'logout' perform the same action. The user is unauthorized and the Login tiddler is displayed.
+
+<hr class="poc2go-hr">

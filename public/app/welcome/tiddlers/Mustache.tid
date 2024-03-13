@@ -1,6 +1,6 @@
 created: 20231202195211285
 fetched: 20231203150318127
-modified: 20240307132235311
+modified: 20240309112442353
 tags: ·node-red· [[How it works]]
 title: Mustache
 type: text/vnd.tiddlywiki
@@ -30,16 +30,18 @@ Make sample tiddler with button that requests <$button actions="<<node-red 'samp
 
 Notice that the topic has both the topic 'sample' and a parameter 'hello'. There are a few ways to handle the passing of parameters. This example is using a [ext[switch|https://nodered.org/docs/user-guide/nodes#switch]] and [ext[change|https://nodered.org/docs/user-guide/nodes#change]] node. The switch uses a regular expression `^sample .*` which matches a topic that begins with 'sample', followed by a space then any characters. The change node uses a [ext[JSONata|https://jsonata.org]] function '$replace' to remove 'sample ' from the msg.topic. What is left is the parameter.
 
-[ext[JSONata|https://jsonata.org]] has a set of functions that work similar to the functions one finds in worksheets. @@color:pink; Personally, I have a tendency to use the [ext['function' node|https://nodered.org/docs/user-guide/nodes#function]] instead@@ - the JavaScript equivalent
+[ext[JSONata|https://jsonata.org]] has a set of functions that work similar to the functions one finds in worksheets. Personally, I have a tendency to use the [ext['function' node|https://nodered.org/docs/user-guide/nodes#function]] instead - the JavaScript equivalent
 
 <$macrocall $name=".codesample" n="1" lng="js" eg="""msg.topic = msg.topic.replace('sample ','');
 return msg;
 """/>
 
-The 'Generate sample' [[Set network]] node has a tiddler in the editor which substitutes {%topic%} (msg.topic) which now only contains the parameter - in this case 'hello'. (Double click the 'Generate sample' node to see the complete markup).
+The 'Generate sample' [[Set network]] node has a tiddler in the editor which substitutes {%topic%} (msg.topic) which now only contains the parameter - in this case 'hello'.
 
+<div class="tc-message-box" style="margin:initial;white-space:normal;"><p> ''Note: the field `mustache: yes` is required for TW5-Node-RED to process the tiddler using the Mustache template engine to perform the substitutions.''
+</p></div>
 
-> @@color:pink; Note: the field `mustache: yes` is required for TW5-Node-RED to process the tiddler using the Mustache template engine to perform the substitutions.@@
+(Double click the 'Generate sample' node to see the complete markup.)
 
 ```
 title: Topic '{%topic%}'

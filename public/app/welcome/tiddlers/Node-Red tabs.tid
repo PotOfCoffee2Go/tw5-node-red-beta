@@ -1,6 +1,34 @@
 created: 20231222125146347
-list: Network
-modified: 20231230190520371
+list: [[Topics tab]] [[Network tab]] [[Security tab]] [[Databases tab]] [[onConnect tab]] [[Utilities tab]]
+modified: 20240312190824910
 tags: TableOfContents
 title: Node-Red tabs
 type: text/vnd.tiddlywiki
+
+The <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> workspace is organized using tabs. Is a little confusing as the menu options call these tabs 'flows' but once have used the Flow Editor interface for a while will get used to it. Node-RED [ext[documentation|https://nodered.org/docs/user-guide/editor/workspace/flows]] states:
+
+<div class="tc-message-box" style="font-size: 1rem;">
+Note : The term "flow" is also used to informally describe a single set of connected nodes. So a flow (tab) can contain multiple flows (sets of connected nodes).
+</div>
+
+TW5-Node-RED requires the [[Network|Network tab]], [[Security|Security tab]], [[Databases|Databases tab]], [[onConnect|onConnect tab]], and [[Utilities|Utilities tab]] tabs. It is possible to re-wire nodes to bypass some of the flows but will have to get down into the weeds in most cases.
+
+The list of TW5-Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> tabs when installed includes:
+
+| Tab | Required |Description |h
+| [[Network|Network tab]] | yes |Interface to uiBuilder (socket.io) communications system |
+| [[Security|Security tab]] | yes |Bearer token, User login, authentication, and authorization |
+| [[Databases|Databases tab]] | yes |Loading and saving twiki databases |
+| [[onConnect|onConnect tab]] | yes |Actions when client TiddlyWiki connects to server |
+| [[Utilities|Utilities tab]] | yes |Common actions that flows 'link call' |
+| [[Topics|Topics tab]] | no |Flows used to introduce TW5-Node-RED [[How it works]] |
+| [[Tools|Tools tab]] | no |Tools that can be handy when developing applications |
+| [[Chat|Chat tab]] | no |Example Chat application |
+| [[Webpages|Webpages tab]] | no |Example web sites |
+| [[Applications|Applications tab]] | no |Applications that are totally written in Node-RED |
+| [[Tiddler nodes|Tiddler nodes tab]] | no |Tiddler nodes that display in debug panel |
+| [[Redrum|Redrum tab]] | no |Application that converts TW TOC to/from Markdown document |
+| [[Store by Tag|Store by Tag tab]] | no |Tiddlers that store |
+| [[$tw functions|$tw functions tab]] | no |Builds tiddlers describing common $tw functions |
+| [[Experiments|Experiments tab]] | no |Random stuff being tested |
+

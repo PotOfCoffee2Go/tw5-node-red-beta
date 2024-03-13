@@ -1,0 +1,23 @@
+created: 20240310010510749
+modified: 20240312012034382
+tags: [[Node-Red tabs]]
+title: Databases tab
+type: text/vnd.tiddlywiki
+
+!! Flow Editor Databases Tab
+
+<hr class="poc2go-hr">
+
+!!! Show all clientIds &  twiki databases flows
+This flow displays the clientIds object and twiki databases and their tiddlers in the debug panel.
+
+<hr class="poc2go-hr">
+
+!!! Second output on 'to-twiki' nodes
+These flows load the twiki databases on startup or redeployment. They also write the twiki to disk every time they are updated by using the second output of the 'to-twiki' node.
+
+<hr class="poc2go-hr">
+
+!!! Socket ID changes
+When there is a blip in the network it is possible that the socket ID assigned by the communications system will be dropped and automatically starts up a new one. The connection itself does not drop. The socket ID is an important value when broadcasting messages and is also a lookup value for the ConnectionDb twiki database. This flow handles when the socket ID changes. Works in conjunction with [[Network tab]] 'Inbound' node.
+

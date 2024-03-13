@@ -1,0 +1,32 @@
+caption: Server Inquiry
+created: 20240311122520199
+modified: 20240312043441994
+tags: [[Network tab]]
+title: Network tab inquiry
+type: text/vnd.tiddlywiki
+
+!! Network Tab Server Inquiry
+
+This is a 'link call' which queries tiddlers from the client TiddlyWiki given a [ext[TW filter|https://tiddlywiki.com/static/Filters.html]] in 'msg.filter'. The inquiry is inline thus the flow will wait for the response from the client before returning to the calling flow.
+
+From the server point of view a client TiddlyWiki is a database. The 'Inquiry' node performs the communications with the client TiddlyWiki to query the wiki for the tiddlers that match the filter.
+
+When the call to 'Request client tiddlers' returns, 'msg.topic' will be 'client.response'. The results of the query will be in the `msg.network.client.tiddlers` array. Note that any previous tiddlers in `msg.network.client.tiddlers` are lost so if needed copy them elsewhere before calling the 'Request client tiddlers' flow. See the 'to debug' flow in the [[Tools tab]] for an example of the usage.
+
+<$button actions="<<node-red 'to debug'>>"> Debug msg </$button>
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""<$button actions="<<node-red 'to debug'>>"> Debug msg </$button>
+"""/>
+
+The first element in the `msg.network.client.sender` is the currentTiddler of the original request. For each call to 'Request client tiddlers' a tiddler is appended to `msg.network.client.sender` array which contains the filter used to query the client TiddlyWiki and the number of tiddlers ( count ) matching the filter.
+
+```
+{
+  "title": "client.response",
+  "filter": "[[GettingStarted]] [[New Tiddler]]",
+  "count": "2",
+  "created": "20240311153713984",
+  "modified": "20240311153713984"
+}
+
+```
+

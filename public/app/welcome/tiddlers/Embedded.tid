@@ -1,7 +1,7 @@
 created: 20231203145637775
 fetched: 20231204091259494
 list: Startup [[Sync server]]
-modified: 20240129060042874
+modified: 20240312102933980
 tags: TableOfContents ·node-red·
 title: Embedded
 type: text/vnd.tiddlywiki
@@ -15,7 +15,7 @@ The function node now has access to all the $tw functions and variables.
 
 Another global context variable 'twikis' s a hash by [[TW twikis]] name which can be used to access twikis (see [[To twiki]] and [[From twiki]]).
 
-An example flow is in the 'topics' tab which displays the twiki names and the tiddlers they contain in the Node-Red debug window as well as log on the console the number of tiddlers in each twiki:
+An example flow is in the [[Databases tab]] 'Show all clientIds & twiki databases' which displays the twiki names and the tiddlers they contain in the Node-Red debug window as well as log on the console the number of tiddlers in each twiki:
 
 <div style="max-width: 550px">{{twiki-collections-flow.png}}</div>
 
