@@ -553,7 +553,7 @@
             "1fe9f0e2147a2011"
         ],
         "x": 138,
-        "y": 981,
+        "y": 1121,
         "w": 574,
         "h": 326
     },
@@ -682,7 +682,7 @@
         ],
         "x": 44,
         "y": 39,
-        "w": 392,
+        "w": 442,
         "h": 82
     },
     {
@@ -1143,7 +1143,7 @@
             "2cc16f6fae2a05c8"
         ],
         "x": 164,
-        "y": 1039,
+        "y": 1179,
         "w": 512,
         "h": 142
     },
@@ -1163,7 +1163,7 @@
             "3f8dbc7f474d68d8"
         ],
         "x": 164,
-        "y": 1199,
+        "y": 1339,
         "w": 522,
         "h": 82
     },
@@ -1239,6 +1239,68 @@
         "y": 669,
         "w": 767,
         "h": 152
+    },
+    {
+        "id": "6fc117d699260e4c",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": " \\n MultiWikiServer \\n Create bags/receipies of your tiddlers",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "e58841decd532a3e",
+            "2987d0b55f0f6a01"
+        ],
+        "x": 118,
+        "y": 1471,
+        "w": 604,
+        "h": 326
+    },
+    {
+        "id": "e58841decd532a3e",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "6fc117d699260e4c",
+        "name": "Start 'server' edition on port 8100",
+        "style": {
+            "label": true,
+            "color": "#ffffff",
+            "label-position": "n"
+        },
+        "nodes": [
+            "587ddba2eb229948",
+            "7f9494f20c905686",
+            "3c37f635abd563e8",
+            "96147524c86cc1d8"
+        ],
+        "x": 144,
+        "y": 1529,
+        "w": 552,
+        "h": 142
+    },
+    {
+        "id": "2987d0b55f0f6a01",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "6fc117d699260e4c",
+        "name": "Execute array of Sync server TW Command strings",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true
+        },
+        "nodes": [
+            "7aac22e295d4e0f1",
+            "45d54f170e388b66",
+            "edf7669fe4924d86"
+        ],
+        "x": 164,
+        "y": 1689,
+        "w": 522,
+        "h": 82
     },
     {
         "id": "7c48a995b12f0315",
@@ -3169,8 +3231,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1420,
+        "x": 510,
+        "y": 1040,
         "wires": [
             [
                 "ad4f9aefd31ecdb2"
@@ -3183,8 +3245,8 @@
         "z": "eb845b8cbc7ac49a",
         "name": "Broadcast all",
         "links": [],
-        "x": 260,
-        "y": 1380,
+        "x": 290,
+        "y": 1000,
         "wires": [
             [
                 "1ba5b068dfdec80d"
@@ -3209,8 +3271,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 1380,
+        "x": 550,
+        "y": 1000,
         "wires": [
             [
                 "ad4f9aefd31ecdb2"
@@ -3277,7 +3339,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 270,
-        "y": 1080,
+        "y": 1220,
         "wires": [
             [
                 "e2019f74cf4c285b"
@@ -3296,7 +3358,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 550,
-        "y": 1140,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -3318,7 +3380,7 @@
         "repair": false,
         "outputs": 1,
         "x": 480,
-        "y": 1080,
+        "y": 1220,
         "wires": [
             [
                 "2cc16f6fae2a05c8"
@@ -3339,7 +3401,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 1140,
+        "y": 1280,
         "wires": [
             [
                 "b1144c89e281a90e"
@@ -3360,7 +3422,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 1240,
+        "y": 1380,
         "wires": [
             [
                 "3f8dbc7f474d68d8"
@@ -3375,7 +3437,7 @@
         "name": "TW Sync Commander",
         "links": [],
         "x": 290,
-        "y": 1240,
+        "y": 1380,
         "wires": [
             [
                 "c76e9202971136a2"
@@ -3392,7 +3454,7 @@
         "mode": "return",
         "links": [],
         "x": 645,
-        "y": 1240,
+        "y": 1380,
         "wires": []
     },
     {
@@ -3500,8 +3562,8 @@
             "04895925eade208c",
             "761190764f5f719c"
         ],
-        "x": 270,
-        "y": 1420,
+        "x": 300,
+        "y": 1040,
         "wires": [
             [
                 "9ec5ea4d8d2b2542"
@@ -3518,10 +3580,152 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 635,
-        "y": 1400,
+        "x": 665,
+        "y": 1020,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "587ddba2eb229948",
+        "type": "inject",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e58841decd532a3e",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "commands",
+                "v": "[\"--listen\",\"port=8200\"]",
+                "vt": "json"
+            },
+            {
+                "p": "syncStartup",
+                "v": "MultiWikiServer Started",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 290,
+        "y": 1570,
+        "wires": [
+            [
+                "3c37f635abd563e8"
+            ]
+        ]
+    },
+    {
+        "id": "7f9494f20c905686",
+        "type": "link call",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e58841decd532a3e",
+        "name": "",
+        "links": [
+            "45d54f170e388b66"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 570,
+        "y": 1630,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c37f635abd563e8",
+        "type": "switch",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e58841decd532a3e",
+        "name": "start MWS server?",
+        "property": "mwsServer",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1570,
+        "wires": [
+            [
+                "96147524c86cc1d8"
+            ]
+        ]
+    },
+    {
+        "id": "96147524c86cc1d8",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e58841decd532a3e",
+        "name": "TiddlyWiki 'multiwikiserver' edition",
+        "func": "node.log(`Startup - ${global.get('mwsDir')}`);\nglobal.set('mwsServer', false);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1630,
+        "wires": [
+            [
+                "7f9494f20c905686"
+            ]
+        ]
+    },
+    {
+        "id": "7aac22e295d4e0f1",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "g": "2987d0b55f0f6a01",
+        "name": "TW MWS Commander",
+        "func": "const $twmws = global.get('$twmws');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twmws.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twmws.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twmws.Commander(cmds, checkForErrors, $twmws.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1730,
+        "wires": [
+            [
+                "edf7669fe4924d86"
+            ]
+        ]
+    },
+    {
+        "id": "45d54f170e388b66",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "2987d0b55f0f6a01",
+        "name": "TW MWS Commander",
+        "links": [],
+        "x": 290,
+        "y": 1730,
+        "wires": [
+            [
+                "7aac22e295d4e0f1"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "edf7669fe4924d86",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "2987d0b55f0f6a01",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 645,
+        "y": 1730,
+        "wires": []
     },
     {
         "id": "509b906f53cc0bc2",
@@ -5269,11 +5473,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "$tw",
+        "complete": "$twmws",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
+        "x": 370,
         "y": 80,
         "wires": []
     },
@@ -5282,11 +5486,11 @@
         "type": "inject",
         "z": "127607a6bb274a18",
         "g": "a98914fa33e8fcce",
-        "name": "Get $tw object",
+        "name": "Get $twmws object",
         "props": [
             {
-                "p": "$tw",
-                "v": "$tw",
+                "p": "$twmws",
+                "v": "$twmws",
                 "vt": "global"
             }
         ],
@@ -5295,7 +5499,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 160,
+        "x": 180,
         "y": 80,
         "wires": [
             [

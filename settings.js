@@ -30,17 +30,22 @@
 var allowAnon = false;
 
 // Start TiddlyWiki 'server' edition sync server on startup?
-var syncServer = false;
+var syncServer = true;
+// Start TiddlyWiki 'multiwikiserver' edition on startup?
+var mwsServer = true;
 
 // Directory which Tiddlywiki will use for output
 const twOutput = './tiddlywiki/twmain'; // default is './tiddlywiki/twmain'
 const twsyncOutput = './public/app/welcome'; // default is './tiddlywiki/twsync'
+const twmwsOutput = './public/mws'; // default is './tiddlywiki/twsync'
 
 // Boot main tiddler store and 'server' edition sync server TiddlyWikis
 const bootmain = require('./src/tiddlywiki/main/boot');
 const bootsync = require('./src/tiddlywiki/sync/boot');
+const bootmws = require('./src/tiddlywiki/mws/boot');
 const { $tw, twikis, outDir } = bootmain.tiddlywiki(twOutput);
 const { $twsync, syncDir } = bootsync.tiddlywiki(twsyncOutput);
+const { $twmws, mwsDir } = bootmws.tiddlywiki(twmwsOutput);
 
 // Add sync server to list of twikis for to/from twiki nodes
 twikis['$twsync.wiki'] = $twsync.wiki;
@@ -562,6 +567,7 @@ module.exports = {
         // TiddlyWiki modules, sync server, and objects required for TiddlyWiki interface
         $tw, outDir,
         syncServer, $twsync, syncDir,
+        mwsServer, $twmws, mwsDir,
         twikis, clientIds: {},
     },
 
