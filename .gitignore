@@ -9,3 +9,5 @@
 # Node-RED Flowfile Backups
 /flows/*.backup
 
+# TW MultiWikiServer database
+/public/mws/store

@@ -27,7 +27,7 @@
   {
     "title": "hypnothize",
     "creator": "PotOfCoffee2Go",
-    "text": "<hr class=\"poc2go-hr\" style=\"clear: both;\">\n<div class=\"post-sender-poc\">PotOfCoffee2Go <span class=\"post-time\"><$list filter=\"[[20240303033006261]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> </span><br><span>\n\n\n</span></div>"
+    "text": "<hr class=\"poc2go-hr\" style=\"clear: both;\">\n<div class=\"post-sender-poc\">PotOfCoffee2Go <span class=\"post-time\"><$list filter=\"[[20240303033006261]format:date[0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> </span><br><span>\n\n\n</span></div><hr class=\"poc2go-hr\" style=\"clear: both;\">\n<div class=\"post-sender-poc\">PotOfCoffee2Go <span class=\"post-time\"><$list filter=\"[[20240314212534438]format:date[0DD mmm - 0hh:0mm:0ss]]\"><$text text=<<currentTiddler>>/></$list> </span><br><span>\n\n\n</span></div>"
   },
   {
     "title": "ignore",
