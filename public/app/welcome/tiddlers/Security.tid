@@ -1,6 +1,6 @@
 created: 20240204183210154
-list: [[Bearer token]] [[Create account]] [[Login tiddler]] [[Logout tiddler]]
-modified: 20240312033238238
+list: [[Bearer token]] [[Create account]] [[User Login Authentication]] [[Message Authorization]]
+modified: 20240313194352835
 tags: TableOfContents
 title: Security
 type: text/vnd.tiddlywiki

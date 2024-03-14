@@ -1,7 +1,7 @@
-caption: Starter
+caption: Starter template
 created: 20240311120347849
 list: 
-modified: 20240311150254180
+modified: 20240313182336601
 tags: [[Network tab]]
 title: Network tab starter
 type: text/vnd.tiddlywiki
@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 
 Below the client interface flows, the Network tab has a template that can copy/pasted to other tabs. It is the normal method used to communicate with client Tiddlywikis.
 
-The flow begins with the green 'From Client' link in node and ends with the blue 'To Client' link out node. The 'From Client' node will receive all authorized messages from all connected clients. The 'To Client' will send only to the client that made the request.
+{{Flow link in-out}}
 
-The 'switch' node tests ''msg.topic'' for the topic the flow is going to handle. The 'To Story' [[Set network]] node copies tiddlers to be sent to the client. 
+The 'switch' node tests ''msg.topic'' for the topic the flow is going to handle. The 'To Story' [[Set network]] node generates the tiddler to be sent to the client. 
 

@@ -1,0 +1,7 @@
+created: 20240313181945874
+modified: 20240313182053206
+tags: 
+title: Flow link in-out
+type: text/vnd.tiddlywiki
+
+The flow begins with the green 'From Client' link in node and ends with the blue 'To Client' link out node. The 'From Client' node will receive all authorized messages from all connected clients. The 'To Client' will send only to the client that made the request.

@@ -1,0 +1,12 @@
+caption: Authentication
+created: 20240204185004681
+modified: 20240313195755765
+tags: Security
+title: User Login Authentication
+type: text/vnd.tiddlywiki
+
+The 'Authentication' node in [[Security tab]] 'Authenticate' topic is used to authenticate a user that is logging onto the server. The User must have previously registered for a new account which creates a database record for the user.
+
+The user record (tiddler) is looked up from the Users twiki database and the given password is verified. If the user record is found and the password verified. A tiddler is sent to the client letting it know the user has been authenticated and logged onto the server.
+
+If anything goes wrong an error is produced and a tiddler generated with the error and requesting the user to try again.

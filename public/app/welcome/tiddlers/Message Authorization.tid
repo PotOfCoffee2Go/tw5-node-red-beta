@@ -1,0 +1,9 @@
+caption: Authorization
+created: 20240204185100581
+modified: 20240313200448270
+tags: Security
+title: Message Authorization
+type: text/vnd.tiddlywiki
+
+The 'Is Authorized?' node in the [[Network tab]] authorizes every non-heartbeat message. The bearer token 
+ is verified and a authorization flag is verified to be 'true'. If the token is not valid the message is discarded. If the authorization flag is false the message is routed to the [[security system|Security tab]] which determines the action to take with the unauthorized message. In many cases the user will be required to re-login.
