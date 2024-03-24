@@ -1,5 +1,13 @@
 [
     {
+        "id": "3a98d4a7cc479175",
+        "type": "tab",
+        "label": "TW Multi Wiki",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c58e1993cab59996",
         "type": "tab",
         "label": "Topics",
@@ -237,7 +245,7 @@
             "49e8ade023549ff5"
         ],
         "x": 44,
-        "y": 449,
+        "y": 669,
         "w": 662,
         "h": 82
     },
@@ -320,7 +328,7 @@
         "id": "47b83acc6a54da80",
         "type": "group",
         "z": "127607a6bb274a18",
-        "name": "Set msg.twikis to all twikis and tiddlers they contain",
+        "name": "Set field 'msg.twikis' to all twikis and tiddlers they contain",
         "style": {
             "label": true,
             "stroke": "#ffff00"
@@ -331,7 +339,7 @@
             "e5c2695061c28c3d"
         ],
         "x": 44,
-        "y": 569,
+        "y": 789,
         "w": 532,
         "h": 82
     },
@@ -357,25 +365,6 @@
         "y": 59,
         "w": 552,
         "h": 107
-    },
-    {
-        "id": "49f363e05e815a85",
-        "type": "group",
-        "z": "127607a6bb274a18",
-        "name": "Execute array of TW Command strings",
-        "style": {
-            "stroke": "#ffff00",
-            "label": true
-        },
-        "nodes": [
-            "d679dc2c7fb5ad4c",
-            "e40c0cb505cd4bfb",
-            "3891c3049d5ff01d"
-        ],
-        "x": 44,
-        "y": 329,
-        "w": 442,
-        "h": 82
     },
     {
         "id": "e1daf0a769b923c0",
@@ -549,13 +538,12 @@
             "label-position": "n"
         },
         "nodes": [
-            "edee491ab307e8f4",
-            "1fe9f0e2147a2011"
+            "edee491ab307e8f4"
         ],
         "x": 138,
         "y": 1121,
-        "w": 574,
-        "h": 326
+        "w": 564,
+        "h": 226
     },
     {
         "id": "04304cacc22dfd2b",
@@ -680,9 +668,9 @@
             "a07af28ade3a49a2",
             "c1e23170a15882f7"
         ],
-        "x": 44,
+        "x": 74,
         "y": 39,
-        "w": 442,
+        "w": 482,
         "h": 82
     },
     {
@@ -878,13 +866,128 @@
             "label-position": "n"
         },
         "nodes": [
-            "e58841decd532a3e",
+            "e58841decd532a3e"
+        ],
+        "x": 108,
+        "y": 1391,
+        "w": 604,
+        "h": 226
+    },
+    {
+        "id": "f501ab278a37529f",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "TW Instances - Commanders",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "49f363e05e815a85",
+            "1fe9f0e2147a2011",
             "2987d0b55f0f6a01"
         ],
-        "x": 118,
-        "y": 1471,
-        "w": 604,
-        "h": 326
+        "x": 28,
+        "y": 323,
+        "w": 574,
+        "h": 334
+    },
+    {
+        "id": "6e441c64444b6a03",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "name": "When inject button is pressed will see the tiddlers in debug panel that are in the $twmws.wiki TW instance. \\n The second output triggers a $tw.wiki 'change' event whenever the $twmws.wiki is updated. \\n (standard TiddlyWiki 'change' event)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c21237118af14fb4",
+            "522cb235280a4770",
+            "21f095d2861301b4",
+            "768f844c5fccb16e",
+            "a166218ea71ed636"
+        ],
+        "x": 38,
+        "y": 327,
+        "w": 708,
+        "h": 280
+    },
+    {
+        "id": "6d2af1f4e0cac737",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "name": "Show server-side '$twmws' TW instance in debug panel",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b02919314cae4401",
+            "a776f27ccc78d7f8"
+        ],
+        "x": 94,
+        "y": 229,
+        "w": 482,
+        "h": 82
+    },
+    {
+        "id": "49f363e05e815a85",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "g": "f501ab278a37529f",
+        "name": "Execute array of TW Command strings",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true
+        },
+        "nodes": [
+            "d679dc2c7fb5ad4c",
+            "e40c0cb505cd4bfb",
+            "3891c3049d5ff01d"
+        ],
+        "x": 54,
+        "y": 349,
+        "w": 442,
+        "h": 82
+    },
+    {
+        "id": "1fe9f0e2147a2011",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "g": "f501ab278a37529f",
+        "name": "Execute array of Sync server TW Command strings",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true
+        },
+        "nodes": [
+            "c76e9202971136a2",
+            "30ce9f775e65e57d",
+            "3f8dbc7f474d68d8"
+        ],
+        "x": 54,
+        "y": 449,
+        "w": 522,
+        "h": 82
+    },
+    {
+        "id": "2987d0b55f0f6a01",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "g": "f501ab278a37529f",
+        "name": "Execute array of MWS server TW Command strings",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true
+        },
+        "nodes": [
+            "7aac22e295d4e0f1",
+            "45d54f170e388b66",
+            "edf7669fe4924d86"
+        ],
+        "x": 54,
+        "y": 549,
+        "w": 522,
+        "h": 82
     },
     {
         "id": "78ab404cb9f85fe4",
@@ -1168,26 +1271,6 @@
         "h": 142
     },
     {
-        "id": "1fe9f0e2147a2011",
-        "type": "group",
-        "z": "eb845b8cbc7ac49a",
-        "g": "3cefbe58652ddd1b",
-        "name": "Execute array of Sync server TW Command strings",
-        "style": {
-            "stroke": "#ffff00",
-            "label": true
-        },
-        "nodes": [
-            "c76e9202971136a2",
-            "30ce9f775e65e57d",
-            "3f8dbc7f474d68d8"
-        ],
-        "x": 164,
-        "y": 1339,
-        "w": 522,
-        "h": 82
-    },
-    {
         "id": "bfac12ca49095e92",
         "type": "group",
         "z": "fb90098a1998250c",
@@ -1277,30 +1360,31 @@
             "3c37f635abd563e8",
             "96147524c86cc1d8"
         ],
-        "x": 144,
-        "y": 1529,
+        "x": 134,
+        "y": 1449,
         "w": 552,
         "h": 142
     },
     {
-        "id": "2987d0b55f0f6a01",
+        "id": "a166218ea71ed636",
         "type": "group",
-        "z": "eb845b8cbc7ac49a",
-        "g": "6fc117d699260e4c",
-        "name": "Execute array of Sync server TW Command strings",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "Press this inject node and a tiddler will be added/changed in $twmws.wiki \\n The second output (above) will fire a 'change' event",
         "style": {
-            "stroke": "#ffff00",
-            "label": true
+            "label": true,
+            "stroke": "none",
+            "fill": "none",
+            "label-position": "n"
         },
         "nodes": [
-            "7aac22e295d4e0f1",
-            "45d54f170e388b66",
-            "edf7669fe4924d86"
+            "f5b93207634dcb4e",
+            "3a6b271953bdceb4"
         ],
-        "x": 164,
-        "y": 1689,
-        "w": 522,
-        "h": 82
+        "x": 64,
+        "y": 483,
+        "w": 462,
+        "h": 98
     },
     {
         "id": "7c48a995b12f0315",
@@ -1422,6 +1506,401 @@
         "wires": [
             [
                 "9a19c39ceaa81097"
+            ]
+        ]
+    },
+    {
+        "id": "747659894c7a96e7",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "MWS",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 200,
+        "y": 50,
+        "wires": [
+            [
+                "5a16a0adef35c2c0"
+            ]
+        ]
+    },
+    {
+        "id": "a5a15f950dcbf5eb",
+        "type": "link in",
+        "z": "3a98d4a7cc479175",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 105,
+        "y": 50,
+        "wires": [
+            [
+                "747659894c7a96e7"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "5652efdb88423597",
+        "type": "link out",
+        "z": "3a98d4a7cc479175",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 595,
+        "y": 130,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "5a16a0adef35c2c0",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all \\n get-bag-tiddler",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-all\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-tiddler\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "28a27f5b6c9508b4"
+            ],
+            [
+                "3b18349a87ce690e"
+            ]
+        ]
+    },
+    {
+        "id": "c21237118af14fb4",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "MWS $tw.wiki",
+        "x": 160,
+        "y": 430,
+        "wires": [
+            [
+                "21f095d2861301b4"
+            ]
+        ]
+    },
+    {
+        "id": "522cb235280a4770",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "Show tiddlers in debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "28a27f5b6c9508b4",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n \nvar options = { databasePath: '/home/poc2gopi/Documents/sites/tw5-node-red-beta/public/mws/store/database.sqlite' };\nvar mwsStore = undefined;\n$tw.modules.forEachModuleOfType(\"library\",function(title,module) {\n    if (title.indexOf('mws-tiddler-store') > -1) {\n        console.log(title,module);\n        mwsStore = new module.MwsTiddlerStore(options);\n        console.dir(mwsStore);\n    }\n});\n/*\nconst rows = $tw.mws.store.sqlTiddlerDatabase.engine.runStatementGetAll(`\n\t\tSELECT bag_name, bag_id, accesscontrol, description\n\t\tFROM bags\n\t\tORDER BY bag_name\n\t`);\n\nconsole.dir(rows);\n*/\n\nvar sqlTiddlers = [];\nvar titles = $tw.mws.store.getBagTiddlers(bag);\n\n// Create a JSON tiddler of each tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\ntitles.forEach((title) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2),\n        '_tiddler_id': sqlRec.tiddler_id,\n        '_attachment_blob': sqlRec.attachment_blob\n    }\n    \n    // Create copy of fields - starts with an '_' \n    Object.keys(sqlRec.tiddler).forEach(fld => {\n        mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n    })\n\n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 110,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "9163b93163fb2f63",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 480,
+        "y": 110,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "21f095d2861301b4",
+        "type": "from-twiki",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "",
+        "twikiName": "$twmws.wiki",
+        "toTwikiName": "$tw.wiki",
+        "resetOnDeploy": false,
+        "inputTask": "no operation",
+        "outputFormat": "tiddlers",
+        "field": "payload",
+        "networkfield": "network.client.tiddlers",
+        "useListener": true,
+        "filter": "[all[]]",
+        "file": "",
+        "topic": "",
+        "outputs": 2,
+        "tostory": "false",
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 340,
+        "y": 430,
+        "wires": [
+            [
+                "522cb235280a4770"
+            ],
+            [
+                "768f844c5fccb16e"
+            ]
+        ]
+    },
+    {
+        "id": "768f844c5fccb16e",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "Show 'change' event",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 450,
+        "wires": []
+    },
+    {
+        "id": "3b18349a87ce690e",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-tiddler",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'get-bag-tiddler'\nconst bag = cmdparts[2];\nconst title = cmdparts[3];\n\nvar sqlTiddlers = [];\n\n// Create a JSON tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\nlet sqlRec = $tw.mws.store.getBagTiddler(title, bag);\nlet mwsTiddler = {\n    title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n    tags: `mws/bag/${bag}`,\n    type: 'application/json',\n    text: JSON.stringify(sqlRec, null, 2),\n    '_tiddler_id': sqlRec.tiddler_id,\n    '_attachment_blob': sqlRec.attachment_blob\n}\n\n// Create copy of fields - starts with an '_' \nObject.keys(sqlRec.tiddler).forEach(fld => {\n    mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n})\n\nsqlTiddlers.push(mwsTiddler);\n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "f9c80517ae13c8cf"
+            ]
+        ]
+    },
+    {
+        "id": "f5b93207634dcb4e",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "a166218ea71ed636",
+        "name": "Add tiddler",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "3a6b271953bdceb4"
+            ]
+        ]
+    },
+    {
+        "id": "3a6b271953bdceb4",
+        "type": "to-twiki",
+        "z": "3a98d4a7cc479175",
+        "g": "a166218ea71ed636",
+        "name": "",
+        "twikiName": "$twmws.wiki",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "title: A test tiddler\n\nThis tiddler will be sent to\n'$twmws.wiki' and cause a 'change'\nevent to fire which will be\ndisplayed in the Debug Panel.\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 350,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9c80517ae13c8cf",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "b02919314cae4401",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6d2af1f4e0cac737",
+        "name": "$twmws » debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "$twmws",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "a776f27ccc78d7f8",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "6d2af1f4e0cac737",
+        "name": "Get $twmws object",
+        "props": [
+            {
+                "p": "$twmws",
+                "v": "$twmws",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 270,
+        "wires": [
+            [
+                "b02919314cae4401"
             ]
         ]
     },
@@ -2875,7 +3354,8 @@
             "e368bd6862eeba29",
             "4187e021402a55de",
             "9321e75d118ca4af",
-            "b27ea02bc203e5f5"
+            "b27ea02bc203e5f5",
+            "a5a15f950dcbf5eb"
         ],
         "x": 240,
         "y": 360,
@@ -2934,7 +3414,8 @@
             "e131c5283f01c093",
             "d768dd2a6fd581b5",
             "ad4f9aefd31ecdb2",
-            "c1667f9bd1181880"
+            "c1667f9bd1181880",
+            "5652efdb88423597"
         ],
         "x": 540,
         "y": 360,
@@ -3409,55 +3890,6 @@
         ]
     },
     {
-        "id": "c76e9202971136a2",
-        "type": "function",
-        "z": "eb845b8cbc7ac49a",
-        "g": "1fe9f0e2147a2011",
-        "name": "TW Sync Commander",
-        "func": "const $twsync = global.get('$twsync');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twsync.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twsync.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twsync.Commander(cmds, checkForErrors, $twsync.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 1380,
-        "wires": [
-            [
-                "3f8dbc7f474d68d8"
-            ]
-        ]
-    },
-    {
-        "id": "30ce9f775e65e57d",
-        "type": "link in",
-        "z": "eb845b8cbc7ac49a",
-        "g": "1fe9f0e2147a2011",
-        "name": "TW Sync Commander",
-        "links": [],
-        "x": 290,
-        "y": 1380,
-        "wires": [
-            [
-                "c76e9202971136a2"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "3f8dbc7f474d68d8",
-        "type": "link out",
-        "z": "eb845b8cbc7ac49a",
-        "g": "1fe9f0e2147a2011",
-        "name": "Return",
-        "mode": "return",
-        "links": [],
-        "x": 645,
-        "y": 1380,
-        "wires": []
-    },
-    {
         "id": "cc84a8e59d36a284",
         "type": "uib-sender",
         "z": "eb845b8cbc7ac49a",
@@ -3608,8 +4040,8 @@
         "once": true,
         "onceDelay": "2",
         "topic": "",
-        "x": 290,
-        "y": 1570,
+        "x": 280,
+        "y": 1490,
         "wires": [
             [
                 "3c37f635abd563e8"
@@ -3627,8 +4059,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 570,
-        "y": 1630,
+        "x": 560,
+        "y": 1550,
         "wires": [
             []
         ]
@@ -3649,8 +4081,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 500,
-        "y": 1570,
+        "x": 490,
+        "y": 1490,
         "wires": [
             [
                 "96147524c86cc1d8"
@@ -3670,62 +4102,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 1630,
+        "x": 300,
+        "y": 1550,
         "wires": [
             [
                 "7f9494f20c905686"
             ]
         ]
-    },
-    {
-        "id": "7aac22e295d4e0f1",
-        "type": "function",
-        "z": "eb845b8cbc7ac49a",
-        "g": "2987d0b55f0f6a01",
-        "name": "TW MWS Commander",
-        "func": "const $twmws = global.get('$twmws');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twmws.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twmws.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twmws.Commander(cmds, checkForErrors, $twmws.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 1730,
-        "wires": [
-            [
-                "edf7669fe4924d86"
-            ]
-        ]
-    },
-    {
-        "id": "45d54f170e388b66",
-        "type": "link in",
-        "z": "eb845b8cbc7ac49a",
-        "g": "2987d0b55f0f6a01",
-        "name": "TW MWS Commander",
-        "links": [],
-        "x": 290,
-        "y": 1730,
-        "wires": [
-            [
-                "7aac22e295d4e0f1"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "edf7669fe4924d86",
-        "type": "link out",
-        "z": "eb845b8cbc7ac49a",
-        "g": "2987d0b55f0f6a01",
-        "name": "Return",
-        "mode": "return",
-        "links": [],
-        "x": 645,
-        "y": 1730,
-        "wires": []
     },
     {
         "id": "509b906f53cc0bc2",
@@ -4479,7 +4862,7 @@
         "template": "",
         "clear": false,
         "editorIsOpen": false,
-        "settingsIsOpen": true,
+        "settingsIsOpen": false,
         "fromIsOpen": true,
         "editorIsX": false,
         "fileIsX": true,
@@ -5245,7 +5628,7 @@
         "z": "304338a4b9f89088",
         "g": "ed8ab1c9492e0a5a",
         "name": "User settings",
-        "func": "var found = msg.network.meta.tiddlers.findIndex((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (found > -1) {\n    msg.network.meta.tiddlers[found].palette = msg.network.user.palette;\n    msg.payload.push({\n        title: '$:/palette',\n        text: msg.network.user.palette\n    })\n}\n\nreturn msg;",
+        "func": "/*\nvar found = msg.network.meta.tiddlers.findIndex((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (found > -1) {\n    msg.network.meta.tiddlers[found].palette = msg.network.user.palette;\n    msg.payload.push({\n        title: '$:/palette',\n        text: msg.network.user.palette\n    })\n}\n*/\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5284,7 +5667,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 560,
-        "y": 490,
+        "y": 710,
         "wires": [
             [
                 "49e8ade023549ff5"
@@ -5304,7 +5687,7 @@
         "return": false,
         "outputs": 1,
         "x": 280,
-        "y": 490,
+        "y": 710,
         "wires": [
             [
                 "5cb34faaf5e14207"
@@ -5330,7 +5713,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 410,
-        "y": 490,
+        "y": 710,
         "wires": [
             [
                 "dee53a18f9af7b3c"
@@ -5345,7 +5728,7 @@
         "name": "Hide Sidebar",
         "links": [],
         "x": 140,
-        "y": 490,
+        "y": 710,
         "wires": [
             [
                 "1d23e008fde4d932"
@@ -5362,7 +5745,7 @@
         "mode": "return",
         "links": [],
         "x": 665,
-        "y": 490,
+        "y": 710,
         "wires": []
     },
     {
@@ -5371,7 +5754,7 @@
         "z": "127607a6bb274a18",
         "g": "47b83acc6a54da80",
         "name": "clientIds & twiki databases",
-        "func": "const $tw = global.get('$tw');\nconst twikis = global.get('twikis');\n\nif (typeof msg.payload !== 'object') {\n    msg.payload = {};\n}\n\n// Place clientIds results in the msg\nmsg.payload.clientIds = global.get('clientIds');\n\n// Place twiki results in the msg\nmsg.payload.twikis = {};\n\n// For each twiki create a property in msg.twiki of the twikiName\n//  then load the property with tiddlers from the twiki\nfor (let twikiName in twikis) {\n    if (twikiName !== '$tw.wiki' && twikiName !== '$twsync.wiki') { // exclude main tidder store\n        msg.payload.twikis[twikiName] =\n            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))\n    }\n    $tw.utils.log(`twiki: '${twikiName}' has ${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')\n}\nreturn msg;\n",
+        "func": "const $tw = global.get('$tw');\nconst twikis = global.get('twikis');\n\nif (typeof msg.payload !== 'object') {\n    msg.payload = {};\n}\n\n// Place clientIds results in the msg\nmsg.payload.clientIds = global.get('clientIds');\n\n// Place twiki results in the msg\nmsg.payload.twikis = {};\n\n// For each twiki create a property in msg.twiki of the twikiName\n//  then load the property with tiddlers from the twiki\nfor (let twikiName in twikis) {\n    msg.payload.twikis[twikiName] =\n        JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))\n    $tw.utils.log(`twiki: '${twikiName}' has ${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')\n}\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -5379,7 +5762,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 610,
+        "y": 830,
         "wires": [
             [
                 "e5c2695061c28c3d"
@@ -5394,7 +5777,7 @@
         "name": "set msg.twikis",
         "links": [],
         "x": 140,
-        "y": 610,
+        "y": 830,
         "wires": [
             [
                 "1c83c2ba47bdb96a"
@@ -5411,7 +5794,7 @@
         "mode": "return",
         "links": [],
         "x": 535,
-        "y": 610,
+        "y": 830,
         "wires": []
     },
     {
@@ -5427,8 +5810,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 370,
+        "x": 340,
+        "y": 390,
         "wires": [
             [
                 "3891c3049d5ff01d"
@@ -5442,8 +5825,8 @@
         "g": "49f363e05e815a85",
         "name": "TW Commander",
         "links": [],
-        "x": 150,
-        "y": 370,
+        "x": 160,
+        "y": 390,
         "wires": [
             [
                 "d679dc2c7fb5ad4c"
@@ -5459,8 +5842,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 445,
-        "y": 370,
+        "x": 455,
+        "y": 390,
         "wires": []
     },
     {
@@ -5468,7 +5851,7 @@
         "type": "debug",
         "z": "127607a6bb274a18",
         "g": "a98914fa33e8fcce",
-        "name": "$tw » debug",
+        "name": "$twmws » debug",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -5477,7 +5860,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
+        "x": 420,
         "y": 80,
         "wires": []
     },
@@ -5499,7 +5882,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 180,
+        "x": 210,
         "y": 80,
         "wires": [
             [
@@ -5657,6 +6040,104 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "c76e9202971136a2",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "g": "1fe9f0e2147a2011",
+        "name": "TW Sync Commander",
+        "func": "const $twsync = global.get('$twsync');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twsync.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twsync.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twsync.Commander(cmds, checkForErrors, $twsync.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 490,
+        "wires": [
+            [
+                "3f8dbc7f474d68d8"
+            ]
+        ]
+    },
+    {
+        "id": "30ce9f775e65e57d",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "g": "1fe9f0e2147a2011",
+        "name": "TW Sync Commander",
+        "links": [],
+        "x": 180,
+        "y": 490,
+        "wires": [
+            [
+                "c76e9202971136a2"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "3f8dbc7f474d68d8",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "g": "1fe9f0e2147a2011",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 535,
+        "y": 490,
+        "wires": []
+    },
+    {
+        "id": "7aac22e295d4e0f1",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "g": "2987d0b55f0f6a01",
+        "name": "TW MWS Commander",
+        "func": "const $twmws = global.get('$twmws');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twmws.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twmws.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twmws.Commander(cmds, checkForErrors, $twmws.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 590,
+        "wires": [
+            [
+                "edf7669fe4924d86"
+            ]
+        ]
+    },
+    {
+        "id": "45d54f170e388b66",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "g": "2987d0b55f0f6a01",
+        "name": "TW MWS Commander",
+        "links": [],
+        "x": 180,
+        "y": 590,
+        "wires": [
+            [
+                "7aac22e295d4e0f1"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "edf7669fe4924d86",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "g": "2987d0b55f0f6a01",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 535,
+        "y": 590,
+        "wires": []
     },
     {
         "id": "7e1d28042993ee2d",

@@ -1,0 +1,121 @@
+created: 20240106174823357
+modified: 20240318093909212
+tags: 
+title: Test TiddlyWiki « Node-Red » MWS
+type: text/vnd.tiddlywiki
+
+---
+
+| [ext[TW5-Node-RED Beta Release Notes|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+
+---
+
+This TW5-Node-RED application has been set up to illustrate the issue that I am having with interfacing to MWS. Reading and writing to the SQLite database is not an issue since using TW `$tw.mws.store` functions just like the MWS 'routes' do. The issue is I do not know when Multi Wiki Server updates the database - so can not publish out new/changed tiddlers.
+
+Or am missing it somewhere - as MWS would have the same issue when multiple users are on the system updating the database.
+
+!! To illustrate the problem
+
+Might have noticed, on `npm start` console log - three servers are started - port 1880 is the Node-RED server, port 8100 is a 'server' edition server, and port 8200 is the Multi Wiki Server. They all share common file directories with TW5-Node-RED.
+
+!!! User Interface
+This TiddlyWiki ( http://localhost:1880/svr/wiki/empty.html?app=mwsTest ) is 'empty.html' from https://tiddlywiki.com with the $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed and saved on the server with no other changes.
+
+!!! Developer Interface
+The server sends the tiddlers of ''?app=mwsTest'' ( <span class="poc2go-dir"> './public/app/mwsTest' </span> ) which are tiddlers written using http://localhost:8100 - a 'server' edition wiki (which is where this tiddler your reading comes from) in concert with tiddlers being constructed by Node-RED flows. If you go to http://localhost:8100 and change this tiddler and return to this page and press <$button actions="<<node-red 'twsync app' >>" > Refresh </$button> you will see the change.
+
+```
+<$button actions="<<node-red 'twsync app' >>" > Refresh </$button>
+```
+
+> The sync server is not connected to TW5-Node-RED - it just shares the same directory <span class="poc2go-dir"> './public/app/mwsTest' </span> thus the buttons will not work until returning to this 'user' page - is a good thing.
+
+!!! Application Interface
+The <$button actions="<<node-red 'red' >>" > Node-RED Flow Editor </$button> tiddler ( or can open in browser http://localhost:1880/red ) has the flows being processed by the server. To interact with Node-RED (allow inject buttons to work, deploy changes, etc.) must login - press the 'person' icon in the upper-right, login as ''admin'' password ''password''. The first tab is ''TW Multi Wiki'' which has the Node-Red flows that interface to the SQLite database using the `$tw.mws.store` functions.
+
+> I have removed the flows that write to SQLite - just to focus on the issue.
+
+```
+<$button actions="<<node-red 'red' >>" > Node-RED Flow Editor </$button>
+```
+
+<details>
+  <summary>Some simple Node-Red requests</summary>
+
+<div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
+
+Here are a few simple calls that request tiddlers from the server - just to get an idea of how it works. Both of these flows `hello` and `get subtitle` are in the Node-RED Flow Editor ''topics'' tab.
+
+---
+Hello World that uses text `{%`substitution `%}` to display the user name
+
+<$button actions="<<node-red 'hello' >>" > Hello World </$button>
+
+```
+<$button actions="<<node-red 'hello' >>" > Hello World </$button>
+```
+---
+
+<$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button>
+
+Changes this wiki's subtitle to display the server heartbeats and connection status
+
+```
+<$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button>
+```
+
+</div>
+
+</details>
+
+Finally, will want to open <$button to='Multi Wiki Server'> Multi Wiki Server </$button> tiddler ( or can open in browser http://localhost:8200 ).
+
+```
+<$button to='Multi Wiki Server'> Multi Wiki Server </$button>
+```
+
+It is a clone of the TiddlyWiki5 multi-wiki-support branch which TW5-Node-RED loads and boots - thus has access to all of it's `$tw` functions. Of interest is `$tw.mws.store` functions `getBagTiddler(tiddler,bag_name)` and `saveBagTiddler(tiddler,bag_name,null)`.
+First let's get all the tiddlers that are in the bag `bag-alpha`:
+
+<$button actions="<<node-red 'mws/get-bag-all/bag-alpha'>>" > get bag-alpha tiddlers </$button>
+
+```
+<$button actions="<<node-red 'mws/get-bag-all/bag-alpha'>>" > get bag-alpha tiddlers </$button>
+```
+
+<div style="border: 1px solid black; margin: 1em; padding: 1em;">
+
+<$list filter="[tag[mws/bag/bag-alpha]sort[title]]"/>
+
+</div>
+
+Get and show <$button actions="<<node-red 'mws/get-bag-tiddler/bag-alpha/😀😃😄😁😆🥹😅😂'>>" > bag-alpha '😀😃😄😁😆🥹😅😂' </$button>
+
+```
+<$button actions="<<node-red 'mws/get-bag-tiddler/bag-alpha/😀😃😄😁😆🥹😅😂'>>" > bag-alpha '😀😃😄😁😆🥹😅😂' </$button>
+```
+
+Go to the <$button to='Multi Wiki Server'> Multi Wiki Server </$button> and add a tiddler to bag-alpha ( recipe-tau ) then come back here and press the <$button actions="<<node-red 'mws/get-bag-all/bag-alpha'>>" > get bag-alpha tiddlers </$button> again and will show up in the list.
+
+!!! Here in-lies the issue
+> That should happen ''automatically''- But Node-Red does not have a method to let it know the SQL database has been updated by Multi Wiki Server, thus can not send the tiddler to this wiki. If there were an event/method - then Node-Red would read the SQL database and publish the new tiddler to this wiki automatically.
+ 
+---
+
+To see how this works for $tw.Wiki databases (instances which are called ''twikis'' just because there are 'wikis' //everywhere//!) - indicates referencing a `$tw.Wiki` instance as a database. In the <$button actions="<<node-red 'red' >>" > Node-RED Flow Editor </$button>  ''TW Multi Wiki'' tab has the following:
+
+<img src="/app/mwsTest/files/change-event.png">
+
+The ''from $twmws.wiki'' node has two outputs - the top one delivers data selected from the twiki using a filter. The second (bottom) output is optional (open the node - is under 'Settings') - it fires whenever '$twmws.wiki' is updated/changed. The ''changed'' object should look familiar to TW JavaScript Devs -> the event logic is already implemented in TiddlyWiki - just using what is already there.
+
+Using the change event and if ten concurrent users are updating that twiki - then the changes can be broadcast to all of them - we don't need no pressing of buttons! See [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] (actually, I think I might have re-designed that so it doesn't use change events anymore). Anyway, the ''Databases'' tab definitely uses events to write changes to the twiki to disk.
+
+!! In summary
+
+Not really sure if possible to fire an event on SQL updates. There is no clean way to implement in SQLite itself (what happens in SQLite stays in SQLite). This is due to 'transactions' - once an event is fired, you can't roll it back.
+
+Was thinking could be placed in `$tw.mws.store.saveBagTiddler()` and `saveRecipeTiddler()` at the end after the SQL update transaction has been committed. Could use the existing mechanism used by `$tw.wiki.addTiddler()`.
+
+Any thoughts?
+
+

@@ -1,0 +1,6 @@
+title: A test tiddler
+
+This tiddler will be sent to
+'$twmws.wiki' and cause a 'change'
+event to fire which will be
+displayed in the Debug Panel.

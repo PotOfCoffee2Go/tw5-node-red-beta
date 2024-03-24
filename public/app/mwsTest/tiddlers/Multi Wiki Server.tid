@@ -1,0 +1,7 @@
+created: 20240317024712996
+modified: 20240317024945174
+tags: 
+title: Multi Wiki Server
+type: text/vnd.tiddlywiki
+
+<iframe src="http://localhost:8200" style="width:100%; height:600px"></iframe>
