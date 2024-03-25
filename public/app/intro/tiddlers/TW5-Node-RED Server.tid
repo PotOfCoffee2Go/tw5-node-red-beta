@@ -1,0 +1,14 @@
+created: 20231231171909294
+modified: 20240324220558648
+mustache: yes
+tags: 
+title: TW5-Node-RED Server
+type: text/vnd.tiddlywiki
+
+<div style="float:left; margin: 4px .9em; width: 30px;">{{favicon.png}}</div>
+<span style="font-size: 1.4rem">{{TableOfContents subtitle}}</span>
+<$button style="font-size: .8em; border-radius: 8px;" actions="<<node-red 'twsync app'>>"> Refresh </$button>
+{{$:/poc2go/ui/PageTemplate/pagecontrols}}
+<div style="font-size: .85em; margin: 0 0 -1em 60px; min-height: 2.5em;min-width: 520px;">&nbsp;{{$:/temp/tw5-node-red/netstat}}</div>
+
+{{TOC}}

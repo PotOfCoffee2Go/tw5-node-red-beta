@@ -1,13 +1,5 @@
 [
     {
-        "id": "3a98d4a7cc479175",
-        "type": "tab",
-        "label": "TW Multi Wiki",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "c58e1993cab59996",
         "type": "tab",
         "label": "Topics",
@@ -115,6 +107,14 @@
         "id": "785334168b65be6b",
         "type": "tab",
         "label": "$tw functions",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3a98d4a7cc479175",
+        "type": "tab",
+        "label": "TW Multi Wiki",
         "disabled": false,
         "info": "",
         "env": []
@@ -606,12 +606,16 @@
             "378b62111965fdec",
             "befe33e64a70264a",
             "03ebfda3187b4bce",
-            "a2ae9a08fd4b0a90"
+            "a2ae9a08fd4b0a90",
+            "b41da43ac5ac5d86",
+            "d45e6a80e9b4d04b",
+            "a2e36cbb7779b2b1",
+            "4b91c609998debc8"
         ],
         "x": 64,
         "y": 141,
         "w": 632,
-        "h": 459
+        "h": 559
     },
     {
         "id": "7854aca21984899b",
@@ -858,7 +862,7 @@
         "id": "6fc117d699260e4c",
         "type": "group",
         "z": "eb845b8cbc7ac49a",
-        "name": " \\n MultiWikiServer \\n Create bags/receipies of your tiddlers",
+        "name": " \\n MultiWikiServer \\n Create recipes/bags of your tiddlers",
         "style": {
             "label": true,
             "fill": "#3f93cf",
@@ -1073,7 +1077,7 @@
             "60af93695972cb17"
         ],
         "x": 154,
-        "y": 434,
+        "y": 534,
         "w": 422,
         "h": 140
     },
@@ -1387,6 +1391,45 @@
         "h": 98
     },
     {
+        "id": "1b95b4adfdeca38e",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": " \\n TW REPL \\n Interactive access from console",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "759dce2ea0c90c1e"
+        ],
+        "x": 168,
+        "y": 1661,
+        "w": 441,
+        "h": 166
+    },
+    {
+        "id": "759dce2ea0c90c1e",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "1b95b4adfdeca38e",
+        "name": "Start 'twrepl' with access to codebase of the complete system",
+        "style": {
+            "label": true,
+            "color": "#ffffff",
+            "label-position": "n"
+        },
+        "nodes": [
+            "265506fdf2a603b4",
+            "939ecaec38f87e99"
+        ],
+        "x": 194,
+        "y": 1719,
+        "w": 389,
+        "h": 82
+    },
+    {
         "id": "7c48a995b12f0315",
         "type": "junction",
         "z": "9e01fcb7c734b8a9",
@@ -1469,7 +1512,7 @@
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
         "x": 180,
-        "y": 460,
+        "y": 560,
         "wires": [
             []
         ]
@@ -1480,7 +1523,7 @@
         "z": "ab56271e77c6f866",
         "g": "a2ae9a08fd4b0a90",
         "x": 550,
-        "y": 460,
+        "y": 560,
         "wires": [
             []
         ]
@@ -1506,401 +1549,6 @@
         "wires": [
             [
                 "9a19c39ceaa81097"
-            ]
-        ]
-    },
-    {
-        "id": "747659894c7a96e7",
-        "type": "switch",
-        "z": "3a98d4a7cc479175",
-        "name": "MWS",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "^mws\\/.*$",
-                "vt": "str",
-                "case": false
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 200,
-        "y": 50,
-        "wires": [
-            [
-                "5a16a0adef35c2c0"
-            ]
-        ]
-    },
-    {
-        "id": "a5a15f950dcbf5eb",
-        "type": "link in",
-        "z": "3a98d4a7cc479175",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 105,
-        "y": 50,
-        "wires": [
-            [
-                "747659894c7a96e7"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "5652efdb88423597",
-        "type": "link out",
-        "z": "3a98d4a7cc479175",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 595,
-        "y": 130,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "5a16a0adef35c2c0",
-        "type": "switch",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-all \\n get-bag-tiddler",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "^mws\\/get-bag-all\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/get-bag-tiddler\\/.*$",
-                "vt": "str",
-                "case": false
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 120,
-        "y": 140,
-        "wires": [
-            [
-                "28a27f5b6c9508b4"
-            ],
-            [
-                "3b18349a87ce690e"
-            ]
-        ]
-    },
-    {
-        "id": "c21237118af14fb4",
-        "type": "inject",
-        "z": "3a98d4a7cc479175",
-        "g": "6e441c64444b6a03",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "MWS $tw.wiki",
-        "x": 160,
-        "y": 430,
-        "wires": [
-            [
-                "21f095d2861301b4"
-            ]
-        ]
-    },
-    {
-        "id": "522cb235280a4770",
-        "type": "debug",
-        "z": "3a98d4a7cc479175",
-        "g": "6e441c64444b6a03",
-        "name": "Show tiddlers in debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "28a27f5b6c9508b4",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-all",
-        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n \nvar options = { databasePath: '/home/poc2gopi/Documents/sites/tw5-node-red-beta/public/mws/store/database.sqlite' };\nvar mwsStore = undefined;\n$tw.modules.forEachModuleOfType(\"library\",function(title,module) {\n    if (title.indexOf('mws-tiddler-store') > -1) {\n        console.log(title,module);\n        mwsStore = new module.MwsTiddlerStore(options);\n        console.dir(mwsStore);\n    }\n});\n/*\nconst rows = $tw.mws.store.sqlTiddlerDatabase.engine.runStatementGetAll(`\n\t\tSELECT bag_name, bag_id, accesscontrol, description\n\t\tFROM bags\n\t\tORDER BY bag_name\n\t`);\n\nconsole.dir(rows);\n*/\n\nvar sqlTiddlers = [];\nvar titles = $tw.mws.store.getBagTiddlers(bag);\n\n// Create a JSON tiddler of each tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\ntitles.forEach((title) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2),\n        '_tiddler_id': sqlRec.tiddler_id,\n        '_attachment_blob': sqlRec.attachment_blob\n    }\n    \n    // Create copy of fields - starts with an '_' \n    Object.keys(sqlRec.tiddler).forEach(fld => {\n        mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n    })\n\n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 110,
-        "wires": [
-            [
-                "9163b93163fb2f63"
-            ]
-        ]
-    },
-    {
-        "id": "9163b93163fb2f63",
-        "type": "set-network",
-        "z": "3a98d4a7cc479175",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 480,
-        "y": 110,
-        "wires": [
-            [
-                "5652efdb88423597"
-            ]
-        ]
-    },
-    {
-        "id": "21f095d2861301b4",
-        "type": "from-twiki",
-        "z": "3a98d4a7cc479175",
-        "g": "6e441c64444b6a03",
-        "name": "",
-        "twikiName": "$twmws.wiki",
-        "toTwikiName": "$tw.wiki",
-        "resetOnDeploy": false,
-        "inputTask": "no operation",
-        "outputFormat": "tiddlers",
-        "field": "payload",
-        "networkfield": "network.client.tiddlers",
-        "useListener": true,
-        "filter": "[all[]]",
-        "file": "",
-        "topic": "",
-        "outputs": 2,
-        "tostory": "false",
-        "editorIsOpen": false,
-        "settingsIsOpen": true,
-        "toIsOpen": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 340,
-        "y": 430,
-        "wires": [
-            [
-                "522cb235280a4770"
-            ],
-            [
-                "768f844c5fccb16e"
-            ]
-        ]
-    },
-    {
-        "id": "768f844c5fccb16e",
-        "type": "debug",
-        "z": "3a98d4a7cc479175",
-        "g": "6e441c64444b6a03",
-        "name": "Show 'change' event",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 450,
-        "wires": []
-    },
-    {
-        "id": "3b18349a87ce690e",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-tiddler",
-        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'get-bag-tiddler'\nconst bag = cmdparts[2];\nconst title = cmdparts[3];\n\nvar sqlTiddlers = [];\n\n// Create a JSON tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\nlet sqlRec = $tw.mws.store.getBagTiddler(title, bag);\nlet mwsTiddler = {\n    title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n    tags: `mws/bag/${bag}`,\n    type: 'application/json',\n    text: JSON.stringify(sqlRec, null, 2),\n    '_tiddler_id': sqlRec.tiddler_id,\n    '_attachment_blob': sqlRec.attachment_blob\n}\n\n// Create copy of fields - starts with an '_' \nObject.keys(sqlRec.tiddler).forEach(fld => {\n    mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n})\n\nsqlTiddlers.push(mwsTiddler);\n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 160,
-        "wires": [
-            [
-                "f9c80517ae13c8cf"
-            ]
-        ]
-    },
-    {
-        "id": "f5b93207634dcb4e",
-        "type": "inject",
-        "z": "3a98d4a7cc479175",
-        "g": "a166218ea71ed636",
-        "name": "Add tiddler",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 170,
-        "y": 540,
-        "wires": [
-            [
-                "3a6b271953bdceb4"
-            ]
-        ]
-    },
-    {
-        "id": "3a6b271953bdceb4",
-        "type": "to-twiki",
-        "z": "3a98d4a7cc479175",
-        "g": "a166218ea71ed636",
-        "name": "",
-        "twikiName": "$twmws.wiki",
-        "fromTwikiName": "$tw.wiki",
-        "field": "",
-        "file": "",
-        "resetOnDeploy": false,
-        "inputTask": "addTiddlers",
-        "outputFormat": "passthru",
-        "networkfield": "network.client.tiddlers",
-        "useListener": false,
-        "filter": "[all[]]",
-        "topic": "",
-        "outputs": 1,
-        "template": "title: A test tiddler\n\nThis tiddler will be sent to\n'$twmws.wiki' and cause a 'change'\nevent to fire which will be\ndisplayed in the Debug Panel.\n",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 350,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f9c80517ae13c8cf",
-        "type": "set-network",
-        "z": "3a98d4a7cc479175",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 480,
-        "y": 160,
-        "wires": [
-            [
-                "5652efdb88423597"
-            ]
-        ]
-    },
-    {
-        "id": "b02919314cae4401",
-        "type": "debug",
-        "z": "3a98d4a7cc479175",
-        "g": "6d2af1f4e0cac737",
-        "name": "$twmws » debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "$twmws",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 270,
-        "wires": []
-    },
-    {
-        "id": "a776f27ccc78d7f8",
-        "type": "inject",
-        "z": "3a98d4a7cc479175",
-        "g": "6d2af1f4e0cac737",
-        "name": "Get $twmws object",
-        "props": [
-            {
-                "p": "$twmws",
-                "v": "$twmws",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 230,
-        "y": 270,
-        "wires": [
-            [
-                "b02919314cae4401"
             ]
         ]
     },
@@ -3433,7 +3081,7 @@
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
         "name": "Connect & \\n Bearer token",
-        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authenticated\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send to security system to finish processing first message\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n    node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n    node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send Heartbeat reply\n    if (msg.topic === 'heartbeat') {\n        node.send([msg, null]);\n    } else { // Send to security system\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
+        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authenticated\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send to security system to finish processing first message\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n//   node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n//   node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send Heartbeat reply\n    if (msg.topic === 'heartbeat') {\n        node.send([msg, null]);\n    } else { // Send to security system\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -3705,7 +3353,7 @@
         "type": "function",
         "z": "eb845b8cbc7ac49a",
         "name": "broadcast to msg.clientid",
-        "func": "var clientIds = global.get('clientIds');\n// Setup meta data for broadcast and send msg\nif (msg.clientid) {\n     if (!Array.isArray(msg.clientid)) { msg.clientid = [msg.clientid] }\n     msg.network.meta._clientid = msg.clientid;\n     msg.network.meta.tiddlers = [];\n     msg.network.client.tiddlers = [];\n     msg.network.client.sender = [];\n     delete msg.network.user;\n     msg.clientid.forEach((id) => {\n          msg._socketId = clientIds[msg.clientid].socketId;\n          node.send(msg);\n     })\n}\nnode.done();\nreturn;",
+        "func": "var clientIds = global.get('clientIds');\n// Setup meta data for broadcast and send msg\nif (msg.clientid) {\n     if (!Array.isArray(msg.clientid)) { msg.clientid = [msg.clientid] }\n     msg.network.meta.tiddlers = [];\n     msg.network.client.tiddlers = [];\n     msg.network.client.sender = [];\n     delete msg.network.user;\n     msg.clientid.forEach((id) => {\n          msg.network.meta._clientid = id;\n          msg._socketId = clientIds[id].socketId;\n          node.send(msg);\n     })\n}\nnode.done();\nreturn;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -3948,7 +3596,7 @@
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
         "name": "Is authorized?",
-        "func": "const $tw = global.get('$tw');\nconst usersDb = global.get('twikis').Users;\nconst allowAnon = global.get(\"allowAnon\");\nconst guestUser = [{\n\t\"title\": \"Guest\",\n\t\"created\": \"20240204032118657\",\n\t\"modified\": \"20240204032213393\",\n\t\"userid\": \"Guest\",\n\t\"username\": \"Guest\",\n\t\"email\": \"guest@example.com\",\n\t\"pwHash\": \"$2b$08$oxvoOGoMFhLiMUJOLdFtIe8xcQlPiXgyltVhEB/pMZMXQMaruniue\"\n}];\n\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nvar allowGuest = msg.network.meta.source === 'HTML' || allowAnon ? true : false;\n\n// Get bearer token and must match\n//  (if server is rebooted or client reconnects - this will throw once\n//   but will be ok for requests thereafter)\nvar found = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!found) { found = { token: 'this will fail' } }\nif (found.token !== clientIds[cId].auth._token) {\n    msg.error = 'Client/Server bearer token mismatch';\n\tnode.log(msg.error);\n\tnode.warn(msg.error);\n    node.done(); // do not forward the message to the next node\n    return;\n}\n\n// If not Web page and not allowing anonymous access and\n//  connection has not been authorized yet\n// Request a login\nif (!allowGuest && !clientIds[cId].auth.authorized) {\n    node.send(msg); node.done();\n    return;\n}\n\n// Get user from the Users database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(clientIds[cId].userid));\n\n// Do not have a user\nif (!allowGuest && userDbTiddler.length === 0) {\n    msg.error = 'User ID Not Found';\n\tclientIds[cId].auth.authorized = false;\n\tnode.send(msg); node.done();\n\treturn;\n}\n\n// If allowing anonymous login\n//  get a copy of the generic 'Guest' tiddler and authorize it\nif (allowGuest && userDbTiddler.length === 0) {\n\tuserDbTiddler = JSON.parse(JSON.stringify(guestUser));   \n\tclientIds[cId].userid = userDbTiddler.userid;\n\tclientIds[cId].auth.authorized = true;\n}\n\n// Add user to message and send to the flows\nmsg.network.user = JSON.parse(JSON.stringify(userDbTiddler[0]));\nnode.send([null, msg]); node.done();\nreturn;\n",
+        "func": "const $tw = global.get('$tw');\nconst usersDb = global.get('twikis').Users;\nconst allowAnon = global.get(\"allowAnon\");\nconst guestUser = [{\n\t\"title\": \"Guest\",\n\t\"created\": \"20240204032118657\",\n\t\"modified\": \"20240204032213393\",\n\t\"userid\": \"Guest\",\n\t\"username\": \"Guest\",\n\t\"email\": \"guest@example.com\",\n\t\"pwHash\": \"$2b$08$oxvoOGoMFhLiMUJOLdFtIe8xcQlPiXgyltVhEB/pMZMXQMaruniue\"\n}];\n\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nvar allowGuest = msg.network.meta.source === 'HTML' || allowAnon ? true : false;\n\n// Get bearer token and must match\n//  (if server is rebooted or client reconnects - this will throw once\n//   but will be ok for requests thereafter)\nvar found = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!found) { found = { token: 'this will fail' } }\nif (found.token !== clientIds[cId].auth._token) {\n    msg.error = 'Client/Server bearer token mismatch';\n\tnode.log(msg.error);\n\tnode.warn(msg.error);\n    node.done(); // do not forward the message to the next node\n    return;\n}\n\n// If not Web page and not allowing anonymous access and\n//  connection has not been authorized yet\n// Request a login\nif (!allowGuest && !clientIds[cId].auth.authorized) {\n    node.send(msg); node.done();\n    return;\n}\n\n// Get user from the Users database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(`[[${clientIds[cId].userid}]]`));\n\n// Do not have a user\nif (!allowGuest && userDbTiddler.length === 0) {\n    msg.error = 'User ID Not Found';\n\tclientIds[cId].auth.authorized = false;\n\tnode.send(msg); node.done();\n\treturn;\n}\n\n// If allowing anonymous login\n//  get a copy of the generic 'Guest' tiddler and authorize it\nif (allowGuest && userDbTiddler.length === 0) {\n\tuserDbTiddler = JSON.parse(JSON.stringify(guestUser));   \n\tclientIds[cId].userid = userDbTiddler.userid;\n\tclientIds[cId].auth.authorized = true;\n}\n\n// Add user to message and send to the flows\nmsg.network.user = JSON.parse(JSON.stringify(userDbTiddler[0]));\nnode.send([null, msg]); node.done();\nreturn;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3992,7 +3640,8 @@
         "name": "Broadcast msg",
         "links": [
             "04895925eade208c",
-            "761190764f5f719c"
+            "761190764f5f719c",
+            "4b91c609998debc8"
         ],
         "x": 300,
         "y": 1040,
@@ -4111,6 +3760,45 @@
         ]
     },
     {
+        "id": "265506fdf2a603b4",
+        "type": "inject",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 300,
+        "y": 1760,
+        "wires": [
+            [
+                "939ecaec38f87e99"
+            ]
+        ]
+    },
+    {
+        "id": "939ecaec38f87e99",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "Start REPL",
+        "func": "const twrepl = global.get('twrepl');\ntwrepl.startup(global);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "509b906f53cc0bc2",
         "type": "link in",
         "z": "fb90098a1998250c",
@@ -4135,7 +3823,7 @@
         "z": "fb90098a1998250c",
         "g": "bfac12ca49095e92",
         "name": "Authenticate",
-        "func": "// Authorize a sign-in from the login tiddler\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\n// Check for required fields\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Look up userid from database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\n\n// User ID is not found\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Reference the stored user data\nuserDbTiddler = userDbTiddler[0];\n\n// Verify the password\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\n\n// Authenticate this client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n// send authentication success\nmsg.network.user = userDbTiddler;\n\nnode.send([null, msg]);\nreturn;\n",
+        "func": "// Authorize a sign-in from the login tiddler\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\n// Check for required fields\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\nif (/[|[\\]{}].*$/.test(userdata.userid)) {\n  msg.error = `User ID can not contain \\`| [ ] { }\\` (vertical bar, square or curly brackets)`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Look up userid from database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(`[[${userdata.userid}]]`));\n\n// User ID is not found\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Reference the stored user data\nuserDbTiddler = userDbTiddler[0];\n\n// Verify the password\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\n\n// Authenticate this client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n// send authentication success\nmsg.network.user = userDbTiddler;\n\nnode.send([null, msg]);\nreturn;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4533,7 +4221,7 @@
         "z": "fb90098a1998250c",
         "g": "581538b733302aa5",
         "name": "New User Authentication",
-        "func": "const $tw = global.get('$tw');\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'register request';\nmsg.payload = userdata;\n\n// Required fields - send error node's first output\nif (!(userdata.userid && userdata.username && userdata.password)) {\n  msg.error = `All fields with '*' are required.`;\n  node.send(msg); node.done();\n  return;\n}\n\n// See if userid already exists - send error node's first output\nconst userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\nif (userDbTiddler.length) {\n  msg.error = `'${userdata.userid}' already registered`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Generate the encrypted hash of the password\nconst pwHash = await bcrypt.hash(userdata.password, 8);\n\n// Reply with information about the successful account registration\nmsg.typedpassword = userdata.password + ''\ndelete userdata.password;\ndelete userdata.mustache;\n\nuserdata.title = userdata.userid;\nuserdata.pwHash = pwHash;\n\n// payload will be stored on the Users twiki\nmsg.payload = userdata;\n// data to be displayed in the reply\nmsg.network.user = userdata;\n\n// Success comes out the node's second output \nreturn [null, msg];\n",
+        "func": "const $tw = global.get('$tw');\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'register request';\nmsg.payload = userdata;\n\n// Required fields - send error node's first output\nif (!(userdata.userid && userdata.username && userdata.password)) {\n  msg.error = `All fields with '*' are required.`;\n  node.send(msg); node.done();\n  return;\n}\n\nif (/[|[\\]{}].*$/.test(userdata.userid)) {\n  msg.error = `User ID can not contain \\`| [ ] { }\\` (vertical bar, square or curly brackets)`;\n  node.send(msg); node.done();\n  return;\n}\n\n// See if userid already exists - send error node's first output\nconst userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(userdata.userid));\nif (userDbTiddler.length) {\n  msg.error = `'${userdata.userid}' already registered`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Generate the encrypted hash of the password\nconst pwHash = await bcrypt.hash(userdata.password, 8);\n\n// Reply with information about the successful account registration\nmsg.typedpassword = userdata.password + ''\ndelete userdata.password;\ndelete userdata.mustache;\n\nuserdata.title = userdata.userid;\nuserdata.pwHash = pwHash;\n\n// payload will be stored on the Users twiki\nmsg.payload = userdata;\n// data to be displayed in the reply\nmsg.network.user = userdata;\n\n// Success comes out the node's second output \nreturn [null, msg];\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4685,7 +4373,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<div style=\"\">\n<$button actions=\"<<signin>>\"> Sign in </$button>\n</div>\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n",
+        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<div style=\"\">\n<$button actions=\"<<signin>>\"> Sign in </$button>\n</div>\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5159,6 +4847,98 @@
         ]
     },
     {
+        "id": "b41da43ac5ac5d86",
+        "type": "to-twiki",
+        "z": "ab56271e77c6f866",
+        "g": "b900c252078e7f0f",
+        "name": "twReplOut",
+        "twikiName": "twReplOut",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": true,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 2,
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": false,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [],
+            [
+                "a2e36cbb7779b2b1"
+            ]
+        ]
+    },
+    {
+        "id": "d45e6a80e9b4d04b",
+        "type": "debug",
+        "z": "ab56271e77c6f866",
+        "g": "b900c252078e7f0f",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a2e36cbb7779b2b1",
+        "type": "function",
+        "z": "ab56271e77c6f866",
+        "g": "b900c252078e7f0f",
+        "name": "Build msg",
+        "func": "try {\n    var rmsg = JSON.parse(msg.payload[0].text);\n} catch(err) {\n    node.debug(err, msg);\n    node.done();\n}\nmsg.topic = rmsg.topic;\nmsg.clientid = rmsg.clientid;\nmsg.network = rmsg.network;\nnode.send(msg);\nnode.done();\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "d45e6a80e9b4d04b",
+                "4b91c609998debc8"
+            ]
+        ]
+    },
+    {
+        "id": "4b91c609998debc8",
+        "type": "link out",
+        "z": "ab56271e77c6f866",
+        "g": "b900c252078e7f0f",
+        "name": "Broadcast msg",
+        "mode": "link",
+        "links": [
+            "85f96a4f808488c5"
+        ],
+        "x": 540,
+        "y": 460,
+        "wires": [],
+        "l": true
+    },
+    {
         "id": "2318b06227765245",
         "type": "link call",
         "z": "304338a4b9f89088",
@@ -5318,7 +5098,8 @@
         "wires": [
             [
                 "80f6cc12c651bec8",
-                "628aab7aaefe715e"
+                "628aab7aaefe715e",
+                "b86dd296bcb08102"
             ]
         ]
     },
@@ -5642,6 +5423,23 @@
                 "7bcd5f5e077d086c"
             ]
         ]
+    },
+    {
+        "id": "b86dd296bcb08102",
+        "type": "debug",
+        "z": "304338a4b9f89088",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 320,
+        "wires": []
     },
     {
         "id": "dee53a18f9af7b3c",
@@ -10025,6 +9823,401 @@
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
     {
+        "id": "747659894c7a96e7",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "MWS",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 200,
+        "y": 50,
+        "wires": [
+            [
+                "5a16a0adef35c2c0"
+            ]
+        ]
+    },
+    {
+        "id": "a5a15f950dcbf5eb",
+        "type": "link in",
+        "z": "3a98d4a7cc479175",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 105,
+        "y": 50,
+        "wires": [
+            [
+                "747659894c7a96e7"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "5652efdb88423597",
+        "type": "link out",
+        "z": "3a98d4a7cc479175",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 595,
+        "y": 130,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "5a16a0adef35c2c0",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all \\n get-bag-tiddler",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-all\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-tiddler\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "28a27f5b6c9508b4"
+            ],
+            [
+                "3b18349a87ce690e"
+            ]
+        ]
+    },
+    {
+        "id": "c21237118af14fb4",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "MWS $tw.wiki",
+        "x": 160,
+        "y": 430,
+        "wires": [
+            [
+                "21f095d2861301b4"
+            ]
+        ]
+    },
+    {
+        "id": "522cb235280a4770",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "Show tiddlers in debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "28a27f5b6c9508b4",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n \nvar options = { databasePath: '/home/poc2gopi/Documents/sites/tw5-node-red-beta/public/mws/store/database.sqlite' };\nvar mwsStore = undefined;\n$tw.modules.forEachModuleOfType(\"library\",function(title,module) {\n    if (title.indexOf('mws-tiddler-store') > -1) {\n        console.log(title,module);\n        mwsStore = new module.MwsTiddlerStore(options);\n        console.dir(mwsStore);\n    }\n});\n/*\nconst rows = $tw.mws.store.sqlTiddlerDatabase.engine.runStatementGetAll(`\n\t\tSELECT bag_name, bag_id, accesscontrol, description\n\t\tFROM bags\n\t\tORDER BY bag_name\n\t`);\n\nconsole.dir(rows);\n*/\n\nvar sqlTiddlers = [];\nvar titles = $tw.mws.store.getBagTiddlers(bag);\n\n// Create a JSON tiddler of each tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\ntitles.forEach((title) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2),\n        '_tiddler_id': sqlRec.tiddler_id,\n        '_attachment_blob': sqlRec.attachment_blob\n    }\n    \n    // Create copy of fields - starts with an '_' \n    Object.keys(sqlRec.tiddler).forEach(fld => {\n        mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n    })\n\n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 110,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "9163b93163fb2f63",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 480,
+        "y": 110,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "21f095d2861301b4",
+        "type": "from-twiki",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "",
+        "twikiName": "$twmws.wiki",
+        "toTwikiName": "$tw.wiki",
+        "resetOnDeploy": false,
+        "inputTask": "no operation",
+        "outputFormat": "tiddlers",
+        "field": "payload",
+        "networkfield": "network.client.tiddlers",
+        "useListener": true,
+        "filter": "[all[]]",
+        "file": "",
+        "topic": "",
+        "outputs": 2,
+        "tostory": "false",
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 340,
+        "y": 430,
+        "wires": [
+            [
+                "522cb235280a4770"
+            ],
+            [
+                "768f844c5fccb16e"
+            ]
+        ]
+    },
+    {
+        "id": "768f844c5fccb16e",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6e441c64444b6a03",
+        "name": "Show 'change' event",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 450,
+        "wires": []
+    },
+    {
+        "id": "3b18349a87ce690e",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-tiddler",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'get-bag-tiddler'\nconst bag = cmdparts[2];\nconst title = cmdparts[3];\n\nvar sqlTiddlers = [];\n\n// Create a JSON tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\nlet sqlRec = $tw.mws.store.getBagTiddler(title, bag);\nlet mwsTiddler = {\n    title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n    tags: `mws/bag/${bag}`,\n    type: 'application/json',\n    text: JSON.stringify(sqlRec, null, 2),\n    '_tiddler_id': sqlRec.tiddler_id,\n    '_attachment_blob': sqlRec.attachment_blob\n}\n\n// Create copy of fields - starts with an '_' \nObject.keys(sqlRec.tiddler).forEach(fld => {\n    mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n})\n\nsqlTiddlers.push(mwsTiddler);\n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "f9c80517ae13c8cf"
+            ]
+        ]
+    },
+    {
+        "id": "f5b93207634dcb4e",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "a166218ea71ed636",
+        "name": "Add tiddler",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "3a6b271953bdceb4"
+            ]
+        ]
+    },
+    {
+        "id": "3a6b271953bdceb4",
+        "type": "to-twiki",
+        "z": "3a98d4a7cc479175",
+        "g": "a166218ea71ed636",
+        "name": "",
+        "twikiName": "$twmws.wiki",
+        "fromTwikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "resetOnDeploy": false,
+        "inputTask": "addTiddlers",
+        "outputFormat": "passthru",
+        "networkfield": "network.client.tiddlers",
+        "useListener": false,
+        "filter": "[all[]]",
+        "topic": "",
+        "outputs": 1,
+        "template": "title: A test tiddler\n\nThis tiddler will be sent to\n'$twmws.wiki' and cause a 'change'\nevent to fire which will be\ndisplayed in the Debug Panel.\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 350,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9c80517ae13c8cf",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "b02919314cae4401",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "g": "6d2af1f4e0cac737",
+        "name": "$twmws » debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "$twmws",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "a776f27ccc78d7f8",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "6d2af1f4e0cac737",
+        "name": "Get $twmws object",
+        "props": [
+            {
+                "p": "$twmws",
+                "v": "$twmws",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 270,
+        "wires": [
+            [
+                "b02919314cae4401"
+            ]
+        ]
+    },
+    {
         "id": "932443ea64b11fd0",
         "type": "edit-tiddlers",
         "z": "9434cba69ba3166b",
@@ -10061,7 +10254,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 360,
+        "x": 480,
         "y": 40,
         "wires": [
             [
@@ -10086,11 +10279,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 230,
+        "x": 150,
         "y": 40,
         "wires": [
             [
-                "5d63d00a9b25b2ed"
+                "eb95b693bb3411d6"
             ]
         ]
     },
@@ -10111,7 +10304,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 230,
+        "x": 150,
         "y": 80,
         "wires": [
             [
@@ -10142,7 +10335,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 360,
+        "x": 480,
         "y": 80,
         "wires": [
             [
@@ -10270,7 +10463,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 125,
+        "x": 45,
         "y": 60,
         "wires": [
             [
@@ -10289,7 +10482,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 475,
+        "x": 605,
         "y": 60,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -10328,6 +10521,51 @@
         "libs": [],
         "x": 240,
         "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e073e5f529ae927",
+        "type": "inject",
+        "z": "9434cba69ba3166b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb95b693bb3411d6",
+        "type": "function",
+        "z": "9434cba69ba3166b",
+        "name": "function 3",
+        "func": "const twrepl = global.get('twrepl');\ntwrepl.submit(`showObj(${JSON.stringify(msg)})\\n`);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 40,
         "wires": [
             []
         ]

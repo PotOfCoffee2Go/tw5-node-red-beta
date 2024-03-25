@@ -49,6 +49,9 @@ const { $tw, outDir } = bootmain.tiddlywiki(twOutput);
 const { $twsync, syncDir } = bootsync.tiddlywiki(twsyncOutput);
 const { $twmws, mwsDir } = bootmws.tiddlywiki(twmwsOutput);
 
+// The REPL starts after node-red
+const twrepl = require('./src/repl/twrepl');
+
 // Create twiki object
 // Add the TiddlyWikis active stores (wikis)
 const twikis = {
@@ -571,10 +574,11 @@ module.exports = {
         bcrypt: require('bcrypt'),
 
         allowAnon,
-        // TiddlyWiki modules, sync server, and objects required for TiddlyWiki interface
+        // TiddlyWiki modules, sync server, REPL and objects required for TiddlyWiki interface
         $tw, outDir,
         syncServer, $twsync, syncDir,
         mwsServer, $twmws, mwsDir,
+        twrepl,
         twikis, clientIds: {},
     },
 
