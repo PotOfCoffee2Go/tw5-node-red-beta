@@ -1,5 +1,5 @@
 created: 20240106174823357
-modified: 20240318093909212
+modified: 20240326034534387
 tags: 
 title: Test TiddlyWiki « Node-Red » MWS
 type: text/vnd.tiddlywiki
@@ -96,6 +96,10 @@ Get and show <$button actions="<<node-red 'mws/get-bag-tiddler/bag-alpha/😀�
 ```
 
 Go to the <$button to='Multi Wiki Server'> Multi Wiki Server </$button> and add a tiddler to bag-alpha ( recipe-tau ) then come back here and press the <$button actions="<<node-red 'mws/get-bag-all/bag-alpha'>>" > get bag-alpha tiddlers </$button> again and will show up in the list.
+
+| Get tiddlers from recipe |<$edit-text field="recipe"/>| <$button actions="<<node-red 'mws/get-recipe-tiddlers/'>>" > Submit </$button> |
+
+
 
 !!! Here in-lies the issue
 > That should happen ''automatically''- But Node-Red does not have a method to let it know the SQL database has been updated by Multi Wiki Server, thus can not send the tiddler to this wiki. If there were an event/method - then Node-Red would read the SQL database and publish the new tiddler to this wiki automatically.

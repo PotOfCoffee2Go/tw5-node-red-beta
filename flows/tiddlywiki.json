@@ -911,8 +911,8 @@
             "768f844c5fccb16e",
             "a166218ea71ed636"
         ],
-        "x": 38,
-        "y": 327,
+        "x": 798,
+        "y": 317,
         "w": 708,
         "h": 280
     },
@@ -928,10 +928,29 @@
             "b02919314cae4401",
             "a776f27ccc78d7f8"
         ],
-        "x": 94,
-        "y": 229,
+        "x": 854,
+        "y": 219,
         "w": 482,
         "h": 82
+    },
+    {
+        "id": "1b95b4adfdeca38e",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "name": " \\n TW REPL \\n Interactive access from console",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "759dce2ea0c90c1e"
+        ],
+        "x": 168,
+        "y": 1661,
+        "w": 441,
+        "h": 166
     },
     {
         "id": "49f363e05e815a85",
@@ -1385,29 +1404,10 @@
             "f5b93207634dcb4e",
             "3a6b271953bdceb4"
         ],
-        "x": 64,
-        "y": 483,
+        "x": 824,
+        "y": 473,
         "w": 462,
         "h": 98
-    },
-    {
-        "id": "1b95b4adfdeca38e",
-        "type": "group",
-        "z": "eb845b8cbc7ac49a",
-        "name": " \\n TW REPL \\n Interactive access from console",
-        "style": {
-            "label": true,
-            "fill": "#3f93cf",
-            "color": "#ffff00",
-            "label-position": "n"
-        },
-        "nodes": [
-            "759dce2ea0c90c1e"
-        ],
-        "x": 168,
-        "y": 1661,
-        "w": 441,
-        "h": 166
     },
     {
         "id": "759dce2ea0c90c1e",
@@ -3640,8 +3640,8 @@
         "name": "Broadcast msg",
         "links": [
             "04895925eade208c",
-            "761190764f5f719c",
-            "4b91c609998debc8"
+            "4b91c609998debc8",
+            "761190764f5f719c"
         ],
         "x": 300,
         "y": 1040,
@@ -3769,7 +3769,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "0.1",
+        "onceDelay": "1.5",
         "topic": "",
         "x": 300,
         "y": 1760,
@@ -9874,7 +9874,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 595,
+        "x": 655,
         "y": 130,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -9898,19 +9898,28 @@
                 "v": "^mws\\/get-bag-tiddler\\/.*$",
                 "vt": "str",
                 "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/get-recipe-tiddlers\\/.*$",
+                "vt": "str",
+                "case": false
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 120,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
                 "28a27f5b6c9508b4"
             ],
             [
                 "3b18349a87ce690e"
+            ],
+            [
+                "317c61f2e976b9d5"
             ]
         ]
     },
@@ -9931,8 +9940,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "MWS $tw.wiki",
-        "x": 160,
-        "y": 430,
+        "x": 920,
+        "y": 420,
         "wires": [
             [
                 "21f095d2861301b4"
@@ -9953,8 +9962,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 400,
+        "x": 1360,
+        "y": 390,
         "wires": []
     },
     {
@@ -9962,7 +9971,7 @@
         "type": "function",
         "z": "3a98d4a7cc479175",
         "name": "get-bag-all",
-        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n \nvar options = { databasePath: '/home/poc2gopi/Documents/sites/tw5-node-red-beta/public/mws/store/database.sqlite' };\nvar mwsStore = undefined;\n$tw.modules.forEachModuleOfType(\"library\",function(title,module) {\n    if (title.indexOf('mws-tiddler-store') > -1) {\n        console.log(title,module);\n        mwsStore = new module.MwsTiddlerStore(options);\n        console.dir(mwsStore);\n    }\n});\n/*\nconst rows = $tw.mws.store.sqlTiddlerDatabase.engine.runStatementGetAll(`\n\t\tSELECT bag_name, bag_id, accesscontrol, description\n\t\tFROM bags\n\t\tORDER BY bag_name\n\t`);\n\nconsole.dir(rows);\n*/\n\nvar sqlTiddlers = [];\nvar titles = $tw.mws.store.getBagTiddlers(bag);\n\n// Create a JSON tiddler of each tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\ntitles.forEach((title) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2),\n        '_tiddler_id': sqlRec.tiddler_id,\n        '_attachment_blob': sqlRec.attachment_blob\n    }\n    \n    // Create copy of fields - starts with an '_' \n    Object.keys(sqlRec.tiddler).forEach(fld => {\n        mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n    })\n\n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n\nvar sqlTiddlers = [];\nvar tiddlers = $tw.mws.store.getBagTiddlers(bag);\n// Create a JSON tiddler of each tiddler from SQL database\ntiddlers.forEach((tiddler) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(tiddler.title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2)\n    }\n    \n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10000,7 +10009,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 480,
+        "x": 540,
         "y": 110,
         "wires": [
             [
@@ -10034,8 +10043,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 340,
-        "y": 430,
+        "x": 1100,
+        "y": 420,
         "wires": [
             [
                 "522cb235280a4770"
@@ -10059,8 +10068,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 450,
+        "x": 1360,
+        "y": 440,
         "wires": []
     },
     {
@@ -10100,8 +10109,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 540,
+        "x": 930,
+        "y": 530,
         "wires": [
             [
                 "3a6b271953bdceb4"
@@ -10136,8 +10145,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 350,
-        "y": 540,
+        "x": 1110,
+        "y": 530,
         "wires": [
             []
         ]
@@ -10165,7 +10174,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 480,
+        "x": 540,
         "y": 160,
         "wires": [
             [
@@ -10187,8 +10196,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 270,
+        "x": 1200,
+        "y": 260,
         "wires": []
     },
     {
@@ -10209,13 +10218,70 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 230,
-        "y": 270,
+        "x": 990,
+        "y": 260,
         "wires": [
             [
                 "b02919314cae4401"
             ]
         ]
+    },
+    {
+        "id": "317c61f2e976b9d5",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-recipe-tiddlers",
+        "func": "const $tw = global.get('$twmws');\nconst store = $tw.mws.store;\n\nvar tiddlers = [];\n\nvar currentTiddler = msg.network.client.sender[0];\nvar recipe = currentTiddler.recipe\n\nvar recipeTiddlerList = store.getRecipeTiddlers(currentTiddler.recipe);\nrecipeTiddlerList.forEach(recipe => {\n    tiddlers.push(store.getRecipeTiddler(recipe.title, currentTiddler.recipe).tiddler)\n})\nmsg.payload = tiddlers; \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 210,
+        "wires": [
+            [
+                "48a6855f24350c5d",
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "11b501717603bf5f",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 270,
+        "wires": [
+            [
+                "317c61f2e976b9d5"
+            ]
+        ]
+    },
+    {
+        "id": "48a6855f24350c5d",
+        "type": "debug",
+        "z": "3a98d4a7cc479175",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 310,
+        "wires": []
     },
     {
         "id": "932443ea64b11fd0",

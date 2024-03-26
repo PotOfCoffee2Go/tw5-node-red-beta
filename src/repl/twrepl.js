@@ -125,6 +125,7 @@ function resetContext() {
 	runtime.context.global = global;
 	runtime.context.$tw = $tw;
 	runtime.context.$twsync = $twsync;
+	runtime.context.$twmws = $twmws;
 	runtime.context.twikis = twikis;
 	runtime.context.clientIds = clientIds;
 
@@ -154,6 +155,13 @@ function startRepl() {
 
 function sendTiddlers(clientid, tiddlers, tostory) {
 	var storylist = [];
+	if (clientid === 'all') {
+		var allIds = [];
+		for(let cid in clientIds) {
+			allIds.push(cid);
+		}
+		clientid = allIds;
+	}
 	if (!Array.isArray(clientid)) { clientid = [clientid]; };
 	if (!Array.isArray(tiddlers)) { tiddlers = [tiddlers]; };
 	if (tostory) {
@@ -177,16 +185,18 @@ function sendTiddlers(clientid, tiddlers, tostory) {
 		$tw.wiki.getModificationFields(),
 		{title, text}
 	))
+	return {clientid, tiddlers, tostory};
 }
 
 // -------------------
 // -------------------
 // Startup
-var RED, global, $tw, $twsync, twikis, clientIds;
+var global, $tw, $twsync, $twmws, twikis, clientIds;
 function startup (_global) {
 	global = _global;
 	$tw = global.get('$tw');
 	$twsync = global.get('$twsync');
+	$twmws = global.get('$twmws');
 	twikis = global.get('twikis');
 	clientIds = global.get('clientIds');
 
