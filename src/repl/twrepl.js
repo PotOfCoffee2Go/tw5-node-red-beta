@@ -106,13 +106,10 @@ const cmdr = {
 // Node'js REPL
 // Place $tw in REPL context so can be referenced
 function resetContext() {
-
 	runtime.context.tnr_context = tnr_context;
-	runtime.context.$tw = $tw;
-	runtime.context.$twsync = $twsync;
-	runtime.context.$twmws = $twmws;
-	runtime.context.twikis = twikis;
-	runtime.context.clientIds = clientIds;
+	tnr_context.keys().forEach(key => {
+		runtime.context[key] = tnr_context.get(key);
+	})
 
 	runtime.context.sendTiddlers = sendTiddlers;
 
@@ -176,14 +173,9 @@ function sendTiddlers(clientid, tiddlers, tostory) {
 // -------------------
 // -------------------
 // Startup
-var tnr_context, $tw, $twsync, $twmws, twikis, clientIds;
+var tnr_context;
 function startup (_tnr_context) {
 	tnr_context = _tnr_context;
-	$tw = tnr_context.get('$tw');
-	$twsync = tnr_context.get('$twsync');
-	$twmws = tnr_context.get('$twmws');
-	twikis = tnr_context.get('twikis');
-	clientIds = tnr_context.get('clientIds');
 
 	// Show prompt when startup done
 	setTimeout(() => {
@@ -196,8 +188,6 @@ function startup (_tnr_context) {
 		colour.log('Startup REPL\n', 75);
 		colour.log('-------------------\n',75);
 		startRepl();
-		submit('{ versions: { $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }}\n');
-		submit('Object.keys(twikis)\n');
 		submit(`help.intro()\n`);
 	}, 2000);
 }

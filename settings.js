@@ -25,8 +25,10 @@
 
 // REMOVE WHEN IN PRODUCTION - REINITIALIZES SQL DATABASE!!!
 const sqlitePath = './public/mws/store/database.sqlite';
-require('node:fs').unlinkSync(sqlitePath);
-console.log(`Successfully deleted ${sqlitePath}\n`);
+try {
+    require('node:fs').unlinkSync(sqlitePath);
+    console.log(`Successfully deleted ${sqlitePath}\n`);
+} catch(e) {}
 
 /*******************************************************************************
  * TW5-Node-RED startup options

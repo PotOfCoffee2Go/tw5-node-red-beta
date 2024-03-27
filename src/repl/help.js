@@ -1,23 +1,25 @@
 var colour, submit, prompt;
 
-function Help(_colour, _submit, _prompt) {
+exports.Help = (_colour, _submit, _prompt) => {
 	colour = _colour;
 	submit = _submit;
 	prompt = _prompt;
 	return this;
 };
 
-const intro = () => {
+exports.intro = () => {
 	submit('', [
-		'Welcome to TW5-Node-RED\n',
-		'This REPL has access to the complete system',
+		'\nWelcome to TW5-Node-RED\n',
+		'This REPL has online access to the system',
 		'See http://localhost:1880/svr/wiki/notebook.html?mws=intro',
-		' for more information'
+		' for more information\n',
+		'help.status() to see common values\n'
 		].join('\n')
 	);
 }
 
-module.exports = {
-	Help: Help,
-	intro: intro,
+exports.status = () => {
+		submit('{ versions: { $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }}\n');
+		submit('{ "Node-RED global context": tnr_context.keys().sort() }\n');
+		submit('{ twikis:Object.keys(twikis).sort() }\n');
 }
