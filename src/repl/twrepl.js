@@ -78,21 +78,6 @@ function runTests() {
 }
 
 // -------------------
-// Remove database.sqlite
-const { unlink } = require('node:fs/promises');
-async function removeStoreDb() {
-  try {
-	const path = './public/mws/store/database.sqlite';
-    await unlink(path);
-    colour.log(`Successfully deleted ${path}\n\n`,130);
-  } catch (error) {
-	  if (error.errno !== -2) {
-		console.dir(error);
-	}
-  }
-}
-
-// -------------------
 // Who are we?
 //const pkg = require('./package.json');
 function intro() {
@@ -211,15 +196,10 @@ function startup (_tnr_context) {
 		colour.log('Startup REPL\n', 75);
 		colour.log('-------------------\n',75);
 		startRepl();
-		submit('$tw.version\n');
-		submit('$twsync.version\n');
+		submit('{ versions: { $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }}\n');
 		submit('Object.keys(twikis)\n');
 		submit(`help.intro()\n`);
 	}, 2000);
-}
-
-function launchRepl(global) {
-//	removeStoreDb().then(() => startup(global));
 }
 
 module.exports = {
