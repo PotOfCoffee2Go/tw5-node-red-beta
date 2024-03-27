@@ -13,9 +13,10 @@
     "node-red": "^3.1.7",
     "node-red-contrib-uibuilder": "~6.4.1",
     "tiddlywiki": "^5.3.3",
-    "tiddlywikimws": "https://github.com/Jermolene/TiddlyWiki5.git#multi-wiki-support"
+    "tiddlywikimws": "file:../TiddlyWiki5"
   },
   "devflows": {
+    "tiddlywikimws": "https://github.com/Jermolene/TiddlyWiki5.git#multi-wiki-support",
     "node-red-contrib-users": "^0.1.10",
     "tiddlywiki": "^5.3.3"
   },

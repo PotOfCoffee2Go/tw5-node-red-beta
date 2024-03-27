@@ -122,7 +122,7 @@ const cmdr = {
 // Place $tw in REPL context so can be referenced
 function resetContext() {
 
-	runtime.context.global = global;
+	runtime.context.tnr_context = tnr_context;
 	runtime.context.$tw = $tw;
 	runtime.context.$twsync = $twsync;
 	runtime.context.$twmws = $twmws;
@@ -191,14 +191,14 @@ function sendTiddlers(clientid, tiddlers, tostory) {
 // -------------------
 // -------------------
 // Startup
-var global, $tw, $twsync, $twmws, twikis, clientIds;
-function startup (_global) {
-	global = _global;
-	$tw = global.get('$tw');
-	$twsync = global.get('$twsync');
-	$twmws = global.get('$twmws');
-	twikis = global.get('twikis');
-	clientIds = global.get('clientIds');
+var tnr_context, $tw, $twsync, $twmws, twikis, clientIds;
+function startup (_tnr_context) {
+	tnr_context = _tnr_context;
+	$tw = tnr_context.get('$tw');
+	$twsync = tnr_context.get('$twsync');
+	$twmws = tnr_context.get('$twmws');
+	twikis = tnr_context.get('twikis');
+	clientIds = tnr_context.get('clientIds');
 
 	// Show prompt when startup done
 	setTimeout(() => {

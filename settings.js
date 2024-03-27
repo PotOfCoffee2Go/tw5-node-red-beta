@@ -23,9 +23,9 @@
 
 // REMOVE WHEN IN PRODUCTION!!!
 const sqlitePath = './public/mws/store/database.sqlite';
-require('node:fs').unlinkSync(sqlitePath);
-require('node:fs').unlinkSync('./package-lock.json');
-console.log(`Successfully deleted ${sqlitePath}\n`);
+//require('node:fs').unlinkSync(sqlitePath);
+//require('node:fs').unlinkSync('./package-lock.json');
+//console.log(`Successfully deleted ${sqlitePath}\n`);
 
 // Allow users to view site without logging on
 // false = Authorization required to see site
