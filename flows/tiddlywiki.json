@@ -270,12 +270,16 @@
             "628aab7aaefe715e",
             "e4714903c559cb33",
             "edc0b050e5af6de4",
-            "f384e29897040b4b"
+            "f384e29897040b4b",
+            "f69ecb30fb65d53c",
+            "e9c96a17d3f117a8",
+            "5888fc4a0550ddd7",
+            "2527a39d14a230a5"
         ],
         "x": 104,
         "y": 39,
-        "w": 812,
-        "h": 222
+        "w": 822,
+        "h": 272
     },
     {
         "id": "c118b47258277fd0",
@@ -563,7 +567,7 @@
             "62c3e92ae0762df5"
         ],
         "x": 168,
-        "y": 313,
+        "y": 343,
         "w": 744,
         "h": 274
     },
@@ -1424,7 +1428,7 @@
             "407b772f0f144186"
         ],
         "x": 194,
-        "y": 429,
+        "y": 459,
         "w": 692,
         "h": 132
     },
@@ -1548,6 +1552,33 @@
         "wires": [
             [
                 "9a19c39ceaa81097"
+            ]
+        ]
+    },
+    {
+        "id": "e9c96a17d3f117a8",
+        "type": "junction",
+        "z": "304338a4b9f89088",
+        "g": "d57af1ba9d807a6e",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "628aab7aaefe715e",
+                "f69ecb30fb65d53c"
+            ]
+        ]
+    },
+    {
+        "id": "2527a39d14a230a5",
+        "type": "junction",
+        "z": "304338a4b9f89088",
+        "g": "d57af1ba9d807a6e",
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "80f6cc12c651bec8"
             ]
         ]
     },
@@ -5046,7 +5077,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 710,
+        "x": 720,
         "y": 90,
         "wires": [
             [
@@ -5064,8 +5095,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 875,
-        "y": 120,
+        "x": 885,
+        "y": 150,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5098,7 +5129,7 @@
         "wires": [
             [
                 "80f6cc12c651bec8",
-                "628aab7aaefe715e"
+                "e9c96a17d3f117a8"
             ]
         ]
     },
@@ -5112,7 +5143,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 245,
-        "y": 370,
+        "y": 400,
         "wires": [
             [
                 "2980cdfa0cd44104"
@@ -5140,7 +5171,7 @@
         "repair": false,
         "outputs": 1,
         "x": 370,
-        "y": 370,
+        "y": 400,
         "wires": [
             [
                 "62c3e92ae0762df5"
@@ -5166,7 +5197,7 @@
         "repair": false,
         "outputs": 1,
         "x": 290,
-        "y": 220,
+        "y": 270,
         "wires": [
             [
                 "e4714903c559cb33"
@@ -5206,7 +5237,7 @@
         "to": "",
         "reg": false,
         "x": 460,
-        "y": 220,
+        "y": 270,
         "wires": [
             [
                 "edc0b050e5af6de4"
@@ -5224,7 +5255,7 @@
             "96d69fda963f66a2"
         ],
         "x": 660,
-        "y": 220,
+        "y": 270,
         "wires": [],
         "l": true
     },
@@ -5236,7 +5267,7 @@
         "name": "twsync site",
         "links": [],
         "x": 280,
-        "y": 490,
+        "y": 520,
         "wires": [
             [
                 "14477b22c78480b3"
@@ -5253,7 +5284,7 @@
         "mode": "return",
         "links": [],
         "x": 845,
-        "y": 500,
+        "y": 530,
         "wires": []
     },
     {
@@ -5270,7 +5301,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 490,
+        "y": 520,
         "wires": [
             [
                 "407b772f0f144186"
@@ -5309,7 +5340,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 720,
-        "y": 520,
+        "y": 550,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5330,7 +5361,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 470,
+        "y": 500,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5367,7 +5398,7 @@
             "96d69fda963f66a2"
         ],
         "x": 720,
-        "y": 370,
+        "y": 400,
         "wires": [],
         "l": true
     },
@@ -5392,10 +5423,68 @@
         "to": "",
         "reg": false,
         "x": 530,
-        "y": 370,
+        "y": 400,
         "wires": [
             [
                 "55476bca421eb07a"
+            ]
+        ]
+    },
+    {
+        "id": "f69ecb30fb65d53c",
+        "type": "switch",
+        "z": "304338a4b9f89088",
+        "g": "d57af1ba9d807a6e",
+        "name": "notebook.html?",
+        "property": "network.meta.location.pathname",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "notebook.html",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "5888fc4a0550ddd7"
+            ]
+        ]
+    },
+    {
+        "id": "5888fc4a0550ddd7",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "d57af1ba9d807a6e",
+        "name": "remove page controls",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/poc2go/ui/PageTemplate/pagecontrols\ncreated: 20231115040521068\nfetched: 20240327073029843\nmodified: 20231230104304763\ntags: \ntype: text/vnd.tiddlywiki\n\n<div style=\"float: right;\">[[Notebook theme]] by saqimtiaz @ [[talk tiddlywiki|https://talk.tiddlywiki.org/]]</div>\n\n+======+\ntitle: $:/palette\n\n$:/themes/nico/notebook/palettes/palette-grey\n",
+        "clear": true,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "2527a39d14a230a5"
             ]
         ]
     },

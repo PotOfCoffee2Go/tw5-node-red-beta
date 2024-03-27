@@ -1,9 +1,9 @@
 created: 20240101193236151
 list: [[Sub tiddler of home]]
-modified: 20240325094256784
+modified: 20240327090605911
 mustache: yes
 tags: TableOfContents
 title: Home
 type: text/vnd.tiddlywiki
 
-!!! Welcome {% network.user.username %} to
+!!! Welcome {% network.user.username %}

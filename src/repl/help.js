@@ -12,7 +12,7 @@ const intro = () => {
 		'Welcome to TW5-Node-RED\n',
 		'This REPL has access to the complete system',
 		'See http://localhost:1880/svr/wiki/notebook.html?mws=intro',
-		'for more information'
+		' for more information'
 		].join('\n')
 	);
 }
