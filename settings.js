@@ -11,7 +11,9 @@
  *    https://nodered.org/docs/user-guide/runtime/configuration
  *
  * The settings are split into the following sections:
- *  - TiddlyWiki main and sync server modules
+ *  - TW5-Node-RED startup options
+ *  - REPL and main, sync, and MWS TiddlyWiki modules
+ *  - Boot TiddlyWiki modules
  *  - Flow File and User Directory Settings
  *  - Security
  *  - Server Settings
@@ -21,49 +23,77 @@
  *
  **/
 
-// REMOVE WHEN IN PRODUCTION!!!
+// REMOVE WHEN IN PRODUCTION - REINITIALIZES SQL DATABASE!!!
 const sqlitePath = './public/mws/store/database.sqlite';
 require('node:fs').unlinkSync(sqlitePath);
 console.log(`Successfully deleted ${sqlitePath}\n`);
 
-// Allow users to view site without logging on
+/*******************************************************************************
+ * TW5-Node-RED startup options
+ *  - allowAnon
+ *  - syncServer
+ *  - mwsServer
+ *  - startupRepl
+ ******************************************************************************/
+
+// Allow users to view all sites without logging on
 // false = Authorization required to see site
 // true = Authorization not required - user will be 'Guest'
-// The site can provide 'sign in' buttons for users to
-//   sign in for access to secure parts of the site
-//   regardless of this setting
+// Note: Some applications require login to work properly - Chat for example
 var allowAnon = false;
 
 // Start TiddlyWiki 'server' edition sync server on startup?
 // Start TiddlyWiki 'multiwikiserver' edition on startup?
+// Start REPL on startup?
 var syncServer = true;
 var mwsServer = true;
+var startupRepl = true;
 
-// Directory which Tiddlywiki will use for output
-const twOutput = './tiddlywiki/twmain'; // default is './tiddlywiki/twmain'
-const twsyncOutput = './public/app/mwsTest'; // default is './tiddlywiki/twsync'
-const twmwsOutput = './public/mws'; // default is './tiddlywiki/twsync'
+/*******************************************************************************
+ * REPL and main, sync, and MWS TiddlyWiki modules
+ *  - twrepl
+ *  - twOutput
+ *  - twsyncOutput
+ *  - twmwsOutput
+ *  - bootmain
+ *  - bootsync
+ *  - bootmws
+ ******************************************************************************/
 
-// er store and 'server' edition sync server TiddlyWikis
+// The REPL started by Node-RED when Flows Started
+const twrepl = require('./src/repl/twrepl');
+
+// Directory which TiddlyWiki will use for output
+//  or where a TiddlyWiki edition resides
+const twOutput = './tiddlywiki/twmain';
+const twsyncOutput = './public/app/mwsTest';
+const twmwsOutput = './public/mws';
+
+// TiddlyWiki boot with preinstalled tiddlers
 const bootmain = require('./src/tiddlywiki/main/boot');
 const bootsync = require('./src/tiddlywiki/sync/boot');
 const bootmws = require('./src/tiddlywiki/mws/boot');
 
-// Boot the TiddlyWikis
+/*******************************************************************************
+ * Boot TiddlyWiki modules
+ *  - Boot and reference $tw objects and ouput directory paths
+ *  - Create Node-RED 'twikis' object (TW databases)
+ ******************************************************************************/
+
+// Boot and reference $tw objects and ouput directory paths
 const { $tw, outDir } = bootmain.tiddlywiki(twOutput);
 const { $twsync, syncDir } = bootsync.tiddlywiki(twsyncOutput);
 const { $twmws, mwsDir } = bootmws.tiddlywiki(twmwsOutput);
 
-// The REPL starts after node-red
-const twrepl = require('./src/repl/twrepl');
-
-// Create twiki object
-// Add the TiddlyWikis active stores (wikis)
+// Create 'twikis' object (TW databases)
+//  and add each TW instance active tiddler store
 const twikis = {
     '$tw.wiki': $tw.wiki,
     '$twsync.wiki': $twsync.wiki,
     '$twmws.wiki': $twmws.wiki
 };
+
+/*******************************************************************************/
 
 const path = require('path');
 
@@ -583,7 +613,7 @@ module.exports = {
         $tw, outDir,
         syncServer, $twsync, syncDir,
         mwsServer, $twmws, mwsDir,
-        twrepl,
+        twrepl, startupRepl,
         twikis, clientIds: {},
     },
 

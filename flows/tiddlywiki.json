@@ -4980,7 +4980,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 350,
+        "x": 320,
         "y": 150,
         "wires": [
             [
@@ -5124,7 +5124,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 710,
+        "x": 680,
         "y": 150,
         "wires": [
             [
@@ -5379,7 +5379,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 540,
+        "x": 510,
         "y": 150,
         "wires": [
             [

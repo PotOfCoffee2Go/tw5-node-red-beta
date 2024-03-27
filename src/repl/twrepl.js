@@ -38,7 +38,7 @@ const colour = {
 	txt: (txt='', fg=255, bg=0, efg=255, ebg=0) =>
 		`\x1b[38;5;${fg};48;5;${bg}m${txt}\x1b[38;5;${efg};48;5;${ebg}m`,
 }
-const prompt = colour.txt('$mws-repl> ',33,0,7,0);
+const prompt = colour.txt('$tnr-repl> ',33,0,7,0);
 const submit = (cmd, desc) => {
 	if (desc) {
 		if (desc === prompt) {
