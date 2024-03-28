@@ -182,13 +182,13 @@ var tnr_context;
 function startup (_tnr_context) {
 	tnr_context = _tnr_context;
 
-	// Show prompt when startup done
+	// Show prompt on Node-RED re-deploy
 	if (isStarted) {
 		setTimeout(() => { submit('', prompt); }, 500);
-		runtime.resetContext();
-		if (tnr_context.get('RED')) {
-			 tnr_context.get('RED').log.info('REPL context updated');
-		}
+//		runtime.resetContext();
+//		if (tnr_context.get('RED')) {
+//			 tnr_context.get('RED').log.info('REPL context updated');
+//		}
 		return;
 	}
 	isStarted = true;
