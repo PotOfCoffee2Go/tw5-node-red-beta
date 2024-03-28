@@ -138,6 +138,9 @@ function startRepl() {
 
 function sendTiddlers(clientid, tiddlers, tostory) {
 	var storylist = [];
+	const RED = tnr_context.get('RED');
+	const $tw = tnr_context.get('$tw');
+	const clientIds = tnr_context.get('clientIds');
 	if (clientid === 'all') {
 		var allIds = [];
 		for(let cid in clientIds) {
@@ -153,7 +156,7 @@ function sendTiddlers(clientid, tiddlers, tostory) {
 		})
 	}
 
-	var text = JSON.stringify({
+	var text = {
 		topic: 'server.tiddlers',
 		clientid,
 		network: {
@@ -161,14 +164,15 @@ function sendTiddlers(clientid, tiddlers, tostory) {
 			client: { topic: 'from.repl', sender: [{title: 'barebones'}], tiddlers: [] },
 			server: { topic: 'server.tiddlers', tiddlers, storylist }
 		}
-	});
-	const title = 'repl' + Math.random().toString().substr(-5);
-	twikis.twReplOut.addTiddler(new $tw.Tiddler(
-		$tw.wiki.getCreationFields(),
-		$tw.wiki.getModificationFields(),
-		{title, text}
-	))
-	return {clientid, tiddlers, tostory};
+	};
+
+	RED.nodes.eachNode( node => {
+		if (node.name === 'From REPL' && node.type === 'link out') {
+			RED.nodes.getNode(node.id).send(text);
+		}
+	})
+
+	return text;
 }
 
 // -------------------

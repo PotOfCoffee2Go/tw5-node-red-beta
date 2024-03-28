@@ -953,7 +953,7 @@
         "x": 28,
         "y": 1651,
         "w": 624,
-        "h": 282
+        "h": 216
     },
     {
         "id": "49f363e05e815a85",
@@ -1404,12 +1404,12 @@
             "265506fdf2a603b4",
             "939ecaec38f87e99",
             "6f8d6020ac601508",
-            "e38374b68c651556"
+            "50f83446f2797c3d"
         ],
         "x": 54,
         "y": 1709,
         "w": 572,
-        "h": 198
+        "h": 132
     },
     {
         "id": "e7370f616716a124",
@@ -1433,25 +1433,6 @@
         "y": 459,
         "w": 692,
         "h": 132
-    },
-    {
-        "id": "e38374b68c651556",
-        "type": "group",
-        "z": "eb845b8cbc7ac49a",
-        "g": "759dce2ea0c90c1e",
-        "name": "Although looks like does nothing... \\n This node insures RED is sent to REPL",
-        "style": {
-            "label": true,
-            "label-position": "n",
-            "color": "#ffbfbf"
-        },
-        "nodes": [
-            "8b9862a1e3ffaded"
-        ],
-        "x": 224,
-        "y": 1783,
-        "w": 252,
-        "h": 98
     },
     {
         "id": "7c48a995b12f0315",
@@ -3693,7 +3674,8 @@
         "links": [
             "04895925eade208c",
             "4b91c609998debc8",
-            "761190764f5f719c"
+            "761190764f5f719c",
+            "12e40b95916cf04e"
         ],
         "x": 300,
         "y": 1040,
@@ -3875,29 +3857,19 @@
         ]
     },
     {
-        "id": "8b9862a1e3ffaded",
-        "type": "get-network",
+        "id": "50f83446f2797c3d",
+        "type": "link out",
         "z": "eb845b8cbc7ac49a",
-        "g": "e38374b68c651556",
-        "name": "Get RED reference",
-        "topic": "",
-        "networkfield": "network.client.tiddlers",
-        "filter": "[all[]]",
-        "twikiName": "$tw.wiki",
-        "field": "",
-        "file": "",
-        "settingsIsOpen": false,
-        "toIsOpen": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 340,
-        "y": 1840,
-        "wires": [
-            []
+        "g": "759dce2ea0c90c1e",
+        "name": "From REPL",
+        "mode": "link",
+        "links": [
+            "e8a806f7958334f7"
         ],
-        "icon": "node-red/batch.svg"
+        "x": 150,
+        "y": 1800,
+        "wires": [],
+        "l": true
     },
     {
         "id": "509b906f53cc0bc2",
@@ -10727,50 +10699,34 @@
         ]
     },
     {
-        "id": "da93ca8dbcfdb636",
-        "type": "function",
+        "id": "e8a806f7958334f7",
+        "type": "link in",
         "z": "9434cba69ba3166b",
-        "name": "function 4",
-        "func": "const twEmitter = global.get('twEmitter');\nconst twrepl = global.get('twrepl');\n\ntwrepl.submit('help.intro()\\n',\n    'This is from Node-RED'\n)\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "be6955d5400867dd",
-        "type": "inject",
-        "z": "9434cba69ba3166b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "name": "REPL",
+        "links": [
+            "50f83446f2797c3d"
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 380,
+        "x": 130,
+        "y": 390,
         "wires": [
             [
-                "da93ca8dbcfdb636"
+                "12e40b95916cf04e"
             ]
-        ]
+        ],
+        "l": true
+    },
+    {
+        "id": "12e40b95916cf04e",
+        "type": "link out",
+        "z": "9434cba69ba3166b",
+        "name": "Broadcast msg",
+        "mode": "link",
+        "links": [
+            "85f96a4f808488c5"
+        ],
+        "x": 300,
+        "y": 390,
+        "wires": [],
+        "l": true
     }
 ]

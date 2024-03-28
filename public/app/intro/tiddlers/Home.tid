@@ -1,9 +1,17 @@
+caption: Welcome
 created: 20240101193236151
 list: [[Sub tiddler of home]]
-modified: 20240327090605911
+modified: 20240328061109658
 mustache: yes
 tags: TableOfContents
 title: Home
 type: text/vnd.tiddlywiki
 
 !!! Welcome {% network.user.username %}
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""git clone https://github.com/PotOfCoffee2Go/tw5-node-red-beta.git
+cd tw5-node-red-beta
+npm install
+"""/>
+
+

@@ -34,7 +34,6 @@ module.exports = function(RED) {
 		RED.nodes.createNode(this, n);
 		const node = this;
 		const ctx = this.context();
-		if (!ctx.global.get('RED')) { ctx.global.set('RED', RED); }
 		const $tw = ctx.global.get('$tw');
 		const twikis = ctx.global.get('twikis');
 
