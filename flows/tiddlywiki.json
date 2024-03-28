@@ -638,7 +638,7 @@
             "d8d9252f34c0e3a9"
         ],
         "x": 34,
-        "y": 647,
+        "y": 737,
         "w": 682,
         "h": 154
     },
@@ -950,10 +950,10 @@
         "nodes": [
             "759dce2ea0c90c1e"
         ],
-        "x": 98,
+        "x": 28,
         "y": 1651,
-        "w": 654,
-        "h": 166
+        "w": 624,
+        "h": 282
     },
     {
         "id": "49f363e05e815a85",
@@ -1403,12 +1403,13 @@
         "nodes": [
             "265506fdf2a603b4",
             "939ecaec38f87e99",
-            "6f8d6020ac601508"
+            "6f8d6020ac601508",
+            "e38374b68c651556"
         ],
-        "x": 124,
+        "x": 54,
         "y": 1709,
-        "w": 602,
-        "h": 82
+        "w": 572,
+        "h": 198
     },
     {
         "id": "e7370f616716a124",
@@ -1432,6 +1433,25 @@
         "y": 459,
         "w": 692,
         "h": 132
+    },
+    {
+        "id": "e38374b68c651556",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "Although looks like does nothing... \\n This node insures RED is sent to REPL",
+        "style": {
+            "label": true,
+            "label-position": "n",
+            "color": "#ffbfbf"
+        },
+        "nodes": [
+            "8b9862a1e3ffaded"
+        ],
+        "x": 224,
+        "y": 1783,
+        "w": 252,
+        "h": 98
     },
     {
         "id": "7c48a995b12f0315",
@@ -2465,7 +2485,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 1130,
+        "y": 1120,
         "wires": []
     },
     {
@@ -3801,9 +3821,9 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": "0.1",
         "topic": "",
-        "x": 230,
+        "x": 160,
         "y": 1750,
         "wires": [
             [
@@ -3817,14 +3837,14 @@
         "z": "eb845b8cbc7ac49a",
         "g": "759dce2ea0c90c1e",
         "name": "Update REPL",
-        "func": "const twrepl = global.get('twrepl');\ntwrepl.startup(global);\nnode.log(`REPL context updated`);\n\nreturn msg;",
+        "func": "const twrepl = global.get('twrepl');\ntwrepl.startup(global);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 520,
         "y": 1750,
         "wires": [
             []
@@ -3846,13 +3866,38 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 420,
+        "x": 330,
         "y": 1750,
         "wires": [
             [
                 "939ecaec38f87e99"
             ]
         ]
+    },
+    {
+        "id": "8b9862a1e3ffaded",
+        "type": "get-network",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e38374b68c651556",
+        "name": "Get RED reference",
+        "topic": "",
+        "networkfield": "network.client.tiddlers",
+        "filter": "[all[]]",
+        "twikiName": "$tw.wiki",
+        "field": "",
+        "file": "",
+        "settingsIsOpen": false,
+        "toIsOpen": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 340,
+        "y": 1840,
+        "wires": [
+            []
+        ],
+        "icon": "node-red/batch.svg"
     },
     {
         "id": "509b906f53cc0bc2",
@@ -4708,7 +4753,7 @@
             "379f3550af8b837e"
         ],
         "x": 130,
-        "y": 760,
+        "y": 850,
         "wires": [
             [
                 "c88f50c805560073"
@@ -4731,7 +4776,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 590,
-        "y": 720,
+        "y": 810,
         "wires": []
     },
     {
@@ -4763,7 +4808,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 590,
-        "y": 760,
+        "y": 850,
         "wires": [
             [
                 "6caff008aa37f65b"
@@ -4784,7 +4829,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 760,
+        "y": 850,
         "wires": [
             [
                 "5d85994367fc1ef4"
@@ -4804,7 +4849,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 140,
-        "y": 720,
+        "y": 810,
         "wires": [
             [
                 "48c4eb692312c061"
@@ -4840,7 +4885,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 340,
-        "y": 720,
+        "y": 810,
         "wires": [
             []
         ]
@@ -10629,7 +10674,7 @@
         "id": "c1fd410c50a20c73",
         "type": "function",
         "z": "9434cba69ba3166b",
-        "name": "function 1",
+        "name": "loadTiddlersFromPath",
         "func": "const $tw = global.get('$tw');\nconst defaultDir = global.get('defaultDir');\nconst wiki = new $tw.Wiki;\n\nvar tiddlers = $tw.loadTiddlersFromPath('./' + defaultDir);\nvar count = 0;\n\n$tw.utils.each(tiddlers, function (tiddlerInfo) {\n    $tw.utils.each(tiddlerInfo.tiddlers, function (tiddler) {\n        wiki.importTiddler(new $tw.Tiddler(tiddler));\n        count++;\n    });\n});\nmsg.count = count;\nmsg.payload = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -10637,8 +10682,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 220,
-        "y": 320,
+        "x": 230,
+        "y": 280,
         "wires": [
             [
                 "ff08cb9467d0e0af"
@@ -10664,7 +10709,43 @@
         ]
     },
     {
-        "id": "3e073e5f529ae927",
+        "id": "eb95b693bb3411d6",
+        "type": "function",
+        "z": "9434cba69ba3166b",
+        "name": "function 3",
+        "func": "const twrepl = global.get('twrepl');\ntwrepl.submit(`showObj(${JSON.stringify(msg)})\\n`);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da93ca8dbcfdb636",
+        "type": "function",
+        "z": "9434cba69ba3166b",
+        "name": "function 4",
+        "func": "const twEmitter = global.get('twEmitter');\nconst twrepl = global.get('twrepl');\n\ntwrepl.submit('help.intro()\\n',\n    'This is from Node-RED'\n)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be6955d5400867dd",
         "type": "inject",
         "z": "9434cba69ba3166b",
         "name": "",
@@ -10684,28 +10765,12 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 200,
         "y": 380,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "eb95b693bb3411d6",
-        "type": "function",
-        "z": "9434cba69ba3166b",
-        "name": "function 3",
-        "func": "const twrepl = global.get('twrepl');\ntwrepl.submit(`showObj(${JSON.stringify(msg)})\\n`);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 40,
-        "wires": [
-            []
+            [
+                "da93ca8dbcfdb636"
+            ]
         ]
     }
 ]

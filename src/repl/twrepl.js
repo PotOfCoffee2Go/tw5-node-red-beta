@@ -123,7 +123,8 @@ function resetContext() {
 // REPL runtime
 var runtime;
 function startRepl() {
-	runtime = require('node:repl').start({
+//	runtime = require('node:repl').start({
+	runtime = require('pretty-repl').start({
 			prompt: prompt, useColors: true,
 			ignoreUndefined: true, /*completer: completer*/
 	});
@@ -178,18 +179,22 @@ function startup (_tnr_context) {
 	tnr_context = _tnr_context;
 
 	// Show prompt when startup done
-	setTimeout(() => {
-		if (isStarted) {
-			setTimeout(() => { submit('', prompt); }, 500);
-			return;
+	if (isStarted) {
+		setTimeout(() => { submit('', prompt); }, 500);
+		runtime.resetContext();
+		if (tnr_context.get('RED')) {
+			 tnr_context.get('RED').log.info('REPL context updated');
 		}
-		isStarted = true;
+		return;
+	}
+	isStarted = true;
+	setTimeout(() => {
 		colour.log('-------------------\n',75);
 		colour.log('Startup REPL\n', 75);
 		colour.log('-------------------\n',75);
 		startRepl();
 		submit(`help.intro()\n`);
-	}, 2000);
+	},2000);
 }
 
 module.exports = {
