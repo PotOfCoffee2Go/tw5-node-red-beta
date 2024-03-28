@@ -54,7 +54,6 @@ var startupRepl = true;
 /*******************************************************************************
  * REPL and main, sync, and MWS TiddlyWiki modules
  *  - twrepl
- *  - twEmitter
  *  - twOutput
  *  - twsyncOutput
  *  - twmwsOutput
@@ -65,16 +64,6 @@ var startupRepl = true;
 
 // The REPL started by Node-RED when Flows Started
 const twrepl = require('./src/repl/twrepl');
-
-// A general purpose event emitter
-//  Can be used for any topic, data but normally
-//  sender
-//    emit('topic', tiddler_Or_tiddlerArray)
-//  receiver
-//    twEmitter.on('topic', function processTiddler(s) {})
-const { EventEmitter } = require("node:events");
-const twEmitter = new EventEmitter();
-
 
 // Directory which TiddlyWiki will use for output
 //  or where a TiddlyWiki edition resides
@@ -623,7 +612,6 @@ module.exports = {
 
         // TiddlyWiki modules, sync server, REPL and objects required for TiddlyWiki interface
         allowAnon,
-        twEmitter,
         $tw, outDir,
         syncServer, $twsync, syncDir,
         mwsServer, $twmws, mwsDir,
