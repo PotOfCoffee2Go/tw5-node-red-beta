@@ -1,13 +1,5 @@
 [
   {
     "title":"$:/config/SyncLogging","text":"no"
-  },
-  {
-    "created": "20240108092433059",
-    "text": "/*\\\ntitle: $:/core/modules/server/routes/get-file.js\ntype: application/javascript\nmodule-type: route\n\nGET /files/:filepath\n\n\\*/\n(function() {\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\nexports.method = \"GET\";\n\nexports.path = /^\\/app\\/\\w+\\/files\\/(.+)$/;\n\nexports.handler = function(request,response,state) {\n//\tconsole.log(state.boot.wikiPath.replace('./public','') );\n\tvar path = require(\"path\"),\n\t\tfs = require(\"fs\"),\n\t\tutil = require(\"util\"),\n\t\tsuppliedFilename = $tw.utils.decodeURIComponentSafe(state.params[0]),\n\t\tbaseFilename = path.resolve(state.boot.wikiPath,\"files\"),\n\t\tfilename = path.resolve(baseFilename,suppliedFilename),\n\t\textension = path.extname(filename);\n\t// Check that the filename is inside the wiki files folder\n\tif(path.relative(baseFilename,filename).indexOf(\"..\") !== 0) {\n\t\t// Send the file\n\t\tfs.readFile(filename,function(err,content) {\n\t\t\tvar status,content,type = \"text/plain\";\n\t\t\tif(err) {\n\t\t\t\tconsole.log(\"Error accessing file \" + filename + \": \" + err.toString());\n\t\t\t\tstatus = 404;\n\t\t\t\tcontent = \"File '\" + suppliedFilename + \"' not found\";\n\t\t\t} else {\n\t\t\t\tstatus = 200;\n\t\t\t\tcontent = content;\n\t\t\t\ttype = ($tw.config.fileExtensionInfo[extension] ? $tw.config.fileExtensionInfo[extension].type : \"application/octet-stream\");\n\t\t\t}\n\t\t\tstate.sendResponse(status,{\"Content-Type\": type},content);\n\t\t});\n\t} else {\n\t\tstate.sendResponse(404,{\"Content-Type\": \"text/plain\"},\"File '\" + suppliedFilename + \"' not found\");\n\t}\n};\n\n}());\n",
-    "title": "$:/core/modules/server/routes/get-file.js",
-    "type": "application/javascript",
-    "module-type": "route",
-    "modified": "20240108104023563"
   }
 ]

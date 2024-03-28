@@ -1351,7 +1351,7 @@
         "type": "group",
         "z": "eb845b8cbc7ac49a",
         "g": "6fc117d699260e4c",
-        "name": "Start 'server' edition on port 8100",
+        "name": "Start 'server' edition on port 8200",
         "style": {
             "label": true,
             "color": "#ffffff",
@@ -3709,7 +3709,7 @@
         "props": [
             {
                 "p": "commands",
-                "v": "[\"--listen\",\"port=8200\"]",
+                "v": "[\"--mws-listen\",\"port=8200\"]",
                 "vt": "json"
             },
             {
