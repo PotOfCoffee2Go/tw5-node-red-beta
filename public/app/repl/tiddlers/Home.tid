@@ -1,0 +1,34 @@
+caption: Welcome
+created: 20240101193236151
+list: [[Sub tiddler of home]]
+modified: 20240329025557889
+mustache: yes
+tags: TableOfContents
+title: Home
+type: text/vnd.tiddlywiki
+
+!!! Welcome {% network.user.username %}
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""# Create directory to hold test system
+mkdir tnr-mws-test
+cd tnr-mws-test
+# Clone TiddlyWiki5 - has change to load database.sqlite
+#  wilh TW5-Node-RED 'server' edition wikis instead of the test ones
+git clone https://github.com/PotOfCoffee2Go/TiddlyWiki5.git --branch multi-wiki-temp
+cd ./TiddlyWiki5
+npm install
+# Back to tnr-mws-test directory
+cd ..
+# Clone TW5-Node-RED with MWS support
+git clone https://github.com/PotOfCoffee2Go/tw5-node-red-beta.git --branch mws-interface
+cd tw5-node-red-beta
+npm install
+# Start TW5-Node-RED
+npm start
+"""/>
+
+Will have the directory structure
+
+tnr-mws-test
+
+

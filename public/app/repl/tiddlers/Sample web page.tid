@@ -1,0 +1,9 @@
+created: 20240101193342565
+modified: 20240104180535542
+tags: Home
+title: Sample web page
+type: text/vnd.tiddlywiki
+
+Sample web page
+
+<$button actions="<<node-red 'web sample page'>>" > Sample Web Page </$button>
