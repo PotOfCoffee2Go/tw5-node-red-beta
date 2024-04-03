@@ -106,7 +106,7 @@ const cmdr = {
 // Node'js REPL
 // Place $tw in REPL context so can be referenced
 function resetContext() {
-	runtime.context.tnr_context = tnr_context;
+	runtime.context.tnr = tnr_context;
 	tnr_context.keys().forEach(key => {
 		runtime.context[key] = tnr_context.get(key);
 	})

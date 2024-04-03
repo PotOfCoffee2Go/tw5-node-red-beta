@@ -948,12 +948,13 @@
             "label-position": "n"
         },
         "nodes": [
-            "759dce2ea0c90c1e"
+            "759dce2ea0c90c1e",
+            "8549cd6c5c10aa65"
         ],
-        "x": 98,
+        "x": 48,
         "y": 1651,
-        "w": 624,
-        "h": 216
+        "w": 794,
+        "h": 376
     },
     {
         "id": "49f363e05e815a85",
@@ -1404,12 +1405,15 @@
             "265506fdf2a603b4",
             "939ecaec38f87e99",
             "6f8d6020ac601508",
-            "50f83446f2797c3d"
+            "50f83446f2797c3d",
+            "e8a806f7958334f7",
+            "12e40b95916cf04e",
+            "e17ae63d87695b56"
         ],
-        "x": 124,
+        "x": 74,
         "y": 1709,
-        "w": 572,
-        "h": 132
+        "w": 742,
+        "h": 152
     },
     {
         "id": "e7370f616716a124",
@@ -1433,6 +1437,29 @@
         "y": 459,
         "w": 692,
         "h": 132
+    },
+    {
+        "id": "8549cd6c5c10aa65",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "1b95b4adfdeca38e",
+        "name": "! ! ! SECURITY RISK ! ! ! \\n Submit commands to REPL \\n Disable in production",
+        "style": {
+            "label": true,
+            "color": "#ffffff",
+            "stroke": "#ff7f7f",
+            "fill": "#ff0000",
+            "fill-opacity": "0.86",
+            "label-position": "n"
+        },
+        "nodes": [
+            "771666859c98bac6",
+            "d1b258d56658a434"
+        ],
+        "x": 254,
+        "y": 1887,
+        "w": 382,
+        "h": 114
     },
     {
         "id": "7c48a995b12f0315",
@@ -3866,10 +3893,104 @@
         "links": [
             "e8a806f7958334f7"
         ],
-        "x": 220,
-        "y": 1800,
+        "x": 170,
+        "y": 1820,
         "wires": [],
         "l": true
+    },
+    {
+        "id": "e8a806f7958334f7",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "REPL",
+        "links": [
+            "50f83446f2797c3d"
+        ],
+        "x": 360,
+        "y": 1820,
+        "wires": [
+            [
+                "e17ae63d87695b56"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "12e40b95916cf04e",
+        "type": "link out",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "Broadcast msg",
+        "mode": "link",
+        "links": [
+            "85f96a4f808488c5"
+        ],
+        "x": 710,
+        "y": 1820,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "e17ae63d87695b56",
+        "type": "switch",
+        "z": "eb845b8cbc7ac49a",
+        "g": "759dce2ea0c90c1e",
+        "name": "server.tiddlers",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "server.tiddlers",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1820,
+        "wires": [
+            [
+                "12e40b95916cf04e"
+            ]
+        ]
+    },
+    {
+        "id": "771666859c98bac6",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "8549cd6c5c10aa65",
+        "name": "To REPL",
+        "links": [
+            "134e6cf970918b0e"
+        ],
+        "x": 340,
+        "y": 1960,
+        "wires": [
+            [
+                "d1b258d56658a434"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "d1b258d56658a434",
+        "type": "function",
+        "z": "eb845b8cbc7ac49a",
+        "g": "8549cd6c5c10aa65",
+        "name": "Command to REPL",
+        "func": "const twrepl = global.get('twrepl');\ntwrepl.submit(msg.repl.cmd, msg.repl.text);\n\nreturn msg;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1960,
+        "wires": []
     },
     {
         "id": "509b906f53cc0bc2",
@@ -10699,34 +10820,42 @@
         ]
     },
     {
-        "id": "e8a806f7958334f7",
-        "type": "link in",
+        "id": "134e6cf970918b0e",
+        "type": "link out",
         "z": "9434cba69ba3166b",
-        "name": "REPL",
+        "name": "To REPL",
+        "mode": "link",
         "links": [
-            "50f83446f2797c3d"
+            "771666859c98bac6"
         ],
-        "x": 130,
-        "y": 390,
-        "wires": [
-            [
-                "12e40b95916cf04e"
-            ]
-        ],
+        "x": 390,
+        "y": 400,
+        "wires": [],
         "l": true
     },
     {
-        "id": "12e40b95916cf04e",
-        "type": "link out",
+        "id": "4623743c2e8a7edc",
+        "type": "inject",
         "z": "9434cba69ba3166b",
-        "name": "Broadcast msg",
-        "mode": "link",
-        "links": [
-            "85f96a4f808488c5"
+        "name": "",
+        "props": [
+            {
+                "p": "repl",
+                "v": "{\"cmd\":\"help.common('versions')\\n\"}",
+                "vt": "json"
+            }
         ],
-        "x": 300,
-        "y": 390,
-        "wires": [],
-        "l": true
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 400,
+        "wires": [
+            [
+                "134e6cf970918b0e"
+            ]
+        ]
     }
 ]

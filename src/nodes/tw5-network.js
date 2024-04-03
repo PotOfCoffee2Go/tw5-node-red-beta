@@ -267,8 +267,9 @@ module.exports = function(RED) {
 //  Say we are initialized
 	var dashitall = '+' + new Array(54).join('-');
 	RED.log.info(dashitall);
-	RED.log.info(`| tiddlywiki v${RED.settings.functionGlobalContext.$tw.version} boot successful`);
-	RED.log.info(`| TW sync 'server' directory '${RED.settings.functionGlobalContext.syncDir}'`);
-	RED.log.info(`| tw5-node-red v${require(__dirname + '/package').version} @potofcoffee2go/tw5-nodes initialized`);
+	RED.log.info(`| tw5-node-red-beta v${require(__dirname + '/package').version} @potofcoffee2go/tw5-nodes initialized`);
+	RED.log.info(`| TiddlyWiki $tw v${RED.settings.functionGlobalContext.$tw.version} boot successful`);
+	RED.log.info(`| TW sync 'server' $twsync - directory '${RED.settings.functionGlobalContext.syncDir}'`);
+	RED.log.info(`| TW MWS $twmws - directory '${RED.settings.functionGlobalContext.mwsDir}'`);
 	RED.log.info(dashitall);
 };
