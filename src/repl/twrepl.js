@@ -89,9 +89,9 @@ function intro() {
 // commander got an error?
 function checkForErrors(tw, err) {
 	if (err) {
-			try {
-					tw.utils.error("Error: " + err);
-			} catch (e) {}
+		try {
+			tw.utils.error("Error: " + err);
+		} catch (e) {}
 	}
 }
 

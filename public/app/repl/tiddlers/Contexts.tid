@@ -1,0 +1,44 @@
+caption: Contexts
+created: 20240404170755383
+modified: 20240405230525457
+tags: TableOfContents
+title: Contexts
+type: text/vnd.tiddlywiki
+
+!!! Node-RED `global` context
+In a Node-RED 'function' node to access [ext[global context|https://nodered.org/docs/user-guide/context]] looks like 
+
+`var obj = global.get('obj');`.
+
+Node-RED global context has been named `tnr` in the REPL ('global' is already used to access the REPL's global context). Thus have tnr.get(), tnr.set(), and tnr.keys() in the REPL similar to the equivalent global.get(), global.set(), and global.keys() in Node-RED. 
+
+```js
+$tnr-repl> tnr.keys().sort()
+[
+  '$tw',         '$twmws',
+  '$twsync',     'RED',
+  'allowAnon',   'bcrypt',
+  'clientIds',   'fs',
+  'jwt',         'mustache',
+  'mwsDir',      'mwsServer',
+  'outDir',      'process',
+  'startupRepl', 'syncDir',
+  'syncServer',  'twikis',
+  'twrepl'
+]
+
+```
+
+The REPL adds all the `tnr.keys()` to the base objects in the REPL. For example, `syncDir` in the REPL can be accessed directly without requiring a get() - for example - `tnr.get('syncDir')` :
+
+```js
+$tnr-repl> tnr.get('syncDir')
+'./public/app/repl'
+$tnr-repl> 
+$tnr-repl> syncDir
+'./public/app/repl'
+```
+
+The REPL can set a variable in the Node-RED context `tnr.set('newvar', 'value')` which can be used by Node-RED 'function' nodes `var newvar = global.get('newvar);` immediately. For the REPL to see the new variable it can use `var newvar = tnr.get('newvar);` as Node-RED does, or can issue a `.clear` REPL command which will reset and reload the REPL references to Node-RED's global context.
+
+> Note that `.clear` will also remove any variables that have been assigned. Is as if the REPL had just started up.   

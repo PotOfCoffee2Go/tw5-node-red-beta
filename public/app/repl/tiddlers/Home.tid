@@ -1,11 +1,17 @@
 caption: Welcome
 created: 20240101193236151
 list: Startup
-modified: 20240402164529007
+modified: 20240408163814113
 mustache: yes
 tags: TableOfContents
 title: Home
 type: text/vnd.tiddlywiki
+
+---
+
+| [ext[TW5-Node-RED Beta Release Notes|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+
+---
 
 !! Welcome {% network.user.username %}
 
@@ -24,6 +30,7 @@ https://github.com/Jermolene/TiddlyWiki5.git --branch multi-wiki-support
 
 with the changes to load the database.
 
+---
 
 !!! Create the test environment
 

@@ -1,6 +1,6 @@
 caption: REPL
 created: 20240402092353698
-modified: 20240402183923839
+modified: 20240405225951025
 tags: TableOfContents
 title: REPL
 type: text/vnd.tiddlywiki
@@ -21,10 +21,12 @@ $tnr-repl> `$tw.wiki.a` and press the tab key twice
 
 ```
 $tnr-repl> $tw.wiki.a
-$tw.wiki.addEventListener   $tw.wiki.addIndexersToWiki  $tw.wiki.addTiddlers        $tw.wiki.addToHistory
+$tw.wiki.addEventListener   $tw.wiki.addIndexersToWiki
+$tw.wiki.addTiddlers        $tw.wiki.addToHistory
 $tw.wiki.addToStory
 
-$tw.wiki.addIndexer         $tw.wiki.addTiddler         $tw.wiki.allShadowTitles    $tw.wiki.allTitles
+$tw.wiki.addIndexer         $tw.wiki.addTiddler
+$tw.wiki.allShadowTitles    $tw.wiki.allTitles
 ```
 
 This is a list of all the functions and objects in '$tw.wiki' that begin with the letter 'a'.

@@ -1,6 +1,6 @@
 caption: Sync server
 created: 20240215052023953
-modified: 20240307191009747
+modified: 20240408172732951
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/syncserver
 type: text/vnd.tiddlywiki
@@ -24,7 +24,9 @@ The tiddlers are stored in <span class="poc2go-dir">'./public/app/chat/tiddlers'
 The sync server static content is usually placed in a sub-directory <span class="poc2go-dir"> './public/app/chat/files' </span>. For example, <span class="poc2go-dir"> 'logo.png' </span> would be placed in <span class="poc2go-dir"> './public/app/chat/files/logo.png' </span>. The URL would be <span class="poc2go-dir"> '/app/chat/files/logo.png' </span>
 
 ```
-<img src="/app/chat/files/logo.png">
+<img src="/app/chat/files/logo.png" width="100">
 ```
 
-Notice the <span class="poc2go-dir"> '''/public''' </span> is removed from the beginning of the URL.
+<img src="/app/chat/files/logo.png" width="100">
+
+Notice the <span class="poc2go-dir"> '''/public''' </span> is not used in the URL as the server 'root' directory for static content is the <span class="poc2go-dir"> './public' </span> directory.
