@@ -1,6 +1,6 @@
 caption: Startup
 created: 20240402163540249
-modified: 20240405120735049
+modified: 20240408221636192
 tags: TableOfContents
 title: Startup
 type: text/vnd.tiddlywiki
@@ -27,13 +27,12 @@ Copying TNR mwsTest edition
 Copying TNR repl edition
 Copying TNR template edition
 Copying TNR welcome edition
-mws-initial-load: 13.372s
+mws-initial-load: 4.833s
 ```
 
 It then starts up Node-RED:
 
 ```
-2 Apr 09:35:04 - [info] 
 
 Welcome to Node-RED
 ===================

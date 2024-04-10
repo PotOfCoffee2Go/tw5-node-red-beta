@@ -1,11 +1,17 @@
 created: 20231102103835604
 fetched: 20231128063655573
 list: Preface Purpose Prerequisites Install [[Client wiki]] [[Server settings]]
-modified: 20240130173929504
+modified: 20240409125611780
 mustache: yes
 tags: TableOfContents ·node-red·
 title: Welcome
 type: text/vnd.tiddlywiki
+
+---
+
+| [ext[TW5-Node-RED REPL|/svr/wiki/nodered.html?app=repl]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+
+---
 
 <div style="margin: 0 0 -6px -9px;">{{victorian-top.png}}</div>
 <div style="float:left;">{{victorian-left.png}}</div>

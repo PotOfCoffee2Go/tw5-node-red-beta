@@ -23,9 +23,6 @@ const mwsServerCommand = ['--listen','port=9200','host=127.0.0.1'];
 // Port and host for sync server
 //  'host=0.0.0.0' will make available on local network
 const syncServerCommand = ['--listen','port=8101','host=127.0.0.1'];
-// Run ./bin/test.sh script - may need backslashes in windows?
-const runTestCommand = 'cd ./node_modules/tiddlywiki && ./bin/test.sh';
-
 // Prevent node-red from restarting wen deploying changes
 var isStarted = false;
 
@@ -53,29 +50,9 @@ const submit = (cmd, desc) => {
 	}
 }
 
-// Show objects 5 levels deep
-function showObj(obj) {
-	console.dir(obj, {depth:5});
-}
-
 // Help and Test suite
+const extra = require('./extra');
 const help = require('./help').Help(colour, submit, prompt);
-const tests = require('./tests').Tests(colour, submit, prompt);
-
-// -------------------
-// Run TiddlyWiki tests
-function runTests() {
-	const { spawn } = require('child_process');
-	const child = spawn(runTestCommand, {
-		stdio: 'inherit',
-		shell: true
-	});
-	child.on('exit', function (code, signal) {
-		console.log(`./bin/test.sh exited with code ${code}\n`);
-		colour.log(`Web page at 'http://localhost:8080/node_modules/tiddlywiki/editions/test/output/test.html'\n`, 11);
-		submit('\n');
-	});
-}
 
 // -------------------
 // Who are we?
@@ -106,18 +83,15 @@ const cmdr = {
 // Node'js REPL
 // Place $tw in REPL context so can be referenced
 function resetContext() {
-	runtime.context.tnr = tnr_context;
-	tnr_context.keys().forEach(key => {
-		runtime.context[key] = tnr_context.get(key);
+	runtime.context.tnr = tnr;
+	tnr.keys().forEach(key => {
+		runtime.context[key] = tnr.get(key);
 	})
 
-	runtime.context.sendTiddlers = sendTiddlers;
-
-	runtime.context.showObj = showObj;
-	runtime.context.tests = tests;
-	runtime.context.runTests = runTests;
+	extra.init(tnr);
+	runtime.context.runTests = extra.runTests;
+	runtime.context.sendTiddlers = extra.sendTiddlers;
 	runtime.context.help = help;
-	runtime.context.runtime = runtime;
 }
 
 // REPL runtime
@@ -136,51 +110,12 @@ function startRepl() {
 	resetContext();
 }
 
-function sendTiddlers(clientid, tiddlers, tostory) {
-	var storylist = [];
-	const RED = tnr_context.get('RED');
-	const $tw = tnr_context.get('$tw');
-	const clientIds = tnr_context.get('clientIds');
-	if (clientid === 'all') {
-		var allIds = [];
-		for(let cid in clientIds) {
-			allIds.push(cid);
-		}
-		clientid = allIds;
-	}
-	if (!Array.isArray(clientid)) { clientid = [clientid]; };
-	if (!Array.isArray(tiddlers)) { tiddlers = [tiddlers]; };
-	if (tostory) {
-		tiddlers.forEach((tiddler) => {
-			storylist.push(tiddler.title);
-		})
-	}
-
-	var text = {
-		topic: 'server.tiddlers',
-		clientid,
-		network: {
-			meta: { source: 'repl', version: 'v' + $tw.version, _clientid: `repl${$tw.version}`, tiddlers: [] },
-			client: { topic: 'from.repl', sender: [{title: 'barebones'}], tiddlers: [] },
-			server: { topic: 'server.tiddlers', tiddlers, storylist }
-		}
-	};
-
-	RED.nodes.eachNode( node => {
-		if (node.name === 'From REPL' && node.type === 'link out') {
-			RED.nodes.getNode(node.id).send(text);
-		}
-	})
-
-	return text;
-}
-
 // -------------------
 // -------------------
 // Startup
-var tnr_context;
-function startup (_tnr_context) {
-	tnr_context = _tnr_context;
+var tnr;
+function startup (tnr_context) {
+	tnr = tnr_context;
 
 	// Show prompt on Node-RED re-deploy
 	if (isStarted) {
