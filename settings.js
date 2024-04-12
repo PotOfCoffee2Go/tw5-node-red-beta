@@ -606,6 +606,8 @@ module.exports = {
     functionGlobalContext: {
         process: require('node:process'),
         fs: require('node:fs'),
+        path: require('node:path'),
+
         mustache: require('mustache'),
         jwt: require('jsonwebtoken'),
         bcrypt: require('bcrypt'),
@@ -616,7 +618,7 @@ module.exports = {
         syncServer, $twsync, syncDir,
         mwsServer, $twmws, mwsDir,
         twrepl, startupRepl,
-        twikis, clientIds: {},
+        twikis, clientIds: {}, tw5flags: {}
     },
 
     /** The maximum number of messages nodes will buffer internally as part of their

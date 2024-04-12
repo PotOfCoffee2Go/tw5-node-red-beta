@@ -1,0 +1,12 @@
+created: 20240411051203139
+modified: 20240411161453041
+tags: 
+title: Listener
+type: text/vnd.tiddlywiki
+
+
+```
+<$button actions="<<node-red 'mws/listen-recipe/blank'>>"> listen </$button> to 'blank' recipe.
+```
+
+<$button actions="<<node-red 'mws/listen-recipe/blank'>>"> listen </$button> to 'blank' recipe.
