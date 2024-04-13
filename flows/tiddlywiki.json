@@ -9752,7 +9752,7 @@
         "id": "747659894c7a96e7",
         "type": "switch",
         "z": "3a98d4a7cc479175",
-        "name": "MWS",
+        "name": "mws",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -9967,7 +9967,7 @@
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const recipes = global.get('recipes');\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                }\n            }\n            // Send to registered client(s)\n            var msg = {};\n            msg.clientid = recipes[recipeName].clientid;\n            msg.recipe = recipes[recipeName];\n            msg.payload = tiddlers;\n            node.send(msg);\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const recipes = global.get('recipes');\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            let draftof = false;\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList') {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    if (/^Draft of /.test(tiddlerInfo.title)) {\n                        draftof = true;\n                    }\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (!draftof && tiddlers.length) {\n                var msg = {};\n                msg.clientid = recipes[recipeName].clientid;\n                msg.deletelist = deletelist;\n                msg.recipe = recipes[recipeName];\n                msg.payload = tiddlers;\n                node.send(msg);\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
         "x": 410,
@@ -10001,11 +10001,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 620,
+        "x": 560,
         "y": 260,
         "wires": [
             [
-                "8ecf386acefd8e7d"
+                "485d61633f5c01f4"
             ]
         ]
     },
@@ -10018,7 +10018,7 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 780,
+        "x": 890,
         "y": 260,
         "wires": [],
         "l": true
@@ -10058,6 +10058,26 @@
         "x": 130,
         "y": 30,
         "wires": []
+    },
+    {
+        "id": "485d61633f5c01f4",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "function 4",
+        "func": "msg.network.server.deletelist = msg.deletelist;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "8ecf386acefd8e7d"
+            ]
+        ]
     },
     {
         "id": "932443ea64b11fd0",

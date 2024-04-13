@@ -298,6 +298,11 @@ const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic =
 // Update the wiki with array of tiddlers from server
 const updateWiki = (svr) => {
 	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
+	if (svr.server.deletelist) {
+		svr.server.deletelist.forEach(title => {
+			$tw.wiki.deleteTiddler(title);
+		})
+	}
 	svr.server.tiddlers.forEach(fields => {
 		if (svr.server.storylist.includes(fields.title)) {
 			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server
