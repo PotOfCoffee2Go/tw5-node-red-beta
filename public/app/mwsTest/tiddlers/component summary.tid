@@ -1,0 +1,26 @@
+created: 20240414154627589
+modified: 20240414180001362
+tags: 
+title: component summary
+type: text/vnd.tiddlywiki
+
+ * TW Client Wiki - a single file TiddlyWiki
+ ** End-User interface to the system
+ ** Served as a static file to the user from the server
+ ** Has the $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed
+ * Node-RED Flow Editor
+ ** Server side logic to create and route tiddlers to the TW Client Wiki
+ ** Interfaces to 'server' edition tiddlers/files
+ ** Interfaces to SQLite database
+
+<div style="width: 50%;margin-left:7%">
+{{four-tabs.png}}
+</div>
+
+ * TW Sync Wiki
+ ** TiddlyWiki 'server' edition
+ ** Create tiddlers which are the base of applications 
+ * TW MWS Wiki
+ ** SQLite database loaded with applications created using TW Sync Wiki
+ ** Allows TW Client Wiki, MWS wiki, and Node-RED access to recipes
+ ** Dynamic tiddler updates from multiple sources

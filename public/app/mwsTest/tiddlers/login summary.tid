@@ -1,0 +1,9 @@
+created: 20240414164159213
+modified: 20240414180132388
+tags: 
+title: login summary
+type: text/vnd.tiddlywiki
+
+The TW5-Node-RED system currently requires a user login whenever connecting to the server. <$button actions="<<node-red 'register request'>>"> Create account </$button> and have the browser '''save''' the login user/password. Then can just press the sign in button without having to enter the user/password.
+
+The TW5-Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> login system uses a different authentication system for developers. Press on the ''person'' icon in the upper-right and login as ''admin'' password ''password'' in order to deploy Node-RED flow changes. If just viewing flows - no need to login.

@@ -8,7 +8,7 @@ exports.Help = (_colour, _submit, _prompt) => {
 };
 
 exports.intro = () => {
-	submit('tnr.keys().sort()\n', [
+	submit('', [
 		'\nWelcome to TW5-Node-RED\n',
 		'This REPL has online access to the complete system',
 		'See http://localhost:1880/svr/wiki/empty.html?app=repl',
@@ -16,9 +16,13 @@ exports.intro = () => {
 		"(User: 'demo' password 'demo' or better yet",
 		"'Create account'. To test 'Chat' will want to",
 		'create a few of them.\n',
-		'http://localhost:8200 is the MWS client\n',
-		`The Node-RED global context is 'tnr' in this REPL`,
-		`since 'global' is already used by the REPL itself.\n`,
+		'This release is to test the interface to the upcoming',
+		'  TW Multi Wiki Server',
+		'http://localhost:8200 is the MWS client',
+		'http://localhost:1880/svr/wiki/empty.html?app=mwsTest',
+		'  is the TW5-Node-RED client used to play with recipes.\n',
+//		`The Node-RED global context is 'tnr' in this REPL`,
+//		`since 'global' is already used by the REPL itself.\n`,
 		].join('\n')
 	);
 }

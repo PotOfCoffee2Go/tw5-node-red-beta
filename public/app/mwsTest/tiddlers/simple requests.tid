@@ -1,0 +1,31 @@
+created: 20240414181408002
+modified: 20240414221704737
+tags: 
+title: simple requests
+type: text/vnd.tiddlywiki
+
+Here are a few simple calls that request tiddlers from the server - just to get an idea of how it works. 
+
+The `<<node-red 'topic' '[[filter]]'>>` macro sends the topic used to route the request and (optional filter - depends on topic) sends any tiddlers that match the TW filter to the server.
+
+Both of these flows `hello` and `get subtitle` are in the TW5-Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> '''topics''' tab.
+
+---
+
+Changes this wiki's subtitle to display the server heartbeats and connection status
+
+```
+<$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button>
+```
+
+<$button actions="<<node-red 'get subtitle'>>" > get subtitle </$button>
+
+---
+
+Hello World that uses server-side text substitution to display the user name
+
+```
+<$button actions="<<node-red 'hello' >>" > Hello World </$button>
+```
+
+<$button actions="<<node-red 'hello' >>" > Hello World </$button>

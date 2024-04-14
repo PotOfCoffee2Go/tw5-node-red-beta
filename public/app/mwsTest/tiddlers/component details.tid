@@ -1,0 +1,36 @@
+created: 20240414053214388
+modified: 20240414170038507
+tags: 
+title: component details
+type: text/vnd.tiddlywiki
+
+See [ext[TNR Documentation|/svr/wiki/nodered.html?app=welcome]] for more information about the system.
+
+!!! TW Client Wiki
+
+This wiki is delivered to the user. In many cases can use 'empty.html' from https://tiddlywiki.com, with $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed and saved on the server.
+
+Allows using the vast array of community created TiddlyWikis to run server applications. [ext[notebook|/svr/wiki/notebook.html?app=mwsTest]] by saqimtiaz from https://saqimtiaz.github.io/sq-tw/notebook.html and [ext[wikilabs|/svr/wiki/wikilabs.html?app=mwsTest]] by PMario from https://wikilabs.github.io/ come with the system.
+
+
+Any TiddlyWiki JavaScript modules and plugins need to be installed in the single file wiki. For example, if the server is going to deliver Markdown tiddlers the single file wiki would need the Markdown plugin installed.
+
+The URL to access the single file wiki is:
+
+http://localhost:1880/svr/wiki/empty.html?app=mwsTest
+
+ * http (or https if certificate installed) - scheme of connection
+ * localhost:1880 - the domain of the TW5-Node-RED server
+ * svr/wiki - is subdirectory of the single file wikis
+ ** server directory <span class="poc2go-dir"> './uibuilder/svr/src/wiki' </span>
+ * wikiname.html - name of the single file wiki
+ ** single file wiki in <span class="poc2go-dir"> './uibuilder/svr/src/wiki' </span> directory
+ * ?app=appname - name of the application
+ ** Is a 'server' edition directory in <span class="poc2go-dir"> './public/app' </span>
+
+<span style="Margin-left:15%"> or </span>
+
+ * ?mws=recipename
+ ** a recipe of the tiddlers comprising the application
+ ** MWS in directory <span class="poc2go-dir"> './public/mws' </span>
+

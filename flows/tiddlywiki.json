@@ -56,6 +56,14 @@
         "env": []
     },
     {
+        "id": "3a98d4a7cc479175",
+        "type": "tab",
+        "label": "TW Multi Wiki",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "2e264bd071bbb666",
         "type": "tab",
         "label": "Webpages",
@@ -107,14 +115,6 @@
         "id": "785334168b65be6b",
         "type": "tab",
         "label": "$tw functions",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "3a98d4a7cc479175",
-        "type": "tab",
-        "label": "TW Multi Wiki",
         "disabled": false,
         "info": "",
         "env": []
@@ -4375,7 +4375,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<div style=\"\">\n<$button actions=\"<<signin>>\"> Sign in </$button>\n</div>\n\n---\n\n''username'' : {{!!username}}\n\n```\n{%&temp%}\n```\n",
+        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n---\n\n```\n{%&temp%}\n```\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -6440,6 +6440,337 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "747659894c7a96e7",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "mws",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "5a16a0adef35c2c0"
+            ]
+        ]
+    },
+    {
+        "id": "a5a15f950dcbf5eb",
+        "type": "link in",
+        "z": "3a98d4a7cc479175",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 75,
+        "y": 80,
+        "wires": [
+            [
+                "747659894c7a96e7"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "5652efdb88423597",
+        "type": "link out",
+        "z": "3a98d4a7cc479175",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 725,
+        "y": 160,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "5a16a0adef35c2c0",
+        "type": "switch",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n listen-recipe ",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-all\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/get-recipe-tiddlers\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/get-bag-tiddler\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/save-recipe-tiddlers\\/.*$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^mws\\/listen-recipe\\/.*$",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "28a27f5b6c9508b4"
+            ],
+            [
+                "317c61f2e976b9d5"
+            ],
+            [
+                "3b18349a87ce690e"
+            ],
+            [
+                "7f9069d458cc7269"
+            ],
+            [
+                "879aa07646a78267"
+            ]
+        ]
+    },
+    {
+        "id": "28a27f5b6c9508b4",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-all",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n\nvar sqlTiddlers = [];\nvar tiddlers = $tw.mws.store.getBagTiddlers(bag);\n// Create a JSON tiddler of each tiddler from SQL database\ntiddlers.forEach((tiddler) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(tiddler.title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2)\n    }\n    \n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "9163b93163fb2f63",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "3b18349a87ce690e",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-bag-tiddler",
+        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'get-bag-tiddler'\nconst bag = cmdparts[2];\nconst title = cmdparts[3];\n\nvar sqlTiddlers = [];\n\n// Create a JSON tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\nlet sqlRec = $tw.mws.store.getBagTiddler(title, bag);\nlet mwsTiddler = {\n    title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n    tags: `mws/bag/${bag}`,\n    type: 'application/json',\n    text: JSON.stringify(sqlRec, null, 2),\n    '_tiddler_id': sqlRec.tiddler_id,\n    '_attachment_blob': sqlRec.attachment_blob\n}\n\n// Create copy of fields - starts with an '_' \nObject.keys(sqlRec.tiddler).forEach(fld => {\n    mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n})\n\nsqlTiddlers.push(mwsTiddler);\n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "317c61f2e976b9d5",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "get-recipe-tiddlers",
+        "func": "const $tw = global.get('$twmws');\nconst mustache = global.get('mustache');\nconst store = $tw.mws.store;\n\nvar tiddlers = [];\n\nvar currentTiddler = msg.network.client.sender[0];\n\nvar recipeTiddlerList = store.getRecipeTiddlers(currentTiddler.recipe);\nrecipeTiddlerList.forEach(recipe => {\n    tiddlers.push(store.getRecipeTiddler(recipe.title, currentTiddler.recipe).tiddler)\n})\nmsg.payload = tiddlers; \n\nfor (let i=0; i<msg.payload.length; i++) {\n    if (msg.payload[i].text && msg.payload[i].mustache === 'yes') {\n        msg.payload[i].text = mustache.render(msg.payload[i].text, msg, {}, ['{%', '%}'])\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "879aa07646a78267",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "listen-recipe",
+        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'listen-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    msg.clientid = msg.network.meta._clientid;\n    msg.payload = {\n        title: 'Listening for updates',\n        text: `Listening for updates to MWS recipe '''${recipe}'''`\n    }\n    node.send(msg);\n}\nnode.done()\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            let draftof = false;\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList') {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    if (/^Draft of /.test(tiddlerInfo.title)) {\n                        draftof = true;\n                    }\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (!draftof && tiddlers.length) {\n                var msg = {};\n                msg.clientid = recipes[recipeName].clientid;\n                msg.deletelist = deletelist;\n                msg.recipe = recipes[recipeName];\n                msg.payload = tiddlers;\n                node.send(msg);\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
+        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
+        "libs": [],
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "85842eb9526d44ce"
+            ]
+        ]
+    },
+    {
+        "id": "85842eb9526d44ce",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "485d61633f5c01f4"
+            ]
+        ]
+    },
+    {
+        "id": "8ecf386acefd8e7d",
+        "type": "link out",
+        "z": "3a98d4a7cc479175",
+        "name": "Broadcast msg",
+        "mode": "link",
+        "links": [
+            "85f96a4f808488c5"
+        ],
+        "x": 920,
+        "y": 260,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "7f9069d458cc7269",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "save-recipe-tiddlers",
+        "func": "const $tw = global.get('$twmws');\nconst store = $tw.mws.store;\n\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'save-recipe-tiddlers'\nconst recipe = cmdparts[2];\n\nvar tiddlers = msg.network.client.tiddlers;\n\nvar results = [];\ntiddlers.forEach(tiddler => {\n\tvar info = store.saveRecipeTiddler(tiddler, recipe);\n\tif (info) {\n\t\tresults.push({\n\t\t\trecipe,\n\t\t\ttitle: tiddler.title,\n\t\t\ttiddler_id: info.tiddler_id,\n\t\t\tbag_name: info.bag_name\n\t\t})\n\t}\n})\n\nmsg.payload = {\n\ttitle: 'Save Results',\n\ttype: 'application/json',\n\ttext: JSON.stringify(results, null, 2)\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "9163b93163fb2f63"
+            ]
+        ]
+    },
+    {
+        "id": "5287aee91ed80f4a",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "Load SQL",
+        "func": "// See 'On Start' for implementation\nreturn msg;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications (editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 30,
+        "wires": []
+    },
+    {
+        "id": "485d61633f5c01f4",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "name": "update delete list",
+        "func": "// This node is temporary\n//  Will be implemented into 'tiddler' nodes\n\nmsg.network.server.deletelist = msg.deletelist;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "8ecf386acefd8e7d"
+            ]
+        ]
     },
     {
         "id": "cb07b3e5b5c4cdc9",
@@ -9747,337 +10078,6 @@
         "y": 80,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "747659894c7a96e7",
-        "type": "switch",
-        "z": "3a98d4a7cc479175",
-        "name": "mws",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "^mws\\/.*$",
-                "vt": "str",
-                "case": false
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 180,
-        "y": 80,
-        "wires": [
-            [
-                "5a16a0adef35c2c0"
-            ]
-        ]
-    },
-    {
-        "id": "a5a15f950dcbf5eb",
-        "type": "link in",
-        "z": "3a98d4a7cc479175",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 75,
-        "y": 80,
-        "wires": [
-            [
-                "747659894c7a96e7"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "5652efdb88423597",
-        "type": "link out",
-        "z": "3a98d4a7cc479175",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 725,
-        "y": 160,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "5a16a0adef35c2c0",
-        "type": "switch",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n listen-recipe ",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "^mws\\/get-bag-all\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/get-recipe-tiddlers\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/get-bag-tiddler\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/save-recipe-tiddlers\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/listen-recipe\\/.*$",
-                "vt": "str",
-                "case": false
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 5,
-        "x": 140,
-        "y": 180,
-        "wires": [
-            [
-                "28a27f5b6c9508b4"
-            ],
-            [
-                "317c61f2e976b9d5"
-            ],
-            [
-                "3b18349a87ce690e"
-            ],
-            [
-                "7f9069d458cc7269"
-            ],
-            [
-                "879aa07646a78267"
-            ]
-        ]
-    },
-    {
-        "id": "28a27f5b6c9508b4",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-all",
-        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst bag = msg.topic.replace('mws/get-bag-all/', '');\n\nvar sqlTiddlers = [];\nvar tiddlers = $tw.mws.store.getBagTiddlers(bag);\n// Create a JSON tiddler of each tiddler from SQL database\ntiddlers.forEach((tiddler) => {\n    let sqlRec = $tw.mws.store.getBagTiddler(tiddler.title, bag);\n    let mwsTiddler = {\n        title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n        tags: `mws/bag/${bag}`,\n        type: 'application/json',\n        text: JSON.stringify(sqlRec, null, 2)\n    }\n    \n    sqlTiddlers.push(mwsTiddler);\n});    \n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 100,
-        "wires": [
-            [
-                "9163b93163fb2f63"
-            ]
-        ]
-    },
-    {
-        "id": "9163b93163fb2f63",
-        "type": "set-network",
-        "z": "3a98d4a7cc479175",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 620,
-        "y": 160,
-        "wires": [
-            [
-                "5652efdb88423597"
-            ]
-        ]
-    },
-    {
-        "id": "3b18349a87ce690e",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "get-bag-tiddler",
-        "func": "const $tw = global.get('$twmws'); // MultiWikiServer TW instance\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'get-bag-tiddler'\nconst bag = cmdparts[2];\nconst title = cmdparts[3];\n\nvar sqlTiddlers = [];\n\n// Create a JSON tiddler from SQL database\n// also set fields in the tiddler using the field name but starts with '_' underbar\nlet sqlRec = $tw.mws.store.getBagTiddler(title, bag);\nlet mwsTiddler = {\n    title: `mws/bag/${bag}/ ${sqlRec.tiddler.title}`,\n    tags: `mws/bag/${bag}`,\n    type: 'application/json',\n    text: JSON.stringify(sqlRec, null, 2),\n    '_tiddler_id': sqlRec.tiddler_id,\n    '_attachment_blob': sqlRec.attachment_blob\n}\n\n// Create copy of fields - starts with an '_' \nObject.keys(sqlRec.tiddler).forEach(fld => {\n    mwsTiddler[`_${fld}`] = sqlRec.tiddler[fld];\n})\n\nsqlTiddlers.push(mwsTiddler);\n\nmsg.payload = sqlTiddlers;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 180,
-        "wires": [
-            [
-                "9163b93163fb2f63"
-            ]
-        ]
-    },
-    {
-        "id": "317c61f2e976b9d5",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "get-recipe-tiddlers",
-        "func": "const $tw = global.get('$twmws');\nconst mustache = global.get('mustache');\nconst store = $tw.mws.store;\n\nvar tiddlers = [];\n\nvar currentTiddler = msg.network.client.sender[0];\n\nvar recipeTiddlerList = store.getRecipeTiddlers(currentTiddler.recipe);\nrecipeTiddlerList.forEach(recipe => {\n    tiddlers.push(store.getRecipeTiddler(recipe.title, currentTiddler.recipe).tiddler)\n})\nmsg.payload = tiddlers; \n\nfor (let i=0; i<msg.payload.length; i++) {\n    if (msg.payload[i].text && msg.payload[i].mustache === 'yes') {\n        msg.payload[i].text = mustache.render(msg.payload[i].text, msg, {}, ['{%', '%}'])\n    }\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 140,
-        "wires": [
-            [
-                "9163b93163fb2f63"
-            ]
-        ]
-    },
-    {
-        "id": "879aa07646a78267",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "listen-recipe",
-        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'listen-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    msg.clientid = msg.network.meta._clientid;\n    msg.payload = {\n        title: 'Listening for updates',\n        text: `Listening for updates to MWS recipe ${recipe}`\n    }\n    node.send(msg);\n}\nnode.done()\nreturn;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const recipes = global.get('recipes');\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            let draftof = false;\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList') {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    if (/^Draft of /.test(tiddlerInfo.title)) {\n                        draftof = true;\n                    }\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (!draftof && tiddlers.length) {\n                var msg = {};\n                msg.clientid = recipes[recipeName].clientid;\n                msg.deletelist = deletelist;\n                msg.recipe = recipes[recipeName];\n                msg.payload = tiddlers;\n                node.send(msg);\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
-        "libs": [],
-        "x": 410,
-        "y": 260,
-        "wires": [
-            [
-                "85842eb9526d44ce"
-            ]
-        ]
-    },
-    {
-        "id": "85842eb9526d44ce",
-        "type": "set-network",
-        "z": "3a98d4a7cc479175",
-        "name": "",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "payload",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": true,
-        "x": 560,
-        "y": 260,
-        "wires": [
-            [
-                "485d61633f5c01f4"
-            ]
-        ]
-    },
-    {
-        "id": "8ecf386acefd8e7d",
-        "type": "link out",
-        "z": "3a98d4a7cc479175",
-        "name": "Broadcast msg",
-        "mode": "link",
-        "links": [
-            "85f96a4f808488c5"
-        ],
-        "x": 890,
-        "y": 260,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "7f9069d458cc7269",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "save-recipe-tiddlers",
-        "func": "const $tw = global.get('$twmws');\nconst store = $tw.mws.store;\n\nconst cmdparts = msg.topic.split('/');\n// [0] = 'mws', [1] = 'save-recipe-tiddlers'\nconst recipe = cmdparts[2];\n\nvar tiddlers = msg.network.client.tiddlers;\n\nvar results = [];\ntiddlers.forEach(tiddler => {\n\tvar info = store.saveRecipeTiddler(tiddler, recipe);\n\tif (info) {\n\t\tresults.push({\n\t\t\trecipe,\n\t\t\ttitle: tiddler.title,\n\t\t\ttiddler_id: info.tiddler_id,\n\t\t\tbag_name: info.bag_name\n\t\t})\n\t}\n})\n\nmsg.payload = {\n\ttitle: 'Save Results',\n\ttype: 'application/json',\n\ttext: JSON.stringify(results, null, 2)\n}\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 220,
-        "wires": [
-            [
-                "9163b93163fb2f63"
-            ]
-        ]
-    },
-    {
-        "id": "5287aee91ed80f4a",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "Load SQL",
-        "func": "// See 'On Start' for implementation\nreturn msg;",
-        "outputs": 0,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications (editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 30,
-        "wires": []
-    },
-    {
-        "id": "485d61633f5c01f4",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "function 4",
-        "func": "msg.network.server.deletelist = msg.deletelist;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 260,
-        "wires": [
-            [
-                "8ecf386acefd8e7d"
-            ]
-        ]
     },
     {
         "id": "932443ea64b11fd0",

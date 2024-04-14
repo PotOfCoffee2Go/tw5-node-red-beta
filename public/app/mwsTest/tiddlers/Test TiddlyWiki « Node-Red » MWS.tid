@@ -1,35 +1,104 @@
 created: 20240106174823357
-modified: 20240413014546495
+modified: 20240414221410698
+mustache: yes
 tags: 
 title: Test TiddlyWiki « Node-Red » MWS
 type: text/vnd.tiddlywiki
 
 ---
 
-| [ext[TNR REPL|/svr/wiki/nodered.html?app=repl]] | [ext[Beta Release Notes|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+| [ext[TNR REPL|/svr/wiki/nodered.html?app=repl]] | [ext[TNR Documentation|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
 
 ---
 
-This TW5-Node-RED application has been set up to interface to Multi Wiki Server. Node-RED can create and change tiddlers in-flight but building an application's tiddlers from scratch using Node-RED 'tiddler editor' can be laborious. So when building a TW5-Node-RED application the current method uses the 'server' edition sync server to easily implement the base tiddlers of the application.  There are a few restictions that are notable.
+!!! Hi {% network.user.username %}
 
- * Sync server client (tiddlyweb) does not automatically update tiddlers from exteral sources
- * Is linked into the TiddlyWiki boot process
- * Node-RED unable to dynamilly store server edition tiddlers.
+//Note that both TW5-Node-RED and TiddlyWiki Multi Wiki Server are currently being developed - so if doesn't work may be due to the continuous (almost daily) updates. Nothing is written in stone yet :)//
 
-These restrictions are lifted by using MWS and the SQLite database. Plus by using multiple bags can more easily build 'standard' tiddlers that can be used in multiple applications.
+<details>
+  <summary style="font-size:1.1em;">About accounts and logins</summary>
+<div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
 
-To see the Node-RED flows go to <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>
+{{login summary}}
+
+</div>
+</details>
+
+<details>
+  <summary style="font-size:1.1em;">About System Web Interfaces</summary>
+<div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
+
+{{component summary}}
+
+<details>
+  <summary>More Details</summary>
+<div style="margin: 1em 1em; padding: 1em;">
+
+{{component details}}
+
+</div>
+</details>
+
+</div>
+</details>
+
+TiddlyWiki Multi Wiki Server is http://localhost:8200. Click on '''blank''' recipe
+
+<div style="width: 250px;margin-left:15%">
+{{blank-wiki.png}}
+</div>
+
+or can directly go to http://localhost:8200/wiki/blank which will be the recipe used for the tests.
+
+> The MWS Client is NOT connected to TW5-Node-RED! To load a MWS wiki (recipe) into TW5-Node-RED use http://localhost:1880/svr/wiki/empty.html?mws=wikiname . The `?mws=wikiname` part will load wikiname recipe from the SQL database and will be connected to TW5-Node-RED.
+>
+> That being said - both TNR and MWS share the same SQL database - so MWS Client and TW5-Node-RED can exchange tiddlers via the database (as demonstrated below).
 
 ---
+Will be sending TW5-Node-RED requests to receive tiddlers from the 'blank' recipe.  If unfamiliar to how single file wikis communicate with the the server:
+
+<details>
+  <summary style="font-size:1.1em;">Some simple Node-Red requests</summary>
+<div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
+
+{{simple requests}}
+
+</div>
+</details>
+
+---
+
+!!! Get new/changed tiddlers from a recipe
+
+To automatically receive the tiddlers being added to a recipe will need to tell the server to listen for tiddler updates for that recipe and then broadcast them to this client wiki. The flows that interface to MWS are in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> '''TW Multi Wiki''' tab. 
 
 {{Listener}}
 
+<div style="border:1px solid black">
+
 > {{Listening for updates}}
 
-The above button will have the server broadcast any changes to the tiddlers in the 'blank' recipe to be sent to this client wiki.
+</div>
 
+Go to the MWS client http://localhost:8200/wiki/blank and add a tiddler. Come back here and see the tiddler in ''recent''. Open it and go back to MWS client and make a change to the tiddler - will see the change here in this wiki.
 
-The following tiddlers are currently tagged with 'blank':
+> The tiddlers added/changed to recipe ''blank'' will update this wiki. In the sidebar select the ''recent'' tab to see the tiddlers from ''blank'' being added (they do not open in the story river - that would be just ... rude). But - if open in the story  - would see any changes to that tiddler due to the TiddlyWiki [ext[RefreshMechanism|https://tiddlywiki.com/static/RefreshMechanism.html]].
+
+<div style="width: 50%;margin-left:15%">
+{{add-mws-tiddler.png}}
+</div>
+
+---
+
+!!! Update a recipe
+
+Will be updating the SQLite database 'blank' recipe with tiddlers from this wiki tagged 'blank'. 
+
+Topic is similar to above - 'mws' is the Multi Wiki System, 'save-recipe-tiddlers' is the request, and 'blank' is the recipe to update.
+
+To satisfy the request the server needs the tiddlers to add/change to the 'blank' recipe. The second parameter is the TW filter of the tiddlers to send to the server. In this case tiddlers tagged with 'blank'.
+
+The following tiddlers will be sent to TW5-Node-RED and update the database:
 
 ```
 <<list-links filter:"[tag[blank]]">>
@@ -37,7 +106,15 @@ The following tiddlers are currently tagged with 'blank':
 
 > <<list-links filter:"[tag[blank]]">>
 
-Open http://localhost:1880/svr/wiki/notebook.html?app=mwsSender and follow the directions then come back to this tab and see the list of tiddlers received.
+```
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[tag[blank]]'>>"> Update blank recipe </$button>
+```
+
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[tag[blank]]'>>"> Update blank recipe </$button>
+
+> {{Save Results}}
+
+Go back to the MWS client http://localhost:8200/wiki/blank page and look at '''Recent'''. Will see the tiddlers listed above. Change the tiddler and press the button again to send it - and the recipe will be updated with the changes.
 
 ---
 

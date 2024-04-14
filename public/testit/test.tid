@@ -1,0 +1,361 @@
+created: 20240223013249157
+modified: 20240303153642422
+title: $:/poc2go/docs/msg
+caption: Messages
+list: $:/poc2go/docs/msg/meta $:/poc2go/docs/msg/client $:/poc2go/docs/msg/server $:/poc2go/docs/msg/user
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403138
+
+!! TW5-Node-RED msg
+
+
+All Node-RED msgs received from client TiddlyWikis have the same format. There are five top-level fields:
+
+|Field|Type|Description|h
+|topic|string|The required topic of the message|
+|network|object|The TW5-Node-RED data from client TiddlyWiki|
+|_socketId|string|socket.io socket ID|
+|_msgid|string|Node-RED message ID|
+|_event|string|uiBuiler event node ID|
+
+The last three fields that begin with underbar `_` are used by the routing and communication system and should be left alone.
+
+!!! msg.network
+
+TiddlyWiki sends a request `<<node-red 'topic' '[[filter]]'>>` which fills the 'network' object.
+
+|msg |>|>| |>|>|h
+| |topic |>| |string |Topic of the request|
+| |network |>|>|>| |h
+| | |meta |>| |Meta Data |>|h
+| | | |source | string |Source of message - TW5/Node-red/HTML|
+| | | |version | string |Version of source|
+| | | |location | object |Browser 'window.location' object|
+| | | |_clientid | string |Client-side generated ID|
+| | | |tiddlers | array |Data-tiddlers sent with every msg|
+| | |client |>| |Client Data |h
+| | | |topic | string |Original topic requested|
+| | | |sender | array |currentTidder sending request|
+| | | |tiddlers | array |Tiddlers sent with this request|
+| | |server |>| |Server Data |h
+| | | |topic | string |Topic of response|
+| | | |tiddlers | array |Tiddlers sent with this response|
+| | | |storylist | array |Tiddlers to add to story|
+| | |user |>| |User Data (tiddler)|h
+| | | |title | string |Same as userid|
+| | | |userid | string |Unique ID of user|
+| | | |username | string |Display name of user|
+| | | |email | string |User email address|
+| | | |pwHash | string |bcrypt hash of password|
+| | | |palette | string |User default palette|
+| |_socketId |>| |string |socket.io socket ID|
+| |_msgid |>| |string |Node-RED message ID|
+| |_event |>| |string |uiBuilder event|
+
+An example  - some fields shortened to [· · ·] / {· · ·}.
+
+```
+{
+  "topic": "rooms,show",
+  "network": {
+    "meta": {
+      "source": "TW5",
+      "version": "v5.3.3",
+      "location": {· · ·},
+      "_clientid": "879d5d9b5f4b667a",
+      "tiddlers": [· · ·]
+    },
+    "client": {
+      "topic": "client.onload",
+      "sender": [· · ·],
+      "tiddlers": [· · ·]
+    },
+    "server": {
+      "topic": "server.tiddlers",
+      "tiddlers": [],
+      "storylist": []
+    },
+    "user": {· · ·}
+  },
+  "_socketId": "QqcVUUmI5b-X2WisAAAT",
+  "_msgid": "9ff2f97b608d5ce9",
+  "_event": "node:4c9c46b76b72965f"
+}
+```
+
++======+
+created: 20240108115859673
+modified: 20240113135525500
+title: Development
+list: Sites Applications [[Wiki templates]] [[Browser/server diagrams]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403145
+
+TW5-Node-RED is designed for developers of web sites using TiddlyWiki and Node-Red.
+
+There are two methods to create TW5-Node-RED sites. The most familiar is to create or take an existing single file wiki and save on the server. The other method is to use the TiddlyWiki 'server' edition sync server which dynamically stores tiddlers on the server. Both methods are used in concert to construct TW5-Node-Red sites and applications.
+
+In this documentation the TiddlyWiki site being created is 'hello.html' and the application being created is named 'world'.  
+
+See [[Sites]], [[Applications]], and [[Wiki templates]] for more information.
+
+
++======+
+created: 20231203145637775
+modified: 20240312102933980
+title: Embedded
+list: Startup [[Sync server]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403147
+
+TiddlyWiki is embedded into the Node-Red global context and accessed by the Node-Red 'function' node by:
+
+<$macrocall $name=".codesample" n="0" lng="js" eg="""const $tw = global.get('$tw');
+"""/>
+
+The function node now has access to all the $tw functions and variables.
+
+Another global context variable 'twikis' s a hash by [[TW twikis]] name which can be used to access twikis (see [[To twiki]] and [[From twiki]]).
+
+An example flow is in the [[Databases tab]] 'Show all clientIds & twiki databases' which displays the twiki names and the tiddlers they contain in the Node-Red debug window as well as log on the console the number of tiddlers in each twiki:
+
+<div style="max-width: 550px">{{twiki-collections-flow.png}}</div>
+
+The function node gets '$tw' and 'twikis' from the Node-Red global context and uses them to populate the msg field 'msg.twikis' with the tiddlers in each twiki.
+
+<$macrocall $name=".codesample" n="1" lng="js" eg="""const $tw = global.get('$tw');
+const twikis = global.get('twikis');
+
+// Place results in the msg
+msg.twikis = {};
+
+// For each twiki create a property in msg.twiki of the twikiName
+//  then load the property with tiddlers from the twiki
+for (let twikiName in twikis) {
+    if (twikiName !== '$tw.wiki') { // exclude main tidder store
+        msg.twikis[twikiName] =
+            JSON.parse(twikis[twikiName].getTiddlersAsJson('[all[]]'))
+    }
+    $tw.utils.log(`twiki: '${twikiName}' has ` +
+        `${twikis[twikiName].countTiddlers()} tiddlers`, 'purple')
+}
+return msg;
+
+"""/>
+
+
++======+
+created: 20231212022842141
+modified: 20240211162815344
+title: Flotsam
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403147
+
+
++======+
+created: 20231126225744738
+modified: 20240116035149886
+title: How it works
+list: [[Client side]] [[Server side]] [[Better hello]] Switches Mustache Branches [[TW twikis]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403149
+
+Node-RED allows developers to build server-side [[applications|Purpose]] using a drag-n-drop interface of 'nodes' which perform specific tasks in a sequence. TW5-Node-RED provides Node-Red with [[additional nodes|Tiddler nodes]] to handle tiddlers.
+
+In the TiddlyWiki universe most servers are in one form or another a 'sync' server designed to save a copy of your wiki. TW5-Node-RED is not a sync server
+
+> Well, the 'server' edition [[Sync server]] is available since TW5-Node-RED can optionally load it server side. But TW5-Node-RED itself is not a sync server. A replacement sync server is being developed in Node-Red which can sync with any single file TiddlyWiki - with no additional plugins needed client side.
+
+The server is an [[application|Purpose]] server which sends content to a TiddlyWiki client wiki. In a sense it is opposite a sync server which the wiki controls what the server does, in this case it is the server that tells the wiki what to do.
+
+<div style="float:left;width:15%;margin-right:.5em;">{{flower-border-left.png}}</div>
+<div style="float:right;width:15%;margin-left:.5em;">{{flower-border-right.png}}</div>
+
+
+The advantage of single file TiddlyWikis is that they are independent and self contained. The client-side wiki must already have JavaScript plugins (the 'core' being one of them) and possibly content which the server is unaware. Thus the presentation of the content delivered by the server is for the most part controlled by the client wiki. Single file TiddlyWikis allow the server to be data-driven as the front-end wiki does the presentation.
+
+That being said, the server does need to be able to modify presentation settings. For example, the server may have a custom view template in order to display content correctly. To the server the template is just a tiddler like everything else. It sends it and the wiki responds by changing the tiddler views. It can not be stated or shouted from the hill tops enough - one of the most powerful features of TiddlyWiki is that ''everything'' is data - a tiddler.
+
+
+
+
++======+
+created: 20231222125146347
+modified: 20240312190824910
+title: Node-Red tabs
+list: [[Topics tab]] [[Network tab]] [[Security tab]] [[Databases tab]] [[onConnect tab]] [[Utilities tab]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403152
+
+The <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> workspace is organized using tabs. Is a little confusing as the menu options call these tabs 'flows' but once have used the Flow Editor interface for a while will get used to it. Node-RED [ext[documentation|https://nodered.org/docs/user-guide/editor/workspace/flows]] states:
+
+<div class="tc-message-box" style="font-size: 1rem;">
+Note : The term "flow" is also used to informally describe a single set of connected nodes. So a flow (tab) can contain multiple flows (sets of connected nodes).
+</div>
+
+TW5-Node-RED requires the [[Network|Network tab]], [[Security|Security tab]], [[Databases|Databases tab]], [[onConnect|onConnect tab]], and [[Utilities|Utilities tab]] tabs. It is possible to re-wire nodes to bypass some of the flows but will have to get down into the weeds in most cases.
+
+The list of TW5-Node-RED <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> tabs when installed includes:
+
+| Tab | Required |Description |h
+| [[Network|Network tab]] | yes |Interface to uiBuilder (socket.io) communications system |
+| [[Security|Security tab]] | yes |Bearer token, User login, authentication, and authorization |
+| [[Databases|Databases tab]] | yes |Loading and saving twiki databases |
+| [[onConnect|onConnect tab]] | yes |Actions when client TiddlyWiki connects to server |
+| [[Utilities|Utilities tab]] | yes |Common actions that flows 'link call' |
+| [[Topics|Topics tab]] | no |Flows used to introduce TW5-Node-RED [[How it works]] |
+| [[Tools|Tools tab]] | no |Tools that can be handy when developing applications |
+| [[Chat|Chat tab]] | no |Example Chat application |
+| [[Webpages|Webpages tab]] | no |Example web sites |
+| [[Applications|Applications tab]] | no |Applications that are totally written in Node-RED |
+| [[Tiddler nodes|Tiddler nodes tab]] | no |Tiddler nodes that display in debug panel |
+| [[Redrum|Redrum tab]] | no |Application that converts TW TOC to/from Markdown document |
+| [[Store by Tag|Store by Tag tab]] | no |Tiddlers that store |
+| [[$tw functions|$tw functions tab]] | no |Builds tiddlers describing common $tw functions |
+| [[Experiments|Experiments tab]] | no |Random stuff being tested |
+
+
++======+
+created: 20240204183210154
+modified: 20240313194352835
+title: Security
+list: [[Bearer token]] [[Create account]] [[User Login Authentication]] [[Message Authorization]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403155
+
+TW5-Node-RED is designed to face the internet. There are a set of requirements to secure the server, enable HTTPS access, secure the Flow Editor by password or better yet disable Flow Editor access entirely. See [[Securing Node-RED|https://nodered.org/docs/user-guide/runtime/securing-node-red#enabling-https-access]] which describes Node-RED itself - noting that 'users' are Node-RED users not the TiddlyWiki application users.
+
+To secure even further a reverse proxy can be placed between the server and the web. In most cases maintaining a proxy server and keeping up with new vulnerabilities requires skilled cyber security personnel. An internet reverse proxy provider such as [[ngrok|https://ngrok.com/]] can be used to simplify implementation of a reverse proxy and can also provide HTTPS access to a HTTP server via a secure tunnel.
+
+The security system is based on a three step process for authentication and authorization. Authentication confirms that users are who they say they are. Authorization gives those users permission to access resources.
+
+!!! Step 1 - New User Authentication
+When a [[user creates an account|Security tab users database]] a record (tiddler) is stored in the Users twiki database. To authenticate a user depends on the strategy being used. If using a provider such as Google or GitHub the procedure to follow can differ. WebHooks would have a totally different process. The built-in system just verifies the User ID, password, user name, and optional email address. The password is encrypted.
+
+!!! Step 2 - Authentication on login
+When a user logs onto the system the login request is [[authenticated|Security tab]] by verifying the encryption of the typed in password matches the encrypted one saved in the Users twiki database during Step 1. By default the [[Security tab]] 'Authenticate' node allows any user that has created an account access to the system. 
+
+The client receives a special tiddler `$:/temp/tw5-node-red/authenticated` when the authentication is successful allowing any client-side action deemed necessary once login is authenticated by the server. A flag is set server-side `clientIds[cId].auth.authorized` which is used for both authenticated and authorized. If that flag is set to `false` the security system kicks in and the user will have to log in again.
+
+!!! Step 3 - Authorization
+Authorization is done on a per message basis. The 'Is authorized?' node in the [[Network tab]] performs the bearer token ( created [[Network tab]] 'Connect & Bearer token' node )  and authorization checks. When a login has been authenticated in Step 2 the `clientIds[cId].auth.authorized` flag is set to `true`. If the message is not authorized the message is routed to the [[security system|Security tab]].
+
++======+
+created: 20231207034933117
+modified: 20240312165904477
+title: Storage
+caption: Project
+list: project tiddlywiki flows uibuilder public src lib
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403158
+
+The server is providing information for multiple services.
+
+ * Node-Red Flow files, settings, plugins, nodes, themes, runtime API.
+ * TiddlyWiki on node.js
+ * Static content-types Mime file types, images, scripts
+ * Communication systems HTTP, websockets, socket.io, mqtt, tcp, udp
+ * Data Exchange CSV, XML, HTML, YAML, JSON, Tiddlers
+ * Security and Session management
+
+Node-Red provides much of this functionality thus the site directory structure is based on Node-Red. TW5-Node-RED uses the [ext[expressjs|https://expressjs.com/]] that is installed and started by Node-Red. In Node-Red documentation this is called 'standalone'. TW5-Node-RED can be run on an existing express server by embedding Node-Red and using the settings in the project directory <span class="poc2go-dir">'./settings.js'</span> file (see [ext[Embedding into an existing app|https://nodered.org/docs/user-guide/runtime/embedding]]).
+
+> Node-Red docs reference <span class="poc2go-dir">'$HOME/.node-red'</span> as the default directory for various files. For TW5-Node-RED - <span class="poc2go-dir">'$HOME/.node-red'</span> is the TW5-Node-RED project directory.
+
+The multi-tid '+======+' separator is not implemented in TiddlyWiki - is on the to-do list to add a plugin. For now if wish to import or drag-n-drop a multiple tiddlers tiddler from the server to a wiki, output as JSON using the [[Tiddler nodes]] or use the `<<node-red 'to json'>>` topic.
+
++======+
+created: 20231102160449679
+modified: 20240303154046439
+title: TableOfContents
+list: Welcome Purpose [[How it works]] Development [[The server]] [[Tiddler nodes]] Security $:/poc2go/docs/msg [[Node-Red tabs]] Storage Embedded Flotsam
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403159
+
+
++======+
+created: 20231201231701878
+modified: 20240116180622219
+title: Tiddler nodes
+list: [[Tiddler editor]] [[Read tiddlers]] [[Edit tiddlers]] [[Get network]] [[Set network]] [[To twiki]] [[From twiki]]
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403160
+
+<div style="margin: 0 0 0 -9px;">{{victorian-top2.png}}</div>
+<div style="float:left;">
+<div style="margin: -6px 0px 0 -9px;">{{victorian-middle2.png}}</div>
+<div style="margin: -6px -1em 0 -9px;">{{victorian-left2.png}}</div>
+</div>
+
+There are six 'tiddler' nodes that have been added to Node-Red:
+
+<div style="float: left; margin-right: 2rem;">
+
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{read-tiddlers.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{edit-tiddlers.png}}</div>|
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{get-network.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{set-network.png}}</div>|
+|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{to-twiki.png}}</div>|<div style="float:left; max-width: 120px;margin: 16px 1em;">{{from-wiki.png}}</div>|
+
+</div>
+
+These nodes are in the 'tiddler' category of the [ext[Node-Red node palette|https://nodered.org/docs/user-guide/editor/palette/]] in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> (ctrl-p if not shown). All six of the nodes involve copying tiddlers from differing sources to destinations.
+
+<hr class="poc2go-hr">
+
+!!! Under-the-hood
+
+TW5-Node-RED handles sets of tiddlers. When a tiddler is discovered that is not in a set the tiddler is placed into a set. An empty set is valid indicating 'no tiddlers'. There are two types of sets - ''twikis'' and ''arrays''.
+
+Standard Node-Red nodes use ''arrays'' containing tiddlers as JavaScript objects. ''twikis'' on the other hand use an internal TiddlyWiki format ''$tw.Wikis'' containing ''$tw.Tiddlers''. Accessing tiddlers using TiddlyWiki [[filters|https://tiddlywiki.com/static/Filters.html]] requires tiddlers to be in TiddlyWiki format.
+
+[[To twiki]] and [[From twiki]] store and access tiddlers in TiddlyWiki format and does the conversion  to/from TiddlyWiki format to/from JavaScript objects. This is transparent to the application developer. Tiddlers are ''arrays'' of JavaScript objects when used by Node-Red nodes. If needed, the Node-Red 'function' node can be used to access both formats.
+
+<hr class="poc2go-hr">
+
+The tiddler nodes process files in tid or JSON format. It is natural to gravitate toward using the tid format as that format is the easiest to edit with a text editor. Being able to include multiple tiddlers in a single .tid file separated by '+======+' is an important feature which application developers will find as a simple and effective way to handle sets of tiddlers with the [[Tiddler editor]] or text editor.
+
++======+
+created: 20231102103835604
+modified: 20240409125611780
+title: Welcome
+list: Preface Purpose Prerequisites Install [[Client wiki]] [[Server settings]]
+mustache: yes
+tags: TableOfContents
+type: text/vnd.tiddlywiki
+fetched: 20240414211403164
+
+---
+
+| [ext[TW5-Node-RED REPL|/svr/wiki/nodered.html?app=repl]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+
+---
+
+<div style="margin: 0 0 -6px -9px;">{{victorian-top.png}}</div>
+<div style="float:left;">{{victorian-left.png}}</div>
+
+!! Hi PotOfCoffee2Go! - Welcome to TW5-Node-RED <$button style="float: right; font-size: 1rem;" actions="<<node-red 'logout'>>"> logout </$button>
+
+TW5-Node-RED allows building server applications for single file TiddlyWikis using Node-RED flows.
+Node-Red [['tiddler' nodes|Tiddler nodes]] have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard (and most third party) Node-Red nodes.
+
+A `<<node-red 'topic' [[filter]]>>` TiddlyWiki macro provides access to the server allowing tiddlers to be sent to and received from the server. Due to browser security concerns, the TiddlyWiki must be delivered by the server. 
+
+Any TW5 TiddlyWiki can access the Node-Red server by drag-n-drop [[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server directory <span class="poc2go-dir">'./uibuilder/svr/src/wiki'</span>. The browser address would be  'http://localhost:1880/svr/wiki/hello.html' for a wiki named 'hello.html'.
+
+HTML web pages can access tiddlers on the server by including `<script src="/svr/page/js/tw5-node-red.js"></script>` in the document `<head>`. There are hooks provided for basic tiddler management. This documentation will concentrate on using TiddlyWiki clients and only briefly cover HTML page usage.
+
+The TiddlyWiki 'server' edition sync server is integrated into TW5-Node-Red and can be used as a tool to create server-side tiddlers or as a dashboard. See [[Sync server]].
+
+Tiddlers can be distributed from the other connected TiddlyWikis, web, files, Node-Red msg.property, or stored with-in Node-Red flows. The TiddlyWiki core is embedded into Node-Red allowing custom nodes and the Node-Red [ext[function|https://nodered.org/docs/user-guide/nodes#function]] node full access to the TiddlyWiki code base (ie: $tw functions and objects). Tiddlers can be stored in server side TiddlyWiki $tw.Wiki instances (twikis) allowing the server to access databases of tiddlers using standard TW filters.
+
+Hopefully TW5-Node-RED will be useful in your software toolbox. Enjoy!
+
