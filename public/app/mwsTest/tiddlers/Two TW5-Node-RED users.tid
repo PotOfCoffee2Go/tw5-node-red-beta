@@ -1,0 +1,12 @@
+created: 20240415121524279
+modified: 20240415174705977
+tags: 
+title: Two TW5-Node-RED users
+type: text/vnd.tiddlywiki
+
+Open http://localhost:1880/svr/wiki/empty.html?mws=blank
+
+> Note the `?mws=blank` at the end of the URL. The single file wiki being loaded is 'empty.html' from the server then all tiddlers in the 'blank' recipe.
+
+Well, kinda 'empty' - has the $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed so it can connect to the server.
+

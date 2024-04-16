@@ -1,11 +1,9 @@
 created: 20240106174823357
-modified: 20240414221410698
+modified: 20240416023029474
 mustache: yes
 tags: 
 title: Test TiddlyWiki « Node-Red » MWS
 type: text/vnd.tiddlywiki
-
----
 
 | [ext[TNR REPL|/svr/wiki/nodered.html?app=repl]] | [ext[TNR Documentation|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
 
@@ -15,6 +13,16 @@ type: text/vnd.tiddlywiki
 
 //Note that both TW5-Node-RED and TiddlyWiki Multi Wiki Server are currently being developed - so if doesn't work may be due to the continuous (almost daily) updates. Nothing is written in stone yet :)//
 
+To edit this app go to http://localhost:8100 which is TW 'server' edition of this app. 
+
+```
+Return here and <$button actions="<<node-red 'twsync app'>>"> Refresh </$button>
+```
+
+Return here and <$button actions="<<node-red 'twsync app'>>"> Refresh </$button>
+
+---
+<div style="margin-left:1em;">
 <details>
   <summary style="font-size:1.1em;">About accounts and logins</summary>
 <div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
@@ -42,21 +50,6 @@ type: text/vnd.tiddlywiki
 </div>
 </details>
 
-TiddlyWiki Multi Wiki Server is http://localhost:8200. Click on '''blank''' recipe
-
-<div style="width: 250px;margin-left:15%">
-{{blank-wiki.png}}
-</div>
-
-or can directly go to http://localhost:8200/wiki/blank which will be the recipe used for the tests.
-
-> The MWS Client is NOT connected to TW5-Node-RED! To load a MWS wiki (recipe) into TW5-Node-RED use http://localhost:1880/svr/wiki/empty.html?mws=wikiname . The `?mws=wikiname` part will load wikiname recipe from the SQL database and will be connected to TW5-Node-RED.
->
-> That being said - both TNR and MWS share the same SQL database - so MWS Client and TW5-Node-RED can exchange tiddlers via the database (as demonstrated below).
-
----
-Will be sending TW5-Node-RED requests to receive tiddlers from the 'blank' recipe.  If unfamiliar to how single file wikis communicate with the the server:
-
 <details>
   <summary style="font-size:1.1em;">Some simple Node-Red requests</summary>
 <div style="border: 1px solid black; margin: 1em 3em; padding: 1em;">
@@ -65,38 +58,58 @@ Will be sending TW5-Node-RED requests to receive tiddlers from the 'blank' recip
 
 </div>
 </details>
+</div>
 
 ---
 
-!!! Get new/changed tiddlers from a recipe
+TiddlyWiki Multi Wiki Server is http://localhost:8200. Click on '''blank''' recipe
+or can directly go to http://localhost:8200/wiki/blank which will be the recipe used for the demo.
 
-To automatically receive the tiddlers being added to a recipe will need to tell the server to listen for tiddler updates for that recipe and then broadcast them to this client wiki. The flows that interface to MWS are in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> '''TW Multi Wiki''' tab. 
+<div style="width: 250px;margin-left:15%">
+{{blank-wiki.png}}
+</div>
+
+> The TW 'server' and 'mwultwikiserver' editions are NOT connected to TW5-Node-RED! Thus `<<node-red 'topic' '[[filter]]'>>` macro does not work when building tiddlers for TW5-Node-RED applications (is actually a good thing).
+>
+> TW5-Node-RED accesses the tiddlers the editions produce by sharing the same SQL databases and directories/files.
+
+---
+
+!! Get new/changed tiddlers from a recipe
+
+To automatically receive the tiddlers being added to a recipe will need to tell the server to listen for tiddler updates to that recipe and then broadcast them to this client wiki. The flows that interface to MWS are in the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> '''TW Multi Wiki''' tab. 
 
 {{Listener}}
 
 <div style="border:1px solid black">
 
-> {{Listening for updates}}
+> {{Watching for recipe updates}}
 
 </div>
 
-Go to the MWS client http://localhost:8200/wiki/blank and add a tiddler. Come back here and see the tiddler in ''recent''. Open it and go back to MWS client and make a change to the tiddler - will see the change here in this wiki.
+Press <$button actions="<<node-red 'mws/start-watch-recipe/blank'>>"> Start </$button> and go to the MWS client http://localhost:8200/wiki/blank and add a tiddler. Come back here to see the tiddler has been added to this wiki.
 
-> The tiddlers added/changed to recipe ''blank'' will update this wiki. In the sidebar select the ''recent'' tab to see the tiddlers from ''blank'' being added (they do not open in the story river - that would be just ... rude). But - if open in the story  - would see any changes to that tiddler due to the TiddlyWiki [ext[RefreshMechanism|https://tiddlywiki.com/static/RefreshMechanism.html]].
+The tiddler will have a field 'FromRecipe' with the name of the recipe the tiddler came from.
 
-<div style="width: 50%;margin-left:15%">
-{{add-mws-tiddler.png}}
+```
+<<list-links filter:"[FromRecipe[blank]]">>
+```
+
+<div style="border:1px solid black">
+
+> <<list-links filter:"[FromRecipe[blank]]">>
+
 </div>
+
+Open it; then go back to MWS client and make a change to the tiddler - will see the change here in this wiki.
+
+> The tiddlers added/changed to recipe ''blank'' will update this wiki. If open in the story  - would see any changes to that tiddler due to the TiddlyWiki [ext[RefreshMechanism|https://tiddlywiki.com/static/RefreshMechanism.html]].
 
 ---
 
-!!! Update a recipe
+!! Update a recipe
 
 Will be updating the SQLite database 'blank' recipe with tiddlers from this wiki tagged 'blank'. 
-
-Topic is similar to above - 'mws' is the Multi Wiki System, 'save-recipe-tiddlers' is the request, and 'blank' is the recipe to update.
-
-To satisfy the request the server needs the tiddlers to add/change to the 'blank' recipe. The second parameter is the TW filter of the tiddlers to send to the server. In this case tiddlers tagged with 'blank'.
 
 The following tiddlers will be sent to TW5-Node-RED and update the database:
 
@@ -104,17 +117,34 @@ The following tiddlers will be sent to TW5-Node-RED and update the database:
 <<list-links filter:"[tag[blank]]">>
 ```
 
+<div style="border:1px solid black">
+
 > <<list-links filter:"[tag[blank]]">>
 
+</div>
+
+Topic is similar to above - 'mws' is the Multi Wiki System, 'save-recipe-tiddlers' is the request, and 'blank' is the recipe to update.
+
+To satisfy the request the server needs the tiddlers to add/change to the 'blank' recipe. The second parameter is the TW filter of the tiddlers to send to the server. In this case tiddlers tagged with 'blank'.
+
 ```
 <$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[tag[blank]]'>>"> Update blank recipe </$button>
 ```
 
 <$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[tag[blank]]'>>"> Update blank recipe </$button>
+
+<div style="border:1px solid black">
 
 > {{Save Results}}
 
-Go back to the MWS client http://localhost:8200/wiki/blank page and look at '''Recent'''. Will see the tiddlers listed above. Change the tiddler and press the button again to send it - and the recipe will be updated with the changes.
+</div>
+
+Go back to the MWS client http://localhost:8200/wiki/blank page and look at '''Recent''' in the sidebar. Will see the tiddlers listed above.
 
 ---
+
+!! Two TW5-Node-RED users
+
+{{Two TW5-Node-RED users}}
+
 

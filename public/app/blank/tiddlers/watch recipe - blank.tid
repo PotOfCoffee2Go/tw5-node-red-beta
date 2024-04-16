@@ -1,0 +1,64 @@
+created: 20240415214351971
+modified: 20240416114055930
+mustache: yes
+title: watch recipe - blank
+type: text/vnd.tiddlywiki
+
+!!! Hi {% network.user.username %}
+
+The 'blank' recipe used to be actually blank - no tiddlers. Now there are a few, such as this one.
+
+To open this recipe in TW5-Node-RED, go to http://localhost:1880/svr/wiki/empty.html?mws=blank
+
+> @@font-family:monospace;'svr/wiki/empty.html' @@ is empty.html from https://tiddlywiki.com with the $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed and saved on the server (as all of the single file TiddlyWikis that are in directory
+>
+> @@font-family:monospace;'?mws=blank' @@ is this application from the Multi Wiki Server 'blank' recipe.
+
+Instead of using 'empty.html' to host the app - could use nodered.html
+
+   http://localhost:1880/svr/wiki/nodered.html?mws=blank
+
+Better yet, open both of them using different user accounts. <$button actions="<<node-red 'register request'>>"> Create account </$button>
+
+---
+
+Tell the server to Start or Stop watching for changes to recipe 'blank'. When Started this wiki will receive the changes - when Stopped will not receive any new/changed tiddlers until Started again. 
+
+```
+Press <$button actions="<<node-red 'mws/start-watch-recipe/blank'>>"> Start </$button> / <$button actions="<<node-red 'mws/stop-watch-recipe/blank'>>"> Stop </$button> watching for 'blank' recipe updates.
+```
+
+Press <$button actions="<<node-red 'mws/start-watch-recipe/blank'>>"> Start </$button> / <$button actions="<<node-red 'mws/stop-watch-recipe/blank'>>"> Stop </$button> watching for 'blank' recipe updates.
+
+<div style="border:1px solid black">
+
+> {{Watching for recipe updates}}
+
+</div>
+
+---
+
+The new/changed tiddlers will have a field 'FromRecipe' with the name of the recipe the tiddler came from.The field is only on tiddlers received when watching.
+
+```
+<<list-links filter:"[FromRecipe[blank]]">>
+```
+
+<div style="border:1px solid black">
+
+> <<list-links filter:"[FromRecipe[blank]]">>
+
+</div>
+
+---
+
+The refresh page will reload the application. Not all tiddlers will be reset - most $:/temp tiddlers for example would remain unchanged. This is handy if Stop watching for changes  to re-sync this wiki to the current state of the 'blank' recipe.
+
+```
+<$button actions="<<node-red 'twsync app'>>"> Refresh page </$button> from server.
+```
+
+<$button actions="<<node-red 'twsync app'>>"> Refresh page </$button> from server.
+
+---
+

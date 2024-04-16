@@ -274,7 +274,7 @@
             "5888fc4a0550ddd7",
             "2527a39d14a230a5"
         ],
-        "x": 54,
+        "x": 104,
         "y": 39,
         "w": 822,
         "h": 272
@@ -507,6 +507,28 @@
         "h": 122
     },
     {
+        "id": "e277a3352b39ab18",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "TW5-Node-RED Core",
+        "style": {
+            "label": true,
+            "stroke": "#ffff00"
+        },
+        "nodes": [
+            "ac177abd18a30b02",
+            "8a6999c14f732048",
+            "c9bbe0f3f12e859e",
+            "47d0e6a8f8415aa2",
+            "99b7abd4d3bc5b40",
+            "844b316ad04edad7"
+        ],
+        "x": 44,
+        "y": 149,
+        "w": 552,
+        "h": 142
+    },
+    {
         "id": "3cefbe58652ddd1b",
         "type": "group",
         "z": "eb845b8cbc7ac49a",
@@ -529,7 +551,7 @@
         "id": "04304cacc22dfd2b",
         "type": "group",
         "z": "304338a4b9f89088",
-        "name": "Delivery of application sites \\n Sites are normally created with sync server \\n or Multi Wiki Server",
+        "name": "Delivery of application sites \\n Sites are normally created with sync server",
         "style": {
             "stroke": "#a4a4a4",
             "label": true,
@@ -542,10 +564,10 @@
             "55476bca421eb07a",
             "62c3e92ae0762df5"
         ],
-        "x": 58,
-        "y": 327,
-        "w": 754,
-        "h": 386
+        "x": 168,
+        "y": 343,
+        "w": 744,
+        "h": 274
     },
     {
         "id": "a24216bd24717c1e",
@@ -890,28 +912,6 @@
         "y": 691,
         "w": 624,
         "h": 296
-    },
-    {
-        "id": "e277a3352b39ab18",
-        "type": "group",
-        "z": "304338a4b9f89088",
-        "name": "TW5-Node-RED Core",
-        "style": {
-            "label": true,
-            "stroke": "#ffff00"
-        },
-        "nodes": [
-            "ac177abd18a30b02",
-            "8a6999c14f732048",
-            "c9bbe0f3f12e859e",
-            "47d0e6a8f8415aa2",
-            "99b7abd4d3bc5b40",
-            "844b316ad04edad7"
-        ],
-        "x": 194,
-        "y": 759,
-        "w": 552,
-        "h": 142
     },
     {
         "id": "49f363e05e815a85",
@@ -1347,13 +1347,12 @@
             "21d435e3c4987e1a",
             "14477b22c78480b3",
             "ae33c705716b22fa",
-            "407b772f0f144186",
-            "7d2e58723eb09955"
+            "407b772f0f144186"
         ],
-        "x": 84,
+        "x": 194,
         "y": 459,
-        "w": 702,
-        "h": 228
+        "w": 692,
+        "h": 132
     },
     {
         "id": "8549cd6c5c10aa65",
@@ -1395,25 +1394,6 @@
         "x": 404,
         "y": 239,
         "w": 362,
-        "h": 82
-    },
-    {
-        "id": "7d2e58723eb09955",
-        "type": "group",
-        "z": "304338a4b9f89088",
-        "g": "e7370f616716a124",
-        "name": "When MWS - Starts watching MWS recipe",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "654ee70ffdb7a36c",
-            "c0d81093110cbce5"
-        ],
-        "x": 134,
-        "y": 579,
-        "w": 532,
         "h": 82
     },
     {
@@ -1544,7 +1524,7 @@
         "type": "junction",
         "z": "304338a4b9f89088",
         "g": "d57af1ba9d807a6e",
-        "x": 100,
+        "x": 150,
         "y": 220,
         "wires": [
             [
@@ -1558,7 +1538,7 @@
         "type": "junction",
         "z": "304338a4b9f89088",
         "g": "d57af1ba9d807a6e",
-        "x": 740,
+        "x": 790,
         "y": 220,
         "wires": [
             [
@@ -3555,8 +3535,7 @@
             "9b0a95db2e9194f2",
             "dbf7e878fa564983",
             "edc0b050e5af6de4",
-            "55476bca421eb07a",
-            "c0d81093110cbce5"
+            "55476bca421eb07a"
         ],
         "x": 350,
         "y": 200,
@@ -4396,7 +4375,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n---\n\n```\n{%&temp%}\n```\n",
+        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value=\"\"/>\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\nDo not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nOr can logon as user 'demo' password 'demo'\n\n---\n\n```\n{%&temp%}\n```\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4880,7 +4859,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 270,
+        "x": 320,
         "y": 150,
         "wires": [
             [
@@ -4897,7 +4876,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 95,
+        "x": 145,
         "y": 80,
         "wires": [
             [
@@ -4924,7 +4903,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 220,
+        "x": 270,
         "y": 80,
         "wires": [
             [
@@ -4955,7 +4934,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 420,
+        "x": 470,
         "y": 80,
         "wires": [
             [
@@ -4977,7 +4956,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 670,
+        "x": 720,
         "y": 90,
         "wires": [
             [
@@ -4995,7 +4974,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 835,
+        "x": 885,
         "y": 150,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -5024,7 +5003,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 630,
+        "x": 680,
         "y": 150,
         "wires": [
             [
@@ -5042,7 +5021,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 185,
+        "x": 245,
         "y": 400,
         "wires": [
             [
@@ -5070,7 +5049,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 310,
+        "x": 370,
         "y": 400,
         "wires": [
             [
@@ -5096,7 +5075,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 240,
+        "x": 290,
         "y": 270,
         "wires": [
             [
@@ -5136,7 +5115,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 460,
         "y": 270,
         "wires": [
             [
@@ -5154,7 +5133,7 @@
         "links": [
             "96d69fda963f66a2"
         ],
-        "x": 610,
+        "x": 660,
         "y": 270,
         "wires": [],
         "l": true
@@ -5166,7 +5145,7 @@
         "g": "e7370f616716a124",
         "name": "twsync site",
         "links": [],
-        "x": 170,
+        "x": 280,
         "y": 520,
         "wires": [
             [
@@ -5183,8 +5162,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 745,
-        "y": 520,
+        "x": 845,
+        "y": 530,
         "wires": []
     },
     {
@@ -5193,14 +5172,14 @@
         "z": "304338a4b9f89088",
         "g": "e7370f616716a124",
         "name": "Requested site to payload",
-        "func": "const $tw = global.get('$twmws'); // MWS TiddlyWiki\nconst mustache = global.get('mustache');\nconst search = msg.network.meta.location.search;\n\nvar app, mws;\n\nvar connstat = {\n    title: '$:/plugins/multiwikiclient/SideBarSegment',\n    tags: '$:/tags/SideBarSegment',\n    'list-before': '$:/core/ui/SideBarSegments/page-controls',\n    text: '{{$:/temp/tw5-node-red/netstat}}'\n}\n\n// Check for app name in URL search param ie: ?app=appname or ?mws=appname\napp = /app=(\\w+)/.exec(search) ? /app=(\\w+)/.exec(search)[1] : '';\nmws = /mws=(\\w+)/.exec(search) ? /mws=(\\w+)/.exec(search)[1] : '';\n\n// No app requested in URL so run wiki without an app\nif (!app && !mws) {\n    msg.payload = [connstat];\n    node.send([msg, null]);\n    node.done();\n    return;\n}\n\nif (app) {\n    loadFromSync();\n} else {\n    loadFromMws();\n    \n}\nmsg.payload.push(connstat);\n\nnode.send([msg, null]);\nnode.done();\n\nfunction loadFromSync() {\n    var inputpath = `./public/app/${app}/tiddlers`;\n\n    if (!$tw.utils.isDirectory(inputpath)) {\n        msg.payload = [\n            {\n                title: 'Error: Application not found',\n                text: `The application '${app}' is not found\\n`\n            }\n        ];\n        node.debug(`msg.inputpath: ${inputpath} is not found.`, msg);\n        node.send([null, msg]);\n        node.done();\n        return;\n    }\n\n    const wiki = new $tw.Wiki;\n\n    var tiddlers = $tw.loadTiddlersFromPath(inputpath);\n\n    $tw.utils.each(tiddlers, (tiddlerInfo) => {\n        $tw.utils.each(tiddlerInfo.tiddlers, (tiddler) => {\n            wiki.importTiddler(new $tw.Tiddler(tiddler));\n        });\n    });\n\n    msg.payload = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\n\n    for (let i = 0; i < msg.payload.length; i++) {\n        if (msg.payload[i].text && msg.payload[i].mustache === 'yes') {\n            msg.payload[i].text = mustache.render(msg.payload[i].text, msg, {}, ['{%', '%}'])\n        }\n    }\n    msg.app = app;\n}\n\nfunction loadFromMws() {\n    var tiddlers = [];\n    var recipeTiddlerList = $tw.mws.store.getRecipeTiddlers(mws);\n    recipeTiddlerList.forEach(recipe => {\n        tiddlers.push($tw.mws.store.getRecipeTiddler(recipe.title, mws).tiddler)\n    })\n\n    // mustache substitution\n    for (let i = 0; i < tiddlers.length; i++) {\n        if (tiddlers[i].text && tiddlers[i].mustache === 'yes') {\n            tiddlers[i].text = mustache.render(tiddlers[i].text, msg, {}, ['{%', '%}'])\n        }\n    }\n    msg.app = mws;\n    node.send([null, null, msg]); // utimately start-watching-recipe  \n    msg.payload = tiddlers;\n}\n\nreturn;\n",
-        "outputs": 3,
+        "func": "const $tw = global.get('$twmws'); // MWS TiddlyWiki\nconst mustache = global.get('mustache');\nconst search = msg.network.meta.location.search;\n\nvar app, mws;\n\n// Check for app name in URL search param ie: ?app=appname or ?mws=appname\napp = /app=(\\w+)/.exec(search) ? /app=(\\w+)/.exec(search)[1] : '';\nmws = /mws=(\\w+)/.exec(search) ? /mws=(\\w+)/.exec(search)[1] : '';\n\n// No app requested in URL so run wiki without an app\nif (!app && !mws) {\n    msg.payload = [];\n    node.send([msg, null]);\n    node.done();\n    return;\n}\n\nif (app) {\n    loadFromSync()\n} else {\n    loadFromMws()\n}\n\nnode.send([msg, null]);\nnode.done();\n\nfunction loadFromSync() {\n    var inputpath = `./public/app/${app}/tiddlers`;\n\n    if (!$tw.utils.isDirectory(inputpath)) {\n        msg.payload = [\n            {\n                title: 'Error: Application not found',\n                text: `The application '${app}' is not found\\n`\n            }\n        ];\n        node.debug(`msg.inputpath: ${inputpath} is not found.`, msg);\n        node.send([null, msg]);\n        node.done();\n        return;\n    }\n\n    const wiki = new $tw.Wiki;\n\n    var tiddlers = $tw.loadTiddlersFromPath(inputpath);\n\n    $tw.utils.each(tiddlers, (tiddlerInfo) => {\n        $tw.utils.each(tiddlerInfo.tiddlers, (tiddler) => {\n            wiki.importTiddler(new $tw.Tiddler(tiddler));\n        });\n    });\n\n    msg.payload = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\n\n    for (let i = 0; i < msg.payload.length; i++) {\n        if (msg.payload[i].text && msg.payload[i].mustache === 'yes') {\n            msg.payload[i].text = mustache.render(msg.payload[i].text, msg, {}, ['{%', '%}'])\n        }\n    }\n    msg.app = app;\n}\n\nfunction loadFromMws() {\n    var tiddlers = [];\n    var recipeTiddlerList = $tw.mws.store.getRecipeTiddlers(mws);\n    recipeTiddlerList.forEach(recipe => {\n        tiddlers.push($tw.mws.store.getRecipeTiddler(recipe.title, mws).tiddler)\n    })\n\n    // mustache substitution\n    for (let i = 0; i < tiddlers.length; i++) {\n        if (tiddlers[i].text && tiddlers[i].mustache === 'yes') {\n            tiddlers[i].text = mustache.render(tiddlers[i].text, msg, {}, ['{%', '%}'])\n        }\n    }\n\n    msg.payload = tiddlers;\n    msg.app = mws;\n}\n\nreturn;\n",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 490,
         "y": 520,
         "wires": [
             [
@@ -5208,15 +5187,11 @@
             ],
             [
                 "ae33c705716b22fa"
-            ],
-            [
-                "654ee70ffdb7a36c"
             ]
         ],
         "outputLabels": [
-            "Tiddlers loaded",
             "Error",
-            "Is from MWS"
+            "Success"
         ]
     },
     {
@@ -5243,8 +5218,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 620,
-        "y": 540,
+        "x": 720,
+        "y": 550,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5264,7 +5239,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 720,
         "y": 500,
         "wires": [
             [
@@ -5283,7 +5258,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 460,
+        "x": 510,
         "y": 150,
         "wires": [
             [
@@ -5301,7 +5276,7 @@
         "links": [
             "96d69fda963f66a2"
         ],
-        "x": 690,
+        "x": 720,
         "y": 400,
         "wires": [],
         "l": true
@@ -5311,7 +5286,7 @@
         "type": "change",
         "z": "304338a4b9f89088",
         "g": "04304cacc22dfd2b",
-        "name": "set topic: client.load",
+        "name": "",
         "rules": [
             {
                 "t": "set",
@@ -5326,7 +5301,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 530,
         "y": 400,
         "wires": [
             [
@@ -5352,7 +5327,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 260,
+        "x": 310,
         "y": 220,
         "wires": [
             [
@@ -5384,212 +5359,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 460,
+        "x": 510,
         "y": 220,
         "wires": [
             [
                 "2527a39d14a230a5"
-            ]
-        ]
-    },
-    {
-        "id": "ac177abd18a30b02",
-        "type": "link in",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "TW5-Node-RED Core",
-        "links": [],
-        "x": 320,
-        "y": 800,
-        "wires": [
-            [
-                "8a6999c14f732048"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "8a6999c14f732048",
-        "type": "set-network",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "Styles",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "title: $:/tw5-node-red/styles\ntags: $:/tags/Stylesheet tw5-node-red\ntype: text/css\n\n\n/* wikilabs fix for 'navy' too blue */\n.uni-link {\n  color: inherit;\n}\n\ncode {\n  font-size: .93em;\n}\n\n.tc-edit-texteditor-body {\n\tfont-family: monospace;\n    font-size: 15px;\n    line-height: 25px;\n}\n\n.poc2go-center-img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n\n.poc2go-edit-text {\n\twidth: 60%;\n}\n\n/* Documentation - both docsify & TiddlyWiki */\n.poc2go-details {   }\n.poc2go-summary {   }\n.poc2go-details-container {\n  background-color: #c34a000A;\n  border: 1px solid #888888;\n  border-radius: 20px;\n  margin-top: .8em;\n}\n.poc2go-details-content {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n/* ------ */\n\n[data-tag-title^=\"·topic: \"] .tc-tag-label,\n[data-tag-title^=\"·topic: \"].tc-tag-label {\n  border-radius: 3px;\n}\n[data-tag-title^=\"·\"] .tc-tag-label,\n[data-tag-title^=\"·\"].tc-tag-label {\n   border-radius: 3px;\n}",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 510,
-        "y": 800,
-        "wires": [
-            [
-                "c9bbe0f3f12e859e"
-            ]
-        ]
-    },
-    {
-        "id": "c9bbe0f3f12e859e",
-        "type": "set-network",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "Icons",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "[\n  {\n    \"title\":\"$:/favicon.ico\",\n    \"_canonical_uri\":\"/tw5-node-red-logo.png\",\n    \"text\":\"\",\n    \"type\":\"image/png\" \n  },\n {\n    \"title\": \"$:/temp/images/phosphor-icons/fill/heart-straight-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-phi-heart-straight-fill tc-image-button\\\" viewBox=\\\"0 0 256 256\\\"><rect width=\\\"256\\\" height=\\\"256\\\" fill=\\\"none\\\"/><path fill=\\\"red\\\" d=\\\"M224.627,51.90625a59.54956,59.54956,0,0,0-43.0625-19.89063,60.69786,60.69786,0,0,0-43.98437,17.55469L128.002,59.14844l-7.5-7.49219c-23.32812-23.35156-61.29687-25.3125-84.57812-4.29687a59.974,59.974,0,0,0-2.34375,87.07031l83.10937,83.10937a16.013,16.013,0,0,0,22.625,0l81.03125-81.03125C243.68945,113.15625,245.61133,75.20312,224.627,51.90625Z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"1.2.0\",\n    \"library\": \"Phosphor Icons\",\n    \"collection\": \"Fill\",\n    \"caption\": \"heart-straight-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/remix-icon/health/hearts-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-ri-hearts-fill tc-image-button\\\" viewBox=\\\"0 0 24 24\\\"><g><path fill=\\\"none\\\" d=\\\"M0 0H24V24H0z\\\"/><path fill=\\\"red\\\" d=\\\"M17.363 11.045c1.404-1.393 3.68-1.393 5.084 0 1.404 1.394 1.404 3.654 0 5.047L17 21.5l-5.447-5.408c-1.404-1.393-1.404-3.653 0-5.047 1.404-1.393 3.68-1.393 5.084 0l.363.36.363-.36zm1.88-6.288c.94.943 1.503 2.118 1.689 3.338-1.333-.248-2.739-.01-3.932.713-2.15-1.303-4.994-1.03-6.856.818-2.131 2.115-2.19 5.515-.178 7.701l.178.185 2.421 2.404L11 21.485 2.52 12.993C.417 10.637.496 7.019 2.757 4.757c2.265-2.264 5.888-2.34 8.244-.228 2.349-2.109 5.979-2.039 8.242.228z\\\"/></g></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"2.5.0\",\n    \"library\": \"Remix Icon\",\n    \"collection\": \"\",\n    \"category\": \"Health\",\n    \"caption\": \"hearts-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/font-awesome/solid/heart-broken\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-fa-heart-broken tc-image-button\\\" viewBox=\\\"0 0 512 512\\\"><path fill=\\\"red\\\" d=\\\"M473.7 73.8l-2.4-2.5c-46-47-118-51.7-169.6-14.8L336 159.9l-96 64 48 128-144-144 96-64-28.6-86.5C159.7 19.6 87 24 40.7 71.4l-2.4 2.4C-10.4 123.6-12.5 202.9 31 256l212.1 218.6c7.1 7.3 18.6 7.3 25.7 0L481 255.9c43.5-53 41.4-132.3-7.3-182.1z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"5.15.2\",\n    \"library\": \"Font Awesome\",\n    \"collection\": \"Solid\",\n    \"caption\": \"heart-broken\"\n  }\n]",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 650,
-        "y": 800,
-        "wires": [
-            [
-                "47d0e6a8f8415aa2"
-            ]
-        ]
-    },
-    {
-        "id": "47d0e6a8f8415aa2",
-        "type": "set-network",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "Tiddlers",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "title: ·node-red·\ncolor: #8f0000\nlist: ·node-red·\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n\nTiddlers tagged with `·node-red·` have been sent to this wiki by the Node-Red server.\n\nAny tags that begin with a middle-dot `·` will be removed in-flight when sent to the server.\nThink of it as a client side //temporary// tag.\n\nTags that start with a middle-dot will appear square-ish <<tag ·temp·>> instead of the normal round-ish <<tag tw5-node-red>>\n\n> Since most keyboards do not have a middle-dot key - click the <<tag ·node-red·>> pill and select top-most entry `·node-red·`. and copy/paste one from top or bottom of this tiddler.\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n+======+\ntitle: TW5-Node-RED\ntags: tw5-node-red\nclientId: <%network.meta._clientid%>\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<!-- Connection status -->\n{{$:/temp/tw5-node-red/netstat}}\n\nCan load <$button actions=\"<<node-red 'plugin'>>\"> TW5-Node-RED  Plugin</$button>, which contains information about\nTW5-Node-RED and stays pretty much hidden away in the Control Panel.\n\nThe TW5-Node-RED ''application'' however changes the appearance, palette, adds a bunch of tiddlers, stuff like that.\nIf connecting to server with your own wiki then probably would not run the application.\nOf course can just reload the page to start over again. \n\nLoad <$button actions=\"<<node-red 'tw5-node-red app'>>\"> TW5-Node-RED  Application</$button>.\n\n+======+\ntitle: tw5-node-red\ncolor: #334e7e\nlist: tw5-node-red\ncreated: 19700102000000000\nmodified: 19700102000000000\n\nTW5-Node-RED allows building server APIs for single file TiddlyWikis using Node-RED flows.\nNodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard \n(and most third party) nodes.\n\nA TiddlyWiki macro provides TiddlyWiki's access to the server allowing tiddlers to be sent\nto and received from the server. Due to browser security concerns, the TiddlyWiki\nmust be delivered by the server. Any TiddlyWiki can access the Node-Red server by drag-n-drop\n[[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server\ndirectory 'uibuilder/svr/tiddlywikis'.\n\nServer side tiddlers can be from the connected TiddlyWikis, web, files, msg.property, or stored in Node-Red\nflows. The TiddlyWiki Core is embedded into Node-Red allowing the Node-Red 'function' node full\naccess to the TiddlyWiki codebase (ie: $tw functions and objects). Tiddlers can be stored in\nserver side TiddlyWiki wikis (twikis) allowing the server to access databases of tiddlers\nusing standard TW filters.\n\n!! TiddlyWiki\n\nRequests contain a topic to inform the server which Node-Red flow is to be executed.\nClient TiddlyWiki tiddlers are sent to the server by providing a filter of the tiddlers to send.\n`<<node-red 'topic' '[[tiddlers to send]]'>>` would send topic 'topic' and the tiddler titled\n'tiddlers to send'.\n\n!! Node-RED\n\nTiddler exchange is managed using the `msg.network` property maintained by all \nthe nodes in the Node-Red 'Tiddler' category:\n\n * create tiddler, read tiddler, get network, set network, to twiki, from twiki.\n\nTiddlers can be in .tid or JSON format, the Mustache logic-less template\nsystem is available for content substitution. TW5-Node-RED allows multiple tiddlers in .tid format\nby separating them using the line `+======+`.  \n\nThe server can dynamically request tiddlers from client TiddlyWikis at any time using standard TW filters.\n\nTiddlers and plugins can be preloaded into the Node-Red embedded TiddlyWiki for additional\nor custom server side tiddler processing.\n\nSee <a href=\"https://tw5-node-red.poc2go.com\" target=\"_blank\"> TW5-Node-Red Documentation </a> for details\n\n---\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits/page\ntags: tw5-node-red\ncaption: TNR Credits\ntype: text/vnd.tiddlywiki\n\n<div><img style=\"float: left;width: 90px;margin: 0 1.5em .5em 1em;\" src=\"/tw5-node-red-logo.png\"></div>\n\n! TW5-Node-RED\n\nDesigned and initial commit by [ext[PotOfCoffee2Go|https://github.com/potofcoffee2go]]\n\n<hr style=\"clear: both;margin-bottom: 1em;\">\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 900px;\" src=\"/docs/main-packages.png\">\n</div>\n\nThe main packages are [ext[Node-RED|https://nodered.org]], \n [ext[TiddlyWiki|https://tiddlywiki.com]], and\n [ext[uibuilder|https://totallyinformation.github.io/node-red-contrib-uibuilder/#/]]\n (node-red-contrib-uibuilder).\n\n---\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 500px;\" src=\"/docs/helper-packages.png\">\n</div>\n\n[ext[node.js|https://nodejs.org]], [ext[GIMP|https://www.gimp.org]],\n [ext[GitHub|https://github.com]], [ext[inkscape|https://inkscape.org]],\n [ext[git|https://git-scm.com]], [ext[geany|https://www.geany.org]],\n [ext[docsify|https://docsify.js.org]], and [ext[nodemon|https://nodemon.io]]\n were used to develop the project.\n\n---\n\nMany online developer resources: \n\n [ext[Talk TiddlyWiki|https://talk.tiddlywiki.org/]],\n [ext[MDN|https://developer.mozilla.org/en-US/]],\n [ext[TW Icons v1.10|https://morosanuae.github.io/tw-icons/]],\n [ext[StackOverflow|https://stackoverflow.com/]],\n [ext[W3 Schools|https://www.w3schools.com/]],\n [ext[pixabay|https://pixabay.com/]],\n [ext[JSON Beautifier|https://jsonbeautifier.org/]],\n [ext[YouTube|https://www.youtube.com]]\n\n---\n\nDeveloped on:\n\n[ext[Raspberry|https://www.raspberrypi.com]] [ext[Pi 4B|https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf]],\n[ext[LXDE Desktop|https://www.lxde.org]], [ext[Raspberry Pi OS (32-bit)|https://www.raspberrypi.com/software/]]\n\n<span>TiddlyWiki</span>: v5.3.1, Node-RED: v3.0.2, Node.js: v14.21.3, Linux: 5.10.103-v7l+ arm LE\n\nChromium: 92.0.4515.98 (Official Build) Built on Raspbian\n\n---\n\n\nCopyright and Trademarks are property of respective packages.\n\nNo company is affiliated with or endorses TW5-Node-RED. \n\n+======+\ntitle: TW5-Node-RED Flow Editor\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>\n+======+\ntitle: $:/language/Snippets/node-red-button\ncaption: TW5-Node-RED Button\ntags: $:/tags/TextEditor/Snippet\n\n<$button actions=\"<<node-red 'hello'>>\"> Hello </$button>\n",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 560,
-        "y": 860,
-        "wires": [
-            [
-                "99b7abd4d3bc5b40"
-            ]
-        ]
-    },
-    {
-        "id": "99b7abd4d3bc5b40",
-        "type": "link out",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "Return",
-        "mode": "return",
-        "links": [],
-        "x": 705,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "844b316ad04edad7",
-        "type": "set-network",
-        "z": "304338a4b9f89088",
-        "g": "e277a3352b39ab18",
-        "name": "more icons",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[all[]]",
-        "field": "",
-        "file": "public/tiddlers/icons/tw-icons-01.tid",
-        "updtostory": true,
-        "tostory": "false",
-        "template": "created: 20231025184554690\nmodified: 20231025185816847\ntitle: $:/images/bootstrap/journal-arrow-down\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: journal-arrow-down\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-journal-arrow-down tc-image-button\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z\"/><path d=\"M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z\"/><path d=\"M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z\"/></svg>\n+======+\ncreated: 20231025184554691\nmodified: 20231025185719670\ntitle: $:/images/bootstrap/journal-arrow-up\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: journal-arrow-up\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-journal-arrow-up tc-image-button\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8 11a.5.5 0 0 0 .5-.5V6.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 6.707V10.5a.5.5 0 0 0 .5.5z\"/><path d=\"M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z\"/><path d=\"M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z\"/></svg>\n+======+\ncreated: 20231025184554692\nmodified: 20231025185657535\ntitle: $:/images/bootstrap/layout-text-window-reverse\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: layout-text-window-reverse\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-layout-text-window-reverse tc-image-button\" viewBox=\"0 0 16 16\"><path d=\"M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z\"/><path d=\"M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z\"/></svg>\n+======+\ncreated: 20231025184554693\nmodified: 20231025185849073\ntitle: $:/images/bootstrap/markdown\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: markdown\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-markdown tc-image-button\" viewBox=\"0 0 16 16\"><path d=\"M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z\"/><path fill-rule=\"evenodd\" d=\"M9.146 8.146a.5.5 0 0 1 .708 0L11.5 9.793l1.646-1.647a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 0-.708z\"/><path fill-rule=\"evenodd\" d=\"M11.5 5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 1 .5-.5z\"/><path d=\"M3.56 11V7.01h.056l1.428 3.239h.774l1.42-3.24h.056V11h1.073V5.001h-1.2l-1.71 3.894h-.039l-1.71-3.894H2.5V11h1.06z\"/></svg>\n+======+\ncreated: 20231025184554697\nmodified: 20231025185916488\ntitle: $:/images/coreui-icons/free/cil-indent-increase\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 2.0.1\nlibrary: CoreUI Icons\ncollection: Free\ncaption: cil-indent-increase\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-cui-cil-indent-increase tc-image-button\" viewBox=\"0 0 512 512\"><rect width=\"424\" height=\"32\" x=\"72\" y=\"63.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"151.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"239.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"327.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"424\" height=\"32\" x=\"72\" y=\"415.998\" fill=\"var(--ci-primary-color, currentColor)\"/><path fill=\"var(--ci-primary-color, currentColor)\" d=\"M16,144.909V367.091L171.527,256Zm32,62.182L116.473,256,48,304.909Z\"/></svg>\n+======+\ncreated: 20231025184554698\nmodified: 20231025190032754\ntitle: $:/images/coreui-icons/free/cil-wrap-text\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 2.0.1\nlibrary: CoreUI Icons\ncollection: Free\ncaption: cil-wrap-text\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-cui-cil-wrap-text tc-image-button\" viewBox=\"0 0 512 512\"><rect width=\"160\" height=\"32\" x=\"16\" y=\"232\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"392\" height=\"32\" x=\"16\" y=\"392\" fill=\"var(--ci-primary-color, currentColor)\"/><path fill=\"var(--ci-primary-color, currentColor)\" d=\"M408,72H16v32H408c30.878,0,56,28.71,56,64s-25.122,64-56,64H344.8V162.772L210,249l134.8,83.785V264H408c48.523,0,88-43.065,88-96S456.523,72,408,72ZM312.8,275.217,270,248.609,312.8,221.228Z\"/></svg>",
-        "clear": false,
-        "editorIsOpen": true,
-        "settingsIsOpen": false,
-        "fromIsOpen": true,
-        "editorIsX": true,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": false,
-        "fieldIsX": false,
-        "x": 370,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c0d81093110cbce5",
-        "type": "link out",
-        "z": "304338a4b9f89088",
-        "g": "7d2e58723eb09955",
-        "name": "Message to flows",
-        "mode": "link",
-        "links": [
-            "96d69fda963f66a2"
-        ],
-        "x": 550,
-        "y": 620,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "654ee70ffdb7a36c",
-        "type": "change",
-        "z": "304338a4b9f89088",
-        "g": "7d2e58723eb09955",
-        "name": "set topic: start-watch-recipe",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "$join(['mws','start-watch-recipe',msg.app],'/')\t",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "network.server.tiddlers",
-                "pt": "msg",
-                "to": "[]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 280,
-        "y": 620,
-        "wires": [
-            [
-                "c0d81093110cbce5"
             ]
         ]
     },
@@ -5838,6 +5612,157 @@
             [
                 "a07af28ade3a49a2"
             ]
+        ]
+    },
+    {
+        "id": "ac177abd18a30b02",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "TW5-Node-RED Core",
+        "links": [],
+        "x": 170,
+        "y": 190,
+        "wires": [
+            [
+                "8a6999c14f732048"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "8a6999c14f732048",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "Styles",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/tw5-node-red/styles\ntags: $:/tags/Stylesheet tw5-node-red\ntype: text/css\n\n\n/* wikilabs fix for 'navy' too blue */\n.uni-link {\n  color: inherit;\n}\n\ncode {\n  font-size: .93em;\n}\n\n.tc-edit-texteditor-body {\n\tfont-family: monospace;\n    font-size: 15px;\n    line-height: 25px;\n}\n\n.poc2go-center-img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n\n.poc2go-edit-text {\n\twidth: 60%;\n}\n\n/* Documentation - both docsify & TiddlyWiki */\n.poc2go-details {   }\n.poc2go-summary {   }\n.poc2go-details-container {\n  background-color: #c34a000A;\n  border: 1px solid #888888;\n  border-radius: 20px;\n  margin-top: .8em;\n}\n.poc2go-details-content {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n/* ------ */\n\n[data-tag-title^=\"·topic: \"] .tc-tag-label,\n[data-tag-title^=\"·topic: \"].tc-tag-label {\n  border-radius: 3px;\n}\n[data-tag-title^=\"·\"] .tc-tag-label,\n[data-tag-title^=\"·\"].tc-tag-label {\n   border-radius: 3px;\n}",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 360,
+        "y": 190,
+        "wires": [
+            [
+                "c9bbe0f3f12e859e"
+            ]
+        ]
+    },
+    {
+        "id": "c9bbe0f3f12e859e",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "Icons",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "[\n  {\n    \"title\":\"$:/favicon.ico\",\n    \"_canonical_uri\":\"/tw5-node-red-logo.png\",\n    \"text\":\"\",\n    \"type\":\"image/png\" \n  },\n {\n    \"title\": \"$:/temp/images/phosphor-icons/fill/heart-straight-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-phi-heart-straight-fill tc-image-button\\\" viewBox=\\\"0 0 256 256\\\"><rect width=\\\"256\\\" height=\\\"256\\\" fill=\\\"none\\\"/><path fill=\\\"red\\\" d=\\\"M224.627,51.90625a59.54956,59.54956,0,0,0-43.0625-19.89063,60.69786,60.69786,0,0,0-43.98437,17.55469L128.002,59.14844l-7.5-7.49219c-23.32812-23.35156-61.29687-25.3125-84.57812-4.29687a59.974,59.974,0,0,0-2.34375,87.07031l83.10937,83.10937a16.013,16.013,0,0,0,22.625,0l81.03125-81.03125C243.68945,113.15625,245.61133,75.20312,224.627,51.90625Z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"1.2.0\",\n    \"library\": \"Phosphor Icons\",\n    \"collection\": \"Fill\",\n    \"caption\": \"heart-straight-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/remix-icon/health/hearts-fill\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-ri-hearts-fill tc-image-button\\\" viewBox=\\\"0 0 24 24\\\"><g><path fill=\\\"none\\\" d=\\\"M0 0H24V24H0z\\\"/><path fill=\\\"red\\\" d=\\\"M17.363 11.045c1.404-1.393 3.68-1.393 5.084 0 1.404 1.394 1.404 3.654 0 5.047L17 21.5l-5.447-5.408c-1.404-1.393-1.404-3.653 0-5.047 1.404-1.393 3.68-1.393 5.084 0l.363.36.363-.36zm1.88-6.288c.94.943 1.503 2.118 1.689 3.338-1.333-.248-2.739-.01-3.932.713-2.15-1.303-4.994-1.03-6.856.818-2.131 2.115-2.19 5.515-.178 7.701l.178.185 2.421 2.404L11 21.485 2.52 12.993C.417 10.637.496 7.019 2.757 4.757c2.265-2.264 5.888-2.34 8.244-.228 2.349-2.109 5.979-2.039 8.242.228z\\\"/></g></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"2.5.0\",\n    \"library\": \"Remix Icon\",\n    \"collection\": \"\",\n    \"category\": \"Health\",\n    \"caption\": \"hearts-fill\"\n  },\n  {\n    \"title\": \"$:/temp/images/font-awesome/solid/heart-broken\",\n    \"text\": \"<svg width=\\\"11pt\\\" height=\\\"11pt\\\" class=\\\"tc-image-fa-heart-broken tc-image-button\\\" viewBox=\\\"0 0 512 512\\\"><path fill=\\\"red\\\" d=\\\"M473.7 73.8l-2.4-2.5c-46-47-118-51.7-169.6-14.8L336 159.9l-96 64 48 128-144-144 96-64-28.6-86.5C159.7 19.6 87 24 40.7 71.4l-2.4 2.4C-10.4 123.6-12.5 202.9 31 256l212.1 218.6c7.1 7.3 18.6 7.3 25.7 0L481 255.9c43.5-53 41.4-132.3-7.3-182.1z\\\"/></svg>\",\n    \"tags\": \"$:/tags/Image Icons Images SVG\",\n    \"library_version\": \"5.15.2\",\n    \"library\": \"Font Awesome\",\n    \"collection\": \"Solid\",\n    \"caption\": \"heart-broken\"\n  }\n]",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 500,
+        "y": 190,
+        "wires": [
+            [
+                "47d0e6a8f8415aa2"
+            ]
+        ]
+    },
+    {
+        "id": "47d0e6a8f8415aa2",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "Tiddlers",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: ·node-red·\ncolor: #8f0000\nlist: ·node-red·\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n\nTiddlers tagged with `·node-red·` have been sent to this wiki by the Node-Red server.\n\nAny tags that begin with a middle-dot `·` will be removed in-flight when sent to the server.\nThink of it as a client side //temporary// tag.\n\nTags that start with a middle-dot will appear square-ish <<tag ·temp·>> instead of the normal round-ish <<tag tw5-node-red>>\n\n> Since most keyboards do not have a middle-dot key - click the <<tag ·node-red·>> pill and select top-most entry `·node-red·`. and copy/paste one from top or bottom of this tiddler.\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n+======+\ntitle: TW5-Node-RED\ntags: tw5-node-red\nclientId: <%network.meta._clientid%>\n\n<!-- Connection status -->\n{{$:/temp/tw5-node-red/netstat}}\n\nCan load <$button actions=\"<<node-red 'plugin'>>\"> TW5-Node-RED  Plugin</$button>, which contains information about\nTW5-Node-RED and stays pretty much hidden away in the Control Panel.\n\nThe TW5-Node-RED ''application'' however changes the appearance, palette, adds a bunch of tiddlers, stuff like that.\nIf connecting to server with your own wiki then probably would not run the application.\nOf course can just reload the page to start over again. \n\nLoad <$button actions=\"<<node-red 'tw5-node-red app'>>\"> TW5-Node-RED  Application</$button>.\n\n+======+\ntitle: tw5-node-red\ncolor: #334e7e\nlist: tw5-node-red\n\nTW5-Node-RED allows building server APIs for single file TiddlyWikis using Node-RED flows.\nNodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard \n(and most third party) nodes.\n\nA TiddlyWiki macro provides TiddlyWiki's access to the server allowing tiddlers to be sent\nto and received from the server. Due to browser security concerns, the TiddlyWiki\nmust be delivered by the server. Any TiddlyWiki can access the Node-Red server by drag-n-drop\n[[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server\ndirectory 'uibuilder/svr/tiddlywikis'.\n\nServer side tiddlers can be from the connected TiddlyWikis, web, files, msg.property, or stored in Node-Red\nflows. The TiddlyWiki Core is embedded into Node-Red allowing the Node-Red 'function' node full\naccess to the TiddlyWiki codebase (ie: $tw functions and objects). Tiddlers can be stored in\nserver side TiddlyWiki wikis (twikis) allowing the server to access databases of tiddlers\nusing standard TW filters.\n\n!! TiddlyWiki\n\nRequests contain a topic to inform the server which Node-Red flow is to be executed.\nClient TiddlyWiki tiddlers are sent to the server by providing a filter of the tiddlers to send.\n`<<node-red 'topic' '[[tiddlers to send]]'>>` would send topic 'topic' and the tiddler titled\n'tiddlers to send'.\n\n!! Node-RED\n\nTiddler exchange is managed using the `msg.network` property maintained by all \nthe nodes in the Node-Red 'Tiddler' category:\n\n * create tiddler, read tiddler, get network, set network, to twiki, from twiki.\n\nTiddlers can be in .tid or JSON format, the Mustache logic-less template\nsystem is available for content substitution. TW5-Node-RED allows multiple tiddlers in .tid format\nby separating them using the line `+======+`.  \n\nThe server can dynamically request tiddlers from client TiddlyWikis at any time using standard TW filters.\n\nTiddlers and plugins can be preloaded into the Node-Red embedded TiddlyWiki for additional\nor custom server side tiddler processing.\n\nSee <a href=\"https://tw5-node-red.poc2go.com\" target=\"_blank\"> TW5-Node-Red Documentation </a> for details\n\n---\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits/page\ntags: tw5-node-red\ncaption: TNR Credits\ntype: text/vnd.tiddlywiki\n\n<div><img style=\"float: left;width: 90px;margin: 0 1.5em .5em 1em;\" src=\"/tw5-node-red-logo.png\"></div>\n\n! TW5-Node-RED\n\nDesigned and initial commit by [ext[PotOfCoffee2Go|https://github.com/potofcoffee2go]]\n\n<hr style=\"clear: both;margin-bottom: 1em;\">\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 900px;\" src=\"/docs/main-packages.png\">\n</div>\n\nThe main packages are [ext[Node-RED|https://nodered.org]], \n [ext[TiddlyWiki|https://tiddlywiki.com]], and\n [ext[uibuilder|https://totallyinformation.github.io/node-red-contrib-uibuilder/#/]]\n (node-red-contrib-uibuilder).\n\n---\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 500px;\" src=\"/docs/helper-packages.png\">\n</div>\n\n[ext[node.js|https://nodejs.org]], [ext[GIMP|https://www.gimp.org]],\n [ext[GitHub|https://github.com]], [ext[inkscape|https://inkscape.org]],\n [ext[git|https://git-scm.com]], [ext[geany|https://www.geany.org]],\n [ext[docsify|https://docsify.js.org]], and [ext[nodemon|https://nodemon.io]]\n were used to develop the project.\n\n---\n\nMany online developer resources: \n\n [ext[Talk TiddlyWiki|https://talk.tiddlywiki.org/]],\n [ext[MDN|https://developer.mozilla.org/en-US/]],\n [ext[TW Icons v1.10|https://morosanuae.github.io/tw-icons/]],\n [ext[StackOverflow|https://stackoverflow.com/]],\n [ext[W3 Schools|https://www.w3schools.com/]],\n [ext[pixabay|https://pixabay.com/]],\n [ext[JSON Beautifier|https://jsonbeautifier.org/]],\n [ext[YouTube|https://www.youtube.com]]\n\n---\n\nDeveloped on:\n\n[ext[Raspberry|https://www.raspberrypi.com]] [ext[Pi 4B|https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf]],\n[ext[LXDE Desktop|https://www.lxde.org]], [ext[Raspberry Pi OS (32-bit)|https://www.raspberrypi.com/software/]]\n\n<span>TiddlyWiki</span>: v5.3.1, Node-RED: v3.0.2, Node.js: v14.21.3, Linux: 5.10.103-v7l+ arm LE\n\nChromium: 92.0.4515.98 (Official Build) Built on Raspbian\n\n---\n\n\nCopyright and Trademarks are property of respective packages.\n\nNo company is affiliated with or endorses TW5-Node-RED. \n\n+======+\ntitle: TW5-Node-RED Flow Editor\n\n<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 410,
+        "y": 250,
+        "wires": [
+            [
+                "99b7abd4d3bc5b40"
+            ]
+        ]
+    },
+    {
+        "id": "99b7abd4d3bc5b40",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 555,
+        "y": 250,
+        "wires": []
+    },
+    {
+        "id": "844b316ad04edad7",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "e277a3352b39ab18",
+        "name": "more icons",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "public/tiddlers/icons/tw-icons-01.tid",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "created: 20231025184554690\nmodified: 20231025185816847\ntitle: $:/images/bootstrap/journal-arrow-down\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: journal-arrow-down\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-journal-arrow-down tc-image-button\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z\"/><path d=\"M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z\"/><path d=\"M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z\"/></svg>\n+======+\ncreated: 20231025184554691\nmodified: 20231025185719670\ntitle: $:/images/bootstrap/journal-arrow-up\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: journal-arrow-up\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-journal-arrow-up tc-image-button\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8 11a.5.5 0 0 0 .5-.5V6.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 6.707V10.5a.5.5 0 0 0 .5.5z\"/><path d=\"M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z\"/><path d=\"M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z\"/></svg>\n+======+\ncreated: 20231025184554692\nmodified: 20231025185657535\ntitle: $:/images/bootstrap/layout-text-window-reverse\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: layout-text-window-reverse\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-layout-text-window-reverse tc-image-button\" viewBox=\"0 0 16 16\"><path d=\"M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z\"/><path d=\"M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z\"/></svg>\n+======+\ncreated: 20231025184554693\nmodified: 20231025185849073\ntitle: $:/images/bootstrap/markdown\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 1.3.0\nlibrary: Bootstrap\ncollection: \ncaption: markdown\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-bts-markdown tc-image-button\" viewBox=\"0 0 16 16\"><path d=\"M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z\"/><path fill-rule=\"evenodd\" d=\"M9.146 8.146a.5.5 0 0 1 .708 0L11.5 9.793l1.646-1.647a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 0-.708z\"/><path fill-rule=\"evenodd\" d=\"M11.5 5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 1 .5-.5z\"/><path d=\"M3.56 11V7.01h.056l1.428 3.239h.774l1.42-3.24h.056V11h1.073V5.001h-1.2l-1.71 3.894h-.039l-1.71-3.894H2.5V11h1.06z\"/></svg>\n+======+\ncreated: 20231025184554697\nmodified: 20231025185916488\ntitle: $:/images/coreui-icons/free/cil-indent-increase\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 2.0.1\nlibrary: CoreUI Icons\ncollection: Free\ncaption: cil-indent-increase\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-cui-cil-indent-increase tc-image-button\" viewBox=\"0 0 512 512\"><rect width=\"424\" height=\"32\" x=\"72\" y=\"63.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"151.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"239.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"296\" height=\"32\" x=\"200\" y=\"327.998\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"424\" height=\"32\" x=\"72\" y=\"415.998\" fill=\"var(--ci-primary-color, currentColor)\"/><path fill=\"var(--ci-primary-color, currentColor)\" d=\"M16,144.909V367.091L171.527,256Zm32,62.182L116.473,256,48,304.909Z\"/></svg>\n+======+\ncreated: 20231025184554698\nmodified: 20231025190032754\ntitle: $:/images/coreui-icons/free/cil-wrap-text\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 2.0.1\nlibrary: CoreUI Icons\ncollection: Free\ncaption: cil-wrap-text\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-cui-cil-wrap-text tc-image-button\" viewBox=\"0 0 512 512\"><rect width=\"160\" height=\"32\" x=\"16\" y=\"232\" fill=\"var(--ci-primary-color, currentColor)\"/><rect width=\"392\" height=\"32\" x=\"16\" y=\"392\" fill=\"var(--ci-primary-color, currentColor)\"/><path fill=\"var(--ci-primary-color, currentColor)\" d=\"M408,72H16v32H408c30.878,0,56,28.71,56,64s-25.122,64-56,64H344.8V162.772L210,249l134.8,83.785V264H408c48.523,0,88-43.065,88-96S456.523,72,408,72ZM312.8,275.217,270,248.609,312.8,221.228Z\"/></svg>",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 220,
+        "y": 250,
+        "wires": [
+            []
         ]
     },
     {
@@ -6568,8 +6493,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 735,
-        "y": 190,
+        "x": 725,
+        "y": 160,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6577,7 +6502,7 @@
         "id": "5a16a0adef35c2c0",
         "type": "switch",
         "z": "3a98d4a7cc479175",
-        "name": "get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n stop-watch-recipe \\n start-watch-recipe",
+        "name": "get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n listen-recipe ",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -6607,20 +6532,14 @@
             },
             {
                 "t": "regex",
-                "v": "^mws\\/stop-watch-recipe\\/.*$",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^mws\\/start-watch-recipe\\/.*$",
+                "v": "^mws\\/listen-recipe\\/.*$",
                 "vt": "str",
                 "case": false
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 6,
+        "outputs": 5,
         "x": 140,
         "y": 180,
         "wires": [
@@ -6635,9 +6554,6 @@
             ],
             [
                 "7f9069d458cc7269"
-            ],
-            [
-                "d687858deb05c1b9"
             ],
             [
                 "879aa07646a78267"
@@ -6687,8 +6603,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 630,
-        "y": 190,
+        "x": 620,
+        "y": 160,
         "wires": [
             [
                 "5652efdb88423597"
@@ -6739,16 +6655,16 @@
         "id": "879aa07646a78267",
         "type": "function",
         "z": "3a98d4a7cc479175",
-        "name": "start-watch-recipe",
-        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'start-listen-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    recipes[recipe].msgs[msg.network.meta._clientid] = msg;\n    msg.clientid = msg.network.meta._clientid;\n    msg.payload = {\n        title: 'Watching for recipe updates',\n        text: `Started watching for updates to MWS recipe '''${recipe}'''`\n    }\n    node.send(msg);\n}\n\nnode.done()\nreturn;\n",
+        "name": "listen-recipe",
+        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'listen-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    msg.clientid = msg.network.meta._clientid;\n    msg.payload = {\n        title: 'Listening for updates',\n        text: `Listening for updates to MWS recipe '''${recipe}'''`\n    }\n    node.send(msg);\n}\nnode.done()\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    const mustache = global.get('mustache');\n\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        //console.dir(recipeTiddlers);\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList' || /^Draft of /.test(tiddlerInfo.title)) {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddler.tiddler.FromRecipe = recipeName;\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (tiddlers.length || deletelist.length) {\n                // Remove stale clientids no longer connected\n                const clientIds = global.get('clientIds');\n                recipes[recipeName].clientid.forEach(id => {\n                    if (!clientIds[id]) {\n                        $tw.utils.removeArrayEntries(recipes[recipeName].clientid, id);\n                        delete recipes[recipeName].msgs[id];\n                    }\n                })\n                // mustache substitution\n                recipes[recipeName].clientid.forEach(id => {\n                    var clTiddlers = [];\n                    tiddlers.forEach(tiddler => {\n                        clTiddlers.push(JSON.parse(JSON.stringify(tiddler)));\n                        if (tiddler.text && tiddler.mustache === 'yes') {\n                            clTiddlers[clTiddlers.length - 1].text = mustache.render(tiddler.text, recipes[recipeName].msgs[id], {}, ['{%', '%}']);\n                        }\n                    })\n                    // Broadcast message\n                    var msg = {};\n                    msg.clientid = id;\n                    msg.deletelist = deletelist;\n                    msg.recipe = recipes[recipeName];\n                    msg.payload = clTiddlers;\n                    node.send(msg);\n                })\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\nglobal.set('recipeEvent', undefined);\n",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            let draftof = false;\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList') {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    if (/^Draft of /.test(tiddlerInfo.title)) {\n                        draftof = true;\n                    }\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (!draftof && tiddlers.length) {\n                var msg = {};\n                msg.clientid = recipes[recipeName].clientid;\n                msg.deletelist = deletelist;\n                msg.recipe = recipes[recipeName];\n                msg.payload = tiddlers;\n                node.send(msg);\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
+        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
         "x": 410,
-        "y": 310,
+        "y": 260,
         "wires": [
             [
                 "85842eb9526d44ce"
@@ -6778,8 +6694,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 580,
-        "y": 310,
+        "x": 560,
+        "y": 260,
         "wires": [
             [
                 "485d61633f5c01f4"
@@ -6795,8 +6711,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 940,
-        "y": 310,
+        "x": 920,
+        "y": 260,
         "wires": [],
         "l": true
     },
@@ -6829,7 +6745,7 @@
         "outputs": 0,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications (editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications (editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
         "finalize": "",
         "libs": [],
         "x": 130,
@@ -6848,31 +6764,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 310,
-        "wires": [
-            [
-                "8ecf386acefd8e7d"
-            ]
-        ]
-    },
-    {
-        "id": "d687858deb05c1b9",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "name": "stop-watch-recipe",
-        "func": "// Unregister client to stop listening for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'stop-watch-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.removeArrayEntries(recipes[recipe].clientid, msg.network.meta._clientid);\n    msg.payload = {\n        title: 'Watching for recipe updates',\n        text: `Stopped watching for updates to MWS recipe '''${recipe}'''`\n    }\n    node.send(msg);\n}\n\nnode.done()\nreturn;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
-        "libs": [],
-        "x": 410,
+        "x": 730,
         "y": 260,
         "wires": [
             [
-                "9163b93163fb2f63"
+                "8ecf386acefd8e7d"
             ]
         ]
     },

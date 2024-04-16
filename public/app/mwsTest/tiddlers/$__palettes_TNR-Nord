@@ -4,7 +4,7 @@ alert-highlight: #B48EAD
 alert-muted-foreground: #4C566A
 background: #3b4252
 blockquote-bar: <<colour muted-foreground>>
-button-foreground: <<colour foreground>>
+button-foreground: white
 code-background: #2E3440
 code-border: #2E3440
 code-foreground: pink
