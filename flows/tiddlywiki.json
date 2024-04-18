@@ -906,11 +906,12 @@
             "c9bbe0f3f12e859e",
             "47d0e6a8f8415aa2",
             "99b7abd4d3bc5b40",
-            "844b316ad04edad7"
+            "844b316ad04edad7",
+            "d6df3e42a1c72910"
         ],
-        "x": 194,
+        "x": 144,
         "y": 759,
-        "w": 552,
+        "w": 602,
         "h": 142
     },
     {
@@ -5399,7 +5400,7 @@
         "g": "e277a3352b39ab18",
         "name": "TW5-Node-RED Core",
         "links": [],
-        "x": 320,
+        "x": 270,
         "y": 800,
         "wires": [
             [
@@ -5431,7 +5432,7 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 510,
+        "x": 440,
         "y": 800,
         "wires": [
             [
@@ -5462,11 +5463,11 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 650,
+        "x": 590,
         "y": 800,
         "wires": [
             [
-                "47d0e6a8f8415aa2"
+                "d6df3e42a1c72910"
             ]
         ]
     },
@@ -5493,7 +5494,7 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 560,
+        "x": 580,
         "y": 860,
         "wires": [
             [
@@ -5537,7 +5538,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 370,
+        "x": 270,
         "y": 860,
         "wires": [
             []
@@ -5590,6 +5591,37 @@
         "wires": [
             [
                 "c0d81093110cbce5"
+            ]
+        ]
+    },
+    {
+        "id": "d6df3e42a1c72910",
+        "type": "set-network",
+        "z": "304338a4b9f89088",
+        "g": "e277a3352b39ab18",
+        "name": "Snippets",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: $:/language/Snippets/node-red-macro\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED macro\n\n<<node-red 'hello' '[[tiddlers_to_send]]'>>\n\n+======+\ntitle: $:/language/Snippets/node-red-button\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button\n\n<$button actions=\"<<node-red 'hello'>>\"> Hello </$button>\n\n+======+\ntitle: $:/language/Snippets/node-red-button-send\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button w/send tiddlers\n\n<$button actions=\"<<node-red 'hello' '[[tiddlers_to_send]]'>>\"> Hello </$button>\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 440,
+        "y": 860,
+        "wires": [
+            [
+                "47d0e6a8f8415aa2"
             ]
         ]
     },

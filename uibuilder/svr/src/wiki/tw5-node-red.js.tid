@@ -172,7 +172,7 @@ const createMessage = (topic, sendFilter, sender) => {
 	return {
 		meta: { source: 'TW5', version: 'v' + $tw.version, location: window.location, _clientid, tiddlers: metaTiddlers },
 		client: { topic, sender: [senderFields], tiddlers: sendTiddlers },
-		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [], deletelist: [] }
 		};
 }
 
@@ -195,7 +195,7 @@ const sendTopic = (topic) => {
 	emit(topic, {
 		meta: { source: 'TW5', version: 'v' + $tw.version, _clientid, tiddlers: metaTiddlers },
 		client: { topic, sender: [{title: 'barebones'}], tiddlers: [] },
-		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [], deletelist: [] }
 	});
 }
 
