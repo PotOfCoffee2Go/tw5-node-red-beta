@@ -1,10 +1,28 @@
 created: 20240415214351971
-modified: 20240416114055930
+fetched: 20240421041945029
+modified: 20240421050536607
 mustache: yes
-title: watch recipe - blank
+tags: ·node-red·
+title: Blank recipe
 type: text/vnd.tiddlywiki
 
 !!! Hi {% network.user.username %}
+
+<pre style="background:black;color:#00ff00;">
+
+This release is to test the interface to the upcoming TW Multi Wiki Server
+
+http://localhost:8200 is the TiddlyWiki MWS client
+http://localhost:8200/wiki/blank is the 'blank' recipe
+http://localhost:1880/svr/wiki/empty.html?mws=blank is TW5-Node-RED
+  running the 'Blank' recipe
+
+
+The Node-RED flow editor is at http://localhost:1880/red
+Dev login - (user: 'admin' password 'password')
+ Press the upper-right 'person' icon to log in
+
+</pre>
 
 The 'blank' recipe used to be actually blank - no tiddlers. Now there are a few, such as this one.
 
@@ -22,17 +40,11 @@ Better yet, open both of them using different user accounts. <$button actions="<
 
 ---
 
-Tell the server to Start or Stop watching for changes to recipe 'blank'. When Started this wiki will receive the changes - when Stopped will not receive any new/changed tiddlers until Started again. 
+Press the button to stop or start watching the recipe.
 
-```
-Press <$button actions="<<node-red 'mws/start-watch-recipe/blank'>>"> Start </$button> / <$button actions="<<node-red 'mws/stop-watch-recipe/blank'>>"> Stop </$button> watching for 'blank' recipe updates.
-```
+<div style="border:1px solid black;padding-left:1em;">
 
-Press <$button actions="<<node-red 'mws/start-watch-recipe/blank'>>"> Start </$button> / <$button actions="<<node-red 'mws/stop-watch-recipe/blank'>>"> Stop </$button> watching for 'blank' recipe updates.
-
-<div style="border:1px solid black">
-
-> {{Watching for recipe updates}}
+{{Watching for recipe updates}}
 
 </div>
 
