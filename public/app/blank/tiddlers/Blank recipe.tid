@@ -1,8 +1,8 @@
 created: 20240415214351971
 fetched: 20240421041945029
-modified: 20240421050536607
+modified: 20240422172705834
 mustache: yes
-tags: ·node-red·
+tags: 
 title: Blank recipe
 type: text/vnd.tiddlywiki
 
@@ -23,54 +23,4 @@ Dev login - (user: 'admin' password 'password')
  Press the upper-right 'person' icon to log in
 
 </pre>
-
-The 'blank' recipe used to be actually blank - no tiddlers. Now there are a few, such as this one.
-
-To open this recipe in TW5-Node-RED, go to http://localhost:1880/svr/wiki/empty.html?mws=blank
-
-> @@font-family:monospace;'svr/wiki/empty.html' @@ is empty.html from https://tiddlywiki.com with the $:/plugins/potofcoffee2go/tw5-node-red/network.js macro installed and saved on the server (as all of the single file TiddlyWikis that are in directory
->
-> @@font-family:monospace;'?mws=blank' @@ is this application from the Multi Wiki Server 'blank' recipe.
-
-Instead of using 'empty.html' to host the app - could use nodered.html
-
-   http://localhost:1880/svr/wiki/nodered.html?mws=blank
-
-Better yet, open both of them using different user accounts. <$button actions="<<node-red 'register request'>>"> Create account </$button>
-
----
-
-Press the button to stop or start watching the recipe.
-
-<div style="border:1px solid black;padding-left:1em;">
-
-{{Watching for recipe updates}}
-
-</div>
-
----
-
-The new/changed tiddlers will have a field 'FromRecipe' with the name of the recipe the tiddler came from.The field is only on tiddlers received when watching.
-
-```
-<<list-links filter:"[FromRecipe[blank]]">>
-```
-
-<div style="border:1px solid black">
-
-> <<list-links filter:"[FromRecipe[blank]]">>
-
-</div>
-
----
-
-The refresh page will reload the application. Not all tiddlers will be reset - most $:/temp tiddlers for example would remain unchanged. This is handy if Stop watching for changes  to re-sync this wiki to the current state of the 'blank' recipe.
-
-```
-<$button actions="<<node-red 'twsync app'>>"> Refresh page </$button> from server.
-```
-
-<$button actions="<<node-red 'twsync app'>>"> Refresh page </$button> from server.
-
----
 

@@ -68,7 +68,7 @@ const twrepl = require('./src/repl/twrepl');
 // Directory which TiddlyWiki will use for output
 //  or where a TiddlyWiki edition resides
 const twOutput = './tiddlywiki/twmain';
-const twsyncOutput = './public/app/mwsTest';
+const twsyncOutput = './public/app/blank';
 const twmwsOutput = './public/mws';
 
 // TiddlyWiki boot with preinstalled tiddlers

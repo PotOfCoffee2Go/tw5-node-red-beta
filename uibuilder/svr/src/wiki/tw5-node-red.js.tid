@@ -21,6 +21,8 @@ Examples:
   <$button actions="<<node-red 'a topic' '[[filter of tiddlers to send]]'>>" >Send My Tiddlers</$button>
 \*/
 
+if ($tw.browser) {
+
 // Path to uibuilder library on server
 const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
 
@@ -460,3 +462,4 @@ const serverSettingsDesc = {
 `
 };
 
+} // if ($tw.browser)
