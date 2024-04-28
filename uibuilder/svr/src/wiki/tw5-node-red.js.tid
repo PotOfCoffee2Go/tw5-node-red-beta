@@ -77,27 +77,10 @@ if (!settings) {
 }
 settings = settings.getFieldStrings();
 
-// ------------------------
-// Network related tiddlers
 // Add a tiddler of the network connection status
 $tw.wiki.addTiddler(new $tw.Tiddler({
 	title: settings.redNetstat,
 	text: 'Node-Red Offline',
-}));
-
-// Tiddlers that are sent with each message to server
-// A tiddler for optional Node-Red flows use
-$tw.wiki.addTiddler(new $tw.Tiddler({
-	title: settings.redStore,
-	type: 'application/json',
-	text: `{ "title": "${settings.redStore}" }`
-}));
-
-// Tiddler for optional Node-Red flows data
-$tw.wiki.addTiddler(new $tw.Tiddler({
-	title: settings.redData,
-	type: 'application/x-tiddler-dictionary',
-	text: `title: ${settings.redData}`
 }));
 
 // Display a tiddler informing of an error
@@ -351,10 +334,30 @@ const stripNodeRedTags = (tags) => {
 	return $tw.utils.stringifyList(outTags);
 }
 
+// Tiddlers shared with the server
+const addInterfaceTiddlers = () => {
+	// Tiddlers that are sent with each message to server
+	// A tiddler for Node-Red flows use
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redStore,
+		type: 'application/json',
+		text: `{ "title": "${settings.redStore}" }`
+	}));
+
+	// And a iddler for optional data
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redData,
+		type: 'application/x-tiddler-dictionary',
+		text: `title: ${settings.redData}`
+	}));
+}
 
 // ------------------------
 // Post node-red macros and network event handlers
 const initialize = () => {
+	// Tiddlers shared with the server
+	addInterfaceTiddlers();
+
 	// Description of settings
 	$tw.wiki.addTiddler(new $tw.Tiddler(serverSettingsDesc));
 
