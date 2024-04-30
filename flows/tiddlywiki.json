@@ -1418,6 +1418,23 @@
         "h": 82
     },
     {
+        "id": "4cf17dc99028c6b1",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "name": "Load ./public/app 'server' \\n editions into MWS SQLite \\n database as recipes",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "5287aee91ed80f4a"
+        ],
+        "x": 54,
+        "y": 37,
+        "w": 172,
+        "h": 114
+    },
+    {
         "id": "7c48a995b12f0315",
         "type": "junction",
         "z": "9e01fcb7c734b8a9",
@@ -5644,7 +5661,7 @@
         "repair": false,
         "outputs": 1,
         "x": 180,
-        "y": 80,
+        "y": 190,
         "wires": [
             [
                 "5a16a0adef35c2c0"
@@ -5660,7 +5677,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 75,
-        "y": 80,
+        "y": 190,
         "wires": [
             [
                 "747659894c7a96e7"
@@ -5678,7 +5695,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 735,
-        "y": 190,
+        "y": 300,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5731,7 +5748,7 @@
         "repair": false,
         "outputs": 6,
         "x": 140,
-        "y": 180,
+        "y": 290,
         "wires": [
             [
                 "28a27f5b6c9508b4"
@@ -5766,7 +5783,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 100,
+        "y": 210,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5797,7 +5814,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 630,
-        "y": 190,
+        "y": 300,
         "wires": [
             [
                 "5652efdb88423597"
@@ -5817,7 +5834,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 180,
+        "y": 290,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5837,7 +5854,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 140,
+        "y": 250,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5857,7 +5874,7 @@
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\nglobal.set('recipeEvent', undefined);\n",
         "libs": [],
         "x": 410,
-        "y": 310,
+        "y": 420,
         "wires": [
             [
                 "85842eb9526d44ce"
@@ -5887,8 +5904,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 580,
-        "y": 310,
+        "x": 440,
+        "y": 470,
         "wires": [
             [
                 "485d61633f5c01f4"
@@ -5904,8 +5921,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 940,
-        "y": 310,
+        "x": 800,
+        "y": 470,
         "wires": [],
         "l": true
     },
@@ -5922,7 +5939,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 220,
+        "y": 330,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5933,16 +5950,17 @@
         "id": "5287aee91ed80f4a",
         "type": "function",
         "z": "3a98d4a7cc479175",
+        "g": "4cf17dc99028c6b1",
         "name": "Load SQL",
         "func": "// See 'On Start' for implementation\nreturn msg;",
         "outputs": 0,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications (editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
         "finalize": "",
         "libs": [],
-        "x": 130,
-        "y": 30,
+        "x": 140,
+        "y": 110,
         "wires": []
     },
     {
@@ -5957,8 +5975,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 310,
+        "x": 610,
+        "y": 470,
         "wires": [
             [
                 "8ecf386acefd8e7d"
@@ -5978,7 +5996,7 @@
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
         "x": 410,
-        "y": 260,
+        "y": 370,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5995,7 +6013,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 170,
-        "y": 380,
+        "y": 530,
         "wires": [
             [
                 "c1394e6ac2c2e178"
@@ -6007,7 +6025,7 @@
         "type": "function",
         "z": "3a98d4a7cc479175",
         "name": "get-bags-tiddlers-blob",
-        "func": "const $tw = global.get('$twmws')\n\n// Get the  parameters\nfunction streamToBuffer(stream) {\n  const chunks = [];\n  return new Promise((resolve, reject) => {\n    stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)));\n    stream.on('error', (err) => reject(err));\n    stream.on('end', () => resolve(Buffer.concat(chunks)/*.toString('utf8')*/));\n  })\n}\n\nconst bag_name = msg.req.params.bag_name;\nconst title = msg.req.params.title;\n\nif (bag_name) {\n  const result = $tw.mws.store.getBagTiddlerStream(title,bag_name);\n  if (result) {\n    streamToBuffer(result.stream).then(response => {\n      msg.statusCode = 200;\n      msg.headers = {};\n//\t\t\tmsg.headers.Etag = state.makeTiddlerEtag(result);\n      msg.headers['Content-Type'] = result.type;\n      msg.payload = response;\n      node.send(msg);\n      node.done();\n    })\n  } else {\n    msg.statusCode = 404;\n    msg.payload = '';\n  }\n\n}\n\n/*\n        response.writeHead(200, \"OK\",{\n            Etag: state.makeTiddlerEtag(result),\n            \"Content-Type\":  result.type,\n        });\n        result.stream.pipe(response);\n        return;\n    }\n\n*/\n",
+        "func": "const $tw = global.get('$twmws')\n\n// Get the  parameters\nfunction streamToBuffer(stream) {\n  const chunks = [];\n  return new Promise((resolve, reject) => {\n    stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)));\n    stream.on('error', (err) => reject(err));\n    stream.on('end', () => resolve(Buffer.concat(chunks)/*.toString('utf8')*/));\n  })\n}\n\nconst bag_name = msg.req.params.bag_name;\nconst title = msg.req.params.title;\n\nif (bag_name) {\n  const result = $tw.mws.store.getBagTiddlerStream(title,bag_name);\n  if (result) {\n    streamToBuffer(result.stream).then(response => {\n      msg.statusCode = 200;\n      msg.headers = {};\n      msg.headers['Content-Type'] = result.type;\n      msg.payload = response;\n      node.send(msg);\n      node.done();\n    })\n  } else {\n    msg.statusCode = 404;\n    msg.payload = '';\n    node.send(msg);\n    node.done();\n  }\n\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6015,7 +6033,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 380,
+        "y": 530,
         "wires": [
             [
                 "4f1a271151298c03"
@@ -6029,8 +6047,8 @@
         "name": "blob reponse",
         "statusCode": "",
         "headers": {},
-        "x": 630,
-        "y": 380,
+        "x": 640,
+        "y": 530,
         "wires": []
     },
     {
