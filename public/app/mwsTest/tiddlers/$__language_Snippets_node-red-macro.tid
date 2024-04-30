@@ -1,8 +1,0 @@
-caption: Node-RED macro
-created: 20240418030446429
-fetched: 20240418030446429
-modified: 20240418030446429
-tags: $:/tags/TextEditor/Snippet ·node-red·
-title: $:/language/Snippets/node-red-macro
-
-<<node-red 'hello' '[[tiddlers_to_send]]'>>
