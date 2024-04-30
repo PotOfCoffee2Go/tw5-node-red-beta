@@ -6,7 +6,7 @@ tags:
 title: Blank recipe
 type: text/vnd.tiddlywiki
 
-!!! Hi {% network.user.username %}
+!!! Hi {{ $:/tw5-node-red/username }}
 
 <pre style="background:black;color:#00ff00;">
 
