@@ -169,7 +169,7 @@ const nodered = {
 	// Send barebones message with just a topic and selector
 	bones: (topic, selector = '') => {
 		nodered.emit(topic, selector, {
-			meta: { source: 'HTML', version: nodered.version, _clientid: nodered._clientid, tiddlers: [] },
+			meta: { source: 'HTML', version: nodered.version, _clientid: nodered._clientid, tiddlers: [tokenBearer] },
 			client: { topic, selector, sender: [{title: 'barebones'}], tiddlers: [] },
 			server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
 		});

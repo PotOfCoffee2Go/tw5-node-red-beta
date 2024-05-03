@@ -180,12 +180,14 @@
             "c2642e3fa442ca65",
             "e0350dac670bea64",
             "cc84a8e59d36a284",
-            "379f3550af8b837e"
+            "379f3550af8b837e",
+            "bf9dc7fbfb3b1106",
+            "8a0eb26ebf7e9961"
         ],
         "x": 24,
         "y": 33,
-        "w": 1042,
-        "h": 394
+        "w": 1302,
+        "h": 430
     },
     {
         "id": "3d9daca2a6f68b44",
@@ -251,7 +253,7 @@
         "id": "d57af1ba9d807a6e",
         "type": "group",
         "z": "304338a4b9f89088",
-        "name": "Sent by client when HTML document 'onload' - determine if TW5 wiki or HTML page",
+        "name": "Sent by client when single flie wiki is connected and autherized",
         "style": {
             "stroke": "#a4a4a4",
             "label": true,
@@ -261,8 +263,6 @@
             "2318b06227765245",
             "20bdec5d39a32ed9",
             "cdcb7e61e457aacb",
-            "65aaa27447a2d031",
-            "4f73406cc6f31c24",
             "80f6cc12c651bec8",
             "e3621e319e0136b6",
             "628aab7aaefe715e",
@@ -271,12 +271,11 @@
             "f384e29897040b4b",
             "f69ecb30fb65d53c",
             "e9c96a17d3f117a8",
-            "5888fc4a0550ddd7",
-            "2527a39d14a230a5"
+            "5888fc4a0550ddd7"
         ],
-        "x": 54,
+        "x": 104,
         "y": 39,
-        "w": 822,
+        "w": 672,
         "h": 272
     },
     {
@@ -356,17 +355,13 @@
             "label-position": "n"
         },
         "nodes": [
-            "cb07b3e5b5c4cdc9",
-            "9633e22af88fd74a",
             "ed5874185a4d04b9",
-            "3641f98bb5b86807",
-            "ae299d9a01ca8590",
-            "c80e930a88051663"
+            "3641f98bb5b86807"
         ],
-        "x": 144,
-        "y": 59,
-        "w": 552,
-        "h": 107
+        "x": 524,
+        "y": 119,
+        "w": 362,
+        "h": 82
     },
     {
         "id": "e1daf0a769b923c0",
@@ -392,15 +387,13 @@
         "id": "e914aaa12d0aa24e",
         "type": "group",
         "z": "2e264bd071bbb666",
-        "name": " \\n Fiona Solutions prototype \\n /svr/page/fiona \\n See ./uibulder/svr/src/pages/index.html",
+        "name": " \\n Fiona Solutions prototype \\n /web/page/fiona \\n See ./uibulder/web/src/pages/index.html",
         "style": {
             "label": true,
             "label-position": "n"
         },
         "nodes": [
             "ad42a88ed21e5660",
-            "7df426b3cbeb4f44",
-            "3439dbc165a1862f",
             "3016b1c70c0454f5",
             "2187d045fd511912",
             "8fcad8f983b1ff60",
@@ -409,12 +402,13 @@
             "d7cea583cbe3fea9",
             "7add3e3ed518c8bf",
             "2bc27304b1b0ee44",
-            "0a13840cbd5684fe"
+            "0a13840cbd5684fe",
+            "8c82e7455a92d9d0"
         ],
-        "x": 34,
+        "x": 64,
         "y": 311,
-        "w": 822,
-        "h": 290
+        "w": 712,
+        "h": 300
     },
     {
         "id": "768d32daf0185aaa",
@@ -431,8 +425,8 @@
             "7b9e83c8c7bad25c",
             "e6a464527b5ef777"
         ],
-        "x": 189,
-        "y": 199,
+        "x": 149,
+        "y": 659,
         "w": 462,
         "h": 82
     },
@@ -1096,15 +1090,16 @@
             "9956e8251c2b37a6",
             "eb3460001d69b98d",
             "2906f48e265052e9",
-            "96d69fda963f66a2",
             "dbfa021da3dc04ca",
             "9ec5ea4d8d2b2542",
             "85f96a4f808488c5",
-            "17659a42281ba3f7"
+            "17659a42281ba3f7",
+            "96d69fda963f66a2",
+            "7393e531a0f6d08e"
         ],
-        "x": 244,
+        "x": 234,
         "y": 59,
-        "w": 662,
+        "w": 692,
         "h": 342
     },
     {
@@ -1410,7 +1405,7 @@
             "4c9c46b76b72965f",
             "5f3f98f37ba41eb1"
         ],
-        "x": 404,
+        "x": 424,
         "y": 239,
         "w": 362,
         "h": 82
@@ -1470,32 +1465,6 @@
         "wires": [
             [
                 "0d798af067a77746"
-            ]
-        ]
-    },
-    {
-        "id": "ae299d9a01ca8590",
-        "type": "junction",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "x": 440,
-        "y": 140,
-        "wires": [
-            [
-                "c80e930a88051663"
-            ]
-        ]
-    },
-    {
-        "id": "c80e930a88051663",
-        "type": "junction",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "x": 560,
-        "y": 140,
-        "wires": [
-            [
-                "9633e22af88fd74a"
             ]
         ]
     },
@@ -1562,25 +1531,12 @@
         "type": "junction",
         "z": "304338a4b9f89088",
         "g": "d57af1ba9d807a6e",
-        "x": 100,
-        "y": 220,
+        "x": 150,
+        "y": 200,
         "wires": [
             [
                 "628aab7aaefe715e",
                 "f69ecb30fb65d53c"
-            ]
-        ]
-    },
-    {
-        "id": "2527a39d14a230a5",
-        "type": "junction",
-        "z": "304338a4b9f89088",
-        "g": "d57af1ba9d807a6e",
-        "x": 740,
-        "y": 220,
-        "wires": [
-            [
-                "80f6cc12c651bec8"
             ]
         ]
     },
@@ -3035,9 +2991,12 @@
             "4187e021402a55de",
             "9321e75d118ca4af",
             "b27ea02bc203e5f5",
-            "a5a15f950dcbf5eb"
+            "a5a15f950dcbf5eb",
+            "1f09a9e28b57b394",
+            "8c82e7455a92d9d0",
+            "b3f1b086fcd9e11d"
         ],
-        "x": 500,
+        "x": 520,
         "y": 280,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg",
@@ -3095,9 +3054,12 @@
             "d768dd2a6fd581b5",
             "ad4f9aefd31ecdb2",
             "c1667f9bd1181880",
-            "5652efdb88423597"
+            "5652efdb88423597",
+            "2bda46117159af2a",
+            "e8d74aa808633faa",
+            "7301de8d5d4d39eb"
         ],
-        "x": 680,
+        "x": 700,
         "y": 280,
         "wires": [
             [
@@ -3120,7 +3082,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
+        "x": 560,
         "y": 120,
         "wires": [
             [
@@ -3157,7 +3119,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 350,
+        "x": 370,
         "y": 130,
         "wires": [
             [
@@ -3180,7 +3142,7 @@
         "passthrough": false,
         "return": false,
         "outputs": 0,
-        "x": 750,
+        "x": 770,
         "y": 100,
         "wires": []
     },
@@ -3393,7 +3355,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 610,
         "y": 360,
         "wires": [
             [
@@ -3429,11 +3391,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 810,
+        "x": 830,
         "y": 360,
         "wires": [
             [
-                "cc84a8e59d36a284"
+                "bf9dc7fbfb3b1106"
             ]
         ]
     },
@@ -3542,8 +3504,8 @@
         "passthrough": false,
         "return": false,
         "outputs": 0,
-        "x": 980,
-        "y": 360,
+        "x": 1240,
+        "y": 410,
         "wires": []
     },
     {
@@ -3556,33 +3518,9 @@
         "links": [
             "509b906f53cc0bc2"
         ],
-        "x": 760,
+        "x": 780,
         "y": 150,
         "wires": [],
-        "l": true
-    },
-    {
-        "id": "96d69fda963f66a2",
-        "type": "link in",
-        "z": "eb845b8cbc7ac49a",
-        "g": "e0350dac670bea64",
-        "name": "Message to flows",
-        "links": [
-            "185083fbec1aa799",
-            "86514e0ce0668cbe",
-            "9b0a95db2e9194f2",
-            "dbf7e878fa564983",
-            "edc0b050e5af6de4",
-            "55476bca421eb07a",
-            "c0d81093110cbce5"
-        ],
-        "x": 350,
-        "y": 200,
-        "wires": [
-            [
-                "eb3460001d69b98d"
-            ]
-        ],
         "l": true
     },
     {
@@ -3598,7 +3536,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 570,
         "y": 180,
         "wires": [
             [
@@ -3623,8 +3561,8 @@
         "links": [
             "a03e67d3c6af9466"
         ],
-        "x": 150,
-        "y": 260,
+        "x": 130,
+        "y": 240,
         "wires": [],
         "l": true
     },
@@ -3639,7 +3577,7 @@
             "761190764f5f719c",
             "8ecf386acefd8e7d"
         ],
-        "x": 350,
+        "x": 370,
         "y": 360,
         "wires": [
             [
@@ -3840,6 +3778,96 @@
         "wires": []
     },
     {
+        "id": "96d69fda963f66a2",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "Message to flows",
+        "links": [
+            "185083fbec1aa799",
+            "86514e0ce0668cbe",
+            "9b0a95db2e9194f2",
+            "dbf7e878fa564983",
+            "edc0b050e5af6de4",
+            "55476bca421eb07a",
+            "c0d81093110cbce5"
+        ],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "eb3460001d69b98d"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7393e531a0f6d08e",
+        "type": "link in",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "Web to flows",
+        "links": [
+            "76268e5a03d9efbf"
+        ],
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "4c9c46b76b72965f"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "bf9dc7fbfb3b1106",
+        "type": "switch",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "name": "channel router",
+        "property": "network.meta.location.pathname",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/web/page/",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1040,
+        "y": 360,
+        "wires": [
+            [
+                "8a0eb26ebf7e9961"
+            ],
+            [
+                "cc84a8e59d36a284"
+            ]
+        ]
+    },
+    {
+        "id": "8a0eb26ebf7e9961",
+        "type": "uib-sender",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e4c2719e30c99637",
+        "url": "web",
+        "uibId": "69aa7eb35d63cab7",
+        "name": "Outbound \\n <web>",
+        "topic": "server.tiddlers",
+        "passthrough": false,
+        "return": false,
+        "outputs": 0,
+        "x": 1240,
+        "y": 320,
+        "wires": []
+    },
+    {
         "id": "509b906f53cc0bc2",
         "type": "link in",
         "z": "fb90098a1998250c",
@@ -4001,7 +4029,8 @@
         "name": "Message to flows",
         "mode": "link",
         "links": [
-            "96d69fda963f66a2"
+            "96d69fda963f66a2",
+            "9bda19b8b96ee73e"
         ],
         "x": 750,
         "y": 140,
@@ -4346,7 +4375,8 @@
         "name": "Message to flows",
         "mode": "link",
         "links": [
-            "96d69fda963f66a2"
+            "96d69fda963f66a2",
+            "9bda19b8b96ee73e"
         ],
         "x": 485,
         "y": 740,
@@ -4443,8 +4473,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 270,
-        "y": 150,
+        "x": 490,
+        "y": 80,
         "wires": [
             [
                 "f384e29897040b4b"
@@ -4460,7 +4490,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 95,
+        "x": 145,
         "y": 80,
         "wires": [
             [
@@ -4487,64 +4517,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 220,
+        "x": 270,
         "y": 80,
         "wires": [
-            [
-                "65aaa27447a2d031"
-            ]
-        ]
-    },
-    {
-        "id": "65aaa27447a2d031",
-        "type": "switch",
-        "z": "304338a4b9f89088",
-        "g": "d57af1ba9d807a6e",
-        "name": "HTML/TW5 Client?",
-        "property": "network.meta.source",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "HTML",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "TW5",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 420,
-        "y": 80,
-        "wires": [
-            [
-                "4f73406cc6f31c24"
-            ],
             [
                 "2318b06227765245"
-            ]
-        ]
-    },
-    {
-        "id": "4f73406cc6f31c24",
-        "type": "link call",
-        "z": "304338a4b9f89088",
-        "g": "d57af1ba9d807a6e",
-        "name": "",
-        "links": [
-            "cb07b3e5b5c4cdc9"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 670,
-        "y": 90,
-        "wires": [
-            [
-                "80f6cc12c651bec8"
             ]
         ]
     },
@@ -4558,8 +4535,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 835,
-        "y": 150,
+        "x": 695,
+        "y": 140,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -4587,8 +4564,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 630,
-        "y": 150,
+        "x": 490,
+        "y": 140,
         "wires": [
             [
                 "80f6cc12c651bec8",
@@ -4659,7 +4636,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 240,
+        "x": 290,
         "y": 270,
         "wires": [
             [
@@ -4699,7 +4676,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 460,
         "y": 270,
         "wires": [
             [
@@ -4715,9 +4692,10 @@
         "name": "Message to flows",
         "mode": "link",
         "links": [
-            "96d69fda963f66a2"
+            "96d69fda963f66a2",
+            "9bda19b8b96ee73e"
         ],
-        "x": 610,
+        "x": 660,
         "y": 270,
         "wires": [],
         "l": true
@@ -4846,8 +4824,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 460,
-        "y": 150,
+        "x": 320,
+        "y": 140,
         "wires": [
             [
                 "e3621e319e0136b6"
@@ -4862,7 +4840,8 @@
         "name": "Message to flows",
         "mode": "link",
         "links": [
-            "96d69fda963f66a2"
+            "96d69fda963f66a2",
+            "9bda19b8b96ee73e"
         ],
         "x": 690,
         "y": 400,
@@ -4915,8 +4894,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 260,
-        "y": 220,
+        "x": 310,
+        "y": 200,
         "wires": [
             [
                 "5888fc4a0550ddd7"
@@ -4947,11 +4926,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 460,
-        "y": 220,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
-                "2527a39d14a230a5"
+                "80f6cc12c651bec8"
             ]
         ]
     },
@@ -5114,7 +5093,8 @@
         "name": "Message to flows",
         "mode": "link",
         "links": [
-            "96d69fda963f66a2"
+            "96d69fda963f66a2",
+            "9bda19b8b96ee73e"
         ],
         "x": 550,
         "y": 620,
@@ -5445,7 +5425,8 @@
         "g": "7854aca21984899b",
         "name": "ConnectionDb",
         "links": [
-            "379f3550af8b837e"
+            "379f3550af8b837e",
+            "9509694b4769ea7a"
         ],
         "x": 130,
         "y": 750,
@@ -6975,33 +6956,6 @@
         "l": false
     },
     {
-        "id": "cb07b3e5b5c4cdc9",
-        "type": "link in",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "Webpages",
-        "links": [],
-        "x": 185,
-        "y": 120,
-        "wires": [
-            [
-                "3641f98bb5b86807"
-            ]
-        ]
-    },
-    {
-        "id": "9633e22af88fd74a",
-        "type": "link out",
-        "z": "2e264bd071bbb666",
-        "g": "7d0cda13723c5e21",
-        "name": "Return",
-        "mode": "return",
-        "links": [],
-        "x": 655,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "ed5874185a4d04b9",
         "type": "set-network",
         "z": "2e264bd071bbb666",
@@ -7025,11 +6979,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 500,
-        "y": 100,
+        "x": 800,
+        "y": 160,
         "wires": [
             [
-                "9633e22af88fd74a"
+                "e8d74aa808633faa"
             ]
         ]
     },
@@ -7046,22 +7000,16 @@
                 "t": "cont",
                 "v": "sample.html",
                 "vt": "str"
-            },
-            {
-                "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
-        "x": 310,
-        "y": 120,
+        "outputs": 1,
+        "x": 620,
+        "y": 160,
         "wires": [
             [
                 "ed5874185a4d04b9"
-            ],
-            [
-                "ae299d9a01ca8590"
             ]
         ]
     },
@@ -7079,7 +7027,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Sample Web Page\n\n<iframe src=\"/svr/page/sample.html\" style=\"height:800px;width: 100%;\"/>\n",
+        "template": "title: Sample Web Page\n\n<iframe src=\"/web/page/sample.html\" style=\"height:800px;width: 100%;\"/>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -7089,8 +7037,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 490,
-        "y": 240,
+        "x": 440,
+        "y": 700,
         "wires": [
             [
                 "7b9e83c8c7bad25c"
@@ -7106,8 +7054,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 230,
-        "y": 240,
+        "x": 190,
+        "y": 700,
         "wires": [
             [
                 "e6a464527b5ef777"
@@ -7125,8 +7073,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 610,
-        "y": 240,
+        "x": 570,
+        "y": 700,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -7148,8 +7096,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 325,
-        "y": 240,
+        "x": 285,
+        "y": 700,
         "wires": [
             [
                 "9bc1f269acde9ac9"
@@ -7180,46 +7128,13 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 610,
+        "x": 660,
         "y": 400,
         "wires": [
             [
-                "3439dbc165a1862f"
+                "7301de8d5d4d39eb"
             ]
         ]
-    },
-    {
-        "id": "7df426b3cbeb4f44",
-        "type": "link in",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 155,
-        "y": 480,
-        "wires": [
-            [
-                "3016b1c70c0454f5"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "3439dbc165a1862f",
-        "type": "link out",
-        "z": "2e264bd071bbb666",
-        "g": "e914aaa12d0aa24e",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 815,
-        "y": 480,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
     {
         "id": "3016b1c70c0454f5",
@@ -7240,8 +7155,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 270,
-        "y": 480,
+        "x": 250,
+        "y": 470,
         "wires": [
             [
                 "2187d045fd511912"
@@ -7261,8 +7176,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 480,
+        "x": 440,
+        "y": 470,
         "wires": [
             [
                 "ad42a88ed21e5660"
@@ -7312,11 +7227,11 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 630,
+        "x": 680,
         "y": 440,
         "wires": [
             [
-                "3439dbc165a1862f"
+                "7301de8d5d4d39eb"
             ]
         ]
     },
@@ -7344,11 +7259,11 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 630,
+        "x": 680,
         "y": 480,
         "wires": [
             [
-                "3439dbc165a1862f"
+                "7301de8d5d4d39eb"
             ]
         ]
     },
@@ -7376,11 +7291,11 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 630,
+        "x": 680,
         "y": 520,
         "wires": [
             [
-                "3439dbc165a1862f"
+                "7301de8d5d4d39eb"
             ]
         ]
     },
@@ -7408,11 +7323,11 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 620,
+        "x": 670,
         "y": 560,
         "wires": [
             [
-                "3439dbc165a1862f"
+                "7301de8d5d4d39eb"
             ]
         ]
     },
@@ -7428,8 +7343,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 140,
-        "y": 400,
+        "x": 170,
+        "y": 570,
         "wires": [
             [
                 "0a13840cbd5684fe"
@@ -7464,8 +7379,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 440,
-        "y": 400,
+        "x": 470,
+        "y": 570,
         "wires": [
             []
         ]
@@ -7483,13 +7398,198 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 400,
+        "x": 310,
+        "y": 570,
         "wires": [
             [
                 "2bc27304b1b0ee44"
             ]
         ]
+    },
+    {
+        "id": "69aa7eb35d63cab7",
+        "type": "uibuilder",
+        "z": "2e264bd071bbb666",
+        "name": "inbound page",
+        "topic": "",
+        "url": "web",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "6.4.1",
+        "showMsgUib": false,
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "b24a7b1954b8b0e2"
+            ],
+            [
+                "9509694b4769ea7a"
+            ]
+        ]
+    },
+    {
+        "id": "dc4687a33670229b",
+        "type": "function",
+        "z": "2e264bd071bbb666",
+        "name": "Connect & \\n Bearer token",
+        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authenticated\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send to security system to finish processing first message\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n//   node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n//   node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send Heartbeat reply\n    if (msg.topic === 'heartbeat') {\n        node.send([msg, null]);\n    } else { // Send to security system\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 80,
+        "wires": [
+            [
+                "3c9b811e0aa663f8"
+            ],
+            [
+                "e8d74aa808633faa"
+            ]
+        ],
+        "outputLabels": [
+            "heartbeat",
+            "get token"
+        ],
+        "icon": "font-awesome/fa-group"
+    },
+    {
+        "id": "9509694b4769ea7a",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "name": "ConnectionDb",
+        "mode": "link",
+        "links": [
+            "a03e67d3c6af9466"
+        ],
+        "x": 160,
+        "y": 230,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "b24a7b1954b8b0e2",
+        "type": "switch",
+        "z": "2e264bd071bbb666",
+        "name": "heartbeat \\n onload \\n otherwise",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "heartbeat",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "client.onload",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "dc4687a33670229b"
+            ],
+            [
+                "3641f98bb5b86807"
+            ],
+            [
+                "76268e5a03d9efbf"
+            ]
+        ]
+    },
+    {
+        "id": "3c9b811e0aa663f8",
+        "type": "uib-sender",
+        "z": "2e264bd071bbb666",
+        "url": "web",
+        "uibId": "69aa7eb35d63cab7",
+        "name": "Heartbeat (pong) <web>",
+        "topic": "",
+        "passthrough": false,
+        "return": false,
+        "outputs": 0,
+        "x": 830,
+        "y": 50,
+        "wires": []
+    },
+    {
+        "id": "76268e5a03d9efbf",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "name": "to flows",
+        "mode": "link",
+        "links": [
+            "7393e531a0f6d08e"
+        ],
+        "x": 600,
+        "y": 230,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "8c82e7455a92d9d0",
+        "type": "link in",
+        "z": "2e264bd071bbb666",
+        "g": "e914aaa12d0aa24e",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 125,
+        "y": 470,
+        "wires": [
+            [
+                "3016b1c70c0454f5"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "e8d74aa808633faa",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 965,
+        "y": 90,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "7301de8d5d4d39eb",
+        "type": "link out",
+        "z": "2e264bd071bbb666",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 885,
+        "y": 480,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
     {
         "id": "b27ea02bc203e5f5",

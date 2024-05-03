@@ -1,10 +1,10 @@
 caption: {{$:/plugins/kookma/shiraz/images/palette-switch}} {{$:/language/Buttons/Shiraz/Caption}}
 created: 20240430071444806
-dark-palette: $:/palettes/Twilight
+dark-palette: $:/palettes/CupertinoDark
 description: Toggle between light/dark color palette
-light-palette: $:/palettes/Vanilla
+light-palette: $:/palettes/DesertSand
 list-after: 
-modified: 20240430071444806
+modified: 20240502133901157
 tags: $:/tags/PageControls
 title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
 type: text/vnd.tiddlywiki
