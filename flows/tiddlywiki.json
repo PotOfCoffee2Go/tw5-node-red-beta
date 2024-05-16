@@ -163,7 +163,7 @@
             "681513f781f27975"
         ],
         "x": 244,
-        "y": 461,
+        "y": 501,
         "w": 652,
         "h": 202
     },
@@ -181,12 +181,11 @@
             "e0350dac670bea64",
             "cc84a8e59d36a284",
             "379f3550af8b837e",
-            "bf9dc7fbfb3b1106",
             "8a0eb26ebf7e9961"
         ],
-        "x": 24,
+        "x": 14,
         "y": 33,
-        "w": 1302,
+        "w": 1212,
         "h": 430
     },
     {
@@ -515,7 +514,7 @@
             "edee491ab307e8f4"
         ],
         "x": 288,
-        "y": 1021,
+        "y": 1051,
         "w": 564,
         "h": 226
     },
@@ -841,8 +840,8 @@
         "nodes": [
             "e58841decd532a3e"
         ],
-        "x": 258,
-        "y": 1271,
+        "x": 268,
+        "y": 1301,
         "w": 604,
         "h": 226
     },
@@ -881,7 +880,7 @@
             "8549cd6c5c10aa65"
         ],
         "x": 258,
-        "y": 691,
+        "y": 731,
         "w": 624,
         "h": 296
     },
@@ -920,7 +919,7 @@
         "nodes": [
             "5287aee91ed80f4a"
         ],
-        "x": 54,
+        "x": 584,
         "y": 37,
         "w": 172,
         "h": 114
@@ -1095,12 +1094,13 @@
             "85f96a4f808488c5",
             "17659a42281ba3f7",
             "96d69fda963f66a2",
-            "7393e531a0f6d08e"
+            "7393e531a0f6d08e",
+            "bf9dc7fbfb3b1106"
         ],
         "x": 234,
         "y": 59,
-        "w": 692,
-        "h": 342
+        "w": 802,
+        "h": 362
     },
     {
         "id": "9b88d3454bec6454",
@@ -1224,7 +1224,7 @@
             "2cc16f6fae2a05c8"
         ],
         "x": 314,
-        "y": 1079,
+        "y": 1109,
         "w": 512,
         "h": 142
     },
@@ -1318,8 +1318,8 @@
             "3c37f635abd563e8",
             "96147524c86cc1d8"
         ],
-        "x": 284,
-        "y": 1329,
+        "x": 294,
+        "y": 1359,
         "w": 552,
         "h": 142
     },
@@ -1340,7 +1340,7 @@
             "6f8d6020ac601508"
         ],
         "x": 284,
-        "y": 749,
+        "y": 789,
         "w": 572,
         "h": 82
     },
@@ -1387,7 +1387,7 @@
             "d1b258d56658a434"
         ],
         "x": 394,
-        "y": 847,
+        "y": 887,
         "w": 382,
         "h": 114
     },
@@ -2932,8 +2932,8 @@
         "sourceFolder": "src",
         "deployedVersion": "6.4.1",
         "showMsgUib": false,
-        "x": 110,
-        "y": 130,
+        "x": 100,
+        "y": 134,
         "wires": [
             [
                 "3fa65bfb3f190977"
@@ -3156,7 +3156,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 285,
-        "y": 610,
+        "y": 650,
         "wires": [
             [
                 "a28b92d7f528218f"
@@ -3175,7 +3175,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 855,
-        "y": 610,
+        "y": 650,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -3198,7 +3198,7 @@
         "repair": false,
         "outputs": 1,
         "x": 370,
-        "y": 610,
+        "y": 650,
         "wires": [
             [
                 "7cbca5f5615be00e"
@@ -3230,7 +3230,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 750,
-        "y": 610,
+        "y": 650,
         "wires": [
             [
                 "22dee6fb410a27bf"
@@ -3245,7 +3245,7 @@
         "name": "<= Change the topic \\n               Change the tiddler =>",
         "info": "",
         "x": 550,
-        "y": 610,
+        "y": 650,
         "wires": []
     },
     {
@@ -3355,8 +3355,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 360,
+        "x": 660,
+        "y": 380,
         "wires": [
             [
                 "dbfa021da3dc04ca"
@@ -3391,8 +3391,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 830,
-        "y": 360,
+        "x": 920,
+        "y": 330,
         "wires": [
             [
                 "bf9dc7fbfb3b1106"
@@ -3423,7 +3423,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 420,
-        "y": 1120,
+        "y": 1150,
         "wires": [
             [
                 "e2019f74cf4c285b"
@@ -3442,7 +3442,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 700,
-        "y": 1180,
+        "y": 1210,
         "wires": [
             []
         ]
@@ -3464,7 +3464,7 @@
         "repair": false,
         "outputs": 1,
         "x": 630,
-        "y": 1120,
+        "y": 1150,
         "wires": [
             [
                 "2cc16f6fae2a05c8"
@@ -3485,7 +3485,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1180,
+        "y": 1210,
         "wires": [
             [
                 "b1144c89e281a90e"
@@ -3504,7 +3504,7 @@
         "passthrough": false,
         "return": false,
         "outputs": 0,
-        "x": 1240,
+        "x": 1140,
         "y": 410,
         "wires": []
     },
@@ -3561,7 +3561,7 @@
         "links": [
             "a03e67d3c6af9466"
         ],
-        "x": 130,
+        "x": 140,
         "y": 240,
         "wires": [],
         "l": true
@@ -3577,8 +3577,8 @@
             "761190764f5f719c",
             "8ecf386acefd8e7d"
         ],
-        "x": 370,
-        "y": 360,
+        "x": 430,
+        "y": 380,
         "wires": [
             [
                 "9ec5ea4d8d2b2542"
@@ -3609,8 +3609,8 @@
         "once": true,
         "onceDelay": "2",
         "topic": "",
-        "x": 430,
-        "y": 1370,
+        "x": 440,
+        "y": 1400,
         "wires": [
             [
                 "3c37f635abd563e8"
@@ -3628,8 +3628,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 710,
-        "y": 1430,
+        "x": 720,
+        "y": 1460,
         "wires": [
             []
         ]
@@ -3650,8 +3650,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 640,
-        "y": 1370,
+        "x": 650,
+        "y": 1400,
         "wires": [
             [
                 "96147524c86cc1d8"
@@ -3671,8 +3671,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1430,
+        "x": 460,
+        "y": 1460,
         "wires": [
             [
                 "7f9494f20c905686"
@@ -3692,7 +3692,7 @@
         "onceDelay": "0.1",
         "topic": "",
         "x": 390,
-        "y": 790,
+        "y": 830,
         "wires": [
             [
                 "6f8d6020ac601508"
@@ -3713,7 +3713,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 790,
+        "y": 830,
         "wires": [
             []
         ]
@@ -3735,7 +3735,7 @@
         "repair": false,
         "outputs": 1,
         "x": 560,
-        "y": 790,
+        "y": 830,
         "wires": [
             [
                 "939ecaec38f87e99"
@@ -3752,7 +3752,7 @@
             "134e6cf970918b0e"
         ],
         "x": 480,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "d1b258d56658a434"
@@ -3774,7 +3774,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 920,
+        "y": 960,
         "wires": []
     },
     {
@@ -3823,7 +3823,7 @@
         "id": "bf9dc7fbfb3b1106",
         "type": "switch",
         "z": "eb845b8cbc7ac49a",
-        "g": "e4c2719e30c99637",
+        "g": "e0350dac670bea64",
         "name": "channel router",
         "property": "network.meta.location.pathname",
         "propertyType": "msg",
@@ -3840,8 +3840,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1040,
-        "y": 360,
+        "x": 930,
+        "y": 380,
         "wires": [
             [
                 "8a0eb26ebf7e9961"
@@ -3863,8 +3863,8 @@
         "passthrough": false,
         "return": false,
         "outputs": 0,
-        "x": 1240,
-        "y": 320,
+        "x": 1140,
+        "y": 350,
         "wires": []
     },
     {
@@ -5641,8 +5641,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 180,
-        "y": 190,
+        "x": 200,
+        "y": 90,
         "wires": [
             [
                 "5a16a0adef35c2c0"
@@ -5657,8 +5657,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 75,
-        "y": 190,
+        "x": 95,
+        "y": 90,
         "wires": [
             [
                 "747659894c7a96e7"
@@ -5675,8 +5675,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 735,
-        "y": 300,
+        "x": 755,
+        "y": 200,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5728,8 +5728,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 6,
-        "x": 140,
-        "y": 290,
+        "x": 160,
+        "y": 190,
         "wires": [
             [
                 "28a27f5b6c9508b4"
@@ -5763,8 +5763,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 210,
+        "x": 440,
+        "y": 110,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5794,8 +5794,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 630,
-        "y": 300,
+        "x": 650,
+        "y": 200,
         "wires": [
             [
                 "5652efdb88423597"
@@ -5814,8 +5814,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 290,
+        "x": 430,
+        "y": 190,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5834,8 +5834,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 250,
+        "x": 430,
+        "y": 150,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5854,8 +5854,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    const mustache = global.get('mustache');\n\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        //console.dir(recipeTiddlers);\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList' || /^Draft of /.test(tiddlerInfo.title)) {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (tiddlers.length || deletelist.length) {\n                // Remove stale clientids no longer connected\n                const clientIds = global.get('clientIds');\n                recipes[recipeName].clientid.forEach(id => {\n                    if (!clientIds[id]) {\n                        $tw.utils.removeArrayEntries(recipes[recipeName].clientid, id);\n                        delete recipes[recipeName].msgs[id];\n                    }\n                })\n                // mustache substitution\n                recipes[recipeName].clientid.forEach(id => {\n                    var clTiddlers = [];\n                    tiddlers.forEach(tiddler => {\n                        clTiddlers.push(JSON.parse(JSON.stringify(tiddler)));\n                        if (tiddler.text && tiddler.mustache === 'yes') {\n                            clTiddlers[clTiddlers.length - 1].text = mustache.render(tiddler.text, recipes[recipeName].msgs[id], {}, ['{%', '%}']);\n                        }\n                    })\n                    // Broadcast message\n                    var msg = {};\n                    msg.clientid = id;\n                    msg.deletelist = deletelist;\n                    msg.recipe = recipes[recipeName];\n                    msg.payload = clTiddlers;\n                    node.send(msg);\n                })\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\nglobal.set('recipeEvent', undefined);\n",
         "libs": [],
-        "x": 410,
-        "y": 420,
+        "x": 430,
+        "y": 320,
         "wires": [
             [
                 "85842eb9526d44ce"
@@ -5885,8 +5885,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 440,
-        "y": 470,
+        "x": 460,
+        "y": 370,
         "wires": [
             [
                 "485d61633f5c01f4"
@@ -5902,8 +5902,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 800,
-        "y": 470,
+        "x": 820,
+        "y": 370,
         "wires": [],
         "l": true
     },
@@ -5919,8 +5919,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 330,
+        "x": 430,
+        "y": 230,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5940,7 +5940,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
         "finalize": "",
         "libs": [],
-        "x": 140,
+        "x": 670,
         "y": 110,
         "wires": []
     },
@@ -5956,8 +5956,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 470,
+        "x": 630,
+        "y": 370,
         "wires": [
             [
                 "8ecf386acefd8e7d"
@@ -5976,8 +5976,8 @@
         "initialize": "",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
-        "x": 410,
-        "y": 370,
+        "x": 430,
+        "y": 270,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -5993,8 +5993,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 530,
+        "x": 190,
+        "y": 430,
         "wires": [
             [
                 "c1394e6ac2c2e178"
@@ -6013,8 +6013,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 530,
+        "x": 460,
+        "y": 430,
         "wires": [
             [
                 "4f1a271151298c03"
@@ -6028,8 +6028,8 @@
         "name": "blob reponse",
         "statusCode": "",
         "headers": {},
-        "x": 640,
-        "y": 530,
+        "x": 660,
+        "y": 430,
         "wires": []
     },
     {
