@@ -1,5 +1,5 @@
 created: 20240424162224595
-modified: 20240502134836061
+modified: 20240518094335900
 mustache: yes
 tags: 
 title: Playground
@@ -9,6 +9,11 @@ type: text/vnd.tiddlywiki
 <$button actions="<<node-red 'hello'>>"> Hello </$button>
 
 <$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[[Playground]] [[components.png]] [[sync browser dev.png]]'>>"> Send Playground </$button>
+
+Filter: <$edit-text field=filter />
+<$set name=filter value={{!!filter}}>
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '$(filter)$'>>"> Send </$button>
+</$set>
 
 ---
 
