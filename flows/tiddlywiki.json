@@ -933,6 +933,50 @@
         "h": 114
     },
     {
+        "id": "2cc580ac14991c18",
+        "type": "group",
+        "z": "8f4c8042c34e6b26",
+        "name": "Send dice icons to client",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "ade0933a3cb3ad67",
+            "cbaa14bc051e3edb",
+            "ea95423b40b2db5f",
+            "19d2ef07636bdc78",
+            "3913261e623baa65"
+        ],
+        "x": 84,
+        "y": 59,
+        "w": 482,
+        "h": 122
+    },
+    {
+        "id": "2384ad651173ae9e",
+        "type": "group",
+        "z": "8f4c8042c34e6b26",
+        "name": "Roll number of dice requested \\n and display in story",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "510dc6f6e07f9be4",
+            "3c3235632a2801e6",
+            "64b77433f374854a",
+            "33134899afe62741",
+            "387d1976fbad2871",
+            "f1ef5a7e371b1c7c",
+            "131aeb785c805e96"
+        ],
+        "x": 104,
+        "y": 203,
+        "w": 462,
+        "h": 198
+    },
+    {
         "id": "49f363e05e815a85",
         "type": "group",
         "z": "127607a6bb274a18",
@@ -1103,8 +1147,7 @@
             "17659a42281ba3f7",
             "96d69fda963f66a2",
             "7393e531a0f6d08e",
-            "bf9dc7fbfb3b1106",
-            "9e391693a445ce3f"
+            "bf9dc7fbfb3b1106"
         ],
         "x": 234,
         "y": 59,
@@ -1437,49 +1480,6 @@
         "y": 579,
         "w": 532,
         "h": 82
-    },
-    {
-        "id": "2cc580ac14991c18",
-        "type": "group",
-        "z": "8f4c8042c34e6b26",
-        "name": "Send dice icons to client",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "ade0933a3cb3ad67",
-            "cbaa14bc051e3edb",
-            "ea95423b40b2db5f",
-            "19d2ef07636bdc78",
-            "3913261e623baa65"
-        ],
-        "x": 34,
-        "y": 39,
-        "w": 482,
-        "h": 122
-    },
-    {
-        "id": "2384ad651173ae9e",
-        "type": "group",
-        "z": "8f4c8042c34e6b26",
-        "name": "Roll number of dice requested \\n and display in story",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "510dc6f6e07f9be4",
-            "3c3235632a2801e6",
-            "64b77433f374854a",
-            "33134899afe62741",
-            "387d1976fbad2871",
-            "f1ef5a7e371b1c7c"
-        ],
-        "x": 4,
-        "y": 183,
-        "w": 562,
-        "h": 138
     },
     {
         "id": "7c48a995b12f0315",
@@ -3118,8 +3118,7 @@
         "y": 280,
         "wires": [
             [
-                "dbfa021da3dc04ca",
-                "9e391693a445ce3f"
+                "dbfa021da3dc04ca"
             ]
         ],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg",
@@ -3922,24 +3921,6 @@
         "outputs": 0,
         "x": 1140,
         "y": 350,
-        "wires": []
-    },
-    {
-        "id": "9e391693a445ce3f",
-        "type": "debug",
-        "z": "eb845b8cbc7ac49a",
-        "g": "e0350dac670bea64",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 240,
         "wires": []
     },
     {
@@ -7690,8 +7671,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 350,
-        "y": 80,
+        "x": 400,
+        "y": 100,
         "wires": [
             [
                 "ea95423b40b2db5f"
@@ -7707,8 +7688,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 75,
-        "y": 100,
+        "x": 125,
+        "y": 120,
         "wires": [
             [
                 "19d2ef07636bdc78"
@@ -7726,8 +7707,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 475,
-        "y": 100,
+        "x": 525,
+        "y": 120,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -7736,21 +7717,21 @@
         "type": "switch",
         "z": "8f4c8042c34e6b26",
         "g": "2cc580ac14991c18",
-        "name": "dice game",
+        "name": "dice",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "dice game",
+                "v": "dice",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 190,
-        "y": 100,
+        "x": 220,
+        "y": 120,
         "wires": [
             [
                 "ade0933a3cb3ad67",
@@ -7763,7 +7744,7 @@
         "type": "set-network",
         "z": "8f4c8042c34e6b26",
         "g": "2cc580ac14991c18",
-        "name": "start tiddler",
+        "name": "startup tiddler",
         "topic": "",
         "networkfield": "network.server.tiddlers",
         "twikiName": "$tw.wiki",
@@ -7772,7 +7753,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Roll some dice\ntags: dice games\nnbr_of_dice: 4\n\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n<$button actions=\"<<node-red 'dice roll'>>\"> roll dice </$button>\n",
+        "template": "title: Roll some dice\ntags: dice\nnbr_of_dice: 4\n\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n<$button actions=\"<<node-red 'dice roll'>>\"> roll dice </$button>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -7782,8 +7763,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 350,
-        "y": 120,
+        "x": 400,
+        "y": 140,
         "wires": [
             [
                 "ea95423b40b2db5f"
@@ -7804,7 +7785,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Dice rolled!\nnbr_of_dice: {% network.client.sender.0.nbr_of_dice %}\nmustache: yes\n\n<div style=\"font-size: 1.5em;\">\n{% network.user.username %} rolls:\n</div>\n\n<div style=\"font-size: 2.5em; line-height: 1.3em;\">\n{% &dieNames %} = {% &dieSum %}\n</div>\n\n{%# yourTurn %}\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n\n<hr><hr>\n<$button actions=\"<<node-red 'dice roll'>>\"> Your roll </$button>\n<hr><hr>\n{%/ yourTurn %}\n",
+        "template": "title: Dice rolled!\ntags: dice\nnbr_of_dice: {% dice.count %}\ndice_username: {% dice.username %}\ndice_clientid: {% dice.clientid %}\ndice_list: {% dice.list %}\ndice_sum: {% dice.sum %}\ndice_outcome: {% &rollOutcome %}\nmustache: yes\n\n<div style=\"font-size: 1.5em;\">\n{{!!dice_username}} rolls:\n</div>\n\n<div style=\"font-size: 2.5em; line-height: 1.3em;\">\n{%# dice.titles %}\n  {{ {%& . %} }}\n{%/ dice.titles %}\n = {{!!dice_sum}}\n</div>\n\n<div style=\"font-size: 1.5em;\">\n{{!!dice_outcome}}\n</div>\n\n{%# yourTurn %}\n<hr>\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n\n<$button actions=\"<<node-red 'dice roll'>>\"> Your roll </$button>\n<hr>\n{%/ yourTurn %}\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -7814,8 +7795,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 190,
-        "y": 280,
+        "x": 280,
+        "y": 360,
         "wires": [
             [
                 "f1ef5a7e371b1c7c"
@@ -7831,8 +7812,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 45,
-        "y": 240,
+        "x": 145,
+        "y": 260,
         "wires": [
             [
                 "64b77433f374854a"
@@ -7858,8 +7839,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 140,
-        "y": 240,
+        "x": 240,
+        "y": 260,
         "wires": [
             [
                 "33134899afe62741"
@@ -7872,18 +7853,18 @@
         "z": "8f4c8042c34e6b26",
         "g": "2384ad651173ae9e",
         "name": "Roll the dice",
-        "func": "// Tiddler name of each dice given number of 'spots'\nfunction getDiceIconTiddler(pips) {\n    return `$:/images/bootstrap/dice-${pips}-fill`;\n}\n\n// Gets random whole number between 1 and 6\n// https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range\nfunction getRandomDie() {\n    let min = Math.ceil(1);\n    let max = Math.floor(6);\n    return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\n// Get the client 'currentTiddler' tiddler that sent the request\n//  - is always msg.network.client.sender[0]\n// Get requested number of dice to roll\nconst currentTiddler = msg.network.client.sender[0];\nvar nbr_of_dice = currentTiddler.nbr_of_dice;\n\n// Generate string that transcludes the die icons\nmsg.dieNames = '';\nmsg.dieSum = 0;\nfor (let i = 0; i < nbr_of_dice; i++) {\n    let pips = getRandomDie();\n    msg.dieNames += ('{{ ' + getDiceIconTiddler(pips) + ' }}\\n');\n    msg.dieSum += pips;\n}\n\nreturn msg;\n",
+        "func": "/*\nRolls given number of dice placing the results in msg.dice\n*/\n\n// Tiddler name of each dice given number of 'spots' (called 'pips')\n// Icons from https://morosanuae.github.io/tw-icons/\n//  (search for 'dice')\nfunction getDiceIconTiddler(pips) {\n    return `$:/images/bootstrap/dice-${pips}-fill`;\n}\n\n// Gets random whole number between 1 and 6\n// https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range\nfunction getRandomDie() {\n    let min = Math.ceil(1);\n    let max = Math.floor(6);\n    return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\n// Initialize dice roll object\n// Note - Client's 'currentTiddler' is always msg.network.client.sender[0]\nmsg.dice = {\n    username: msg.network.user.username,\n    clientid: msg.network.meta._clientid,\n    count: msg.network.client.sender[0].nbr_of_dice,\n    titles: [],\n    sum: 0,\n    list: ''\n};\n\n// Generate list of die tiddler titles and sum them up\nfor (let i = 0; i < msg.dice.count; i++) {\n    let pips = getRandomDie();\n    msg.dice.titles.push(getDiceIconTiddler(pips));\n    msg.dice.list += msg.dice.list ? ` ${pips}` : `${pips}`;\n    msg.dice.sum += pips;\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 240,
+        "x": 400,
+        "y": 260,
         "wires": [
             [
-                "387d1976fbad2871"
+                "131aeb785c805e96"
             ]
         ]
     },
@@ -7893,15 +7874,15 @@
         "z": "8f4c8042c34e6b26",
         "g": "2384ad651173ae9e",
         "name": "Session controls",
-        "func": "/*\nNode expects \n msg.dieNames to be string of transcluded dice icon tiddlers\n msg.dieSum = sum of the dice rolled;\n*/\n\n// Each connection has server-side in-memory info by clientId\n//  This is where the session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Creates Dice Game Session Data\nfunction initSessionData() {\n    // Indicate client is in the dice game\n    var clientData = clientIds[msg.network.meta._clientid];\n    if (clientData && typeof clientData.diceGame !== 'object') {\n        clientData.diceGame = { \n            username: msg.network.user.username,\n            inDiceGame: true,\n            lastSum: 0\n        };\n    }\n}\n\n// Is this clientid a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceGame && clientIds[cid].diceGame.inDiceGame;\n}\n\n// Add up the clients that are playing\nfunction getNbrOfPlayers() {\n    var nbrPlayers = 0;\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            nbrPlayers++;\n        }\n    }\n    return nbrPlayers;\n}\n\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDiceGamePlayers() {\n    // Count the number of clients playing the game\n    var nbrPlayers = getNbrOfPlayers();\n    // Send tiddler to all playing the game\n    for (let cid in clientIds) {\n        // client is playing dice game - send result \n        if (clientIsPlayer(cid)) {\n            // msg.clientid is for Broadcasting to client\n            msg.clientid = cid;\n            // Remember sum of last roll\n            if (cid === msg.network.meta._clientid) {\n                clientIds[cid].diceGame.lastSum = msg.dieSum;\n            }\n            // When single player is always 'your turn'\n            msg.yourTurn = nbrPlayers > 1 ? false : true;\n            // When clientId is not the current one it is their turn\n            if (cid !== msg.network.meta._clientid) {\n                msg.yourTurn = true;\n            }\n            node.send(msg);\n        }\n    }\n}\n\n// Insure have dice game session data for this client\ninitSessionData();\nsendToDiceGamePlayers();\nnode.done();\n\nreturn msg;",
+        "func": "/*\nDice session controls\n\nExpects\n    msg.dice = {\n        count:  - number of dice rolled\n        titles: - array of tiddler titles of dice images,\n        sum:    - sum of the dice\n    };\n*/\n\n// Each client TiddlyWiki has server-side in-memory\n//   info by clientId\n//  This is where dice session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Creates Dice Session Data\nfunction initSessionData() {\n    // Indicate client is watching dice rolls\n    var clientData = clientIds[msg.network.meta._clientid];\n    if (clientData && typeof clientData.diceGame !== 'object') {\n        clientData.diceSession = { \n            username: msg.network.user.username,\n            inDiceGame: true\n        };\n    }\n}\n\n// Is this client a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceSession && clientIds[cid].diceSession.inDiceGame;\n}\n\n//  List of all player client ids\nfunction getListOfPlayers() {\n    var playerIds = [];\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            playerIds.push(cid);\n        }\n    }\n    return playerIds;\n}\n\nfunction setSessionDiceRoll(cid) {\n    clientIds[cid].diceSession.dice = JSON.parse(JSON.stringify(msg.dice));\n}\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDicePlayers() {\n    // Count the number of clients playing the game\n    var playerIds = getListOfPlayers();\n    var nbrPlayers = playerIds.length;\n\n    // Send tiddler to all playing the game\n    playerIds.forEach((cid) => {\n        // msg.clientid is for Broadcasting to client\n        msg.clientid = cid;\n        // Remember this player's last roll\n        if (cid === msg.network.meta._clientid) {\n            setSessionDiceRoll(cid);\n        }\n        // When single player - is always 'your turn'\n        msg.yourTurn = nbrPlayers > 1 ? false : true;\n        // When clientId is not the current one it is their turn\n        if (cid !== msg.network.meta._clientid) {\n            msg.yourTurn = true;\n        }\n        // send to next node\n        node.send(msg);\n    })\n}\n\n// Insure have dice session data for this client\ninitSessionData();\n// Send dice roll to each player\nsendToDicePlayers();\nnode.done();\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 240,
+        "x": 440,
+        "y": 310,
         "wires": [
             [
                 "510dc6f6e07f9be4"
@@ -7918,10 +7899,31 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 390,
-        "y": 280,
+        "x": 480,
+        "y": 360,
         "wires": [],
         "l": true
+    },
+    {
+        "id": "131aeb785c805e96",
+        "type": "function",
+        "z": "8f4c8042c34e6b26",
+        "g": "2384ad651173ae9e",
+        "name": "Outcome logic",
+        "func": "const prevRoll = global.get('diceroll');\n\n// Outcome logic - the order matters\nfunction rollOutcome() {\n    if (!prevRoll) {\n        return 'First roll';\n    }\n    if (msg.dice.count !== prevRoll.count) {\n        return 'Number of dice has changed';\n    }\n    if (msg.dice.username === prevRoll.username) {\n        return `${prevRoll.username} re-roll!`;\n    }\n    let prevInfo = `${prevRoll.username} rolled ${prevRoll.sum}<br><br>`\n    if (msg.dice.sum === prevRoll.sum) {\n        return prevInfo + 'A tie!';\n    }\n    if (msg.dice.sum > prevRoll.sum) {\n        return prevInfo + `${msg.dice.username} wins!`;\n    }\n    return prevInfo + `${msg.dice.username} lost!`;\n}\n\nfunction setGlobalDiceRoll(cid) {\n    global.set('diceroll', JSON.parse(JSON.stringify(msg.dice)));\n}\n\nmsg.rollOutcome = rollOutcome();\n\n// Most current dice roll to globaal context\nsetGlobalDiceRoll();\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 310,
+        "wires": [
+            [
+                "387d1976fbad2871"
+            ]
+        ]
     },
     {
         "id": "b27ea02bc203e5f5",
