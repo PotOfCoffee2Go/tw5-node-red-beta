@@ -969,11 +969,12 @@
             "33134899afe62741",
             "387d1976fbad2871",
             "f1ef5a7e371b1c7c",
-            "131aeb785c805e96"
+            "131aeb785c805e96",
+            "6c34df8a6af5cfba"
         ],
-        "x": 104,
+        "x": 34,
         "y": 203,
-        "w": 462,
+        "w": 662,
         "h": 198
     },
     {
@@ -3048,7 +3049,8 @@
             "b3f1b086fcd9e11d",
             "9e04bbecb2bb7c33",
             "cbaa14bc051e3edb",
-            "3c3235632a2801e6"
+            "3c3235632a2801e6",
+            "193b99040d04db3d"
         ],
         "x": 520,
         "y": 280,
@@ -7785,7 +7787,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Dice rolled!\ntags: dice\nnbr_of_dice: {% dice.count %}\ndice_username: {% dice.username %}\ndice_clientid: {% dice.clientid %}\ndice_list: {% dice.list %}\ndice_sum: {% dice.sum %}\ndice_outcome: {% &rollOutcome %}\nmustache: yes\n\n<div style=\"font-size: 1.5em;\">\n{{!!dice_username}} rolls:\n</div>\n\n<div style=\"font-size: 2.5em; line-height: 1.3em;\">\n{%# dice.titles %}\n  {{ {%& . %} }}\n{%/ dice.titles %}\n = {{!!dice_sum}}\n</div>\n\n<div style=\"font-size: 1.5em;\">\n{{!!dice_outcome}}\n</div>\n\n{%# yourTurn %}\n<hr>\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n\n<$button actions=\"<<node-red 'dice roll'>>\"> Your roll </$button>\n<hr>\n{%/ yourTurn %}\n",
+        "template": "title: Dice roll\ntags: dice\nmustache: yes\nplayername: {% playername %}\nprevInfo: {% &prevInfo %}\nnbr_of_dice: {% dice.count %}\ndice_username: {% dice.username %}\ndice_clientid: {% dice.clientid %}\ndice_list: {% dice.list %}\ndice_sum: {% dice.sum %}\ndice_outcome: {% &rollOutcome %}\n\n<div style=\"font-size: 1.5em;\">\nPlayer: {{!!playername}}\n<hr>\n{{!!prevInfo}}<br><br>\n{{!!dice_username}} rolls:\n</div>\n\n<div style=\"font-size: 2.5em; line-height: 1.3em;\">\n{%# dice.titles %}\n  {{ {%& . %} }}\n{%/ dice.titles %}\n = {{!!dice_sum}}\n</div>\n\n<div style=\"font-size: 1.5em;\">\n{{!!dice_outcome}}<br>\n</div>\n\n{{Dice stats}}\n\n<hr>\n<div style=\"font-size: 1.2em; margin-bottom: .3em;\">\nCurrent is <b>{{!!dice_username}}'s</b> <b>{{!!nbr_of_dice}}</b> die roll of <b>{{!!dice_sum}}</b>\n</div>\n{%# yourTurn %}\nNumber of dice: \n <$edit-text field=\"nbr_of_dice\" size=\"3\"/>\n <$button actions=\"<<node-red 'dice roll'>>\"> Your roll </$button>\n{%/ yourTurn %}\n<hr>\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -7795,8 +7797,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 280,
-        "y": 360,
+        "x": 430,
+        "y": 320,
         "wires": [
             [
                 "f1ef5a7e371b1c7c"
@@ -7812,7 +7814,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 145,
+        "x": 75,
         "y": 260,
         "wires": [
             [
@@ -7839,7 +7841,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 240,
+        "x": 170,
         "y": 260,
         "wires": [
             [
@@ -7860,7 +7862,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 330,
         "y": 260,
         "wires": [
             [
@@ -7874,18 +7876,22 @@
         "z": "8f4c8042c34e6b26",
         "g": "2384ad651173ae9e",
         "name": "Session controls",
-        "func": "/*\nDice session controls\n\nExpects\n    msg.dice = {\n        count:  - number of dice rolled\n        titles: - array of tiddler titles of dice images,\n        sum:    - sum of the dice\n    };\n*/\n\n// Each client TiddlyWiki has server-side in-memory\n//   info by clientId\n//  This is where dice session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Creates Dice Session Data\nfunction initSessionData() {\n    // Indicate client is watching dice rolls\n    var clientData = clientIds[msg.network.meta._clientid];\n    if (clientData && typeof clientData.diceGame !== 'object') {\n        clientData.diceSession = { \n            username: msg.network.user.username,\n            inDiceGame: true\n        };\n    }\n}\n\n// Is this client a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceSession && clientIds[cid].diceSession.inDiceGame;\n}\n\n//  List of all player client ids\nfunction getListOfPlayers() {\n    var playerIds = [];\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            playerIds.push(cid);\n        }\n    }\n    return playerIds;\n}\n\nfunction setSessionDiceRoll(cid) {\n    clientIds[cid].diceSession.dice = JSON.parse(JSON.stringify(msg.dice));\n}\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDicePlayers() {\n    // Count the number of clients playing the game\n    var playerIds = getListOfPlayers();\n    var nbrPlayers = playerIds.length;\n\n    // Send tiddler to all playing the game\n    playerIds.forEach((cid) => {\n        // msg.clientid is for Broadcasting to client\n        msg.clientid = cid;\n        // Remember this player's last roll\n        if (cid === msg.network.meta._clientid) {\n            setSessionDiceRoll(cid);\n        }\n        // When single player - is always 'your turn'\n        msg.yourTurn = nbrPlayers > 1 ? false : true;\n        // When clientId is not the current one it is their turn\n        if (cid !== msg.network.meta._clientid) {\n            msg.yourTurn = true;\n        }\n        // send to next node\n        node.send(msg);\n    })\n}\n\n// Insure have dice session data for this client\ninitSessionData();\n// Send dice roll to each player\nsendToDicePlayers();\nnode.done();\n",
-        "outputs": 1,
+        "func": "/*\nDice session controls\n\nExpects\n    msg.dice = {\n        count:  - number of dice rolled\n        titles: - array of tiddler titles of dice images,\n        sum:    - sum of the dice\n    };\n*/\n\n// Each client TiddlyWiki has server-side in-memory\n//   info by clientId\n//  This is where dice session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Creates Dice Session Data\nfunction initSessionData() {\n    // Indicate client is watching dice rolls\n    var clientData = clientIds[msg.network.meta._clientid];\n    if (clientData && typeof clientData.diceSession !== 'object') {\n        clientData.diceSession = { \n            username: msg.network.user.username,\n            inDiceGame: true,\n            won: 0,\n            lost: 0,\n            tie: 0,\n            chg: 0,\n            score: 0\n        };\n    }\n}\n\n// Is this client a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceSession && clientIds[cid].diceSession.inDiceGame;\n}\n\n//  List of all player client ids\nfunction getListOfPlayers() {\n    var playerIds = [];\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            playerIds.push(cid);\n        }\n    }\n    return playerIds;\n}\n\nfunction setSessionDiceRoll(cid) {\n    clientIds[cid].diceSession.dice = JSON.parse(JSON.stringify(msg.dice));\n}\n\n// Increment player wins, losses, ties, and change\nfunction incWinnerLoser() {\n    if (msg.chg && clientIds[msg.chg]) {\n        clientIds[msg.chg].diceSession.chg++;\n    }\n    if (msg.winner && clientIds[msg.winner]) {\n        clientIds[msg.winner].diceSession.won++;\n    }\n    if (msg.loser && clientIds[msg.loser]) {\n        clientIds[msg.loser].diceSession.lost++;\n    }\n    if (msg.tie1 && clientIds[msg.tie1]) {\n        clientIds[msg.tie1].diceSession.tie++;\n    }\n    if (msg.tie2 && clientIds[msg.tie2]) {\n        clientIds[msg.tie2].diceSession.tie++;\n    }\n}\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDicePlayers() {\n    // Count the number of clients playing the game\n    var playerIds = getListOfPlayers();\n    var nbrPlayers = playerIds.length;\n\n    // Send tiddler to all playing the game\n    playerIds.forEach((cid) => {\n        // msg.clientid is for Broadcasting to client\n        msg.clientid = cid;\n        msg.playername = clientIds[cid].diceSession.username;\n        // Remember this player's last roll\n        if (cid === msg.network.meta._clientid) {\n            setSessionDiceRoll(cid);\n        }\n        // When single player - is always 'your turn'\n        msg.yourTurn = nbrPlayers > 1 ? false : true;\n        // When clientId is not the current one it is their turn\n        if (cid !== msg.network.meta._clientid) {\n            msg.yourTurn = true;\n        }\n        // send to next node\n        node.send([msg, null]);\n    })\n\n    delete msg.dice;\n    msg.stats = [];\n    msg.clientid = playerIds;\n    playerIds.forEach((cid) => {\n        let clientData = clientIds[cid].diceSession;\n        clientIds[cid].diceSession.score = (clientData.won * 2) -\n            clientData.lost + clientData.tie - clientData.chg;\n        msg.stats.push(clientIds[cid].diceSession);\n    })\n\n    node.send([null, msg]);\n}\n\n// Insure have dice session data for this client\ninitSessionData();\n// Increment player wins and losses\nincWinnerLoser();\n// Send dice roll to each player\nsendToDicePlayers();\nnode.done();\n",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 310,
+        "x": 240,
+        "y": 340,
         "wires": [
             [
                 "510dc6f6e07f9be4"
+            ],
+            [
+                "a9d5d1408547a0cb",
+                "6c34df8a6af5cfba"
             ]
         ]
     },
@@ -7899,8 +7905,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 480,
-        "y": 360,
+        "x": 610,
+        "y": 340,
         "wires": [],
         "l": true
     },
@@ -7910,18 +7916,67 @@
         "z": "8f4c8042c34e6b26",
         "g": "2384ad651173ae9e",
         "name": "Outcome logic",
-        "func": "const prevRoll = global.get('diceroll');\n\n// Outcome logic - the order matters\nfunction rollOutcome() {\n    if (!prevRoll) {\n        return 'First roll';\n    }\n    if (msg.dice.count !== prevRoll.count) {\n        return 'Number of dice has changed';\n    }\n    if (msg.dice.username === prevRoll.username) {\n        return `${prevRoll.username} re-roll!`;\n    }\n    let prevInfo = `${prevRoll.username} rolled ${prevRoll.sum}<br><br>`\n    if (msg.dice.sum === prevRoll.sum) {\n        return prevInfo + 'A tie!';\n    }\n    if (msg.dice.sum > prevRoll.sum) {\n        return prevInfo + `${msg.dice.username} wins!`;\n    }\n    return prevInfo + `${msg.dice.username} lost!`;\n}\n\nfunction setGlobalDiceRoll(cid) {\n    global.set('diceroll', JSON.parse(JSON.stringify(msg.dice)));\n}\n\nmsg.rollOutcome = rollOutcome();\n\n// Most current dice roll to globaal context\nsetGlobalDiceRoll();\n\nreturn msg;",
+        "func": "const prevRoll = global.get('diceroll');\n\n// Outcome logic - the order matters\nfunction rollOutcome() {\n    msg.prevInfo = '&nbsp;';\n    if (!prevRoll) {\n        return 'First roll';\n    }\n    if (msg.dice.count !== prevRoll.count) {\n        msg.prevInfo = 'Number of dice has changed';\n        msg.chg = msg.dice.clientid;\n   return '';\n    }\n    if (msg.dice.username === prevRoll.username) {\n        return `${prevRoll.username} re-roll!`;\n    }\n    msg.prevInfo = `Beat ${prevRoll.username}'s roll of ${prevRoll.sum}?`\n    if (msg.dice.sum === prevRoll.sum) {\n        msg.tie1 = msg.dice.clientid;\n        msg.tie2 = prevRoll.clientid;\n        return 'A tie!';\n    }\n    if (msg.dice.sum > prevRoll.sum) {\n        msg.winner = msg.dice.clientid;\n        msg.loser = prevRoll.clientid;\n        return `${msg.dice.username} wins!`;\n    }\n    msg.winner = prevRoll.clientid;  \n    msg.loser = msg.dice.clientid;\n    return `${msg.dice.username} lost!`;\n}\n\nfunction setGlobalDiceRoll(cid) {\n    global.set('diceroll', JSON.parse(JSON.stringify(msg.dice)));\n}\n\nmsg.rollOutcome = rollOutcome();\n\n// Most current dice roll to globaal context\nsetGlobalDiceRoll();\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 310,
+        "x": 510,
+        "y": 260,
         "wires": [
             [
                 "387d1976fbad2871"
+            ]
+        ]
+    },
+    {
+        "id": "a9d5d1408547a0cb",
+        "type": "debug",
+        "z": "8f4c8042c34e6b26",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 430,
+        "wires": []
+    },
+    {
+        "id": "6c34df8a6af5cfba",
+        "type": "set-network",
+        "z": "8f4c8042c34e6b26",
+        "g": "2384ad651173ae9e",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "title: Dice stats\ntags: dice\nmustache: yes\n\n|Player|Won|Lost|Tie|Chg|Score|h\n{%# stats %}\n|{% username %}|{% won %}|{% lost %}|{% tie %}|{% chg %}|{% score %}|\n{%/ stats %}\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "f1ef5a7e371b1c7c"
             ]
         ]
     },
