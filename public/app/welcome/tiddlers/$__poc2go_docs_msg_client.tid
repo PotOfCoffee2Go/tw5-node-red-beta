@@ -1,6 +1,6 @@
 caption: Client data
 created: 20240223102753348
-modified: 20240311152532784
+modified: 20240616053129132
 tags: $:/poc2go/docs/msg
 title: $:/poc2go/docs/msg/client
 type: text/vnd.tiddlywiki
@@ -13,6 +13,7 @@ type: text/vnd.tiddlywiki
 | | | |topic | string |Original topic requested|
 | | | |sender | array |currentTidder sending request|
 | | | |tiddlers | array |Tiddlers sent with this request|
+| | | |currentTiddler | array |currentTiddler making request|
 
 !!! topic
 This field contains the original topic requested by the client TiddlyWiki. The main 'msg.topic' can change as a msg is routed through the flows. 'msg.network.client.topic' can be used to determine the original topic requested.
@@ -22,6 +23,9 @@ The sender field is an array of tiddlers. The first element in the array 'msg.ne
 
 !!! tiddlers
 'msg.network.client.tiddlers' are tiddlers that are sent with the request. It is the tiddlers from the result of the `[[filter]]` query in the `<<node-red 'topic' '[[filter]]'>>` macro call.
+
+!!! currentTiddler
+Convenience field that equals msg.network.client.sender[0] - see 'sender' above.
 
 The example below shows the client data sent on a 'client.onload' request which is sent automatically after a connection with the client TiddlyWiki has been established and the user has signed in. The flow that processes the request is the <$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button> 'onConnect' tab.
 
@@ -62,7 +66,20 @@ The 'client.onload' request also sends the same `$:/tw5-node-red/settings` as a 
           "heartbeatInterval": "10000",
           "text": "{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}"
         }
-      ]
+      ],
+      "currentTiddler": {
+          "title": "$:/tw5-node-red/settings",
+          "tags": "tw5-node-red",
+          "type": "text/vnd.tiddlywiki",
+          "redNetstat": "$:/temp/tw5-node-red/netstat",
+          "redStore": "$:/temp/tw5-node-red/store",
+          "redData": "$:/temp/tw5-node-red/data",
+          "autoLoadPlugin": "no",
+          "autoSend": "[[$:/temp/tw5-node-red/store]] [[$:/temp/tw5-node-red/data]]",
+          "autoTags": "[[·node-red·]]",
+          "tagWithTopic": "no",
+          "heartbeatInterval": "10000"
+      }
     },
 ```
 

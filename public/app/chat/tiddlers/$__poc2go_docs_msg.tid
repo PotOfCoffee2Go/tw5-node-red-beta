@@ -1,7 +1,7 @@
 caption: Messages
 created: 20240223013249157
 list: $:/poc2go/docs/msg/meta $:/poc2go/docs/msg/client $:/poc2go/docs/msg/server $:/poc2go/docs/msg/user
-modified: 20240418014053221
+modified: 20240616053723338
 tags: TableOfContentsDocs
 title: $:/poc2go/docs/msg
 type: text/vnd.tiddlywiki
@@ -37,6 +37,7 @@ TiddlyWiki sends a request `<<node-red 'topic' '[[filter]]'>>` which fills the '
 | | | |topic | string |Original topic requested|
 | | | |sender | array |currentTidder sending request|
 | | | |tiddlers | array |Tiddlers sent with this request|
+| | | |currentTiddler | array |currentTiddler making request|
 | | |server |>| |Server Data |h
 | | | |topic | string |Topic of response|
 | | | |tiddlers | array |Tiddlers sent with this response|
@@ -69,7 +70,8 @@ An example  - some fields shortened to [· · ·] / {· · ·}.
     "client": {
       "topic": "client.onload",
       "sender": [· · ·],
-      "tiddlers": [· · ·]
+      "tiddlers": [· · ·],
+      "currentTiddler": {· · ·}
     },
     "server": {
       "topic": "server.tiddlers",
