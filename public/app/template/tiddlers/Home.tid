@@ -1,10 +1,17 @@
 created: 20240101193236151
 list: [[Sub tiddler of home]]
-modified: 20240104153010872
+modified: 20240409132555204
+mustache: yes
 tags: TableOfContents
 title: Home
 type: text/vnd.tiddlywiki
 
-!!! Welcome to TW5-Node-RED
+---
+
+| [ext[TW5-Node-RED Beta Release Notes|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TW5-Node-RED REPL|/svr/wiki/nodered.html?app=repl]] |
+
+---
+
+!!! Welcome {% network.user.username %} to TW5-Node-RED
 
 {{tw5-node-red}}

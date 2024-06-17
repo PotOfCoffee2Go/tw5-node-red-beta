@@ -20,7 +20,6 @@ module.exports = {
 		me.$tw.boot.boot(() => {});
 
 		// Reference hashmap of twikis
-		me.twikis = { '$tw.wiki': me.$tw.wiki };
-		return { $tw: me.$tw, twikis: me.twikis, outDir: me.outDir };
+		return { $tw: me.$tw, outDir: me.outDir };
 	}
 }

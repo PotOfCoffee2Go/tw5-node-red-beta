@@ -10,12 +10,16 @@
     "@node-red/library-file-store": "^1.0.0",
     "@potofcoffee2go/tw5-nodes": "file:./src/nodes",
     "jsonwebtoken": "^9.0.2",
-    "node-red": "^3.1.7",
+    "node-red": "^3.1.10",
     "node-red-contrib-uibuilder": "~6.4.1",
-    "tiddlywiki": "^5.3.3"
+    "pretty-repl": "^4.0.0",
+    "tiddlywiki": "^5.3.3",
+    "tiddlywikimws": "file:../TiddlyWiki5"
   },
   "devflows": {
-    "node-red-contrib-users": "^0.1.10"
+    "tiddlywikimws": "https://github.com/Jermolene/TiddlyWiki5.git#multi-wiki-support",
+    "node-red-contrib-users": "^0.1.10",
+    "tiddlywiki": "^5.3.3"
   },
   "scripts": {
     "start": "node ./node_modules/node-red/red.js -s ./settings.js",

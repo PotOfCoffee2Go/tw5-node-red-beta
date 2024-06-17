@@ -17,10 +17,10 @@ module.exports = function(RED) {
 	function toTwiki(n) {
 		RED.nodes.createNode(this, n);
 		const node = this;
-		const cxt = this.context();
-
-		const $tw = cxt.global.get('$tw');
-		const twikis = cxt.global.get('twikis');
+		const ctx = this.context();
+		if (!ctx.global.get('RED')) { ctx.global.set('RED', RED); }
+		const $tw = ctx.global.get('$tw');
+		const twikis = ctx.global.get('twikis');
 
 		this.twikiName = n.twikiName;
 		this.fromTwikiName = n.fromTwikiName;
@@ -54,7 +54,7 @@ module.exports = function(RED) {
 		  : {};
 
 		if (node.useListener) {
-			cxt.set('listener', function listener(changes) {
+			ctx.set('listener', function listener(changes) {
 				var tiddlersToSend = [];
 				for (let title in node.twiki.changeCount) {
 					if (node.changeCountSent[title] !== node.twiki.changeCount[title]) {
@@ -74,7 +74,7 @@ module.exports = function(RED) {
 				}
 				node.send([null, msg]);
 			})
-			node.twiki.addEventListener("change", cxt.get('listener'));
+			node.twiki.addEventListener("change", ctx.get('listener'));
 		}
 
 		node.on('input', (msg, send, done) => {
@@ -184,17 +184,17 @@ module.exports = function(RED) {
 		})
 		node.on('close', function() {
 			if (node.resetOnDeploy) twikis[node.twikiName] = new $tw.Wiki;
-			if (node.useListener) node.twiki.removeEventListener('change', cxt.get('listener'));
+			if (node.useListener) node.twiki.removeEventListener('change', ctx.get('listener'));
 		})
 	}
 
 	function fromTwiki(n) {
 		RED.nodes.createNode(this, n);
 		const node = this;
-		const cxt = this.context();
+		const ctx = this.context();
 
-		const $tw = cxt.global.get('$tw');
-		const twikis = cxt.global.get('twikis');
+		const $tw = ctx.global.get('$tw');
+		const twikis = ctx.global.get('twikis');
 
 		this.twikiName = n.twikiName;
 		this.toTwikiName = n.toTwikiName;
@@ -228,7 +228,7 @@ module.exports = function(RED) {
 		  : {};
 
 		if (node.useListener) {
-			cxt.set('listener', function listener(changes) {
+			ctx.set('listener', function listener(changes) {
 				var tiddlersToSend = [];
 				for (let title in node.twiki.changeCount) {
 					if (node.changeCountSent[title] !== node.twiki.changeCount[title]) {
@@ -248,7 +248,7 @@ module.exports = function(RED) {
 				}
 				node.send([null, msg]);
 			})
-			node.twiki.addEventListener("change", cxt.get('listener'));
+			node.twiki.addEventListener("change", ctx.get('listener'));
 		}
 
 		node.on('input', (msg, send, done) => {
@@ -310,7 +310,7 @@ module.exports = function(RED) {
 		})
 
 		node.on('close', function() {
-			if (node.useListener) node.twiki.removeEventListener('change', cxt.get('listener'));
+			if (node.useListener) node.twiki.removeEventListener('change', ctx.get('listener'));
 			if (node.resetOnDeploy) twikis[node.twikiName] = new $tw.Wiki;
 		});
 	}

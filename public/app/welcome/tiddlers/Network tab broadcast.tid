@@ -1,6 +1,6 @@
 caption: Broadcast
 created: 20240311145038018
-modified: 20240311145944089
+modified: 20240313182522134
 tags: [[Network tab]]
 title: Network tab broadcast
 type: text/vnd.tiddlywiki
@@ -9,4 +9,4 @@ type: text/vnd.tiddlywiki
 
 The 'Broadcast all' and 'Broadcast msg' link in nodes allow broadcasting a msg to a client that is not the original requesting client.
 
-These flows have been rough in but will have significant changes in the near future. The 'Broadcast msg' is being used by the [ext[Chat|/svr/wiki/hello.html?app=chat]] application but fully expect will need updating when these flows have been fleshed out.
+These flows have been roughed in but will have significant changes in the near future. The 'Broadcast msg' is being used by the [ext[Chat|/svr/wiki/hello.html?app=chat]] application but fully expect will need updating when these flows have been fleshed out.

@@ -183,18 +183,15 @@ function wikiMsg(node, _topic, msg = {} ) {
 	var topic = _topic || msg.topic || 'need.topic';
 
 	let network = msg.network || {
-		meta: { source: 'Node-Red', version: 'v3.0.2', location: node.type, _clientid: node.id, tiddlers: [] },
+		meta: { source: 'Node-Red', version: 'v3.1.9', location: node.type, _clientid: node.id, tiddlers: [] },
 		client: { topic, sender: [{title: 'Node-Red'}], tiddlers:[] },
-		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [], deletelist: [] }
 	};
 	if (node.networkfield === 'network.server.tiddlers' && node.topic.length) {
 		network.server.topic = node.topic;
 	}
 
-	let newmsg = {
-		topic,
-		network
-	}
+	let newmsg = { topic, network };
 	return Object.assign({}, msg, newmsg);
 }
 

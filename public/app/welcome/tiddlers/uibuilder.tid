@@ -1,11 +1,11 @@
 created: 20231208030532149
-modified: 20231217193819318
+modified: 20240312205630173
 tags: Storage
 title: uibuilder
 type: text/vnd.tiddlywiki
 
-The <span class="poc2go-dir">'./uibuilder'</span> directory contains the [ext[node-red-contrib-uibuilder|https://flows.nodered.org/node/node-red-contrib-uibuilder]] communications package. For the most part it is maintained by the 'uibuilder' nodes with the exception of the <span class="poc2go-dir">'./uibuilder/uibtw/tiddlywikis'</span> directory which stores the client single file tiddlywikis.
+The <span class="poc2go-dir">'./uibuilder'</span> directory contains the [ext[node-red-contrib-uibuilder|https://flows.nodered.org/node/node-red-contrib-uibuilder]] communications package. For the most part it is maintained by the 'uibuilder' nodes with the exception of the <span class="poc2go-dir">'./uibuilder/svr/src/wiki'</span> directory which stores the client single file tiddlywikis.
 
-This directory is required for communication with the client wikis. uibuilder will create server URL routes to sub-directories of './uibuilder' which are roughly equivalent to socket.io communication channels. TW5-Node-RED uses the URL '/uibtw/' to load the client single file TiddlyWikis from the './uibuilder/uibtw/tiddlywikis' directory. For example, http://localhost:1880/uibtw/hello.html loads the TiddlyWiki <span class="poc2go-dir">'./uibuilder/uibtw/tiddlywikis/hello.html'</span>. 
+This directory is required for communication with the client wikis. uibuilder will create server URL routes to sub-directories of './uibuilder' which are roughly equivalent to socket.io communication channels. TW5-Node-RED uses the URL '/svr/wiki' to load the client single file TiddlyWikis from the './uibuilder/svr/src/wiki' directory. For example, http://localhost:1880/svr/wiki/hello.html loads the TiddlyWiki <span class="poc2go-dir">'./uibuilder/svr/src/wiki/hello.html'</span>. 
 
 This directory is required for TW5-Node-RED to operate. 

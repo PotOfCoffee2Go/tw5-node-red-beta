@@ -1,0 +1,16 @@
+caption: built-in cmds
+created: 20240402183938730
+modified: 20240403183044664
+tags: TableOfContents
+title: built-in cmds
+type: text/vnd.tiddlywiki
+
+The REPL has a set of built-in commands that are specific to TW5-Node-RED. These are under the 'help' object - to start type `help.intro()` 
+
+help.common('versions') displays the versions of packages currently running and pre-enters other REPL commands that are handy.
+
+ * help.common('tnr') - `tnr` is the Node-RED 'global' context.
+ ** These objects can be referenced by the Node-RED 'function' node (and REPL).
+ * help.common('twikis') - `{ twikis:Object.keys(twikis).sort() }`
+ ** Are TiddlyWiki databases storing tiddlers used by application flows created by devs
+ ** See 'Chat' for example: http://localhost:1880/svr/wiki/notebook.html?mws=chat

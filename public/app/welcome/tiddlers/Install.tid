@@ -1,6 +1,6 @@
 created: 20231126191238250
 fetched: 20231128183332930
-modified: 20240306144118427
+modified: 20240312204548072
 tags: Welcome ·node-red·
 title: Install
 type: text/vnd.tiddlywiki
@@ -13,17 +13,6 @@ Install server:
 cd tw5-node-red-beta
 npm install
 """/>
-
-> ''Documentation is still being constructed so is not currently available for this beta release.''
-
-Optional, install documentation presented using [ext[docsify|https://docsify.js.org]] :
-
-<strike>
-
-```
-npm install repo-docs ./public/docs
-```
-</strike>
 
 Start the server:
 

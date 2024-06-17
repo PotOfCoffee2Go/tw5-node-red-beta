@@ -1,0 +1,63 @@
+caption: REPL
+created: 20240402092353698
+modified: 20240405225951025
+tags: TableOfContents
+title: REPL
+type: text/vnd.tiddlywiki
+
+As stated at [ext[https://nodejs.org/en/learn/command-line/how-to-use-the-nodejs-repl]] :
+
+> "REPL stands for Read Evaluate Print Loop, and it is a programming language environment (basically a console window) that takes single expression as user input and returns the result back to the console after execution"
+
+If have used Browser Developer tools before, a REPL provides the same functionality as the 'console' but server-side.
+
+'tnr-repl' for the most part can access the complete TW5-Node-RED system. Note that the uiBuilder socket.io component does not have 'module.exports' to expose to the REPL. Can get to it via the 'RED.nodes.getNode()' to the uiBulder node in the 'Network' tab (which quite frankly is going down a rabbit-hole).
+
+> Personally, I do not mess with socket.io - or if wanted to would make a simple socket.io project - not do it while it's buried in the bowels of Node-RED. Just sayin'.
+
+So let's do some stuff with REPL:
+
+$tnr-repl> `$tw.wiki.a` and press the tab key twice
+
+```
+$tnr-repl> $tw.wiki.a
+$tw.wiki.addEventListener   $tw.wiki.addIndexersToWiki
+$tw.wiki.addTiddlers        $tw.wiki.addToHistory
+$tw.wiki.addToStory
+
+$tw.wiki.addIndexer         $tw.wiki.addTiddler
+$tw.wiki.allShadowTitles    $tw.wiki.allTitles
+```
+
+This is a list of all the functions and objects in '$tw.wiki' that begin with the letter 'a'.
+
+$tnr-repl> `$tw.wiki.allTitles` and press enter
+
+```
+[Function (anonymous)]
+```
+
+Oops - is a function, so
+
+$tnr-repl> `$tw.wiki.allTitles()` and press enter
+
+```js
+[
+  '$:/boot/boot.css',
+  '$:/boot/boot.js',
+  '$:/boot/bootprefix.js',
+  '$:/config/SyncLogging',
+  '$:/core',
+  '$:/HistoryList',
+  '$:/isEncrypted',
+  '$:/library/sjcl.js',
+  '$:/status/RequireReloadDueToPluginChange',
+  '$:/StoryList',
+  '$:/temp/info-plugin',
+  'TW5-Node-RED Documentation',
+  'TW5-Node-RED Flow Editor'
+]
+
+```
+
+Play around with typing stuff and pressing tab key twice. It is how to become familiar with what the REPL can see and do.

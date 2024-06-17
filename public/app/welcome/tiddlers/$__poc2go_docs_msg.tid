@@ -1,7 +1,7 @@
 caption: Messages
 created: 20240223013249157
 list: $:/poc2go/docs/msg/meta $:/poc2go/docs/msg/client $:/poc2go/docs/msg/server $:/poc2go/docs/msg/user
-modified: 20240303153642422
+modified: 20240616052343958
 tags: TableOfContents
 title: $:/poc2go/docs/msg
 type: text/vnd.tiddlywiki
@@ -35,12 +35,14 @@ TiddlyWiki sends a request `<<node-red 'topic' '[[filter]]'>>` which fills the '
 | | | |tiddlers | array |Data-tiddlers sent with every msg|
 | | |client |>| |Client Data |h
 | | | |topic | string |Original topic requested|
-| | | |sender | array |currentTidder sending request|
+| | | |sender | array |List of tiddlers sending requests|
 | | | |tiddlers | array |Tiddlers sent with this request|
+| | | |currentTiddler | array |currentTiddler making request|
 | | |server |>| |Server Data |h
 | | | |topic | string |Topic of response|
 | | | |tiddlers | array |Tiddlers sent with this response|
 | | | |storylist | array |Tiddlers to add to story|
+| | | |deletelist | array |Tiddlers to remove from client wiki|
 | | |user |>| |User Data (tiddler)|h
 | | | |title | string |Same as userid|
 | | | |userid | string |Unique ID of user|
@@ -68,12 +70,14 @@ An example  - some fields shortened to [· · ·] / {· · ·}.
     "client": {
       "topic": "client.onload",
       "sender": [· · ·],
-      "tiddlers": [· · ·]
+      "tiddlers": [· · ·],
+      "currentTiddler": {· · ·}
     },
     "server": {
       "topic": "server.tiddlers",
       "tiddlers": [],
-      "storylist": []
+      "storylist": [],
+      "deletelist": []
     },
     "user": {· · ·}
   },

@@ -1,0 +1,8 @@
+caption: Node-RED button w/send tiddlers
+created: 20240418030446430
+fetched: 20240418030446430
+modified: 20240418030446430
+tags: $:/tags/TextEditor/Snippet ·node-red·
+title: $:/language/Snippets/node-red-button-send
+
+<$button actions="<<node-red 'hello' '[[tiddlers_to_send]]'>>"> Hello </$button>

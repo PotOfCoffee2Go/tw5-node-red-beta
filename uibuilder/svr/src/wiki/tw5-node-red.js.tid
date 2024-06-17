@@ -21,6 +21,8 @@ Examples:
   <$button actions="<<node-red 'a topic' '[[filter of tiddlers to send]]'>>" >Send My Tiddlers</$button>
 \*/
 
+if ($tw.browser) {
+
 // Path to uibuilder library on server
 const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
 
@@ -75,27 +77,10 @@ if (!settings) {
 }
 settings = settings.getFieldStrings();
 
-// ------------------------
-// Network related tiddlers
 // Add a tiddler of the network connection status
 $tw.wiki.addTiddler(new $tw.Tiddler({
 	title: settings.redNetstat,
 	text: 'Node-Red Offline',
-}));
-
-// Tiddlers that are sent with each message to server
-// A tiddler for optional Node-Red flows use
-$tw.wiki.addTiddler(new $tw.Tiddler({
-	title: settings.redStore,
-	type: 'application/json',
-	text: `{ "title": "${settings.redStore}" }`
-}));
-
-// Tiddler for optional Node-Red flows data
-$tw.wiki.addTiddler(new $tw.Tiddler({
-	title: settings.redData,
-	type: 'application/x-tiddler-dictionary',
-	text: `title: ${settings.redData}`
 }));
 
 // Display a tiddler informing of an error
@@ -172,7 +157,7 @@ const createMessage = (topic, sendFilter, sender) => {
 	return {
 		meta: { source: 'TW5', version: 'v' + $tw.version, location: window.location, _clientid, tiddlers: metaTiddlers },
 		client: { topic, sender: [senderFields], tiddlers: sendTiddlers },
-		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [], deletelist: [] }
 		};
 }
 
@@ -195,7 +180,7 @@ const sendTopic = (topic) => {
 	emit(topic, {
 		meta: { source: 'TW5', version: 'v' + $tw.version, _clientid, tiddlers: metaTiddlers },
 		client: { topic, sender: [{title: 'barebones'}], tiddlers: [] },
-		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [] }
+		server: { topic: 'server.tiddlers', tiddlers: [], storylist: [], deletelist: [] }
 	});
 }
 
@@ -298,6 +283,11 @@ const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic =
 // Update the wiki with array of tiddlers from server
 const updateWiki = (svr) => {
 	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
+	if (svr.server.deletelist) {
+		svr.server.deletelist.forEach(title => {
+			$tw.wiki.deleteTiddler(title);
+		})
+	}
 	svr.server.tiddlers.forEach(fields => {
 		if (svr.server.storylist.includes(fields.title)) {
 			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server
@@ -344,10 +334,30 @@ const stripNodeRedTags = (tags) => {
 	return $tw.utils.stringifyList(outTags);
 }
 
+// Tiddlers shared with the server
+const addInterfaceTiddlers = () => {
+	// Tiddlers that are sent with each message to server
+	// A tiddler for Node-Red flows use
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redStore,
+		type: 'application/json',
+		text: `{ "title": "${settings.redStore}" }`
+	}));
+
+	// And a iddler for optional data
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redData,
+		type: 'application/x-tiddler-dictionary',
+		text: `title: ${settings.redData}`
+	}));
+}
 
 // ------------------------
 // Post node-red macros and network event handlers
 const initialize = () => {
+	// Tiddlers shared with the server
+	addInterfaceTiddlers();
+
 	// Description of settings
 	$tw.wiki.addTiddler(new $tw.Tiddler(serverSettingsDesc));
 
@@ -455,3 +465,4 @@ const serverSettingsDesc = {
 `
 };
 
+} // if ($tw.browser)

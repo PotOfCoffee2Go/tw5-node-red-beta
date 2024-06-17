@@ -1,5 +1,12 @@
 created: 20240204183608780
-modified: 20240204184954183
+modified: 20240313192234601
 tags: Security
 title: Create account
 type: text/vnd.tiddlywiki
+
+The 'New User Authentication' node in [[Security tab 'Create Account'|Security tab users database]] flow is used to authenticate a user that is registering for a new account.
+
+Currently the node is a placeholder which accepts anyone wishing to create an account. The purpose of the node is to interface to a provider such as Google or GitHub, OAuth, OpenID, WebHooks or whoever is going to provide authentication information for the user making the request for an account.
+
+Each one of these providers have their own workflow to authenticate a user. Most of the time is some kind of HTTP callback indicating success. GitHub is one that will probably be the first when time permits.
+

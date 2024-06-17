@@ -1,0 +1,86 @@
+caption: Welcome
+created: 20240101193236151
+list: Startup
+modified: 20240412055533550
+mustache: yes
+tags: TableOfContents
+title: Home
+type: text/vnd.tiddlywiki
+
+---
+
+| [ext[MWS Test Wiki|/svr/wiki/nodered.html?app=mwsTest]] | [ext[Beta Release Notes|/svr/wiki/nodered.html?app=welcome]] | [ext[Test Chat System|/svr/wiki/nodered.html?app=chat]] | [ext[TOC template|/svr/wiki/nodered.html?app=template]] |
+
+---
+
+!! Welcome {% network.user.username %}
+
+TW5-Node-RED is in beta release with the goal of interfacing with TiddlyWiki Multi Wiki Server. To assist in reaching that goal the system is set up to pull the most current MWS code from both TiddlyWiki (multi-wiki-support branch) and TW5-Node-RED (mws-interface branch).
+
+The test environment is loaded into directory <span class="poc2go-dir"> 'tnr-mws-test' </span> which will clone from TiddlyWiki5 and TW5-Node-RED GitHub repositories.
+
+<div style="line-height: 1.1em">
+
+```
+tnr-mws-test
+├─ TiddlyWiki5
+└─ tw5-node-red-beta
+```
+</div>
+
+Any modifications to the code files in either TiddlyWiki5 or tw5-node-red-beta take effect when 'npm start' is done from the tw5-node-red-beta directory.
+
+---
+
+!!! Create the test environment
+
+Copy/paste this script in a command window:
+
+<$macrocall $name=".codesample" n="0" lng="cmd" eg="""# Create directory to hold test system
+mkdir tnr-mws-test
+cd tnr-mws-test
+
+# Clone TiddlyWiki5 - has change to load MWS and SQLite database.sqlite
+git clone https://github.com/Jermolene/TiddlyWiki5.git --branch multi-wiki-support
+cd ./TiddlyWiki5
+npm install
+
+# Back to tnr-mws-test directory
+cd ..
+
+# Clone TW5-Node-RED with MWS support
+git clone https://github.com/PotOfCoffee2Go/tw5-node-red-beta.git --branch mws-interface
+cd tw5-node-red-beta
+npm install
+
+# Start TW5-Node-RED
+npm start
+"""/>
+
+Will have the following directory structure. ''tw5-node-red-beta'' directory is where to do the ''npm start''. In 'project.json' will see the dependency to TiddlyWiki (tiddlywikimws) in the ''TiddlyWiki5'' directory.
+
+<div style="line-height: 1.1em">
+
+```
+tnr-mws-test
+├── TiddlyWiki5
+│   ├── bin
+│   ├── boot
+│   ├── core
+│   ├── editions
+│   ├── languages
+│   ├── licenses
+│   ├── node_modules
+│   ├── plugins
+│   └── themes
+└── tw5-node-red-beta
+    ├── flows
+    ├── lib
+    ├── node_modules
+    ├── public
+    ├── src
+    ├── tiddlywiki
+    └── uibuilder
+```
+
+</div>

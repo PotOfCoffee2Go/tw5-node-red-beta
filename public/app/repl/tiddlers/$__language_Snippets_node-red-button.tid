@@ -1,0 +1,8 @@
+caption: Node-RED Button
+created: 20240418030446431
+fetched: 20240418030446431
+modified: 20240418030446431
+tags: $:/tags/TextEditor/Snippet ·node-red·
+title: $:/language/Snippets/node-red-button
+
+<$button actions="<<node-red 'hello'>>"> Hello </$button>

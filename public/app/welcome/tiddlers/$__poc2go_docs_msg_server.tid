@@ -1,6 +1,6 @@
 caption: Server data
 created: 20240223102841991
-modified: 20240312050001667
+modified: 20240418012246219
 tags: $:/poc2go/docs/msg
 title: $:/poc2go/docs/msg/server
 type: text/vnd.tiddlywiki
@@ -13,6 +13,7 @@ type: text/vnd.tiddlywiki
 | | | |topic | string |Topic of response|
 | | | |tiddlers | array |Tiddlers sent with this response|
 | | | |storylist | array |Tiddlers to add to story|
+| | | |deletelist | array |Tiddlers to remove from client wiki|
 
 !!! topic
 This field contains the topic that will be sent to the TiddlyWiki client. By default is set to 'server.tiddlers' which should be left as is. There are topics which handle heartbeats and the server requesting tiddlers from the client but those topics would not be used unless really getting down in the weeds. 
@@ -22,6 +23,9 @@ This field contains the topic that will be sent to the TiddlyWiki client. By def
 
 !!! storylist
 The 'storylist' field adds or updates this list of tiddlers to the story river. The field is automatically maintained by the 'to client' or 'to story' option in the [[Set network]] node. 
+
+!!! deletelist
+This is an array of the tiddler titles to remove from the client wiki. The delete occurs prior to adding any tiddlers contained in the 'tiddlers' field (above).
 
 This example is the server data as a result of a chat 'post' request
 
@@ -47,7 +51,8 @@ This example is the server data as a result of a chat 'post' request
           "text": "\n"
         }
       ],
-      "storylist": []
+      "storylist": [],
+      "deletelist": []
     },
 ```
 
