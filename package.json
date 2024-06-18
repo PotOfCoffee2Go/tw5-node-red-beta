@@ -10,7 +10,7 @@
     "@node-red/library-file-store": "^1.0.0",
     "@potofcoffee2go/tw5-nodes": "file:./src/nodes",
     "jsonwebtoken": "^9.0.2",
-    "node-red": "^3.1.10",
+    "node-red": "^3.1.11",
     "node-red-contrib-uibuilder": "~6.4.1",
     "pretty-repl": "^4.0.0",
     "tiddlywiki": "^5.3.3",
