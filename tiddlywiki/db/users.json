@@ -44,7 +44,7 @@
     "fetched": "20240202025416289",
     "tags": "·node-red·",
     "pwHash": "$2b$08$ubPh4kjBL8uLhpUoEyzQAuzKTZ9PO4Mz1HY/ZWY9wmH/CcDKTB.ca",
-    "joined": "floor flexible restless sleepless confront",
+    "joined": "floor flexible restless sleepless confront dice",
     "palette": "$:/palettes/Twilight-Node-Red"
   },
   {
@@ -68,7 +68,7 @@
     "fetched": "20240215055357288",
     "tags": "·node-red·",
     "pwHash": "$2b$08$UbkQanp/.gZggA9ooomj5uYZhUu3ULLx3cwPCv4Prz5s25q5Bj6dS",
-    "joined": "hypnothize floor sleepless confront flexible",
+    "joined": "hypnothize floor sleepless confront flexible dice",
     "palette": "$:/palettes/Twilight-Node-Red"
   },
   {
@@ -136,6 +136,7 @@
     "email": "",
     "fetched": "20240613061134040",
     "tags": "·node-red·",
-    "pwHash": "$2b$08$ajmhknAIywkN4Hwwyc3m5OcgBqAAIlQAYIyLhsqcrjetS0PQQLNFC"
+    "pwHash": "$2b$08$ajmhknAIywkN4Hwwyc3m5OcgBqAAIlQAYIyLhsqcrjetS0PQQLNFC",
+    "joined": "dice [[bath room]] confront"
   }
 ]

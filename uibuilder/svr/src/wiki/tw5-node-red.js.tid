@@ -28,7 +28,7 @@ const socketLibrary = '/uibuilder/uibuilder.iife.min.js';
 
 // Tiddler sent on connect
 const settingsSender = '$:/tw5-node-red/settings';
-const settingsSendFilter = '[[$:/tw5-node-red/settings]]';
+const settingsSendFilter = ''; // '[[$:/tw5-node-red/settings]]';
 const serverAuthenticated = '$:/temp/tw5-node-red/authenticated';
 
 /*
@@ -288,6 +288,14 @@ const updateWiki = (svr) => {
 			$tw.wiki.deleteTiddler(title);
 		})
 	}
+
+//	Open tiddler even if not in svr.server.tiddlers - undecided
+//	if (svr.server.storylist) {
+//		svr.server.storylist.forEach(title => {
+//			story.navigateTiddler(title /*, fromTitle*/);
+//		})
+//	}
+
 	svr.server.tiddlers.forEach(fields => {
 		if (svr.server.storylist.includes(fields.title)) {
 			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server

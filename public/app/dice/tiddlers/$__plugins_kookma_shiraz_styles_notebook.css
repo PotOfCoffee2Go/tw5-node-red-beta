@@ -1,0 +1,51 @@
+@media print{
+  .notebook .tc-tiddler-body {
+    padding-left:60px;
+    margin-top:25px;
+  }
+  .notebook .tc-tiddler-title,
+  .notebook .tc-subtitle,
+	.notebook .tc-tags-wrapper {
+    padding-left:60px;
+  }
+}
+
+@media screen{
+  .notebook .tc-tiddler-title,
+  .notebook .tc-subtitle,
+	.notebook .tc-tags-wrapper,
+	.notebook .tc-tiddler-body {
+    padding-left:30px;
+  }
+
+}	
+
+@media screen and (max-width:960px) {
+  .notebook .tc-tiddler-title,
+  .notebook .tc-subtitle,
+    .notebook .tc-tags-wrapper,
+    .notebook .tc-tiddler-body {
+    padding-left:60px;
+  }
+
+}
+/*prevent applying left border in edit mode */
+.notebook:not([data-tiddler-title^="Draft of"]):before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 50px;
+    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+    background-size: 30px 30px;
+    border-right: 3px solid #D44147;
+	  z-index:1;
+}
+
+/* Setting font for other elements */
+.notebook .tc-tiddler-body pre,
+.notebook .tc-tiddler-body code,
+.notebook .tc-tiddler-body pre code
+{
+  font-family: "Handlee", cursive;
+  font-weight:300;
+}

@@ -1,0 +1,31 @@
+created: 20231115040521068
+modified: 20240620020719501
+tags: 
+title: $:/poc2go/ui/PageTemplate/dicepagecontrols
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+\define config-title()
+$:/config/PageControlButtons/Visibility/$(listItem)$
+\end
+\define open-action()
+<$action-navigate $to={{$:/poc2go/toc/selectedDiceTiddler}}/>
+\end
+\define edit-action()
+<$action-sendmessage $message="tm-edit-tiddler" $param={{$:/poc2go/toc/selectedDiceTiddler}}/>
+\end
+
+<$button style="margin-left: 1rem;" actions=<<edit-action>> class="tc-btn-invisible tc-tiddlylink"> {{$:/core/images/edit-button}}&nbsp;</$button>
+<$button actions=<<open-action>> class="tc-btn-invisible tc-tiddlylink">{{$:/poc2go/toc/selectedDiceTiddler}}&nbsp;{{$:/core/images/preview-open}}</$button>
+<div style="font-size: 1.1em; display:inline-block; margin-top: 10px;float: right;">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/PageControls]!has[draft.of]]" variable="listItem">
+<$set name="hidden" value=<<config-title>>>
+<$list filter="[<hidden>!text[hide]]" storyview="pop" variable="ignore">
+<$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]">
+<$transclude tiddler=<<listItem>> mode="inline"/>&nbsp;
+</$set>
+</$list>
+</$set>
+</$list>
+{{$:/core/ui/Buttons/advanced-search}}
+</div>
