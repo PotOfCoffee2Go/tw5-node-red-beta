@@ -44,12 +44,16 @@ try {
 // Note: Some applications require login to work properly - Chat for example
 var allowAnon = false;
 
+// Start REPL on startup?
 // Start TiddlyWiki 'server' edition sync server on startup?
 // Start TiddlyWiki 'multiwikiserver' edition on startup?
-// Start REPL on startup?
+// Normally will be true
+//  Startup is controlled in the 'Startup' tab
+//    enable/disable 'startup' inject nodes to control startup
+// When set to false will disable startup regardless
+var startupRepl = true;
 var syncServer = true;
 var mwsServer = true;
-var startupRepl = true;
 
 /*******************************************************************************
  * REPL and main, sync, and MWS TiddlyWiki modules

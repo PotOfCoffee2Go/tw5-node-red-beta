@@ -1,0 +1,10 @@
+created: 20240620223856198
+modified: 20240620231802302
+tags: dice
+title: Dice roll
+type: text/vnd.tiddlywiki
+
+Go to 'Rooms...' and insure the 'dice' checkbox is checked to chat with players.
+
+ 
+Come back here and Play <$button actions="<<node-red 'dice roll'>>" class="tc-btn-invisible tc-tiddlylink"> Dice roll </$button>.

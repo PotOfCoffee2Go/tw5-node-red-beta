@@ -288,8 +288,8 @@
             "e9c96a17d3f117a8",
             "5888fc4a0550ddd7"
         ],
-        "x": 104,
-        "y": 39,
+        "x": 154,
+        "y": 249,
         "w": 672,
         "h": 272
     },
@@ -464,8 +464,8 @@
             "62c3e92ae0762df5",
             "3e01a70e8d769a16"
         ],
-        "x": 74,
-        "y": 373.00001335144043,
+        "x": 54,
+        "y": 553.0000133514404,
         "w": 908.0000152587891,
         "h": 379.99998664855957
     },
@@ -792,8 +792,8 @@
             "844b316ad04edad7",
             "d6df3e42a1c72910"
         ],
-        "x": 144,
-        "y": 859,
+        "x": 194,
+        "y": 49,
         "w": 602,
         "h": 142
     },
@@ -857,6 +857,90 @@
         "y": 273,
         "w": 1024,
         "h": 374
+    },
+    {
+        "id": "1b95b4adfdeca38e",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "name": " \\n TW REPL \\n Interactive access from console \\n ",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "759dce2ea0c90c1e",
+            "8549cd6c5c10aa65",
+            "134e6cf970918b0e",
+            "4623743c2e8a7edc",
+            "d25c62f7be74bce2",
+            "74e379aa99e1e758",
+            "aa864ce4062b99c5",
+            "bd875d8df962c57c"
+        ],
+        "x": 144,
+        "y": 19,
+        "w": 552,
+        "h": 448
+    },
+    {
+        "id": "3cefbe58652ddd1b",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "name": " \\n SyncServer \\n Create tiddlers of your application",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "edee491ab307e8f4"
+        ],
+        "x": 138,
+        "y": 481,
+        "w": 564,
+        "h": 226
+    },
+    {
+        "id": "6fc117d699260e4c",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "name": " \\n MultiWikiServer \\n Create recipes/bags of your tiddlers",
+        "style": {
+            "label": true,
+            "fill": "#3f93cf",
+            "color": "#ffff00",
+            "label-position": "n"
+        },
+        "nodes": [
+            "e58841decd532a3e"
+        ],
+        "x": 108,
+        "y": 721,
+        "w": 604,
+        "h": 226
+    },
+    {
+        "id": "e1daf0a769b923c0",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "name": "Load TW5-Node-RED Plugin \\n The plugin contains General information about TW5-Node-RED \\n ",
+        "style": {
+            "fill": "#3f93cf",
+            "label": true,
+            "label-position": "n",
+            "color": "#ffff00"
+        },
+        "nodes": [
+            "1d4bc70456acd7ba",
+            "b79d45a9b7037362"
+        ],
+        "x": 68,
+        "y": 981,
+        "w": 684,
+        "h": 326
     },
     {
         "id": "022d52b9f38c8589",
@@ -1238,94 +1322,29 @@
             "407b772f0f144186",
             "7d2e58723eb09955"
         ],
-        "x": 104,
-        "y": 509,
+        "x": 84,
+        "y": 689,
         "w": 742,
         "h": 218
-    },
-    {
-        "id": "17659a42281ba3f7",
-        "type": "group",
-        "z": "eb845b8cbc7ac49a",
-        "g": "e0350dac670bea64",
-        "name": "",
-        "style": {
-            "stroke": "#7f7f7f",
-            "label": true
-        },
-        "nodes": [
-            "4c9c46b76b72965f",
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 424,
-        "y": 239,
-        "w": 362,
-        "h": 82
-    },
-    {
-        "id": "7d2e58723eb09955",
-        "type": "group",
-        "z": "304338a4b9f89088",
-        "g": "e7370f616716a124",
-        "name": "When MWS - Starts watching MWS recipe",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "654ee70ffdb7a36c",
-            "c0d81093110cbce5"
-        ],
-        "x": 194,
-        "y": 619,
-        "w": 532,
-        "h": 82
-    },
-    {
-        "id": "1b95b4adfdeca38e",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "name": " \\n TW REPL \\n Interactive access from console",
-        "style": {
-            "label": true,
-            "fill": "#3f93cf",
-            "color": "#ffff00",
-            "label-position": "n"
-        },
-        "nodes": [
-            "759dce2ea0c90c1e",
-            "8549cd6c5c10aa65",
-            "134e6cf970918b0e",
-            "4623743c2e8a7edc",
-            "d25c62f7be74bce2",
-            "74e379aa99e1e758",
-            "aa864ce4062b99c5"
-        ],
-        "x": 98,
-        "y": 31,
-        "w": 624,
-        "h": 406
     },
     {
         "id": "759dce2ea0c90c1e",
         "type": "group",
         "z": "2c9db7aeca761837",
         "g": "1b95b4adfdeca38e",
-        "name": "Start 'twrepl' with access to codebase of the complete system",
+        "name": "Start 'twrepl' with access to codebase \\n of the complete system",
         "style": {
             "label": true,
             "color": "#ffffff",
             "label-position": "n"
         },
         "nodes": [
-            "265506fdf2a603b4",
-            "939ecaec38f87e99",
-            "6f8d6020ac601508"
+            "939ecaec38f87e99"
         ],
-        "x": 124,
-        "y": 89,
-        "w": 572,
-        "h": 82
+        "x": 294,
+        "y": 93,
+        "w": 241,
+        "h": 98
     },
     {
         "id": "8549cd6c5c10aa65",
@@ -1345,48 +1364,10 @@
             "771666859c98bac6",
             "d1b258d56658a434"
         ],
-        "x": 214,
-        "y": 297,
+        "x": 184,
+        "y": 327,
         "w": 382,
         "h": 114
-    },
-    {
-        "id": "3cefbe58652ddd1b",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "name": " \\n SyncServer \\n Create tiddlers of your application",
-        "style": {
-            "label": true,
-            "fill": "#3f93cf",
-            "color": "#ffff00",
-            "label-position": "n"
-        },
-        "nodes": [
-            "edee491ab307e8f4"
-        ],
-        "x": 128,
-        "y": 461,
-        "w": 564,
-        "h": 226
-    },
-    {
-        "id": "6fc117d699260e4c",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "name": " \\n MultiWikiServer \\n Create recipes/bags of your tiddlers",
-        "style": {
-            "label": true,
-            "fill": "#3f93cf",
-            "color": "#ffff00",
-            "label-position": "n"
-        },
-        "nodes": [
-            "e58841decd532a3e"
-        ],
-        "x": 108,
-        "y": 721,
-        "w": 604,
-        "h": 226
     },
     {
         "id": "edee491ab307e8f4",
@@ -1405,8 +1386,8 @@
             "e2019f74cf4c285b",
             "2cc16f6fae2a05c8"
         ],
-        "x": 154,
-        "y": 519,
+        "x": 164,
+        "y": 539,
         "w": 512,
         "h": 142
     },
@@ -1431,26 +1412,6 @@
         "y": 779,
         "w": 552,
         "h": 142
-    },
-    {
-        "id": "e1daf0a769b923c0",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "name": "Load TW5-Node-RED Plugin \\n The plugin contains General information about TW5-Node-RED \\n ",
-        "style": {
-            "fill": "#3f93cf",
-            "label": true,
-            "label-position": "n",
-            "color": "#ffff00"
-        },
-        "nodes": [
-            "1d4bc70456acd7ba",
-            "b79d45a9b7037362"
-        ],
-        "x": 68,
-        "y": 981,
-        "w": 684,
-        "h": 326
     },
     {
         "id": "1d4bc70456acd7ba",
@@ -1496,6 +1457,44 @@
         "y": 1139,
         "w": 622,
         "h": 142
+    },
+    {
+        "id": "17659a42281ba3f7",
+        "type": "group",
+        "z": "eb845b8cbc7ac49a",
+        "g": "e0350dac670bea64",
+        "name": "",
+        "style": {
+            "stroke": "#7f7f7f",
+            "label": true
+        },
+        "nodes": [
+            "4c9c46b76b72965f",
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 424,
+        "y": 239,
+        "w": 362,
+        "h": 82
+    },
+    {
+        "id": "7d2e58723eb09955",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "g": "e7370f616716a124",
+        "name": "When MWS - Starts watching MWS recipe",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "654ee70ffdb7a36c",
+            "c0d81093110cbce5"
+        ],
+        "x": 174,
+        "y": 799,
+        "w": 532,
+        "h": 82
     },
     {
         "id": "7c48a995b12f0315",
@@ -1599,12 +1598,25 @@
         "type": "junction",
         "z": "304338a4b9f89088",
         "g": "d57af1ba9d807a6e",
-        "x": 150,
-        "y": 200,
+        "x": 200,
+        "y": 410,
         "wires": [
             [
                 "628aab7aaefe715e",
                 "f69ecb30fb65d53c"
+            ]
+        ]
+    },
+    {
+        "id": "bd875d8df962c57c",
+        "type": "junction",
+        "z": "2c9db7aeca761837",
+        "g": "1b95b4adfdeca38e",
+        "x": 500,
+        "y": 230,
+        "wires": [
+            [
+                "134e6cf970918b0e"
             ]
         ]
     },
@@ -2057,20 +2069,14 @@
         "type": "inject",
         "z": "c58e1993cab59996",
         "g": "a04cbaa536c3e91d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "name": "Startup",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": ".1",
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 310,
+        "x": 300,
         "y": 805,
         "wires": [
             [
@@ -2981,67 +2987,21 @@
         ]
     },
     {
-        "id": "265506fdf2a603b4",
-        "type": "inject",
-        "z": "2c9db7aeca761837",
-        "g": "759dce2ea0c90c1e",
-        "name": "Startup",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.1",
-        "topic": "",
-        "x": 230,
-        "y": 130,
-        "wires": [
-            [
-                "6f8d6020ac601508"
-            ]
-        ]
-    },
-    {
         "id": "939ecaec38f87e99",
         "type": "function",
         "z": "2c9db7aeca761837",
         "g": "759dce2ea0c90c1e",
-        "name": "Update REPL",
-        "func": "const twrepl = global.get('twrepl');\ntwrepl.startup(global);\nreturn msg;",
-        "outputs": 1,
+        "name": "Startup REPL",
+        "func": "// See 'On Start' tab\n\nreturn msg;",
+        "outputs": 0,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nif (global.get('startupRepl')) {\n    setTimeout( () => {\n        const twrepl = global.get('twrepl');\n        twrepl.startup(global);\n    }, 2000);\n}\n",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 130,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6f8d6020ac601508",
-        "type": "switch",
-        "z": "2c9db7aeca761837",
-        "g": "759dce2ea0c90c1e",
-        "name": "startup REPL?",
-        "property": "startupRepl",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
         "x": 400,
-        "y": 130,
-        "wires": [
-            [
-                "939ecaec38f87e99"
-            ]
-        ]
+        "y": 150,
+        "wires": []
     },
     {
         "id": "771666859c98bac6",
@@ -3053,8 +3013,8 @@
             "134e6cf970918b0e",
             "fe99237429d36da3"
         ],
-        "x": 300,
-        "y": 370,
+        "x": 270,
+        "y": 400,
         "wires": [
             [
                 "d1b258d56658a434"
@@ -3075,8 +3035,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 370,
+        "x": 450,
+        "y": 400,
         "wires": []
     },
     {
@@ -3089,8 +3049,8 @@
         "links": [
             "771666859c98bac6"
         ],
-        "x": 620,
-        "y": 260,
+        "x": 610,
+        "y": 280,
         "wires": [],
         "l": true
     },
@@ -3099,7 +3059,7 @@
         "type": "inject",
         "z": "2c9db7aeca761837",
         "g": "1b95b4adfdeca38e",
-        "name": "",
+        "name": "Inject test message",
         "props": [
             {
                 "p": "repl",
@@ -3112,11 +3072,11 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 300,
-        "y": 260,
+        "x": 320,
+        "y": 230,
         "wires": [
             [
-                "134e6cf970918b0e"
+                "bd875d8df962c57c"
             ]
         ]
     },
@@ -3129,8 +3089,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 195,
-        "y": 210,
+        "x": 185,
+        "y": 280,
         "wires": [
             [
                 "74e379aa99e1e758"
@@ -3156,8 +3116,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 290,
-        "y": 210,
+        "x": 280,
+        "y": 280,
         "wires": [
             [
                 "aa864ce4062b99c5"
@@ -3177,8 +3137,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 210,
+        "x": 430,
+        "y": 280,
         "wires": [
             [
                 "134e6cf970918b0e"
@@ -3189,6 +3149,7 @@
         "id": "243c87ee76a56c34",
         "type": "inject",
         "z": "2c9db7aeca761837",
+        "d": true,
         "g": "edee491ab307e8f4",
         "name": "Startup",
         "props": [
@@ -3208,8 +3169,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 260,
-        "y": 560,
+        "x": 270,
+        "y": 580,
         "wires": [
             [
                 "e2019f74cf4c285b"
@@ -3227,8 +3188,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 540,
-        "y": 620,
+        "x": 550,
+        "y": 640,
         "wires": [
             []
         ]
@@ -3249,8 +3210,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 470,
-        "y": 560,
+        "x": 480,
+        "y": 580,
         "wires": [
             [
                 "2cc16f6fae2a05c8"
@@ -3270,8 +3231,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 620,
+        "x": 320,
+        "y": 640,
         "wires": [
             [
                 "b1144c89e281a90e"
@@ -4911,8 +4872,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 490,
-        "y": 80,
+        "x": 540,
+        "y": 290,
         "wires": [
             [
                 "f384e29897040b4b"
@@ -4928,8 +4889,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 145,
-        "y": 80,
+        "x": 195,
+        "y": 290,
         "wires": [
             [
                 "cdcb7e61e457aacb"
@@ -4955,8 +4916,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 270,
-        "y": 80,
+        "x": 320,
+        "y": 290,
         "wires": [
             [
                 "2318b06227765245"
@@ -4973,8 +4934,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 695,
-        "y": 140,
+        "x": 745,
+        "y": 350,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5002,8 +4963,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 490,
-        "y": 140,
+        "x": 540,
+        "y": 350,
         "wires": [
             [
                 "80f6cc12c651bec8",
@@ -5020,8 +4981,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 115,
-        "y": 450,
+        "x": 95,
+        "y": 630,
         "wires": [
             [
                 "2980cdfa0cd44104"
@@ -5054,8 +5015,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 220,
-        "y": 450,
+        "x": 200,
+        "y": 630,
         "wires": [
             [
                 "62c3e92ae0762df5"
@@ -5083,8 +5044,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 290,
-        "y": 270,
+        "x": 340,
+        "y": 480,
         "wires": [
             [
                 "e4714903c559cb33"
@@ -5123,8 +5084,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 270,
+        "x": 510,
+        "y": 480,
         "wires": [
             [
                 "edc0b050e5af6de4"
@@ -5142,8 +5103,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 660,
-        "y": 270,
+        "x": 710,
+        "y": 480,
         "wires": [],
         "l": true
     },
@@ -5154,8 +5115,8 @@
         "g": "e7370f616716a124",
         "name": "twsync site",
         "links": [],
-        "x": 190,
-        "y": 570,
+        "x": 170,
+        "y": 750,
         "wires": [
             [
                 "14477b22c78480b3"
@@ -5171,8 +5132,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 805,
-        "y": 570,
+        "x": 785,
+        "y": 750,
         "wires": []
     },
     {
@@ -5188,8 +5149,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 570,
+        "x": 400,
+        "y": 750,
         "wires": [
             [
                 "407b772f0f144186"
@@ -5231,8 +5192,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 680,
-        "y": 590,
+        "x": 660,
+        "y": 770,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5252,8 +5213,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 550,
+        "x": 660,
+        "y": 730,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5271,8 +5232,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 320,
-        "y": 140,
+        "x": 370,
+        "y": 350,
         "wires": [
             [
                 "e3621e319e0136b6"
@@ -5290,8 +5251,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 866.0000152587891,
-        "y": 446.00001335144043,
+        "x": 846.0000152587891,
+        "y": 626.0000133514404,
         "wires": [],
         "l": true
     },
@@ -5315,8 +5276,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 656.0000152587891,
-        "y": 446.00001335144043,
+        "x": 636.0000152587891,
+        "y": 626.0000133514404,
         "wires": [
             [
                 "55476bca421eb07a"
@@ -5341,8 +5302,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 310,
-        "y": 200,
+        "x": 360,
+        "y": 410,
         "wires": [
             [
                 "5888fc4a0550ddd7"
@@ -5373,8 +5334,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 510,
-        "y": 200,
+        "x": 560,
+        "y": 410,
         "wires": [
             [
                 "80f6cc12c651bec8"
@@ -5388,8 +5349,8 @@
         "g": "e277a3352b39ab18",
         "name": "TW5-Node-RED Core",
         "links": [],
-        "x": 270,
-        "y": 900,
+        "x": 320,
+        "y": 90,
         "wires": [
             [
                 "8a6999c14f732048"
@@ -5420,8 +5381,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 440,
-        "y": 900,
+        "x": 490,
+        "y": 90,
         "wires": [
             [
                 "c9bbe0f3f12e859e"
@@ -5451,8 +5412,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 590,
-        "y": 900,
+        "x": 640,
+        "y": 90,
         "wires": [
             [
                 "d6df3e42a1c72910"
@@ -5482,8 +5443,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 580,
-        "y": 960,
+        "x": 630,
+        "y": 150,
         "wires": [
             [
                 "99b7abd4d3bc5b40"
@@ -5498,8 +5459,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 705,
-        "y": 960,
+        "x": 755,
+        "y": 150,
         "wires": []
     },
     {
@@ -5526,8 +5487,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 270,
-        "y": 960,
+        "x": 320,
+        "y": 150,
         "wires": [
             []
         ]
@@ -5543,8 +5504,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 610,
-        "y": 660,
+        "x": 590,
+        "y": 840,
         "wires": [],
         "l": true
     },
@@ -5575,8 +5536,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
-        "y": 660,
+        "x": 320,
+        "y": 840,
         "wires": [
             [
                 "c0d81093110cbce5"
@@ -5597,7 +5558,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/tw5-node-red/node_red_logo_16pt.svg\ntype: image/svg+xml\n\n<svg width=\"16pt\" height=\"16pt\" class=\"tc-image-button\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"2\" viewBox=\"16 16 448 448\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M464 73c0-31.459-25.541-57-57-57H73c-31.459 0-57 25.541-57 57v334c0 31.459 25.541 57 57 57h334c31.459 0 57-25.541 57-57z\" fill=\"#fff\" fill-opacity=\"0.9\"/><path d=\"M464 296h-55.467c-6.623 0-12 5.377-12 12v36c0 6.623 5.377 12 12 12H464zm-448 0v-24h54c6.623 0 12-5.377 12-12v-37c0-6.623-5.377-12-12-12H16v-25h53c20.421 0 37 16.279 37 36.7v.1c15.409-1.049 33.151-6.844 46.332-34.11C168.314 162.716 178.074 138.293 227 138v-9c0-20.421 16.579-37 37-37h147c20.421 0 37 16.579 37 37v37c0 20.421-16.579 37-37 37H264c-20.421 0-37-16.579-37-37v-8.621c-16.517-.027-28.956 3.171-43.234 17.86C170.943 188.432 168.282 210 149 226c65.195 9.136 85.368 31.074 109.231 51.503C282.945 298.041 303.32 316.6 372 316.371V309c0-20.421 16.579-37 37-37h55V73c0-31.459-25.541-57-57-57H73c-31.459 0-57 25.541-57 57v334c0 31.459 25.541 57 57 57h334c31.459 0 57-25.541 57-57v-25h-55c-20.421 0-37-16.579-37-37v-9c-117.133-1.744-117.379-53-174.104-77.417-23.491-10.111-44.557-15.33-91.896-16.239V259c0 20.421-16.579 37-37 37zm407-167c0-6.623-5.377-12-12-12H263c-6.623 0-12 5.377-12 12v36c0 6.623 5.377 12 12 12h148c6.623 0 12-5.377 12-12z\" fill=\"#e80000\" fill-opacity=\"0.9\"/></svg>\n+======+\ntitle: $:/temp/tw5-node-red/button\ntags: $:/tags/EditorToolbar\ncaption: {{$:/language/Buttons/Bold/Caption}}\ncondition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]\ncondition-disabled: [[$:/temp/bold/disabled]get[state-disabled]else[no]]\nicon: $:/tw5-node-red/node_red_logo_16pt.svg\nshortcuts: \ndescription: Creates button of a TW5-Node-RED topic\n\n<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"save-selection\"\n\ttiddler=\"$:/temp/currentSelection\"\n/>\n<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"insert-text\"\n\ttext={{{ [[<$button actions=\"<<node-red ']] =[{$:/temp/currentSelection}] [['>>\"> ]] =[{$:/temp/currentSelection}] [[ </$button>]] +[join[]] }}}\n/>\n+======+\ntitle: $:/language/Snippets/node-red-button\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button\n\n+======+\ntitle: $:/language/Snippets/node-red-button/prefix\n\n<$button actions=\"<<node-red '\n+======+\ntitle: $:/language/Snippets/node-red-button/suffix\n\n'>>\"> nodered_button </$button>\n+======+\ntitle: $:/language/Snippets/node-red-macro\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED macro\n\n<<node-red 'hello' '[[tiddlers_to_send]]'>>\n\n+======+\ntitle: $:/language/Snippets/node-red-button-send\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button w/send tiddlers\n\n<$button actions=\"<<node-red 'hello' '[[tiddlers_to_send]]'>>\"> Hello </$button>\n\n\n\n+======+\ntitle: $:/language/Snippets/my-button\ntags: $:/tags/TextEditor/Snippet\ncaption: My button\n\n+======+\ntitle: $:/language/Snippets/my-button/prefix\n\n<$button actions=\"<<my-macro '\n+======+\ntitle: $:/language/Snippets/my-button/suffix\n\n'>>\"> button-text </$button>\n+======+\n",
+        "template": "title: $:/tw5-node-red/node_red_logo_16pt.svg\ntype: image/svg+xml\n\n<svg width=\"16pt\" height=\"16pt\" class=\"tc-image-button\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"2\" viewBox=\"16 16 448 448\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M464 73c0-31.459-25.541-57-57-57H73c-31.459 0-57 25.541-57 57v334c0 31.459 25.541 57 57 57h334c31.459 0 57-25.541 57-57z\" fill=\"#fff\" fill-opacity=\"0.9\"/><path d=\"M464 296h-55.467c-6.623 0-12 5.377-12 12v36c0 6.623 5.377 12 12 12H464zm-448 0v-24h54c6.623 0 12-5.377 12-12v-37c0-6.623-5.377-12-12-12H16v-25h53c20.421 0 37 16.279 37 36.7v.1c15.409-1.049 33.151-6.844 46.332-34.11C168.314 162.716 178.074 138.293 227 138v-9c0-20.421 16.579-37 37-37h147c20.421 0 37 16.579 37 37v37c0 20.421-16.579 37-37 37H264c-20.421 0-37-16.579-37-37v-8.621c-16.517-.027-28.956 3.171-43.234 17.86C170.943 188.432 168.282 210 149 226c65.195 9.136 85.368 31.074 109.231 51.503C282.945 298.041 303.32 316.6 372 316.371V309c0-20.421 16.579-37 37-37h55V73c0-31.459-25.541-57-57-57H73c-31.459 0-57 25.541-57 57v334c0 31.459 25.541 57 57 57h334c31.459 0 57-25.541 57-57v-25h-55c-20.421 0-37-16.579-37-37v-9c-117.133-1.744-117.379-53-174.104-77.417-23.491-10.111-44.557-15.33-91.896-16.239V259c0 20.421-16.579 37-37 37zm407-167c0-6.623-5.377-12-12-12H263c-6.623 0-12 5.377-12 12v36c0 6.623 5.377 12 12 12h148c6.623 0 12-5.377 12-12z\" fill=\"#e80000\" fill-opacity=\"0.9\"/></svg>\n+======+\ntitle: $:/tw5-node-red/button\ntags: $:/tags/EditorToolbar\ncaption: {{$:/language/Buttons/Bold/Caption}}\ncondition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]\ncondition-disabled: [[$:/temp/bold/disabled]get[state-disabled]else[no]]\nicon: $:/tw5-node-red/node_red_logo_16pt.svg\nshortcuts: \ndescription: Creates button of a TW5-Node-RED topic\n\n<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"save-selection\"\n\ttiddler=\"$:/temp/currentSelection\"\n/>\n<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"insert-text\"\n\ttext={{{ [[<$button actions=\"<<node-red ']] =[{$:/temp/currentSelection}] [['>>\"> ]] =[{$:/temp/currentSelection}] [[ </$button>]] +[join[]] }}}\n/>\n+======+\ntitle: $:/language/Snippets/node-red-button\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button\n\n+======+\ntitle: $:/language/Snippets/node-red-button/prefix\n\n<$button actions=\"<<node-red '\n+======+\ntitle: $:/language/Snippets/node-red-button/suffix\n\n'>>\"> nodered_button </$button>\n+======+\ntitle: $:/language/Snippets/node-red-macro\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED macro\n\n<<node-red 'hello' '[[tiddlers_to_send]]'>>\n\n+======+\ntitle: $:/language/Snippets/node-red-button-send\ntags: $:/tags/TextEditor/Snippet\ncaption: Node-RED button w/send tiddlers\n\n<$button actions=\"<<node-red 'hello' '[[tiddlers_to_send]]'>>\"> Hello </$button>\n\n\n\n+======+\ntitle: $:/language/Snippets/my-button\ntags: $:/tags/TextEditor/Snippet\ncaption: My button\n\n+======+\ntitle: $:/language/Snippets/my-button/prefix\n\n<$button actions=\"<<my-macro '\n+======+\ntitle: $:/language/Snippets/my-button/suffix\n\n'>>\"> button-text </$button>\n+======+\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5606,8 +5567,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 440,
-        "y": 960,
+        "x": 490,
+        "y": 150,
         "wires": [
             [
                 "47d0e6a8f8415aa2"
@@ -5634,8 +5595,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 470,
+        "x": 410,
+        "y": 650,
         "wires": [
             [
                 "62c3e92ae0762df5"
@@ -8201,7 +8162,7 @@
         "z": "8f4c8042c34e6b26",
         "g": "2384ad651173ae9e",
         "name": "Session controls",
-        "func": "// Dice session controls\nvar currentTiddler = msg.network.client.currentTiddler;\n\n// Each client TiddlyWiki has server-side in-memory info by clientId\n//  This is where session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Is this client a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceSession && clientIds[cid].diceSession.inDiceGame;\n}\n\n//  List of all player client ids\nfunction getListOfPlayers() {\n    var playerIds = [];\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            playerIds.push(cid);\n        }\n    }\n    return playerIds;\n}\n\n// Creates Dice Session Data\nfunction initSessionData(username, cid, reset) {\n    // Indicate client is watching dice rolls\n    if (clientIds[cid] && (reset || typeof clientIds[cid].diceSession !== 'object')) {\n        clientIds[cid].diceSession = {\n            username: username,\n            inDiceGame: true,\n            leader: false,\n            dice: {},\n            won: 0, lost: 0, tie: 0, chg: 0,\n            score: 0\n        };\n    }\n}\n\n// Increment player wins, losses, ties, and number die changed\nfunction setStats() {\n    if (msg.outcome.clientid.winner && clientIds[msg.outcome.clientid.winner]) {\n        clientIds[msg.outcome.clientid.winner].diceSession.won++;\n    }\n    if (msg.outcome.clientid.loser && clientIds[msg.outcome.clientid.loser]) {\n        clientIds[msg.outcome.clientid.loser].diceSession.lost++;\n    }\n    if (msg.outcome.clientid.tie1 && clientIds[msg.outcome.clientid.tie1]) {\n        clientIds[msg.outcome.clientid.tie1].diceSession.tie++;\n    }\n    if (msg.outcome.clientid.tie2 && clientIds[msg.outcome.clientid.tie2]) {\n        clientIds[msg.outcome.clientid.tie2].diceSession.tie++;\n    }\n    if (msg.outcome.clientid.chg && clientIds[msg.outcome.clientid.chg]) {\n        clientIds[msg.outcome.clientid.chg].diceSession.chg++;\n    }\n}\n\nfunction setPlayerTurn(cid, playerIds) {\n    var nbrPlayers = playerIds.length;\n    // When single player - is always 'your turn'\n    msg.yourTurn = nbrPlayers > 1 ? false : true;\n    // When clientId is not the current one it is their turn\n    if (cid !== msg.network.meta._clientid) {\n        msg.yourTurn = true;\n    }\n}\n\nfunction setPlayerDiceRoll(cid) {\n    clientIds[cid].diceSession.dice = JSON.parse(JSON.stringify(msg.dice));\n}\n\n// Tally scores\nfunction calcScore() {\n    var playerIds = getListOfPlayers();\n    var highScore = -1, leader = '';\n    // Calculate Scores\n    playerIds.forEach((cid) => {\n        let clientData = clientIds[cid].diceSession;\n        let score =\n            (clientData.won * 1)\n            + (clientData.lost * -1)\n            + (clientData.tie * 1)\n            + (clientData.chg * 0);\n        clientIds[cid].diceSession.score = score;\n        \n        // Track highest score (leader)\n        clientIds[cid].diceSession.leader = false;\n        if (clientIds[cid].diceSession.score > highScore) {\n            highScore = clientIds[cid].diceSession.score;\n            leader = cid;\n        }\n    })\n    clientIds[leader].diceSession.leader = true;\n\n    var scores = [];\n    playerIds.forEach((cid) => {\n        scores.push(clientIds[cid].diceSession);\n    })\n    return scores;\n}\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDicePlayers() {\n    // Count the number of clients playing the game\n    var playerIds = getListOfPlayers();\n    msg.scores = calcScore();\n\n    // Send tiddler to all playing the game\n    playerIds.forEach((cid) => {\n        // msg.broadcastId is for Broadcasting to client\n        msg.broadcastId = cid;\n\n        msg.playername = clientIds[cid].diceSession.username;\n        // Remember this player's last roll\n        if (cid === msg.network.meta._clientid) {\n            setPlayerDiceRoll(cid);\n            // 'Dice roll' tiddler not in TOC so display to story\n            if (!currentTiddler.tags.includes('dice')) {\n                msg.network.server.storylist.push('Dice roll');\n            }\n        }\n        setPlayerTurn(cid, playerIds);\n        msg.leader = clientIds[cid].diceSession.leader;\n        // send to next node\n        node.send([msg, null]);\n    })\n}\n\nfunction reset() {\n    var playerIds = getListOfPlayers();\n    msg.resetApproved = false;\n    playerIds.forEach((cid) => {\n        if (clientIds[cid].diceSession.leader && cid === msg.network.meta._clientid) {\n            msg.resetApproved = true;\n        }\n    })\n    if (msg.resetApproved) {\n        playerIds.forEach((cid, idx) => {\n            initSessionData(clientIds[cid].diceSession.username, cid, true);\n        })\n        global.set('prevDice', null);\n        msg.outcome = {\n            prevInfo: 'Reset!',\n            rollInfo: '',\n            clientid: {\n                winner: '',\n                loser: '',\n                tie1: '',\n                tie2: '',\n                chg: '',\n            }\n        }\n    }\n}\n\n\n// Insure have dice session data for this client\ninitSessionData(msg.network.user.username, msg.network.meta._clientid);\n\nif (currentTiddler.reset === 'yes') {\n    reset();\n}\n\n// Increment player wins and losses\nsetStats();\n// Send dice roll to each player\nsendToDicePlayers();\nnode.done();\n",
+        "func": "// Dice session controls\nvar currentTiddler = msg.network.client.currentTiddler;\n\n// Each client TiddlyWiki has server-side in-memory info by clientId\n//  This is where session data will be stored\nconst clientIds = global.get('clientIds');\n\n// Is this client a player?\nfunction clientIsPlayer(cid) {\n    return clientIds[cid].diceSession && clientIds[cid].diceSession.inDiceGame;\n}\n\n//  List of all player client ids\nfunction getListOfPlayers() {\n    var playerIds = [];\n    for (let cid in clientIds) {\n        if (clientIsPlayer(cid)) {\n            playerIds.push(cid);\n        }\n    }\n    return playerIds;\n}\n\n// Creates Dice Session Data\nfunction initSessionData(username, cid, reset) {\n    // Indicate client is watching dice rolls\n    if (clientIds[cid] && (reset || typeof clientIds[cid].diceSession !== 'object')) {\n        clientIds[cid].diceSession = {\n            username: username,\n            inDiceGame: true,\n            leader: false,\n            dice: {},\n            won: 0, lost: 0, tie: 0, chg: 0,\n            score: 0\n        };\n    }\n}\n\n// Increment player wins, losses, ties, and number die changed\nfunction setStats() {\n    if (msg.outcome.clientid.winner && clientIds[msg.outcome.clientid.winner]) {\n        clientIds[msg.outcome.clientid.winner].diceSession.won++;\n    }\n    if (msg.outcome.clientid.loser && clientIds[msg.outcome.clientid.loser]) {\n        clientIds[msg.outcome.clientid.loser].diceSession.lost++;\n    }\n    if (msg.outcome.clientid.tie1 && clientIds[msg.outcome.clientid.tie1]) {\n        clientIds[msg.outcome.clientid.tie1].diceSession.tie++;\n    }\n    if (msg.outcome.clientid.tie2 && clientIds[msg.outcome.clientid.tie2]) {\n        clientIds[msg.outcome.clientid.tie2].diceSession.tie++;\n    }\n    if (msg.outcome.clientid.chg && clientIds[msg.outcome.clientid.chg]) {\n        clientIds[msg.outcome.clientid.chg].diceSession.chg++;\n    }\n}\n\nfunction setPlayerTurn(cid, playerIds) {\n    var nbrPlayers = playerIds.length;\n    // When single player - is always 'your turn'\n    msg.yourTurn = nbrPlayers > 1 ? false : true;\n    // When clientId is not the current one it is their turn\n    if (cid !== msg.network.meta._clientid) {\n        msg.yourTurn = true;\n    }\n}\n\nfunction setPlayerDiceRoll(cid) {\n    clientIds[cid].diceSession.dice = JSON.parse(JSON.stringify(msg.dice));\n}\n\n// Tally scores\nfunction calcScore() {\n    var playerIds = getListOfPlayers();\n    var highScore = -1, leader = '';\n    // Calculate Scores\n    playerIds.forEach((cid) => {\n        let clientData = clientIds[cid].diceSession;\n        let score =\n            (clientData.won * 1)\n            + (clientData.lost * -1)\n            + (clientData.tie * 1)\n            + (clientData.chg * 0);\n        clientIds[cid].diceSession.score = score;\n        \n        // Track highest score (leader)\n        clientIds[cid].diceSession.leader = false;\n        if (clientIds[cid].diceSession.score > highScore) {\n            highScore = clientIds[cid].diceSession.score;\n            leader = cid;\n        }\n    })\n    if (leader) {\n        clientIds[leader].diceSession.leader = true;\n    }\n\n    var scores = [];\n    playerIds.forEach((cid) => {\n        scores.push(clientIds[cid].diceSession);\n    })\n    return scores;\n}\n\n// Loop thru the clientIds and send dice roll\n//  to clients that have joined the game \nfunction sendToDicePlayers() {\n    // Count the number of clients playing the game\n    var playerIds = getListOfPlayers();\n    msg.scores = calcScore();\n    // Send tiddler to all playing the game\n    playerIds.forEach((cid) => {\n        // msg.broadcastId is for Broadcasting to client\n        msg.broadcastId = cid;\n\n        msg.playername = clientIds[cid].diceSession.username;\n        // Remember this player's last roll\n        if (cid === msg.network.meta._clientid) {\n            setPlayerDiceRoll(cid);\n            // 'Dice roll' tiddler not in TOC so display to story\n            if (!currentTiddler.tags.includes('dice')) {\n                msg.network.server.storylist.push('Dice roll');\n            }\n        }\n        setPlayerTurn(cid, playerIds);\n        msg.leader = clientIds[cid].diceSession.leader;\n        // send to next node\n        node.send([msg, null]);\n    })\n}\n\nfunction reset() {\n    var playerIds = getListOfPlayers();\n    msg.resetApproved = false;\n    playerIds.forEach((cid) => {\n        if (clientIds[cid].diceSession.leader && cid === msg.network.meta._clientid) {\n            msg.resetApproved = true;\n        }\n    })\n    if (msg.resetApproved) {\n        playerIds.forEach((cid, idx) => {\n            initSessionData(clientIds[cid].diceSession.username, cid, true);\n        })\n        global.set('prevDice', null);\n        msg.outcome = {\n            prevInfo: 'Reset!',\n            rollInfo: '',\n            clientid: {\n                winner: '',\n                loser: '',\n                tie1: '',\n                tie2: '',\n                chg: '',\n            }\n        }\n    }\n}\n\n\n// Insure have dice session data for this client\ninitSessionData(msg.network.user.username, msg.network.meta._clientid);\n\nif (currentTiddler.reset === 'yes') {\n    reset();\n}\n\n// Increment player wins and losses\nsetStats();\n// Send dice roll to each player\nsendToDicePlayers();\nnode.done();\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
