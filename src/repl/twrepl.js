@@ -46,7 +46,9 @@ const submit = (cmd, desc) => {
 		}
 	}
 	if (cmd) {
-		runtime._ttyWrite(cmd);
+		process.nextTick(() => {
+			runtime._ttyWrite(cmd);
+		});
 	}
 }
 
