@@ -1,9 +1,16 @@
 /*
+ * export.js v0.3.0
+ *
  * Builds a Node-Red flowFile given a list of the tabs to
  *  collect from a running Node-RED server
+ *
+ * Auther: PptOfCoffee2Go
+ * Licence: MIT
  */
 
 "use strict";
+
+console.log('export.js v0.3.0\n')
 
 const fs = require('node:fs');
 const http = require('node:http');
@@ -22,7 +29,7 @@ const options = {
 // Default parameters
 var defParams = {
 	path: './flows/new.json',
-	library:'./lib/tw5-node-red/flows/test',
+	library:'./lib/tw5-node-red/flows/all',
 	overwrite: 'y',
 	tabsString: '0,tnr'
 }
@@ -37,6 +44,7 @@ var mode = 'file'; // or 'library'
 // End of config
 // -------------
 
+// -------------
 // Working parameters
 var inp = {
 	path: '',
@@ -56,16 +64,9 @@ var toFlowFile = [];
 
 // Helpers
 const makeCopy = (obj) => JSON.parse(JSON.stringify(obj));
-const fnd = (fld, val) => flows.filter(obj => obj[fld] === val);
+const fnd = (fld, val) => flows.filter(node => node[fld] === val);
 const listOfTabs = () => flows.filter(node => node.type === 'tab');
 const listOfTabsIndex = (label) => listOfTabs().findIndex((node) => node.label === label)
-
-// TW5-Node-RED tabs
-var tnrTabLabelsMissing = makeCopy(tnrTabLabels);
-
-// Syntax candy - logging and debug
-const log = (...args) => { console.log(...args); }
-const dir = (...args) => { console.dir(...args); }
 
 // Set terminal colours
 const colour = {
@@ -75,6 +76,13 @@ const colour = {
 	txt: (txt='', fg=255, bg=0, efg=255, ebg=0) =>
 		`\x1b[38;5;${fg};48;5;${bg}m${txt}\x1b[38;5;${efg};48;5;${ebg}m`,
 }
+
+// TW5-Node-RED tabs that are missing
+var tnrTabLabelsMissing = makeCopy(tnrTabLabels);
+
+// Syntax candy - logging and debug
+const log = (...args) => { console.log(...args); }
+const dir = (...args) => { console.dir(...args); }
 
 // Request to running Node-RED server
 function noderedRequest(path) {
@@ -101,9 +109,7 @@ function noderedRequest(path) {
 			const req = http.request(opts, callback);
 			req.setHeader('Node-RED-API-Version', 'v2');
 			req.end();
-		} catch(err) {
-			dir(err);
-		}
+		} catch(err) { dir(err); }
 	}).catch(err => { dir(err); })
 }
 
@@ -192,7 +198,7 @@ function selectTabsForExport() {
 	inpTabNbrs.forEach(nbr => {
 		let tab = listOfTabs()[nbr];
 		if (!tab) {
-			colour.log(` XX - Skipping invalid tab number ${nbr}`,164);
+			colour.log(` XX - Skipping invalid tab number ${nbr}\n\n`,164);
 		} else {
 			toFlowFile.push(tab);
 			let nodes = fnd('z', tab.id);
@@ -208,7 +214,7 @@ function writeLibrary() {
 	inpTabNbrs.forEach(nbr => {
 		let tab = listOfTabs()[nbr];
 		if (!tab) {
-			colour.log(` XX - Skipping invalid tab number ${nbr}`,164);
+			colour.log(` XX - Skipping invalid tab number ${nbr}\n\n`,164);
 		} else {
 			toFlowFile = []
 			toFlowFile.push(tab);
@@ -216,19 +222,18 @@ function writeLibrary() {
 			let tnr = tnrTabLabels.includes(tab.label) ? '*' : ' ';
 			toFlowFile = toFlowFile.concat(nodes);
 
-			let filename = tab.label.toLowerCase().replace(/[:\/\&]/g,'_') + '.json';
-			inp.path = inp.library + filename;
+			let filename = tab.label.toLowerCase().replace(/[:\/\& ]/g,'_') + '.json';
 			colour.log(`${tnr}${nbr.toString().padStart(2,'0')} - ${tab.id}: ${tab.label} - ${toFlowFile.length} nodes`,156)
-			writeFlowFile()
+			writeFlowFile(inp.library + filename)
 		}
 	})
 }
 
 // Create a single flowFile or selected tabs to library
-function writeFlowFile() {
+function writeFlowFile(path) {
 	try {
-		fs.writeFileSync(inp.path, JSON.stringify(toFlowFile));
-		colour.log(`\n    ${toFlowFile.length} nodes written to file ${inp.path}\n\n`,156);
+		fs.writeFileSync(path, JSON.stringify(toFlowFile));
+		colour.log(`\n    written to file ${path}\n\n`,156);
 	} catch(err) {
 		dir(err);
 	}
@@ -245,14 +250,15 @@ function requestNodeRedTabs() {
 function exportNodeRedTabs(tabsString) {
 	inp.tabsString = tabsString;
 	parseTabsString();
-	colour.log(`\nExporting tabs : ${inp.tabsParsed} to file ${inp.path}\n\n`,156);
 	if (mode === 'file') {
+		colour.log(`\nExporting tabs : ${inp.tabsParsed}\n   to file ${inp.path}\n\n`,156);
 		selectTabsForExport();
-		writeFlowFile();
+		writeFlowFile(inp.path);
 		reExport();
 		return;
 	}
 	if (mode === 'library') {
+		colour.log(`\nExporting tabs : ${inp.tabsParsed}\n    to library ${inp.library}\n\n`,156);
 		writeLibrary();
 		reExport();
 		return;
@@ -275,9 +281,15 @@ function reExport() {
 
 function enterOptions() {
 	toMyCompleter(false);
-	colour.log(`\nexportTabs() - Answer questions to export Node-RED tabs\nhelp.cmds() - help system\n`);
-	colour.log(`Press up-arrow to see commands\n`);
-	colour.log(`Press ctrl-u to clear command line\n`);
+	colour.log('\nNote: Existing flow files will be updated.\n',162);
+	colour.log('  If not desired, press cntl-c then cntl-d to exit.\n',162);
+	colour.log(['',
+		`Use up-arrow/dn-arrow to navigate commands`,
+		`Ctrl-u will clear command line\n`,
+		`exportTabs() - Answer questions to export Node-RED tabs`,
+		`help.cmds()  - help system\n`,
+		`''`
+	].join('\n'),153);
 	setCmdList();
 	rt.displayPrompt();
 }
@@ -296,9 +308,9 @@ function exportTabs(prefix) {
 }
 
 function inputFileInfo() {
-	rt.question(`Output path/filename (${inp.path}) ? `, ans => {
+	rt.question(`Output file path (${inp.path}) ? `, ans => {
 		inp.path = ans.length ? ans : inp.path;
-		inputOverwrite();
+		inputTabsString(); // inputOverwrite();
 	})
 }
 
@@ -403,12 +415,21 @@ help.cmds = () => {
 
 help.questions = () => {
 	colour.log([`Questions: `,
-	`  Export to [1] flowFile or [2] library ?`,
-	`  Output path/filename (./flows/new.json) ?`,
-	`  Overwrite if file exists y/n ?`,
+	`Export to [1] flowFile or [2] library ?`,
+	``,
+	`  Node-RED tabs can be combined into a single flow file`,
+	`    or each tab can be individually exported into a directory`,
+	`    called a Library`,
+	``,
+	`Output path/filename (./flows/new.json) ?`,
+	`   or`,
+	`Output library path (./lib/tw5-node-red/flows/all/) ?`,
+	`  `,
+	`Overwrite if file exists y/n ?`,
+	``,
+	`  `,
 	].join('\n'),68);
 }
-
 
 help.intro = () => {
 colour.log(`Export list of Tabs from local Node-RED server.
