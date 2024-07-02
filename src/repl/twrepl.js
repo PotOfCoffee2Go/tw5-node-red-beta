@@ -116,7 +116,7 @@ function startRepl() {
 // -------------------
 // Startup
 var tnr;
-function startup (tnr_context) {
+function startup(tnr_context) {
 	tnr = tnr_context;
 
 	// Show prompt on Node-RED re-deploy
@@ -135,6 +135,7 @@ function startup (tnr_context) {
 		colour.log('-------------------\n',75);
 		startRepl();
 		submit(`help.intro()\n`);
+		submit(`{ versions: { $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }}\n`);
 	},2000);
 }
 
