@@ -47,7 +47,7 @@ const submit = (cmd, desc) => {
 	}
 	if (cmd) {
 		process.nextTick(() => {
-			runtime._ttyWrite(cmd);
+			rt.write(cmd);
 		});
 	}
 }
@@ -85,28 +85,28 @@ const cmdr = {
 // Node'js REPL
 // Place $tw in REPL context so can be referenced
 function resetContext() {
-	runtime.context.tnr = tnr;
+	rt.context.tnr = tnr;
 	tnr.keys().forEach(key => {
-		runtime.context[key] = tnr.get(key);
+		rt.context[key] = tnr.get(key);
 	})
 
 	extra.init(tnr);
-	runtime.context.runTests = extra.runTests;
-	runtime.context.sendTiddlers = extra.sendTiddlers;
-	runtime.context.help = help;
+	rt.context.runTests = extra.runTests;
+	rt.context.sendTiddlers = extra.sendTiddlers;
+	rt.context.help = help;
 }
 
 // REPL runtime
-var runtime;
+var rt;
 function startRepl() {
-//	runtime = require('node:repl').start({
-	runtime = require('pretty-repl').start({
+//	rt = require('node:repl').start({
+	rt = require('pretty-repl').start({
 			prompt: prompt, useColors: true,
 			ignoreUndefined: true, /*completer: completer*/
 	});
 
 	// If REPL is reset (.clear) - context needs resetting
-	runtime.on('reset', () => resetContext());
+	rt.on('reset', () => resetContext());
 
 	// Initial context settings
 	resetContext();
@@ -122,7 +122,7 @@ function startup(tnr_context) {
 	// Show prompt on Node-RED re-deploy
 	if (isStarted) {
 		setTimeout(() => { submit('', prompt); }, 500);
-//		runtime.resetContext();
+//		rt.resetContext();
 //		if (tnr_context.get('RED')) {
 //			 tnr_context.get('RED').log.info('REPL context updated');
 //		}

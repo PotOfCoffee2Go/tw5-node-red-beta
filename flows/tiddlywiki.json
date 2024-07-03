@@ -767,11 +767,13 @@
         "nodes": [
             "49f363e05e815a85",
             "1fe9f0e2147a2011",
-            "2987d0b55f0f6a01"
+            "2987d0b55f0f6a01",
+            "b68d8ade32aa3496",
+            "104f9c4c3a9698dd"
         ],
-        "x": 28,
+        "x": 18,
         "y": 133,
-        "w": 574,
+        "w": 728,
         "h": 334
     },
     {
@@ -796,23 +798,6 @@
         "y": 49,
         "w": 602,
         "h": 142
-    },
-    {
-        "id": "4cf17dc99028c6b1",
-        "type": "group",
-        "z": "3a98d4a7cc479175",
-        "name": "Load ./public/app 'server' \\n editions into MWS SQLite \\n database as recipes",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "5287aee91ed80f4a"
-        ],
-        "x": 584,
-        "y": 37,
-        "w": 172,
-        "h": 114
     },
     {
         "id": "2384ad651173ae9e",
@@ -871,18 +856,12 @@
         },
         "nodes": [
             "759dce2ea0c90c1e",
-            "8549cd6c5c10aa65",
-            "134e6cf970918b0e",
-            "4623743c2e8a7edc",
-            "d25c62f7be74bce2",
-            "74e379aa99e1e758",
-            "aa864ce4062b99c5",
-            "bd875d8df962c57c"
+            "80c52ba56bc7160e"
         ],
-        "x": 144,
-        "y": 19,
-        "w": 552,
-        "h": 448
+        "x": 178,
+        "y": 439,
+        "w": 604,
+        "h": 494
     },
     {
         "id": "3cefbe58652ddd1b",
@@ -898,8 +877,8 @@
         "nodes": [
             "edee491ab307e8f4"
         ],
-        "x": 138,
-        "y": 481,
+        "x": 198,
+        "y": 951,
         "w": 564,
         "h": 226
     },
@@ -915,12 +894,13 @@
             "label-position": "n"
         },
         "nodes": [
-            "e58841decd532a3e"
+            "e58841decd532a3e",
+            "74cccb512b620574"
         ],
-        "x": 108,
-        "y": 721,
+        "x": 178,
+        "y": 61,
         "w": 604,
-        "h": 226
+        "h": 326
     },
     {
         "id": "e1daf0a769b923c0",
@@ -937,8 +917,8 @@
             "1d4bc70456acd7ba",
             "b79d45a9b7037362"
         ],
-        "x": 68,
-        "y": 981,
+        "x": 138,
+        "y": 1191,
         "w": 684,
         "h": 326
     },
@@ -1044,13 +1024,13 @@
             "label": true
         },
         "nodes": [
-            "7aac22e295d4e0f1",
             "45d54f170e388b66",
-            "edf7669fe4924d86"
+            "edf7669fe4924d86",
+            "16ba0ad94b842abe"
         ],
-        "x": 54,
+        "x": 44,
         "y": 359,
-        "w": 522,
+        "w": 532,
         "h": 82
     },
     {
@@ -1341,8 +1321,8 @@
         "nodes": [
             "939ecaec38f87e99"
         ],
-        "x": 294,
-        "y": 93,
+        "x": 354,
+        "y": 513,
         "w": 241,
         "h": 98
     },
@@ -1350,7 +1330,7 @@
         "id": "8549cd6c5c10aa65",
         "type": "group",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "! ! ! SECURITY RISK ! ! ! \\n Submit commands to REPL \\n Disable in production",
         "style": {
             "label": true,
@@ -1364,8 +1344,8 @@
             "771666859c98bac6",
             "d1b258d56658a434"
         ],
-        "x": 184,
-        "y": 327,
+        "x": 274,
+        "y": 767,
         "w": 382,
         "h": 114
     },
@@ -1386,8 +1366,8 @@
             "e2019f74cf4c285b",
             "2cc16f6fae2a05c8"
         ],
-        "x": 164,
-        "y": 539,
+        "x": 224,
+        "y": 1009,
         "w": 512,
         "h": 142
     },
@@ -1396,7 +1376,7 @@
         "type": "group",
         "z": "2c9db7aeca761837",
         "g": "6fc117d699260e4c",
-        "name": "Start 'server' edition on port 8200",
+        "name": "Start Multi-Wiki-Server on port 8200",
         "style": {
             "label": true,
             "color": "#ffffff",
@@ -1408,8 +1388,8 @@
             "3c37f635abd563e8",
             "96147524c86cc1d8"
         ],
-        "x": 134,
-        "y": 779,
+        "x": 204,
+        "y": 119,
         "w": 552,
         "h": 142
     },
@@ -1429,8 +1409,8 @@
             "45b27da691ddd601",
             "4e810fa7d9a7b1c4"
         ],
-        "x": 114,
-        "y": 1039,
+        "x": 184,
+        "y": 1249,
         "w": 612,
         "h": 82
     },
@@ -1453,8 +1433,8 @@
             "f491cc3db92cc626",
             "35b92a1440e5cc09"
         ],
-        "x": 94,
-        "y": 1139,
+        "x": 164,
+        "y": 1349,
         "w": 622,
         "h": 142
     },
@@ -1495,6 +1475,130 @@
         "y": 799,
         "w": 532,
         "h": 82
+    },
+    {
+        "id": "80c52ba56bc7160e",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "g": "1b95b4adfdeca38e",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "134e6cf970918b0e",
+            "4623743c2e8a7edc",
+            "d25c62f7be74bce2",
+            "74e379aa99e1e758",
+            "aa864ce4062b99c5",
+            "bd875d8df962c57c",
+            "8549cd6c5c10aa65"
+        ],
+        "x": 204,
+        "y": 629,
+        "w": 552,
+        "h": 278
+    },
+    {
+        "id": "74cccb512b620574",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "g": "6fc117d699260e4c",
+        "name": "Manual Startup Multi-Wiki-Server",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "13f2edf6c09f64dc",
+            "d9d1d07fab30e075"
+        ],
+        "x": 284,
+        "y": 279,
+        "w": 422,
+        "h": 82
+    },
+    {
+        "id": "b3eae0cca5f70a1c",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "name": "Setup MWS Database \\n Do this to rebuild MWS database",
+        "style": {
+            "label": true,
+            "label-position": "n",
+            "color": "#ffbfbf",
+            "fill": "#3f93cf"
+        },
+        "nodes": [
+            "fe8b9c657dd14575"
+        ],
+        "x": 52,
+        "y": 501,
+        "w": 796,
+        "h": 282
+    },
+    {
+        "id": "fe8b9c657dd14575",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "g": "b3eae0cca5f70a1c",
+        "name": "1. Press 'Delete SQL DB' inject button \\n 2. Enable 'Load SQL' (Deploy) \\n 3. Restart TW5-Node-Red \\n 4. Disable 'Load SQL' (Deploy)",
+        "style": {
+            "label": true,
+            "fill": "#3f3f3f",
+            "label-position": "n",
+            "color": "#dbcbe7"
+        },
+        "nodes": [
+            "4cf17dc99028c6b1",
+            "2f5d15dbb7f6703c"
+        ],
+        "x": 78,
+        "y": 543,
+        "w": 744,
+        "h": 214
+    },
+    {
+        "id": "4cf17dc99028c6b1",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "g": "fe8b9c657dd14575",
+        "name": "Load ./public/app 'server' \\n editions into MWS SQLite \\n database as recipes",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "5287aee91ed80f4a"
+        ],
+        "x": 624,
+        "y": 617,
+        "w": 172,
+        "h": 114
+    },
+    {
+        "id": "2f5d15dbb7f6703c",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "g": "fe8b9c657dd14575",
+        "name": "Delete SQLite Database \\n This will require a Reboot of TW5-Node-RED",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "ad8d78a24b5b036b",
+            "562c59b54e92f9cc"
+        ],
+        "x": 104,
+        "y": 623,
+        "w": 492,
+        "h": 98
     },
     {
         "id": "7c48a995b12f0315",
@@ -1611,9 +1715,9 @@
         "id": "bd875d8df962c57c",
         "type": "junction",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
-        "x": 500,
-        "y": 230,
+        "g": "80c52ba56bc7160e",
+        "x": 560,
+        "y": 670,
         "wires": [
             [
                 "134e6cf970918b0e"
@@ -2999,8 +3103,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\nif (global.get('startupRepl')) {\n    setTimeout( () => {\n        const twrepl = global.get('twrepl');\n        twrepl.startup(global);\n    }, 2000);\n}\n",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 150,
+        "x": 460,
+        "y": 570,
         "wires": []
     },
     {
@@ -3013,8 +3117,8 @@
             "134e6cf970918b0e",
             "fe99237429d36da3"
         ],
-        "x": 270,
-        "y": 400,
+        "x": 360,
+        "y": 840,
         "wires": [
             [
                 "d1b258d56658a434"
@@ -3035,22 +3139,22 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 400,
+        "x": 540,
+        "y": 840,
         "wires": []
     },
     {
         "id": "134e6cf970918b0e",
         "type": "link out",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "To REPL",
         "mode": "link",
         "links": [
             "771666859c98bac6"
         ],
-        "x": 610,
-        "y": 280,
+        "x": 670,
+        "y": 720,
         "wires": [],
         "l": true
     },
@@ -3058,7 +3162,7 @@
         "id": "4623743c2e8a7edc",
         "type": "inject",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "Inject test message",
         "props": [
             {
@@ -3072,8 +3176,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 320,
-        "y": 230,
+        "x": 380,
+        "y": 670,
         "wires": [
             [
                 "bd875d8df962c57c"
@@ -3084,13 +3188,13 @@
         "id": "d25c62f7be74bce2",
         "type": "link in",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "From Client",
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 185,
-        "y": 280,
+        "x": 245,
+        "y": 720,
         "wires": [
             [
                 "74e379aa99e1e758"
@@ -3102,7 +3206,7 @@
         "id": "74e379aa99e1e758",
         "type": "switch",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "repl cmd",
         "property": "topic",
         "propertyType": "msg",
@@ -3116,8 +3220,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 280,
-        "y": 280,
+        "x": 340,
+        "y": 720,
         "wires": [
             [
                 "aa864ce4062b99c5"
@@ -3128,7 +3232,7 @@
         "id": "aa864ce4062b99c5",
         "type": "function",
         "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
+        "g": "80c52ba56bc7160e",
         "name": "Format cmd",
         "func": "// Send field 'command' to REPL\n//  replace middle dots with carrage returns\nmsg.repl = {\n    cmd: msg.network.client.currentTiddler.cmd.replace(/·/g,'\\n')\n}\nreturn msg;",
         "outputs": 1,
@@ -3137,8 +3241,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 280,
+        "x": 490,
+        "y": 720,
         "wires": [
             [
                 "134e6cf970918b0e"
@@ -3169,8 +3273,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
-        "y": 580,
+        "x": 330,
+        "y": 1050,
         "wires": [
             [
                 "e2019f74cf4c285b"
@@ -3188,8 +3292,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 550,
-        "y": 640,
+        "x": 610,
+        "y": 1110,
         "wires": [
             []
         ]
@@ -3210,8 +3314,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 480,
-        "y": 580,
+        "x": 540,
+        "y": 1050,
         "wires": [
             [
                 "2cc16f6fae2a05c8"
@@ -3231,8 +3335,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 640,
+        "x": 380,
+        "y": 1110,
         "wires": [
             [
                 "b1144c89e281a90e"
@@ -3262,8 +3366,8 @@
         "once": true,
         "onceDelay": "2",
         "topic": "",
-        "x": 280,
-        "y": 820,
+        "x": 350,
+        "y": 160,
         "wires": [
             [
                 "3c37f635abd563e8"
@@ -3281,8 +3385,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 560,
-        "y": 880,
+        "x": 630,
+        "y": 220,
         "wires": [
             []
         ]
@@ -3303,8 +3407,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 490,
-        "y": 820,
+        "x": 560,
+        "y": 160,
         "wires": [
             [
                 "96147524c86cc1d8"
@@ -3324,8 +3428,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 880,
+        "x": 370,
+        "y": 220,
         "wires": [
             [
                 "7f9494f20c905686"
@@ -3343,8 +3447,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 490,
-        "y": 1080,
+        "x": 560,
+        "y": 1290,
         "wires": [
             [
                 "45b27da691ddd601"
@@ -3360,8 +3464,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 155,
-        "y": 1080,
+        "x": 225,
+        "y": 1290,
         "wires": [
             [
                 "4e810fa7d9a7b1c4"
@@ -3379,8 +3483,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 685,
-        "y": 1080,
+        "x": 755,
+        "y": 1290,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -3402,8 +3506,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 260,
-        "y": 1080,
+        "x": 330,
+        "y": 1290,
         "wires": [
             [
                 "0c32555e2c9829c1"
@@ -3434,8 +3538,8 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 470,
-        "y": 1240,
+        "x": 540,
+        "y": 1450,
         "wires": [
             [
                 "35b92a1440e5cc09"
@@ -3454,8 +3558,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 220,
-        "y": 1240,
+        "x": 290,
+        "y": 1450,
         "wires": [
             [
                 "f491cc3db92cc626"
@@ -3490,8 +3594,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 540,
-        "y": 1180,
+        "x": 610,
+        "y": 1390,
         "wires": [
             [
                 "0f50d74a1682b4e9"
@@ -3506,8 +3610,8 @@
         "g": "b79d45a9b7037362",
         "name": "Generate TW5-Node-RED plugin",
         "links": [],
-        "x": 250,
-        "y": 1180,
+        "x": 320,
+        "y": 1390,
         "wires": [
             [
                 "da7b525e9244bad9"
@@ -3523,8 +3627,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 675,
-        "y": 1240,
+        "x": 745,
+        "y": 1450,
         "wires": []
     },
     {
@@ -3551,8 +3655,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 325,
-        "y": 1240,
+        "x": 395,
+        "y": 1450,
         "wires": [
             [
                 "732bf9ecdfc9df63"
@@ -3573,14 +3677,62 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 615,
-        "y": 1240,
+        "x": 685,
+        "y": 1450,
         "wires": [
             [
                 "205fb0492ffcd399"
             ]
         ],
         "l": false
+    },
+    {
+        "id": "13f2edf6c09f64dc",
+        "type": "inject",
+        "z": "2c9db7aeca761837",
+        "g": "74cccb512b620574",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "commands",
+                "v": "[\"--mws-listen\",\"port=8200\"]",
+                "vt": "json"
+            },
+            {
+                "p": "mwsStartup",
+                "v": "MultiWikiServer Started",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "d9d1d07fab30e075"
+            ]
+        ]
+    },
+    {
+        "id": "d9d1d07fab30e075",
+        "type": "link call",
+        "z": "2c9db7aeca761837",
+        "g": "74cccb512b620574",
+        "name": "",
+        "links": [
+            "45d54f170e388b66"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 580,
+        "y": 320,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "c2642e3fa442ca65",
@@ -4843,7 +4995,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n!!! Login request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\n---\n\n```\n{%&temp%}\n```\n",
+        "template": "title: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n\n!!! Login request\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5434,7 +5586,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: ·node-red·\ncolor: #8f0000\nlist: ·node-red·\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n\nTiddlers tagged with `·node-red·` have been sent to this wiki by the Node-Red server.\n\nAny tags that begin with a middle-dot `·` will be removed in-flight when sent to the server.\nThink of it as a client side //temporary// tag.\n\nTags that start with a middle-dot will appear square-ish <<tag ·temp·>> instead of the normal round-ish <<tag tw5-node-red>>\n\n> Since most keyboards do not have a middle-dot key - click the <<tag ·node-red·>> pill and select top-most entry `·node-red·`. and copy/paste one from top or bottom of this tiddler.\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n+======+\ntitle: TW5-Node-RED\ntags: tw5-node-red\nclientId: <%network.meta._clientid%>\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<!-- Connection status -->\n{{$:/temp/tw5-node-red/netstat}}\n\nCan load <$button actions=\"<<node-red 'plugin'>>\"> TW5-Node-RED  Plugin</$button>, which contains information about\nTW5-Node-RED and stays pretty much hidden away in the Control Panel.\n\nThe TW5-Node-RED ''application'' however changes the appearance, palette, adds a bunch of tiddlers, stuff like that.\nIf connecting to server with your own wiki then probably would not run the application.\nOf course can just reload the page to start over again. \n\nLoad <$button actions=\"<<node-red 'tw5-node-red app'>>\"> TW5-Node-RED  Application</$button>.\n\n+======+\ntitle: tw5-node-red\ncolor: #334e7e\nlist: tw5-node-red\ncreated: 19700102000000000\nmodified: 19700102000000000\n\nTW5-Node-RED allows building server APIs for single file TiddlyWikis using Node-RED flows.\nNodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard \n(and most third party) nodes.\n\nA TiddlyWiki macro provides TiddlyWiki's access to the server allowing tiddlers to be sent\nto and received from the server. Due to browser security concerns, the TiddlyWiki\nmust be delivered by the server. Any TiddlyWiki can access the Node-Red server by drag-n-drop\n[[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server\ndirectory 'uibuilder/svr/tiddlywikis'.\n\nServer side tiddlers can be from the connected TiddlyWikis, web, files, msg.property, or stored in Node-Red\nflows. The TiddlyWiki Core is embedded into Node-Red allowing the Node-Red 'function' node full\naccess to the TiddlyWiki codebase (ie: $tw functions and objects). Tiddlers can be stored in\nserver side TiddlyWiki wikis (twikis) allowing the server to access databases of tiddlers\nusing standard TW filters.\n\n!! TiddlyWiki\n\nRequests contain a topic to inform the server which Node-Red flow is to be executed.\nClient TiddlyWiki tiddlers are sent to the server by providing a filter of the tiddlers to send.\n`<<node-red 'topic' '[[tiddlers to send]]'>>` would send topic 'topic' and the tiddler titled\n'tiddlers to send'.\n\n!! Node-RED\n\nTiddler exchange is managed using the `msg.network` property maintained by all \nthe nodes in the Node-Red 'Tiddler' category:\n\n * create tiddler, read tiddler, get network, set network, to twiki, from twiki.\n\nTiddlers can be in .tid or JSON format, the Mustache logic-less template\nsystem is available for content substitution. TW5-Node-RED allows multiple tiddlers in .tid format\nby separating them using the line `+======+`.  \n\nThe server can dynamically request tiddlers from client TiddlyWikis at any time using standard TW filters.\n\nTiddlers and plugins can be preloaded into the Node-Red embedded TiddlyWiki for additional\nor custom server side tiddler processing.\n\nSee <a href=\"https://tw5-node-red.poc2go.com\" target=\"_blank\"> TW5-Node-Red Documentation </a> for details\n\n---\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits/page\ntags: tw5-node-red\ncaption: TNR Credits\ntype: text/vnd.tiddlywiki\n\n<div><img style=\"float: left;width: 90px;margin: 0 1.5em .5em 1em;\" src=\"/tw5-node-red-logo.png\"></div>\n\n! TW5-Node-RED\n\nDesigned and initial commit by [ext[PotOfCoffee2Go|https://github.com/potofcoffee2go]]\n\n<hr style=\"clear: both;margin-bottom: 1em;\">\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 900px;\" src=\"/docs/main-packages.png\">\n</div>\n\nThe main packages are [ext[Node-RED|https://nodered.org]], \n [ext[TiddlyWiki|https://tiddlywiki.com]], and\n [ext[uibuilder|https://totallyinformation.github.io/node-red-contrib-uibuilder/#/]]\n (node-red-contrib-uibuilder).\n\n---\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 500px;\" src=\"/docs/helper-packages.png\">\n</div>\n\n[ext[node.js|https://nodejs.org]], [ext[GIMP|https://www.gimp.org]],\n [ext[GitHub|https://github.com]], [ext[inkscape|https://inkscape.org]],\n [ext[git|https://git-scm.com]], [ext[geany|https://www.geany.org]],\n [ext[docsify|https://docsify.js.org]], and [ext[nodemon|https://nodemon.io]]\n were used to develop the project.\n\n---\n\nMany online developer resources: \n\n [ext[Talk TiddlyWiki|https://talk.tiddlywiki.org/]],\n [ext[MDN|https://developer.mozilla.org/en-US/]],\n [ext[TW Icons v1.10|https://morosanuae.github.io/tw-icons/]],\n [ext[StackOverflow|https://stackoverflow.com/]],\n [ext[W3 Schools|https://www.w3schools.com/]],\n [ext[pixabay|https://pixabay.com/]],\n [ext[JSON Beautifier|https://jsonbeautifier.org/]],\n [ext[YouTube|https://www.youtube.com]]\n\n---\n\nDeveloped on:\n\n[ext[Raspberry|https://www.raspberrypi.com]] [ext[Pi 4B|https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf]],\n[ext[LXDE Desktop|https://www.lxde.org]], [ext[Raspberry Pi OS (32-bit)|https://www.raspberrypi.com/software/]]\n\n<span>TiddlyWiki</span>: v5.3.1, Node-RED: v3.0.2, Node.js: v14.21.3, Linux: 5.10.103-v7l+ arm LE\n\nChromium: 92.0.4515.98 (Official Build) Built on Raspbian\n\n---\n\n\nCopyright and Trademarks are property of respective packages.\n\nNo company is affiliated with or endorses TW5-Node-RED. \n\n+======+\ntitle: TW5-Node-RED Flow Editor\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>\n+======+\ntitle: $:/language/Snippets/node-red-button\ncaption: TW5-Node-RED Button\ntags: $:/tags/TextEditor/Snippet\n\n<$button actions=\"<<node-red 'hello'>>\"> Hello </$button>\n+======+\ntitle: $:/tw5-node-red/username\ncaption: {% network.user.username %}\ntags: \nmustache: yes\n\n{% network.user.username %}\n",
+        "template": "title: $:/SiteSubtitle\n\n+======+\ntitle: $:/themes/tiddlywiki/vanilla/settings/backgroundimage\n\n+======+\ntitle: ·node-red·\ncolor: #8f0000\nlist: ·node-red·\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n\nTiddlers tagged with `·node-red·` have been sent to this wiki by the Node-Red server.\n\nAny tags that begin with a middle-dot `·` will be removed in-flight when sent to the server.\nThink of it as a client side //temporary// tag.\n\nTags that start with a middle-dot will appear square-ish <<tag ·temp·>> instead of the normal round-ish <<tag tw5-node-red>>\n\n> Since most keyboards do not have a middle-dot key - click the <<tag ·node-red·>> pill and select top-most entry `·node-red·`. and copy/paste one from top or bottom of this tiddler.\n\n<div style=\"text-align: center;font-size: 4em;\">· · · · · </div>\n+======+\ntitle: TW5-Node-RED\ntags: tw5-node-red\nclientId: <%network.meta._clientid%>\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<!-- Connection status -->\n{{$:/temp/tw5-node-red/netstat}}\n\nCan load <$button actions=\"<<node-red 'plugin'>>\"> TW5-Node-RED  Plugin</$button>, which contains information about\nTW5-Node-RED and stays pretty much hidden away in the Control Panel.\n\nThe TW5-Node-RED ''application'' however changes the appearance, palette, adds a bunch of tiddlers, stuff like that.\nIf connecting to server with your own wiki then probably would not run the application.\nOf course can just reload the page to start over again. \n\nLoad <$button actions=\"<<node-red 'tw5-node-red app'>>\"> TW5-Node-RED  Application</$button>.\n\n+======+\ntitle: tw5-node-red\ncolor: #334e7e\nlist: tw5-node-red\ncreated: 19700102000000000\nmodified: 19700102000000000\n\nTW5-Node-RED allows building server APIs for single file TiddlyWikis using Node-RED flows.\nNodes have been designed to manage TiddlyWiki tiddlers and interface tiddlers to standard \n(and most third party) nodes.\n\nA TiddlyWiki macro provides TiddlyWiki's access to the server allowing tiddlers to be sent\nto and received from the server. Due to browser security concerns, the TiddlyWiki\nmust be delivered by the server. Any TiddlyWiki can access the Node-Red server by drag-n-drop\n[[$:/plugins/potofcoffee2go/tw5-node-red/network.js]] and saving the single file TiddlyWiki in server\ndirectory 'uibuilder/svr/tiddlywikis'.\n\nServer side tiddlers can be from the connected TiddlyWikis, web, files, msg.property, or stored in Node-Red\nflows. The TiddlyWiki Core is embedded into Node-Red allowing the Node-Red 'function' node full\naccess to the TiddlyWiki codebase (ie: $tw functions and objects). Tiddlers can be stored in\nserver side TiddlyWiki wikis (twikis) allowing the server to access databases of tiddlers\nusing standard TW filters.\n\n!! TiddlyWiki\n\nRequests contain a topic to inform the server which Node-Red flow is to be executed.\nClient TiddlyWiki tiddlers are sent to the server by providing a filter of the tiddlers to send.\n`<<node-red 'topic' '[[tiddlers to send]]'>>` would send topic 'topic' and the tiddler titled\n'tiddlers to send'.\n\n!! Node-RED\n\nTiddler exchange is managed using the `msg.network` property maintained by all \nthe nodes in the Node-Red 'Tiddler' category:\n\n * create tiddler, read tiddler, get network, set network, to twiki, from twiki.\n\nTiddlers can be in .tid or JSON format, the Mustache logic-less template\nsystem is available for content substitution. TW5-Node-RED allows multiple tiddlers in .tid format\nby separating them using the line `+======+`.  \n\nThe server can dynamically request tiddlers from client TiddlyWikis at any time using standard TW filters.\n\nTiddlers and plugins can be preloaded into the Node-Red embedded TiddlyWiki for additional\nor custom server side tiddler processing.\n\nSee <a href=\"https://tw5-node-red.poc2go.com\" target=\"_blank\"> TW5-Node-Red Documentation </a> for details\n\n---\n\n+======+\ntitle: $:/plugins/potofcoffee2go/tw5-node-red/credits/page\ntags: tw5-node-red\ncaption: TNR Credits\ntype: text/vnd.tiddlywiki\n\n<div><img style=\"float: left;width: 90px;margin: 0 1.5em .5em 1em;\" src=\"/tw5-node-red-logo.png\"></div>\n\n! TW5-Node-RED\n\nDesigned and initial commit by [ext[PotOfCoffee2Go|https://github.com/potofcoffee2go]]\n\n<hr style=\"clear: both;margin-bottom: 1em;\">\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 900px;\" src=\"/docs/main-packages.png\">\n</div>\n\nThe main packages are [ext[Node-RED|https://nodered.org]], \n [ext[TiddlyWiki|https://tiddlywiki.com]], and\n [ext[uibuilder|https://totallyinformation.github.io/node-red-contrib-uibuilder/#/]]\n (node-red-contrib-uibuilder).\n\n---\n\n<div class=\"poc2go-center-img\">\n<img style=\"width: 500px;\" src=\"/docs/helper-packages.png\">\n</div>\n\n[ext[node.js|https://nodejs.org]], [ext[GIMP|https://www.gimp.org]],\n [ext[GitHub|https://github.com]], [ext[inkscape|https://inkscape.org]],\n [ext[git|https://git-scm.com]], [ext[geany|https://www.geany.org]],\n [ext[docsify|https://docsify.js.org]], and [ext[nodemon|https://nodemon.io]]\n were used to develop the project.\n\n---\n\nMany online developer resources: \n\n [ext[Talk TiddlyWiki|https://talk.tiddlywiki.org/]],\n [ext[MDN|https://developer.mozilla.org/en-US/]],\n [ext[TW Icons v1.10|https://morosanuae.github.io/tw-icons/]],\n [ext[StackOverflow|https://stackoverflow.com/]],\n [ext[W3 Schools|https://www.w3schools.com/]],\n [ext[pixabay|https://pixabay.com/]],\n [ext[JSON Beautifier|https://jsonbeautifier.org/]],\n [ext[YouTube|https://www.youtube.com]]\n\n---\n\nDeveloped on:\n\n[ext[Raspberry|https://www.raspberrypi.com]] [ext[Pi 4B|https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf]],\n[ext[LXDE Desktop|https://www.lxde.org]], [ext[Raspberry Pi OS (32-bit)|https://www.raspberrypi.com/software/]]\n\n<span>TiddlyWiki</span>: v5.3.1, Node-RED: v3.0.2, Node.js: v14.21.3, Linux: 5.10.103-v7l+ arm LE\n\nChromium: 92.0.4515.98 (Official Build) Built on Raspbian\n\n---\n\n\nCopyright and Trademarks are property of respective packages.\n\nNo company is affiliated with or endorses TW5-Node-RED. \n\n+======+\ntitle: TW5-Node-RED Flow Editor\ncreated: 19700102000000000\nmodified: 19700102000000000\n\n<iframe src=\"/red\" style=\"width:100%; height:600px\"></iframe>\n+======+\ntitle: $:/language/Snippets/node-red-button\ncaption: TW5-Node-RED Button\ntags: $:/tags/TextEditor/Snippet\n\n<$button actions=\"<<node-red 'hello'>>\"> Hello </$button>\n+======+\ntitle: $:/tw5-node-red/username\ncaption: {% network.user.username %}\ntags: \nmustache: yes\n\n{% network.user.username %}\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5513,6 +5665,7 @@
         "id": "654ee70ffdb7a36c",
         "type": "change",
         "z": "304338a4b9f89088",
+        "d": true,
         "g": "7d2e58723eb09955",
         "name": "set topic: start-watch-recipe",
         "rules": [
@@ -6356,38 +6509,18 @@
         "wires": []
     },
     {
-        "id": "7aac22e295d4e0f1",
-        "type": "function",
-        "z": "127607a6bb274a18",
-        "g": "2987d0b55f0f6a01",
-        "name": "TW MWS Commander",
-        "func": "const $twmws = global.get('$twmws');\nconst pr = global.get('process');\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twmws.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\nconst log = {\n    write: (text) => node.log(text.toString())\n}\n\n// Create $twmws.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twmws.Commander(cmds, checkForErrors, $twmws.wiki).execute();\n    }\n}\n\ncmdr.execute(msg.commands);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 400,
-        "wires": [
-            [
-                "edf7669fe4924d86"
-            ]
-        ]
-    },
-    {
         "id": "45d54f170e388b66",
         "type": "link in",
         "z": "127607a6bb274a18",
         "g": "2987d0b55f0f6a01",
         "name": "TW MWS Commander",
         "links": [],
-        "x": 180,
+        "x": 170,
         "y": 400,
         "wires": [
             [
-                "7aac22e295d4e0f1"
+                "edf7669fe4924d86",
+                "16ba0ad94b842abe"
             ]
         ],
         "l": true
@@ -6402,6 +6535,59 @@
         "links": [],
         "x": 535,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "16ba0ad94b842abe",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "g": "2987d0b55f0f6a01",
+        "name": "TW MWS Commander",
+        "func": "const $twmws = global.get('$twmws');\nconst pr = global.get('process');\n\npr.on('uncaughtException', function(err) {\n         node.log(err);\n});\n\n\n// TiddlyWki commander got an error?\nfunction checkForErrors(err) {\n    if (err) {\n        try {\n            $twmws.utils.error(\"Error: \" + err);\n        } catch (e) {}\n    }\n}\n\n// Create $twmws.Commander to do... commands\nconst cmdr = {\n    execute: (cmds) => {\n        node.log(JSON.stringify(cmds));\n        new $twmws.Commander(cmds, checkForErrors, $twmws.wiki).execute();\n    }\n}\ncmdr.execute(msg.commands);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b68d8ade32aa3496",
+        "type": "catch",
+        "z": "127607a6bb274a18",
+        "g": "f501ab278a37529f",
+        "name": "commander errors",
+        "scope": "group",
+        "uncaught": false,
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "104f9c4c3a9698dd"
+            ]
+        ]
+    },
+    {
+        "id": "104f9c4c3a9698dd",
+        "type": "debug",
+        "z": "127607a6bb274a18",
+        "g": "f501ab278a37529f",
+        "name": "Commander err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 230,
         "wires": []
     },
     {
@@ -6627,6 +6813,7 @@
         "id": "879aa07646a78267",
         "type": "function",
         "z": "3a98d4a7cc479175",
+        "d": true,
         "name": "start-watch-recipe",
         "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'start-listen-recipe'\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    recipes[recipe].msgs[msg.network.meta._clientid] = msg;\n    msg.broadcastId = msg.network.meta._clientid;\n    msg.payload = {\n        title: `Watching recipe ${recipe} for updates`,\n        text: `Started watching for updates to MWS recipe '''${recipe}'''\\n\\n\\n` +\n            `<$button actions=\"<<node-red 'mws/stop-watch-recipe/${recipe}'>>\"> Stop </$button> watching for '''${recipe}''' recipe updates.\\n`\n    }\n    node.send(msg);\n}\n\nnode.done()\nreturn;\n",
         "outputs": 1,
@@ -6707,23 +6894,6 @@
                 "9163b93163fb2f63"
             ]
         ]
-    },
-    {
-        "id": "5287aee91ed80f4a",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "g": "4cf17dc99028c6b1",
-        "name": "Load SQL",
-        "func": "// See 'On Start' for implementation\nreturn msg;",
-        "outputs": 0,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 110,
-        "wires": []
     },
     {
         "id": "485d61633f5c01f4",
@@ -6812,6 +6982,72 @@
         "x": 660,
         "y": 430,
         "wires": []
+    },
+    {
+        "id": "5287aee91ed80f4a",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "d": true,
+        "g": "4cf17dc99028c6b1",
+        "name": "Load SQL",
+        "func": "// See 'On Start' for implementation\nreturn msg;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "ad8d78a24b5b036b",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "g": "2f5d15dbb7f6703c",
+        "name": "Delete SQLite database",
+        "func": "//fs.rmSync(dir, { recursive: true, force: true });\n\nconst mws = './public/mws/';\nconst store = mws + 'store';\nconst tiddlers = mws + 'tiddlers';\n\nfunction deleteDir(dir) {\n    try {\n        global.get('fs').rmSync(dir, { recursive: true, force: true });\n        node.log(`Successfully deleted ${dir}`);\n        node.warn(`Reboot Required`);\n    } catch (e) {\n        node.error(`Delete of ${dir} unsuccessful`);\n        node.error(`${e.message}`);\n    }\n}\nconsole.log('');\ndeleteDir(store);\ndeleteDir(tiddlers);\n\nreturn msg;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "562c59b54e92f9cc",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "g": "2f5d15dbb7f6703c",
+        "name": "Delete SQL DB",
+        "props": [
+            {
+                "p": "commands",
+                "v": "[\"--mws-listen\",\"port=8200\"]",
+                "vt": "json"
+            },
+            {
+                "p": "mwsStartup",
+                "v": "MultiWikiServer Started",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 230,
+        "y": 680,
+        "wires": [
+            [
+                "ad8d78a24b5b036b"
+            ]
+        ]
     },
     {
         "id": "7e1d28042993ee2d",

@@ -24,6 +24,7 @@
   "scripts": {
     "start": "node ./node_modules/node-red/red.js -s ./settings.js",
     "syncserver": "node ./syncserver",
+    "server-edition": "node ./syncserver",
     "export": "node ./src/bin/export",
     "mon": "nodemon --ext js,html,json --watch src/nodes /usr/lib/node_modules/node-red/red.js --settings ./settings.js"
   },
