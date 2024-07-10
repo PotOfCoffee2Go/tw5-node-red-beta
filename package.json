@@ -13,7 +13,7 @@
     "node-red": "^3.1.11",
     "node-red-contrib-uibuilder": "~6.4.1",
     "pretty-repl": "^4.0.0",
-    "tiddlywiki": "^5.3.4",
+    "tiddlywiki": "^5.3.5",
     "tiddlywikimws": "file:../TiddlyWiki5"
   },
   "devflows": {
