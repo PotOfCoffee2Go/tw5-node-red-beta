@@ -192,6 +192,171 @@ const onConnect = (evt) => {
 }
 document.addEventListener('uibuilder:socket:connected', onConnect);
 
+
+// ------------------------
+// TiddlyWiki interface
+const story = new $tw.Story();
+
+// Create/overwrite tiddler and add to wiki from hashmap of fields
+//  includes timestamps and tagging
+//  optional display to story and fetch from server fields
+const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic = '') => {
+	// Dev alert in case tags/list fields are an array - should not happen
+	//  ie: the fields should have been strings with 'wiki.getFieldStrings()'
+	if (Array.isArray(fields.tags)) alert('field.tags is an array');
+	if (Array.isArray(fields.tags)) fields.tags = $tw.utils.stringifyList(fields.tags)
+	if (Array.isArray(fields.list)) fields.list = $tw.utils.stringifyList(fields.list)
+
+	$tw.wiki.addTiddler(new $tw.Tiddler(
+		$tw.wiki.getCreationFields(),
+		$tw.wiki.getModificationFields(),
+		fields,
+		fromServer ? fetched(fields, clientTopic) : {},
+	))
+	if (tostory) {
+		story.navigateTiddler(fields.title /*, fromTitle*/);
+	}
+}
+
+// Update the wiki with array of tiddlers from server
+const updateWiki = (svr) => {
+	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
+	if (svr.server.deletelist) {
+		svr.server.deletelist.forEach(title => {
+			$tw.wiki.deleteTiddler(title);
+		})
+	}
+
+//	Open tiddler even if not in svr.server.tiddlers - undecided
+//	if (svr.server.storylist) {
+//		svr.server.storylist.forEach(title => {
+//			story.navigateTiddler(title /*, fromTitle*/);
+//		})
+//	}
+
+	svr.server.tiddlers.forEach(fields => {
+		if (svr.server.storylist.includes(fields.title)) {
+			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server
+		} else {
+			fieldsToWiki(fields, false, true, clientTopic); // tostory = false, from server
+		}
+	})
+	svr.meta.tiddlers.forEach(fields => {
+		if (fields.title === `${settings.redStore}` && fields.newRemember) {
+			localStorage['remember'] = fields.newRemember;
+			fields.remember = fields.newRemember;
+			//delete fields.newRemember;
+		}
+		fieldsToWiki(fields, false, true, ''); // tostory = false, from server
+	})
+}
+
+// ------------------------
+// Helpers
+// Timestamp when tiddler was 'fetched' from server
+//  and tags the tiddler as from the server (Default: 'node-red')
+const fetched = (fields, clientTopic) => {
+	delete fields.fetched;
+	const _clientTopic = ['true', 'yes'].indexOf(settings.tagWithTopic.toLowerCase()) > -1 ? clientTopic : '';
+	return {
+		fetched: $tw.utils.stringifyDate(new Date()),
+		tags: fields.tags
+			? `${fields.tags} ${settings.autoTags} ${_clientTopic}`
+			: `${settings.autoTags} ${_clientTopic}`
+		};
+}
+
+// Format timestamp text always same length
+const tStamp = () => {
+	return ' ' + ((new Date()).toLocaleDateString(undefined, {
+		hourCycle: 'h23',
+		year: 'numeric', month: '2-digit', day: '2-digit',
+		hour: '2-digit', minute: '2-digit' //, second: '2-digit'
+		})).replace(',', '');
+}
+
+// Remove Node-Red tags - (tags that start with '·' a middle dot)
+const stripNodeRedTags = (tags) => {
+	let outTags = [];
+	let inTags = $tw.utils.parseStringArray(tags);
+	inTags.forEach(tag => {
+		if (tag[0] !== '·') outTags.push(tag);
+	})
+	return $tw.utils.stringifyList(outTags);
+}
+
+// Tiddlers shared with the server
+const addInterfaceTiddlers = () => {
+	// Tiddlers that are sent with each message to server
+	// A tiddler for Node-Red flows use
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redStore,
+		remember: localStorage["remember"] || '',
+		type: 'application/json',
+		text: `{ "title": "${settings.redStore}" }`
+	}));
+
+	// And a iddler for optional data
+	$tw.wiki.addTiddler(new $tw.Tiddler({
+		title: settings.redData,
+		type: 'application/x-tiddler-dictionary',
+		text: `title: ${settings.redData}`
+	}));
+}
+
+// ------------------------
+// Post node-red macros and network event handlers
+const initialize = () => {
+	// Tiddlers shared with the server
+	addInterfaceTiddlers();
+
+	// Description of settings
+	$tw.wiki.addTiddler(new $tw.Tiddler(serverSettingsDesc));
+
+	// Macros simplify access to Node-Red server
+	$tw.wiki.addTiddler(new $tw.Tiddler(nodeRedDefines));
+
+	// Listen for incoming messages from server
+	//  Perform actions based on topic
+	uibuilder.onChange('msg', (msg) => {
+		netstat(`Node-Red Connected`);
+
+		// Tiddlers from server
+		if (msg.topic === 'server.tiddlers') {
+			// Is authenticated by server - so client connection is complete
+			if (msg.network.server.tiddlers.length &&
+					msg.network.server.tiddlers[0].title === serverAuthenticated) {
+				msg.network.server.tiddlers.shift();
+				updateWiki(msg.network);
+				emit('client.onload',createMessage('client.onload',
+					settingsSendFilter, settingsSender));
+			} else {
+				updateWiki(msg.network);
+			}
+		}
+		// Server requesting tiddlers
+		else if (msg.topic === 'server.request') {
+			msg.topic = 'client.response';
+			if (!msg.filter) msg.filter = '[[$:/tw5-node-red/settings]]';
+			let tiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(msg.filter));
+			let sender = new $tw.Tiddler(
+				{ title: 'client.response', filter: msg.filter, count: tiddlers.length },
+				$tw.wiki.getCreationFields(),
+				$tw.wiki.getModificationFields()
+			);
+			tiddlers.forEach(tiddler => {
+				tiddler.requested = $tw.utils.stringifyDate(new Date());
+			})
+			msg.network.client.sender.push(sender.getFieldStrings({exclude: ['text']}));
+			msg.network.client.tiddlers = msg.network.client.tiddlers.concat(tiddlers);
+			uibuilder.send(msg);
+		}
+	})
+
+	// Up and running - start app level heartbeat
+	console.log('TW5-Node-RED interface initialized');
+}
+
 // ------------------------
 // Heartbeat with server
 const hbImage = '{{$:/temp/images/phosphor-icons/fill/heart-straight-fill}} ';
@@ -253,162 +418,6 @@ const startHeartbeat = () => {
 			? 5000
 			: settings.heartbeatInterval);
 	}
-}
-
-// ------------------------
-// TiddlyWiki interface
-const story = new $tw.Story();
-
-// Create/overwrite tiddler and add to wiki from hashmap of fields
-//  includes timestamps and tagging
-//  optional display to story and fetch from server fields
-const fieldsToWiki = (fields, tostory = false, fromServer = false, clientTopic = '') => {
-	// Dev alert in case tags/list fields are an array - should not happen
-	//  ie: the fields should have been strings with 'wiki.getFieldStrings()'
-	if (Array.isArray(fields.tags)) alert('field.tags is an array');
-	if (Array.isArray(fields.tags)) fields.tags = $tw.utils.stringifyList(fields.tags)
-	if (Array.isArray(fields.list)) fields.list = $tw.utils.stringifyList(fields.list)
-
-	$tw.wiki.addTiddler(new $tw.Tiddler(
-		$tw.wiki.getCreationFields(),
-		$tw.wiki.getModificationFields(),
-		fields,
-		fromServer ? fetched(fields, clientTopic) : {},
-	))
-	if (tostory) {
-		story.navigateTiddler(fields.title /*, fromTitle*/);
-	}
-}
-
-// Update the wiki with array of tiddlers from server
-const updateWiki = (svr) => {
-	var clientTopic = (svr.client.topic) ? `[[·topic: ${svr.client.topic}·]]` : '';
-	if (svr.server.deletelist) {
-		svr.server.deletelist.forEach(title => {
-			$tw.wiki.deleteTiddler(title);
-		})
-	}
-
-//	Open tiddler even if not in svr.server.tiddlers - undecided
-//	if (svr.server.storylist) {
-//		svr.server.storylist.forEach(title => {
-//			story.navigateTiddler(title /*, fromTitle*/);
-//		})
-//	}
-
-	svr.server.tiddlers.forEach(fields => {
-		if (svr.server.storylist.includes(fields.title)) {
-			fieldsToWiki(fields, true, true, clientTopic); // tostory = true, from server
-		} else {
-			fieldsToWiki(fields, false, true, clientTopic); // tostory = false, from server
-		}
-	})
-	svr.meta.tiddlers.forEach(fields => {
-		fieldsToWiki(fields, false, true, ''); // tostory = false, from server
-	})
-}
-
-// ------------------------
-// Helpers
-// Timestamp when tiddler was 'fetched' from server
-//  and tags the tiddler as from the server (Default: 'node-red')
-const fetched = (fields, clientTopic) => {
-	delete fields.fetched;
-	const _clientTopic = ['true', 'yes'].indexOf(settings.tagWithTopic.toLowerCase()) > -1 ? clientTopic : '';
-	return {
-		fetched: $tw.utils.stringifyDate(new Date()),
-		tags: fields.tags
-			? `${fields.tags} ${settings.autoTags} ${_clientTopic}`
-			: `${settings.autoTags} ${_clientTopic}`
-		};
-}
-
-// Format timestamp text always same length
-const tStamp = () => {
-	return ' ' + ((new Date()).toLocaleDateString(undefined, {
-		hourCycle: 'h23',
-		year: 'numeric', month: '2-digit', day: '2-digit',
-		hour: '2-digit', minute: '2-digit' //, second: '2-digit'
-		})).replace(',', '');
-}
-
-// Remove Node-Red tags - (tags that start with '·' a middle dot)
-const stripNodeRedTags = (tags) => {
-	let outTags = [];
-	let inTags = $tw.utils.parseStringArray(tags);
-	inTags.forEach(tag => {
-		if (tag[0] !== '·') outTags.push(tag);
-	})
-	return $tw.utils.stringifyList(outTags);
-}
-
-// Tiddlers shared with the server
-const addInterfaceTiddlers = () => {
-	// Tiddlers that are sent with each message to server
-	// A tiddler for Node-Red flows use
-	$tw.wiki.addTiddler(new $tw.Tiddler({
-		title: settings.redStore,
-		type: 'application/json',
-		text: `{ "title": "${settings.redStore}" }`
-	}));
-
-	// And a iddler for optional data
-	$tw.wiki.addTiddler(new $tw.Tiddler({
-		title: settings.redData,
-		type: 'application/x-tiddler-dictionary',
-		text: `title: ${settings.redData}`
-	}));
-}
-
-// ------------------------
-// Post node-red macros and network event handlers
-const initialize = () => {
-	// Tiddlers shared with the server
-	addInterfaceTiddlers();
-
-	// Description of settings
-	$tw.wiki.addTiddler(new $tw.Tiddler(serverSettingsDesc));
-
-	// Macros simplify access to Node-Red server
-	$tw.wiki.addTiddler(new $tw.Tiddler(nodeRedDefines));
-
-	// Listen for incoming messages from server
-	//  Perform actions based on topic
-	uibuilder.onChange('msg', (msg) => {
-		netstat(`Node-Red Connected`);
-
-		// Tiddlers from server
-		if (msg.topic === 'server.tiddlers') {
-			// Is authenticated by server - so client connection is complete
-			if (msg.network.server.tiddlers.length &&
-					msg.network.server.tiddlers[0].title === serverAuthenticated) {
-				emit('client.onload',createMessage('client.onload',
-					settingsSendFilter, settingsSender));
-				msg.network.server.tiddlers.shift();
-			}
-			updateWiki(msg.network);
-		}
-		// Server requesting tiddlers
-		else if (msg.topic === 'server.request') {
-			msg.topic = 'client.response';
-			if (!msg.filter) msg.filter = '[[$:/tw5-node-red/settings]]';
-			let tiddlers = JSON.parse($tw.wiki.getTiddlersAsJson(msg.filter));
-			let sender = new $tw.Tiddler(
-				{ title: 'client.response', filter: msg.filter, count: tiddlers.length },
-				$tw.wiki.getCreationFields(),
-				$tw.wiki.getModificationFields()
-			);
-			tiddlers.forEach(tiddler => {
-				tiddler.requested = $tw.utils.stringifyDate(new Date());
-			})
-			msg.network.client.sender.push(sender.getFieldStrings({exclude: ['text']}));
-			msg.network.client.tiddlers = msg.network.client.tiddlers.concat(tiddlers);
-			uibuilder.send(msg);
-		}
-	})
-
-	// Up and running - start app level heartbeat
-	console.log('TW5-Node-RED interface initialized');
 }
 
 // ------------------------

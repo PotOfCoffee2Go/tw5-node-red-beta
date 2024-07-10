@@ -10,7 +10,7 @@
     {
         "id": "2c9db7aeca761837",
         "type": "tab",
-        "label": "Startup",
+        "label": "* Startup",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,7 +18,7 @@
     {
         "id": "eb845b8cbc7ac49a",
         "type": "tab",
-        "label": "Network",
+        "label": "* Network",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,7 +26,7 @@
     {
         "id": "fb90098a1998250c",
         "type": "tab",
-        "label": "Security",
+        "label": "* Security",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "304338a4b9f89088",
         "type": "tab",
-        "label": "onConnect",
+        "label": "* onConnect",
         "disabled": false,
         "info": "",
         "env": []
@@ -42,7 +42,7 @@
     {
         "id": "ab56271e77c6f866",
         "type": "tab",
-        "label": "Databases",
+        "label": "* Databases",
         "disabled": false,
         "info": "",
         "env": []
@@ -50,7 +50,7 @@
     {
         "id": "127607a6bb274a18",
         "type": "tab",
-        "label": "Utilities",
+        "label": "* Utilities",
         "disabled": false,
         "info": "",
         "env": []
@@ -58,7 +58,7 @@
     {
         "id": "3a98d4a7cc479175",
         "type": "tab",
-        "label": "TW Multi Wiki",
+        "label": "* TW Multi Wiki",
         "disabled": false,
         "info": "# Mutli-Wiki-Server Interface\n",
         "env": []
@@ -157,8 +157,8 @@
             "fde1fed6e12b5da0",
             "9b88d3454bec6454"
         ],
-        "x": 28,
-        "y": 2235,
+        "x": 258,
+        "y": 755,
         "w": 644,
         "h": 252
     },
@@ -259,8 +259,8 @@
             "7fd5bbf53ae9558b",
             "49e8ade023549ff5"
         ],
-        "x": 44,
-        "y": 479,
+        "x": 54,
+        "y": 569,
         "w": 662,
         "h": 82
     },
@@ -291,7 +291,7 @@
         "x": 154,
         "y": 249,
         "w": 672,
-        "h": 272
+        "h": 252
     },
     {
         "id": "c118b47258277fd0",
@@ -354,8 +354,8 @@
             "2ffe59e5768f9620",
             "e5c2695061c28c3d"
         ],
-        "x": 44,
-        "y": 599,
+        "x": 54,
+        "y": 689,
         "w": 532,
         "h": 82
     },
@@ -563,14 +563,15 @@
         "z": "127607a6bb274a18",
         "name": "Show server-side '$tw' object in debug panel",
         "style": {
-            "label": true
+            "label": true,
+            "label-position": "n"
         },
         "nodes": [
             "a07af28ade3a49a2",
             "c1e23170a15882f7"
         ],
-        "x": 54,
-        "y": 29,
+        "x": 64,
+        "y": 119,
         "w": 482,
         "h": 82
     },
@@ -771,8 +772,8 @@
             "b68d8ade32aa3496",
             "104f9c4c3a9698dd"
         ],
-        "x": 18,
-        "y": 133,
+        "x": 28,
+        "y": 223,
         "w": 728,
         "h": 334
     },
@@ -859,7 +860,7 @@
             "80c52ba56bc7160e"
         ],
         "x": 178,
-        "y": 439,
+        "y": 419,
         "w": 604,
         "h": 494
     },
@@ -878,7 +879,7 @@
             "edee491ab307e8f4"
         ],
         "x": 198,
-        "y": 951,
+        "y": 931,
         "w": 564,
         "h": 226
     },
@@ -918,9 +919,49 @@
             "b79d45a9b7037362"
         ],
         "x": 138,
-        "y": 1191,
+        "y": 1181,
         "w": 684,
         "h": 326
+    },
+    {
+        "id": "b3eae0cca5f70a1c",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "name": "Setup MWS Database \\n Do this to rebuild MWS database",
+        "style": {
+            "label": true,
+            "label-position": "n",
+            "color": "#ffbfbf",
+            "fill": "#3f93cf"
+        },
+        "nodes": [
+            "fe8b9c657dd14575"
+        ],
+        "x": 52,
+        "y": 501,
+        "w": 796,
+        "h": 282
+    },
+    {
+        "id": "2cb037cc9808c9d4",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "Show Node-RED editor in tiddler",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "a2c79fa655fbdc24",
+            "7a0c00d7e145b45a",
+            "2e52f9cf3570eb69",
+            "7c99e0a714c4a066",
+            "f65442df821d2805"
+        ],
+        "x": 4,
+        "y": 19,
+        "w": 692,
+        "h": 82
     },
     {
         "id": "022d52b9f38c8589",
@@ -960,10 +1001,9 @@
             "label-position": "n"
         },
         "nodes": [
-            "57c7e27a6d3f23bd",
             "93753a81a1769fdc",
-            "436833639fa5f502",
             "c138fe252fda56df",
+            "436833639fa5f502",
             "1bb0c6fc5d4b21c0",
             "b943f50af5e3f0df",
             "95871cedf9ff64b7"
@@ -988,8 +1028,8 @@
             "e40c0cb505cd4bfb",
             "3891c3049d5ff01d"
         ],
-        "x": 54,
-        "y": 159,
+        "x": 64,
+        "y": 249,
         "w": 442,
         "h": 82
     },
@@ -1008,8 +1048,8 @@
             "30ce9f775e65e57d",
             "3f8dbc7f474d68d8"
         ],
-        "x": 54,
-        "y": 259,
+        "x": 64,
+        "y": 349,
         "w": 522,
         "h": 82
     },
@@ -1028,8 +1068,8 @@
             "edf7669fe4924d86",
             "16ba0ad94b842abe"
         ],
-        "x": 44,
-        "y": 359,
+        "x": 54,
+        "y": 449,
         "w": 532,
         "h": 82
     },
@@ -1166,8 +1206,8 @@
             "d6044d2db5c9a352",
             "3c2141c2e87ad46a"
         ],
-        "x": 54,
-        "y": 2379,
+        "x": 284,
+        "y": 899,
         "w": 592,
         "h": 82
     },
@@ -1232,12 +1272,13 @@
             "cfee1305fe93f1c8",
             "509b906f53cc0bc2",
             "cac2c9295125e3b0",
-            "14096d56e14782d1"
+            "14096d56e14782d1",
+            "320270c24658be96"
         ],
         "x": 99,
         "y": 67,
         "w": 767,
-        "h": 434
+        "h": 414
     },
     {
         "id": "530c27cac770eeb4",
@@ -1324,32 +1365,9 @@
             "939ecaec38f87e99"
         ],
         "x": 354,
-        "y": 513,
+        "y": 493,
         "w": 241,
         "h": 98
-    },
-    {
-        "id": "8549cd6c5c10aa65",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "g": "80c52ba56bc7160e",
-        "name": "! ! ! SECURITY RISK ! ! ! \\n Submit commands to REPL \\n Disable in production",
-        "style": {
-            "label": true,
-            "color": "#ffffff",
-            "stroke": "#ff7f7f",
-            "fill": "#ff0000",
-            "fill-opacity": "0.86",
-            "label-position": "n"
-        },
-        "nodes": [
-            "771666859c98bac6",
-            "d1b258d56658a434"
-        ],
-        "x": 274,
-        "y": 767,
-        "w": 382,
-        "h": 114
     },
     {
         "id": "edee491ab307e8f4",
@@ -1369,7 +1387,7 @@
             "2cc16f6fae2a05c8"
         ],
         "x": 224,
-        "y": 1009,
+        "y": 989,
         "w": 512,
         "h": 142
     },
@@ -1412,7 +1430,7 @@
             "4e810fa7d9a7b1c4"
         ],
         "x": 184,
-        "y": 1249,
+        "y": 1239,
         "w": 612,
         "h": 82
     },
@@ -1436,9 +1454,100 @@
             "35b92a1440e5cc09"
         ],
         "x": 164,
-        "y": 1349,
+        "y": 1339,
         "w": 622,
         "h": 142
+    },
+    {
+        "id": "80c52ba56bc7160e",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "g": "1b95b4adfdeca38e",
+        "style": {
+            "stroke": "#3a3a3a",
+            "stroke-opacity": "1",
+            "fill": "#1e1e1e",
+            "fill-opacity": "0.5",
+            "label": true,
+            "label-position": "nw",
+            "color": "#cccccc"
+        },
+        "nodes": [
+            "134e6cf970918b0e",
+            "4623743c2e8a7edc",
+            "d25c62f7be74bce2",
+            "74e379aa99e1e758",
+            "aa864ce4062b99c5",
+            "bd875d8df962c57c",
+            "8549cd6c5c10aa65"
+        ],
+        "x": 204,
+        "y": 609,
+        "w": 552,
+        "h": 278
+    },
+    {
+        "id": "74cccb512b620574",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "g": "6fc117d699260e4c",
+        "name": "Manual Startup Multi-Wiki-Server",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "13f2edf6c09f64dc",
+            "d9d1d07fab30e075"
+        ],
+        "x": 284,
+        "y": 279,
+        "w": 422,
+        "h": 82
+    },
+    {
+        "id": "fe8b9c657dd14575",
+        "type": "group",
+        "z": "3a98d4a7cc479175",
+        "g": "b3eae0cca5f70a1c",
+        "name": "1. Press 'Delete SQL DB' inject button \\n 2. Enable 'Load SQL' (Deploy) \\n 3. Restart TW5-Node-Red \\n 4. Disable 'Load SQL' (Deploy)",
+        "style": {
+            "label": true,
+            "fill": "#3f3f3f",
+            "label-position": "n",
+            "color": "#dbcbe7"
+        },
+        "nodes": [
+            "4cf17dc99028c6b1",
+            "2f5d15dbb7f6703c"
+        ],
+        "x": 78,
+        "y": 543,
+        "w": 744,
+        "h": 214
+    },
+    {
+        "id": "8549cd6c5c10aa65",
+        "type": "group",
+        "z": "2c9db7aeca761837",
+        "g": "80c52ba56bc7160e",
+        "name": "! ! ! SECURITY RISK ! ! ! \\n Submit commands to REPL \\n Disable in production",
+        "style": {
+            "label": true,
+            "color": "#ffffff",
+            "stroke": "#ff7f7f",
+            "fill": "#ff0000",
+            "fill-opacity": "0.86",
+            "label-position": "n"
+        },
+        "nodes": [
+            "771666859c98bac6",
+            "d1b258d56658a434"
+        ],
+        "x": 274,
+        "y": 747,
+        "w": 382,
+        "h": 114
     },
     {
         "id": "17659a42281ba3f7",
@@ -1477,93 +1586,6 @@
         "y": 799,
         "w": 532,
         "h": 82
-    },
-    {
-        "id": "80c52ba56bc7160e",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "g": "1b95b4adfdeca38e",
-        "style": {
-            "stroke": "#3a3a3a",
-            "stroke-opacity": "1",
-            "fill": "#1e1e1e",
-            "fill-opacity": "0.5",
-            "label": true,
-            "label-position": "nw",
-            "color": "#cccccc"
-        },
-        "nodes": [
-            "134e6cf970918b0e",
-            "4623743c2e8a7edc",
-            "d25c62f7be74bce2",
-            "74e379aa99e1e758",
-            "aa864ce4062b99c5",
-            "bd875d8df962c57c",
-            "8549cd6c5c10aa65"
-        ],
-        "x": 204,
-        "y": 629,
-        "w": 552,
-        "h": 278
-    },
-    {
-        "id": "74cccb512b620574",
-        "type": "group",
-        "z": "2c9db7aeca761837",
-        "g": "6fc117d699260e4c",
-        "name": "Manual Startup Multi-Wiki-Server",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "13f2edf6c09f64dc",
-            "d9d1d07fab30e075"
-        ],
-        "x": 284,
-        "y": 279,
-        "w": 422,
-        "h": 82
-    },
-    {
-        "id": "b3eae0cca5f70a1c",
-        "type": "group",
-        "z": "3a98d4a7cc479175",
-        "name": "Setup MWS Database \\n Do this to rebuild MWS database",
-        "style": {
-            "label": true,
-            "label-position": "n",
-            "color": "#ffbfbf",
-            "fill": "#3f93cf"
-        },
-        "nodes": [
-            "fe8b9c657dd14575"
-        ],
-        "x": 52,
-        "y": 501,
-        "w": 796,
-        "h": 282
-    },
-    {
-        "id": "fe8b9c657dd14575",
-        "type": "group",
-        "z": "3a98d4a7cc479175",
-        "g": "b3eae0cca5f70a1c",
-        "name": "1. Press 'Delete SQL DB' inject button \\n 2. Enable 'Load SQL' (Deploy) \\n 3. Restart TW5-Node-Red \\n 4. Disable 'Load SQL' (Deploy)",
-        "style": {
-            "label": true,
-            "fill": "#3f3f3f",
-            "label-position": "n",
-            "color": "#dbcbe7"
-        },
-        "nodes": [
-            "4cf17dc99028c6b1",
-            "2f5d15dbb7f6703c"
-        ],
-        "x": 78,
-        "y": 543,
-        "w": 744,
-        "h": 214
     },
     {
         "id": "4cf17dc99028c6b1",
@@ -1719,7 +1741,7 @@
         "z": "2c9db7aeca761837",
         "g": "80c52ba56bc7160e",
         "x": 560,
-        "y": 670,
+        "y": 650,
         "wires": [
             [
                 "134e6cf970918b0e"
@@ -3106,7 +3128,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 570,
+        "y": 550,
         "wires": []
     },
     {
@@ -3120,7 +3142,7 @@
             "fe99237429d36da3"
         ],
         "x": 360,
-        "y": 840,
+        "y": 820,
         "wires": [
             [
                 "d1b258d56658a434"
@@ -3142,7 +3164,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 840,
+        "y": 820,
         "wires": []
     },
     {
@@ -3156,7 +3178,7 @@
             "771666859c98bac6"
         ],
         "x": 670,
-        "y": 720,
+        "y": 700,
         "wires": [],
         "l": true
     },
@@ -3179,7 +3201,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 380,
-        "y": 670,
+        "y": 650,
         "wires": [
             [
                 "bd875d8df962c57c"
@@ -3196,7 +3218,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 245,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "74e379aa99e1e758"
@@ -3223,7 +3245,7 @@
         "repair": false,
         "outputs": 1,
         "x": 340,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "aa864ce4062b99c5"
@@ -3244,7 +3266,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "134e6cf970918b0e"
@@ -3276,7 +3298,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 330,
-        "y": 1050,
+        "y": 1030,
         "wires": [
             [
                 "e2019f74cf4c285b"
@@ -3295,7 +3317,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 610,
-        "y": 1110,
+        "y": 1090,
         "wires": [
             []
         ]
@@ -3317,7 +3339,7 @@
         "repair": false,
         "outputs": 1,
         "x": 540,
-        "y": 1050,
+        "y": 1030,
         "wires": [
             [
                 "2cc16f6fae2a05c8"
@@ -3338,7 +3360,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 1110,
+        "y": 1090,
         "wires": [
             [
                 "b1144c89e281a90e"
@@ -3354,7 +3376,7 @@
         "props": [
             {
                 "p": "commands",
-                "v": "[\"--mws-listen\",\"port=8200\"]",
+                "v": "[\"--mws-listen\",\"port=8200\",\"host=0.0.0.0\"]",
                 "vt": "json"
             },
             {
@@ -3450,7 +3472,7 @@
         "linkType": "static",
         "timeout": "30",
         "x": 560,
-        "y": 1290,
+        "y": 1280,
         "wires": [
             [
                 "45b27da691ddd601"
@@ -3467,7 +3489,7 @@
             "4c9c46b76b72965f"
         ],
         "x": 225,
-        "y": 1290,
+        "y": 1280,
         "wires": [
             [
                 "4e810fa7d9a7b1c4"
@@ -3486,7 +3508,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 755,
-        "y": 1290,
+        "y": 1280,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -3509,7 +3531,7 @@
         "repair": false,
         "outputs": 1,
         "x": 330,
-        "y": 1290,
+        "y": 1280,
         "wires": [
             [
                 "0c32555e2c9829c1"
@@ -3541,7 +3563,7 @@
         "twikiIsX": true,
         "fieldIsX": false,
         "x": 540,
-        "y": 1450,
+        "y": 1440,
         "wires": [
             [
                 "35b92a1440e5cc09"
@@ -3561,7 +3583,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 1450,
+        "y": 1440,
         "wires": [
             [
                 "f491cc3db92cc626"
@@ -3597,7 +3619,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 610,
-        "y": 1390,
+        "y": 1380,
         "wires": [
             [
                 "0f50d74a1682b4e9"
@@ -3613,7 +3635,7 @@
         "name": "Generate TW5-Node-RED plugin",
         "links": [],
         "x": 320,
-        "y": 1390,
+        "y": 1380,
         "wires": [
             [
                 "da7b525e9244bad9"
@@ -3630,7 +3652,7 @@
         "mode": "return",
         "links": [],
         "x": 745,
-        "y": 1450,
+        "y": 1440,
         "wires": []
     },
     {
@@ -3658,7 +3680,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 395,
-        "y": 1450,
+        "y": 1440,
         "wires": [
             [
                 "732bf9ecdfc9df63"
@@ -3680,7 +3702,7 @@
         "finalize": "",
         "libs": [],
         "x": 685,
-        "y": 1450,
+        "y": 1440,
         "wires": [
             [
                 "205fb0492ffcd399"
@@ -3825,7 +3847,8 @@
             "6f22ba451b7f1160",
             "a82f26a81975809b",
             "d25c62f7be74bce2",
-            "19722cda955e186f"
+            "19722cda955e186f",
+            "7c99e0a714c4a066"
         ],
         "x": 520,
         "y": 280,
@@ -3894,7 +3917,8 @@
             "1e51d86796c72732",
             "a64c7ab49401a344",
             "8968500f2afcb634",
-            "1f7cf6bc73665c60"
+            "1f7cf6bc73665c60",
+            "7a0c00d7e145b45a"
         ],
         "x": 700,
         "y": 280,
@@ -3912,7 +3936,7 @@
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
         "name": "Connect & \\n Bearer token",
-        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authenticated\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            authorized: false,\n        }\n    }\n\n    // the server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send to security system to finish processing first message\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n//   node.log(`Client switching from socket ${clientIds[cId].socketId}`);\n//   node.log(` to socket ${msg._socketId}`);\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n    \n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow \n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send Heartbeat reply\n    if (msg.topic === 'heartbeat') {\n        node.send([msg, null]);\n    } else { // Send to security system\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
+        "func": "// Client connection info gathered during heartbeat processing\nconst $tw = global.get('$tw');\nconst connectionDb = global.get('twikis').ConnectionDb;\n\n// Generates a JWT token\nfunction genToken(text) {\n    let sweet = { spot: text };\n    const jwt = global.get('jwt');\n    return jwt.sign(sweet, 'shhhhh');\n}\n\n// if wish to decode the token would use:\n// var decoded = jwt.verify(token, 'shhhhh');\n// console.dir(decoded); // bar\n\n// Client Id remains the same until browser reloads page\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Set the token to be stored by the client\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title === '$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Initial connection so generate default values\n// Send msg for further processing of new connections\nif (cId && !clientIds[cId]) {\n    const randomtext = cId;\n    clientIds[cId] = {\n        clientId: cId,\n        userid: '', // Set when authenticated\n        socketId: msg._socketId,\n        auth: {\n            _id: randomtext,\n            _token: genToken(randomtext),\n            _nrRemember: '',\n            authorized: false,\n        }\n    }\n\n    // The server's socket id for this connection\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Connect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Information back to the client $:/temp/tw5-node-red/store\n    clientStore.token = clientIds[cId].auth._token;\n    clientStore.socketId = msg._socketId;\n    clientStore.clientid = cId;\n\n    // Information server side\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n\n    // Send to security system to send the bearer token to client\n    node.send([null, msg]);\n\n    msg.topic = 'Authenticate';\n    // Send to security system to verify authentication of user\n    node.send([null, msg]);\n}\n\n// Insure socket Id is correct (due to reconnects)\nif (clientIds[cId].socketId !== msg._socketId) {\n    // Remove stale ConnectionDb tiddler with old socket id\n    connectionDb.deleteTiddler(clientIds[cId].socketId);\n\n    // Get the new ConnectionDb tiddler - created by tab 'Databases' -> 'ConnectionDb' flow\n    var connectDbTiddler = JSON.parse(connectionDb.getTiddlersAsJson(`[[${msg._socketId}]]`));\n    if (connectDbTiddler.length === 0) {\n        throw new Error('Reconnect ConnectionDb Tiddler not present for updates');\n    }\n\n    // Update all objects, server and client side\n    clientIds[cId].socketId = msg._socketId\n    clientStore.socketId = msg._socketId;\n    connectDbTiddler[0].tw5clientid = cId;\n    connectDbTiddler[0].tags = cId;\n    connectionDb.addTiddler(connectDbTiddler[0]);\n    // Send to security system\n    if (msg.topic !== 'heartbeat') {\n        node.send([null, msg]);\n    }\n}\n\n// Send every msg for further processing\nnode.send([msg, null])\nnode.done()\nreturn;\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -4092,8 +4116,8 @@
         "g": "9b88d3454bec6454",
         "name": "Request client tiddlers",
         "links": [],
-        "x": 180,
-        "y": 2420,
+        "x": 410,
+        "y": 940,
         "wires": [
             [
                 "d6044d2db5c9a352"
@@ -4113,8 +4137,8 @@
         "passthrough": false,
         "return": true,
         "outputs": 1,
-        "x": 370,
-        "y": 2420,
+        "x": 600,
+        "y": 940,
         "wires": [
             [
                 "3c2141c2e87ad46a"
@@ -4129,8 +4153,8 @@
         "name": "Client response",
         "mode": "return",
         "links": [],
-        "x": 540,
-        "y": 2420,
+        "x": 770,
+        "y": 940,
         "wires": [],
         "l": true
     },
@@ -4145,8 +4169,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 440,
-        "y": 2340,
+        "x": 670,
+        "y": 860,
         "wires": [
             []
         ]
@@ -4171,8 +4195,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 230,
-        "y": 2340,
+        "x": 460,
+        "y": 860,
         "wires": [
             [
                 "43382dce74b3010a"
@@ -4446,7 +4470,7 @@
         "z": "fb90098a1998250c",
         "g": "bfac12ca49095e92",
         "name": "Authenticate",
-        "func": "// Authorize a sign-in from the login tiddler\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\n// Check for required fields\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\nif (/[|[\\]{}].*$/.test(userdata.userid)) {\n  msg.error = `User ID can not contain \\`| [ ] { }\\` (vertical bar, square or curly brackets)`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Look up userid from database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(`[[${userdata.userid}]]`));\n\n// User ID is not found\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Reference the stored user data\nuserDbTiddler = userDbTiddler[0];\n\n// Verify the password\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\n\n// Authenticate this client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n// send authentication success\nmsg.network.user = userDbTiddler;\n\nnode.send([null, msg]);\nreturn;\n",
+        "func": "// Authorize a sign-in from the login tiddler\nconst $tw = global.get('$tw');\nconst bcrypt = global.get('bcrypt');\nconst usersDb = global.get('twikis').Users;\nconst userdata = msg.network.client.sender[0];\n\n// Assume will be getting an error\nmsg.topic = 'login';\nmsg.network.user = JSON.parse(JSON.stringify(userdata));\ndelete msg.network.user.password;\n\n// Check for required fields\nif (!(userdata.userid && userdata.password)) {\n  msg.error = `All fields with '*' required.`;\n  node.send(msg); node.done();\n  return;\n}\n\nif (/[|[\\]{}].*$/.test(userdata.userid)) {\n  msg.error = `User ID can not contain \\`| [ ] { }\\` (vertical bar, square or curly brackets)`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Look up userid from database\nvar userDbTiddler = JSON.parse(usersDb.getTiddlersAsJson(`[[${userdata.userid}]]`));\n\n// User ID is not found\nif (!userDbTiddler.length) {\n  msg.error = `User ID '${userdata.userid}' Not Found`;\n  node.send(msg); node.done();\n  return;\n}\n\n// Reference the stored user data\nuserDbTiddler = userDbTiddler[0];\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\n// Verify the password\nconst pwValid = await bcrypt.compare(userdata.password, userDbTiddler.pwHash);\nif (!pwValid) {\n  msg.error = 'Password Invalid!';\n  node.send(msg); node.done();\n  return;\n}\n\n\n// Authenticate this client\nif (cId && clientIds[cId]) {\n  clientIds[cId].userid = userdata.userid;\n  clientIds[cId].auth.authorized = true;\n}\n\n\nvar storeIdx = msg.network.meta.tiddlers.findIndex(element => element.title === '$:/temp/tw5-node-red/store');\nif (storeIdx === -1) {\n  node.warn('unable to find meta.store tiddler')\n}\n\n\n// Store must always be there - unless dev removes it\nconst clientStore = msg.network.meta.tiddlers.find((tiddler) => tiddler.title ==='$:/temp/tw5-node-red/store');\nif (!clientStore) {\n    throw new Error('Tiddler $:/temp/tw5-node-red/store not present for bearer token')\n}\n\n// Store off the new remember token\nif (clientStore.newRemember) {\n  usersDb.addTiddler(new $tw.Tiddler(userDbTiddler, { remember: clientStore.newRemember }));\n  delete msg.network.meta.tiddlers[storeIdx].newRemember;\n}\n\n// send authentication success\nmsg.network.user = userDbTiddler;\n\nnode.send([null, msg]);\nreturn;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4504,7 +4528,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 580,
-        "y": 245,
+        "y": 240,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -4616,7 +4640,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 570,
-        "y": 325,
+        "y": 320,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -4633,8 +4657,8 @@
         "links": [
             "210019cdd0a834d4"
         ],
-        "x": 585,
-        "y": 285,
+        "x": 580,
+        "y": 280,
         "wires": [],
         "l": true
     },
@@ -4666,7 +4690,8 @@
         "y": 200,
         "wires": [
             [
-                "ac5ce25a67192096"
+                "ac5ce25a67192096",
+                "320270c24658be96"
             ]
         ]
     },
@@ -4695,10 +4720,10 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 570,
-        "y": 365,
+        "y": 360,
         "wires": [
             [
-                "cac2c9295125e3b0"
+                "ac5ce25a67192096"
             ]
         ]
     },
@@ -4998,7 +5023,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/DefaultTiddlers\n\n$:/tw5-node-red/login\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n\n!!! Login request\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n{%# error %}\n<div style=\"bockground:white;color:red;font-size:1.6em;font-style:bold;\">\n{%.%}\n</div>\n{%/ error %}\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\n",
+        "template": "title: $:/DefaultTiddlers\n\n$:/tw5-node-red/login\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n\n!!! Login request\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n{%# error %}\n<div style=\"bockground:white;color:red;font-size:1.6em;font-style:bold;\">\n{%.%}\n</div>\n{%/ error %}\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5008,8 +5033,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 580,
-        "y": 410,
+        "x": 570,
+        "y": 400,
         "wires": [
             [
                 "14096d56e14782d1"
@@ -5045,12 +5070,30 @@
         "finalize": "",
         "libs": [],
         "x": 610,
-        "y": 460,
+        "y": 440,
         "wires": [
             [
                 "ac5ce25a67192096"
             ]
         ]
+    },
+    {
+        "id": "320270c24658be96",
+        "type": "debug",
+        "z": "fb90098a1998250c",
+        "g": "bfac12ca49095e92",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 180,
+        "wires": []
     },
     {
         "id": "2318b06227765245",
@@ -5236,7 +5279,7 @@
         "repair": false,
         "outputs": 1,
         "x": 340,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "e4714903c559cb33"
@@ -5276,7 +5319,7 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "edc0b050e5af6de4"
@@ -5295,7 +5338,7 @@
             "9bda19b8b96ee73e"
         ],
         "x": 710,
-        "y": 480,
+        "y": 460,
         "wires": [],
         "l": true
     },
@@ -5493,7 +5536,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 360,
+        "x": 350,
         "y": 410,
         "wires": [
             [
@@ -6274,8 +6317,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 560,
-        "y": 520,
+        "x": 570,
+        "y": 610,
         "wires": [
             [
                 "49e8ade023549ff5"
@@ -6294,8 +6337,8 @@
         "passthrough": true,
         "return": false,
         "outputs": 1,
-        "x": 280,
-        "y": 520,
+        "x": 290,
+        "y": 610,
         "wires": [
             [
                 "5cb34faaf5e14207"
@@ -6320,8 +6363,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 410,
-        "y": 520,
+        "x": 420,
+        "y": 610,
         "wires": [
             [
                 "dee53a18f9af7b3c"
@@ -6335,8 +6378,8 @@
         "g": "5de81872ac658de0",
         "name": "Hide Sidebar",
         "links": [],
-        "x": 140,
-        "y": 520,
+        "x": 150,
+        "y": 610,
         "wires": [
             [
                 "1d23e008fde4d932"
@@ -6352,8 +6395,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 665,
-        "y": 520,
+        "x": 675,
+        "y": 610,
         "wires": []
     },
     {
@@ -6369,8 +6412,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 640,
+        "x": 380,
+        "y": 730,
         "wires": [
             [
                 "e5c2695061c28c3d"
@@ -6384,8 +6427,8 @@
         "g": "47b83acc6a54da80",
         "name": "set msg.twikis",
         "links": [],
-        "x": 140,
-        "y": 640,
+        "x": 150,
+        "y": 730,
         "wires": [
             [
                 "1c83c2ba47bdb96a"
@@ -6401,8 +6444,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 535,
-        "y": 640,
+        "x": 545,
+        "y": 730,
         "wires": []
     },
     {
@@ -6418,8 +6461,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 200,
+        "x": 350,
+        "y": 290,
         "wires": [
             [
                 "3891c3049d5ff01d"
@@ -6433,8 +6476,8 @@
         "g": "49f363e05e815a85",
         "name": "TW Commander",
         "links": [],
-        "x": 160,
-        "y": 200,
+        "x": 170,
+        "y": 290,
         "wires": [
             [
                 "d679dc2c7fb5ad4c"
@@ -6450,8 +6493,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 455,
-        "y": 200,
+        "x": 465,
+        "y": 290,
         "wires": []
     },
     {
@@ -6468,8 +6511,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 70,
+        "x": 410,
+        "y": 160,
         "wires": []
     },
     {
@@ -6490,8 +6533,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 70,
+        "x": 200,
+        "y": 160,
         "wires": [
             [
                 "a07af28ade3a49a2"
@@ -6511,8 +6554,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 300,
+        "x": 410,
+        "y": 390,
         "wires": [
             [
                 "3f8dbc7f474d68d8"
@@ -6526,8 +6569,8 @@
         "g": "1fe9f0e2147a2011",
         "name": "TW Sync Commander",
         "links": [],
-        "x": 180,
-        "y": 300,
+        "x": 190,
+        "y": 390,
         "wires": [
             [
                 "c76e9202971136a2"
@@ -6543,8 +6586,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 535,
-        "y": 300,
+        "x": 545,
+        "y": 390,
         "wires": []
     },
     {
@@ -6554,8 +6597,8 @@
         "g": "2987d0b55f0f6a01",
         "name": "TW MWS Commander",
         "links": [],
-        "x": 170,
-        "y": 400,
+        "x": 180,
+        "y": 490,
         "wires": [
             [
                 "edf7669fe4924d86",
@@ -6572,8 +6615,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 535,
-        "y": 400,
+        "x": 545,
+        "y": 490,
         "wires": []
     },
     {
@@ -6589,8 +6632,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 400,
+        "x": 410,
+        "y": 490,
         "wires": [
             []
         ]
@@ -6603,8 +6646,8 @@
         "name": "commander errors",
         "scope": "group",
         "uncaught": false,
-        "x": 600,
-        "y": 180,
+        "x": 610,
+        "y": 270,
         "wires": [
             [
                 "104f9c4c3a9698dd"
@@ -6625,9 +6668,119 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 230,
+        "x": 630,
+        "y": 320,
         "wires": []
+    },
+    {
+        "id": "2e52f9cf3570eb69",
+        "type": "switch",
+        "z": "127607a6bb274a18",
+        "g": "2cb037cc9808c9d4",
+        "name": "red",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "red",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "a2c79fa655fbdc24"
+            ]
+        ]
+    },
+    {
+        "id": "a2c79fa655fbdc24",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "2cb037cc9808c9d4",
+        "name": "[[TW5-Node-RED Flow Editor]]",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[[TW5-Node-RED Flow Editor]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "f65442df821d2805"
+            ]
+        ]
+    },
+    {
+        "id": "7c99e0a714c4a066",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "g": "2cb037cc9808c9d4",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "2e52f9cf3570eb69"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "7a0c00d7e145b45a",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "g": "2cb037cc9808c9d4",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 655,
+        "y": 60,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "f65442df821d2805",
+        "type": "link call",
+        "z": "127607a6bb274a18",
+        "g": "2cb037cc9808c9d4",
+        "name": "",
+        "links": [
+            "7fd5bbf53ae9558b"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "7a0c00d7e145b45a"
+            ]
+        ]
     },
     {
         "id": "747659894c7a96e7",
@@ -8505,8 +8658,7 @@
         "y": 270,
         "wires": [
             [
-                "f1ef5a7e371b1c7c",
-                "6a395ba866e13097"
+                "f1ef5a7e371b1c7c"
             ]
         ]
     },
@@ -8541,23 +8693,6 @@
                 "33134899afe62741"
             ]
         ]
-    },
-    {
-        "id": "6a395ba866e13097",
-        "type": "debug",
-        "z": "8f4c8042c34e6b26",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 390,
-        "wires": []
     },
     {
         "id": "b27ea02bc203e5f5",
@@ -9229,32 +9364,6 @@
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
     {
-        "id": "57c7e27a6d3f23bd",
-        "type": "switch",
-        "z": "0481506d69936f4f",
-        "g": "a6dd4e060820914b",
-        "name": "red",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "red",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 250,
-        "y": 340,
-        "wires": [
-            [
-                "436833639fa5f502"
-            ]
-        ]
-    },
-    {
         "id": "93753a81a1769fdc",
         "type": "switch",
         "z": "0481506d69936f4f",
@@ -9277,38 +9386,6 @@
         "wires": [
             [
                 "c138fe252fda56df"
-            ]
-        ]
-    },
-    {
-        "id": "436833639fa5f502",
-        "type": "set-network",
-        "z": "0481506d69936f4f",
-        "g": "a6dd4e060820914b",
-        "name": "[[TW5-Node-RED Flow Editor]]",
-        "topic": "",
-        "networkfield": "network.server.tiddlers",
-        "twikiName": "$tw.wiki",
-        "filter": "[[TW5-Node-RED Flow Editor]]",
-        "field": "",
-        "file": "",
-        "updtostory": true,
-        "tostory": "true",
-        "template": "",
-        "clear": false,
-        "editorIsOpen": false,
-        "settingsIsOpen": true,
-        "fromIsOpen": true,
-        "editorIsX": false,
-        "fileIsX": false,
-        "networkIsX": false,
-        "twikiIsX": true,
-        "fieldIsX": false,
-        "x": 470,
-        "y": 340,
-        "wires": [
-            [
-                "95871cedf9ff64b7"
             ]
         ]
     },
@@ -9341,59 +9418,6 @@
         "wires": [
             [
                 "95871cedf9ff64b7"
-            ]
-        ]
-    },
-    {
-        "id": "1bb0c6fc5d4b21c0",
-        "type": "link in",
-        "z": "0481506d69936f4f",
-        "g": "a6dd4e060820914b",
-        "name": "From Client",
-        "links": [
-            "4c9c46b76b72965f"
-        ],
-        "x": 145,
-        "y": 360,
-        "wires": [
-            [
-                "57c7e27a6d3f23bd",
-                "93753a81a1769fdc"
-            ]
-        ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
-    },
-    {
-        "id": "b943f50af5e3f0df",
-        "type": "link out",
-        "z": "0481506d69936f4f",
-        "g": "a6dd4e060820914b",
-        "name": "To Client",
-        "mode": "link",
-        "links": [
-            "5f3f98f37ba41eb1"
-        ],
-        "x": 825,
-        "y": 360,
-        "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "95871cedf9ff64b7",
-        "type": "link call",
-        "z": "0481506d69936f4f",
-        "g": "a6dd4e060820914b",
-        "name": "",
-        "links": [
-            "7fd5bbf53ae9558b"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 710,
-        "y": 360,
-        "wires": [
-            [
-                "b943f50af5e3f0df"
             ]
         ]
     },
@@ -9886,6 +9910,90 @@
         "y": 200,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "436833639fa5f502",
+        "type": "set-network",
+        "z": "0481506d69936f4f",
+        "g": "a6dd4e060820914b",
+        "name": "[[TW5-Node-RED Flow Editor]]",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[[TW5-Node-RED Flow Editor]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": true,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": true,
+        "fieldIsX": false,
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "95871cedf9ff64b7"
+            ]
+        ]
+    },
+    {
+        "id": "1bb0c6fc5d4b21c0",
+        "type": "link in",
+        "z": "0481506d69936f4f",
+        "g": "a6dd4e060820914b",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 145,
+        "y": 360,
+        "wires": [
+            [
+                "93753a81a1769fdc"
+            ]
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "b943f50af5e3f0df",
+        "type": "link out",
+        "z": "0481506d69936f4f",
+        "g": "a6dd4e060820914b",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 825,
+        "y": 360,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "95871cedf9ff64b7",
+        "type": "link call",
+        "z": "0481506d69936f4f",
+        "g": "a6dd4e060820914b",
+        "name": "",
+        "links": [
+            "7fd5bbf53ae9558b"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 710,
+        "y": 360,
+        "wires": [
+            [
+                "b943f50af5e3f0df"
+            ]
         ]
     },
     {

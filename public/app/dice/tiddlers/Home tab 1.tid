@@ -1,0 +1,8 @@
+caption: Node-RED flow
+created: 20240704095830910
+modified: 20240704101711516
+tags: [[Home tabs]]
+title: Home tab 1
+type: text/vnd.tiddlywiki
+
+<<image-basic dice.png width:"70%" caption:"Dice Roll Node-Red flow" align:"center">>
