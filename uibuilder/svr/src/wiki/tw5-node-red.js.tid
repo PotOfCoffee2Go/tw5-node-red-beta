@@ -244,8 +244,8 @@ const updateWiki = (svr) => {
 	svr.meta.tiddlers.forEach(fields => {
 		if (fields.title === `${settings.redStore}` && fields.newRemember) {
 			localStorage['remember'] = fields.newRemember;
-			fields.remember = fields.newRemember;
-			//delete fields.newRemember;
+			localStorage['rememberMe'] = fields.rememberMe;
+			delete fields.newRemember;
 		}
 		fieldsToWiki(fields, false, true, ''); // tostory = false, from server
 	})
@@ -292,6 +292,7 @@ const addInterfaceTiddlers = () => {
 	$tw.wiki.addTiddler(new $tw.Tiddler({
 		title: settings.redStore,
 		remember: localStorage["remember"] || '',
+		rememberMe: localStorage["rememberMe"] || '',
 		type: 'application/json',
 		text: `{ "title": "${settings.redStore}" }`
 	}));
