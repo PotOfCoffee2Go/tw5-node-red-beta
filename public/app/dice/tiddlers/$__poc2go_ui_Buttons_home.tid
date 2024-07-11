@@ -1,0 +1,21 @@
+caption: {{$:/core/images/home-button}} {{$:/language/Buttons/Home/Caption}}
+created: 20231114231429716
+description: {{$:/language/Buttons/Home/Hint}}
+fetched: 20240104074916372
+modified: 20240104153952693
+tags: $:/tags/TopLeftBar ·node-red·
+title: $:/poc2go/ui/Buttons/home
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+<$button message="tm-home" tooltip={{$:/language/Buttons/Home/Hint}} aria-label={{$:/language/Buttons/Home/Caption}} class=<<tv-config-toolbar-class>>>
+<$action-setfield $tiddler="$:/state/sidebar" text="no"/>
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{$:/core/images/home-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text={{$:/language/Buttons/Home/Caption}}/>
+</span>
+</$list>
+</$button>

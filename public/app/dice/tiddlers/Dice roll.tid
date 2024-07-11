@@ -1,0 +1,12 @@
+caption: Play
+created: 20240619051301778
+modified: 20240620014224802
+tags: DiceOfContents dice
+title: Dice roll
+type: text/vnd.tiddlywiki
+
+<<node-red 'dice roll'>>
+
+<span style="display:none;">
+   ( Note - this tiddler is replaced by the server.)
+</span>

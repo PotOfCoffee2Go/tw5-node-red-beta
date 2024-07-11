@@ -23,13 +23,6 @@
  *
  **/
 
-// REMOVE WHEN IN PRODUCTION - REINITIALIZES SQL DATABASE!!!
-const sqlitePath = './public/mws/store/database.sqlite';
-try {
-    require('node:fs').unlinkSync(sqlitePath);
-    console.log(`Successfully deleted ${sqlitePath}\n`);
-} catch(e) {}
-
 /*******************************************************************************
  * TW5-Node-RED startup options
  *  - allowAnon
@@ -44,12 +37,18 @@ try {
 // Note: Some applications require login to work properly - Chat for example
 var allowAnon = false;
 
-// Start TiddlyWiki 'server' edition sync server on startup?
-// Start TiddlyWiki 'multiwikiserver' edition on startup?
-// Start REPL on startup?
-var syncServer = true;
-var mwsServer = true;
+/*******************************************************************************
+ * Start REPL on startup?
+ * Start TiddlyWiki 'server' edition sync server on startup?
+ * Start TiddlyWiki 'multiwikiserver' edition on startup?
+ *
+ *  Startup is controlled in the Node-RED editor 'Startup' tab
+ *    enable/disable 'startup' inject nodes to control startup
+ * When set to false will disable automatic startup
+ ******************************************************************************/
 var startupRepl = true;
+var syncServer = false;
+var mwsServer = true;
 
 /*******************************************************************************
  * REPL and main, sync, and MWS TiddlyWiki modules
@@ -94,6 +93,8 @@ const twikis = {
     '$twsync.wiki': $twsync.wiki,
     '$twmws.wiki': $twmws.wiki
 };
+
+console.log('\x1b[38;5;223;48;5;0m');
 
 /*******************************************************************************/
 

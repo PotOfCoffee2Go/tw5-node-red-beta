@@ -1,0 +1,14 @@
+author: Mohammad Rahmani
+core-version: >=5.2.7
+created: 20240619122450549
+description: Extended markups, styles, images, tables, and macros
+fetched: 20240619122450549
+list: readme license history
+modified: 20240605180905065
+name: Shiraz
+plugin-type: plugin
+source: https://github.com/kookma/TW-Shiraz
+tags: ·node-red·
+title: $:/plugins/kookma/shiraz
+type: application/json
+version: 2.9.5

@@ -8,6 +8,8 @@
 
 # Node-RED Flowfile Backups
 /flows/*.backup
+# Node-RED local library
+/lib/flows
 
 # TW MultiWikiServer database
 /public/mws/store
