@@ -16,16 +16,15 @@
     "tiddlywiki": "^5.3.5",
     "tiddlywikimws": "file:../TiddlyWiki5"
   },
-  "devflows": {
-    "tiddlywikimws": "https://github.com/Jermolene/TiddlyWiki5.git#multi-wiki-support",
-    "node-red-contrib-users": "^0.1.10",
-    "tiddlywiki": "^5.3.3"
+  "devDependencies": {
+    "jasmine": "^5.1.0"
   },
   "scripts": {
     "start": "node ./node_modules/node-red/red.js -s ./settings.js",
     "syncserver": "node ./syncserver",
     "server-edition": "node ./syncserver",
     "export": "node ./src/bin/export",
+    "test": "jasmine",
     "mon": "nodemon --ext js,html,json --watch src/nodes /usr/lib/node_modules/node-red/red.js --settings ./settings.js"
   },
   "repository": {
@@ -42,5 +41,10 @@
   "bugs": {
     "url": "https://github.com/potofcoffee2go/tw5-node-red/issues"
   },
-  "homepage": "https://github.com/potofcoffee2go/tw5-node-red#readme"
+  "homepage": "https://github.com/potofcoffee2go/tw5-node-red#readme",
+  "devflows": {
+    "tiddlywikimws": "https://github.com/Jermolene/TiddlyWiki5.git#multi-wiki-support",
+    "node-red-contrib-users": "^0.1.10",
+    "tiddlywiki": "^5.3.3"
+  }
 }

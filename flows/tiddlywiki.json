@@ -484,10 +484,10 @@
             "530c27cac770eeb4",
             "581538b733302aa5"
         ],
-        "x": 18,
+        "x": 8,
         "y": 41,
         "w": 914,
-        "h": 866
+        "h": 816
     },
     {
         "id": "b900c252078e7f0f",
@@ -1271,13 +1271,12 @@
             "362f3c37d0b16030",
             "cfee1305fe93f1c8",
             "509b906f53cc0bc2",
-            "cac2c9295125e3b0",
-            "14096d56e14782d1"
+            "cac2c9295125e3b0"
         ],
         "x": 99,
         "y": 67,
         "w": 767,
-        "h": 414
+        "h": 374
     },
     {
         "id": "530c27cac770eeb4",
@@ -1297,8 +1296,8 @@
             "98189b2afd7d3e72",
             "1f7cf6bc73665c60"
         ],
-        "x": 44,
-        "y": 527,
+        "x": 34,
+        "y": 477,
         "w": 862,
         "h": 154
     },
@@ -1321,7 +1320,7 @@
             "d24091429b7ee2fe"
         ],
         "x": 84,
-        "y": 729,
+        "y": 679,
         "w": 767,
         "h": 152
     },
@@ -4675,7 +4674,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/temp/tw5-node-red/authenticated\n\nThis tiddler MUST BE FIRST!!\n\n+======+\ntitle: $:/tw5-node-red/login/styles.css\ntags: $:/tags/Stylesheet\ntype: text/css\n\n.tc-page-controls {}\n+======+\ntitle: $:/DefaultTiddlers\n\n+======+\ntitle: $:/StoryList\n\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home\n\nhide\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki\n\nshow\n+======+\ntitle: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n> Note: Must sign-off for remember me to take effect\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
+        "template": "title: $:/temp/tw5-node-red/authenticated\n\nThis tiddler MUST BE FIRST!!\n\n+======+\ntitle: $:/tw5-node-red/login/styles.css\ntags: $:/tags/Stylesheet\ntype: text/css\n\n.tc-page-controls {}\n+======+\ntitle: $:/DefaultTiddlers\n\n+======+\ntitle: $:/StoryList\n\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home\n\nhide\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki\n\nshow\n+======+\ntitle: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n> Note: To change 'Remember Me' settings (ie: automatic login to an account) Must sign-off then re-login with the checkbox set or unset as desired.\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4731,15 +4730,15 @@
         "z": "fb90098a1998250c",
         "g": "530c27cac770eeb4",
         "name": "Unauthorize",
-        "func": "// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\nmsg.error = 'Logged out';\n\n//msg.topic = 'login';\nclientIds[cId].auth.authorized = false;\nreturn msg;",
+        "func": "// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\nmsg.error = 'Logged out';\n\nmsg.topic = 'login';\nclientIds[cId].auth.authorized = false;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 610,
+        "x": 410,
+        "y": 560,
         "wires": [
             [
                 "4cd957658dc2bd9c"
@@ -4755,8 +4754,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 85,
-        "y": 603,
+        "x": 75,
+        "y": 553,
         "wires": [
             [
                 "7396102619538ddb"
@@ -4797,8 +4796,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 4,
-        "x": 210,
-        "y": 604,
+        "x": 200,
+        "y": 554,
         "wires": [
             [
                 "750bd45bece7449a"
@@ -4828,7 +4827,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/StoryList\nlist: \n\n",
+        "template": "title: $:/StoryList\nlist: $:/tw5-node-red/login\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4838,8 +4837,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 585,
-        "y": 610,
+        "x": 575,
+        "y": 560,
         "wires": [
             [
                 "98189b2afd7d3e72",
@@ -4857,8 +4856,8 @@
         "links": [
             "509b906f53cc0bc2"
         ],
-        "x": 790,
-        "y": 610,
+        "x": 780,
+        "y": 560,
         "wires": [],
         "l": true
     },
@@ -4876,7 +4875,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 820,
+        "y": 770,
         "wires": [
             [
                 "9b0a95db2e9194f2"
@@ -4900,7 +4899,7 @@
             "bd6c95b1f4f345ec"
         ],
         "x": 190,
-        "y": 770,
+        "y": 720,
         "wires": [
             [
                 "502c174b58244c46"
@@ -4937,7 +4936,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 465,
-        "y": 840,
+        "y": 790,
         "wires": [
             [
                 "1872fb3e9892e498"
@@ -4956,7 +4955,7 @@
             "9bda19b8b96ee73e"
         ],
         "x": 475,
-        "y": 800,
+        "y": 750,
         "wires": [],
         "l": true
     },
@@ -4985,7 +4984,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 665,
-        "y": 840,
+        "y": 790,
         "wires": [
             [
                 "d24091429b7ee2fe"
@@ -5003,7 +5002,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 810,
-        "y": 840,
+        "y": 790,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5021,7 +5020,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/DefaultTiddlers\n\n$:/tw5-node-red/login\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n\n!!! Login request\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n{%# error %}\n<div style=\"bockground:white;color:red;font-size:1.6em;font-style:bold;\">\n{%.%}\n</div>\n{%/ error %}\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\n",
+        "template": "title: $:/DefaultTiddlers\n\n$:/tw5-node-red/login\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%&network.user.userid%}\nusername: {%&network.user.username%}\nemail: {%network.user.email%}\npassword: \n\n\\define signin()\n<<node-red 'authenticate'>>\n<$action-setfield $tiddler=\"$:/StoryList\" $field=\"list\" $value={{$:/DefaultTiddlers}}/>\n<!-- <$action-sendmessage $message=\"tm-home\"/>\n<$action-navigate $to={{$:/DefaultTiddlers}}/> -->\n\\end\n\n\n!!! Login request\n\nThis login request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n!!! Sign-in\n\n{%# error %}\n<div style=\"bockground:white;color:red;font-size:1.6em;font-style:bold;\">\n{%.%}\n</div>\n{%/ error %}\n\n|User ID*|<$edit-text field=\"userid\" focus=\"no\"/>| Unique string used to identify you |\n|Password*|<$edit-text field=\"password\" type=\"password\"/>| Your password to sign in |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<signin>>\"> Sign in </$button> - Do not have an account? - <$button actions=\"<<node-red 'register request'>>\"> Create account </$button>\n\nWhen connecting to the server will need to sign-in. Can use ''demo'' with password ''demo'' but can get strange if multiple users are using the same 'user'. Is better to ''Create account'' - Only requires a user ID, password, and name. No other info is kept - other than optional email if given.\n\n+======+\ntitle: $:/StoryList\nlist: $:/tw5-node-red/login\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -5035,7 +5034,7 @@
         "y": 400,
         "wires": [
             [
-                "14096d56e14782d1"
+                "ac5ce25a67192096"
             ]
         ]
     },
@@ -5049,31 +5048,10 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 715,
-        "y": 570,
+        "x": 705,
+        "y": 520,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
-    },
-    {
-        "id": "14096d56e14782d1",
-        "type": "function",
-        "z": "fb90098a1998250c",
-        "g": "bfac12ca49095e92",
-        "name": "Show login tiddler?",
-        "func": "// The nodered and hello wikis show as a splash page\n//  so do not show the login screen until 'Home' is \n//  this is done by removing the screen from the storylist\nvar pathname = msg.network.meta.location.pathname;\nif (pathname.includes('nodenred.html') || pathname.includes('hello.html'))\n    msg.network.server.storylist = [];\nelse {\n    msg.network.server.storylist = ['$:/tw5-node-red/login'];\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 440,
-        "wires": [
-            [
-                "ac5ce25a67192096"
-            ]
-        ]
     },
     {
         "id": "2318b06227765245",
