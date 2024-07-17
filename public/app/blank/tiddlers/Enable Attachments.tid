@@ -1,0 +1,10 @@
+created: 20240716211225251
+modified: 20240716213400326
+tags: 
+title: Enable Attachments
+type: text/vnd.tiddlywiki
+
+Enable Attachments: {{$:/tw5-node-red/EnableAttachments}}
+
+<$button actions="<<node-red 'mws/enable-attachments/yes'>>"> yes </$button>
+<$button actions="<<node-red 'mws/enable-attachments/no'>>"> no </$button>
