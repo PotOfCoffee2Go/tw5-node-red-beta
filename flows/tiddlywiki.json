@@ -9474,7 +9474,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: You got mail!\n\n<<list-links filter:\"[tag[Email]]\">>",
+        "template": "title: You got mail!\n\n<<list-links filter:\"[tag[Email]]\" emptyMessage:\"No emails yet\">>",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
