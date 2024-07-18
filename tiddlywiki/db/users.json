@@ -20,7 +20,8 @@
     "email": "",
     "fetched": "20240325121838754",
     "tags": "·node-red·",
-    "pwHash": "$2b$08$K3Rymy7iRlR8j28747I5eeauQyGqlz3J5vp7BVUf/lgEQ4cHuXgB6"
+    "pwHash": "$2b$08$K3Rymy7iRlR8j28747I5eeauQyGqlz3J5vp7BVUf/lgEQ4cHuXgB6",
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAzMjUxMjE4Mzg3NTRhIGFuZCBiIGFuZCBjMC4zMTQ2NjQ5OTk5NjYwMDUxNyIsImlhdCI6MTcyMTIyMjgyN30.QLwAnNVXJXCtOlVEtSNkLZ80R_nIM_gHJ51dG_shL_0"
   },
   {
     "created": "20240212110457956",
@@ -33,7 +34,8 @@
     "tags": "·node-red·",
     "pwHash": "$2b$08$NRbYUbXxi1P6VyuYSHAsfOwsfvOyXT0C16psqE77hZKtQZkzYJiHa",
     "joined": "color-blind flexible confront",
-    "palette": "$:/palettes/Twilight-Node-Red"
+    "palette": "$:/palettes/Twilight-Node-Red",
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAyMTIxMTA0NTc5NTZEZW1vMC41MTA3OTA5MzA5MzczOTgxIiwiaWF0IjoxNzIxMjMwMTAwfQ.wkJeDF6HwaOa7Q_Ah14dRAm4tA2veJ_HCFOv9Js0l-E"
   },
   {
     "created": "20240202025416289",
@@ -58,7 +60,8 @@
     "email": "",
     "fetched": "20240421154029261",
     "tags": "·node-red·",
-    "pwHash": "$2b$08$iT2.J7AbIC7NBYQXyMniSOLS/c1MlqcyRHPf1fs/sX.zvpG9kaQ0u"
+    "pwHash": "$2b$08$iT2.J7AbIC7NBYQXyMniSOLS/c1MlqcyRHPf1fs/sX.zvpG9kaQ0u",
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDA0MjExNTQwMjkyNjFHaWdpMC45MDk4NDAwODI3MjQ3MTM1IiwiaWF0IjoxNzIxMjMwNDY4fQ.DXoNtawQBWXTn8npLwW9IJGc2gfocBXwC2omOxqtY4s"
   },
   {
     "created": "20240215055357288",
@@ -72,7 +75,7 @@
     "pwHash": "$2b$08$UbkQanp/.gZggA9ooomj5uYZhUu3ULLx3cwPCv4Prz5s25q5Bj6dS",
     "joined": "hypnothize floor sleepless confront flexible dice",
     "palette": "$:/palettes/Twilight-Node-Red",
-    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAyMTUwNTUzNTcyODhQb3RPZkNvZmZlZTJHbzAuMTYyNzY2MTE4OTEyNTM5NTYiLCJpYXQiOjE3MjExNjcyNTN9.Xd_PYmkU1StPC9AHkDZKLnHkvVn2q2_-ErpRLnApQTI"
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAyMTUwNTUzNTcyODhQb3RPZkNvZmZlZTJHbzAuNTIzNDQ3ODYzNTY1MTQ2NSIsImlhdCI6MTcyMTIzMjcwOX0.xMtkRd2GXlCZH4UXuKdyz1zXl6xo605eAu_nABmm_so"
   },
   {
     "created": "20240414173620892",
@@ -83,7 +86,8 @@
     "email": "",
     "fetched": "20240414173620892",
     "tags": "·node-red·",
-    "pwHash": "$2b$08$F7eBjHExXXJNv6ZixPwOGukbtwFubidAImMhlPFyTeJm4Te462dQG"
+    "pwHash": "$2b$08$F7eBjHExXXJNv6ZixPwOGukbtwFubidAImMhlPFyTeJm4Te462dQG",
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDA0MTQxNzM2MjA4OTJQb3RPZkNvZmZlZTJHb1RvbzAuMzUwODUzNTYwNzEzNDUxMyIsImlhdCI6MTcyMTIzMTg3Mn0.JZIV3HywIiYOut3iq3gB-FFbl1S8Nc78rG4JEy1xZZQ"
   },
   {
     "created": "20240310133138722",

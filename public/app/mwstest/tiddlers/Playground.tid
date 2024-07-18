@@ -1,5 +1,5 @@
 created: 20240424162224595
-modified: 20240716215849963
+modified: 20240717022630246
 mustache: yes
 tags: 
 title: Playground
@@ -15,17 +15,17 @@ type: text/vnd.tiddlywiki
 {{watcher}}
 
 
-{{Watching recipe blank for updates}}
+{{Watching recipe mwstest for updates}}
 
 ---
 
 <$button actions="<<node-red 'hello'>>"> Hello </$button>
 
-<$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '[[Playground]] [[components.png]] [[sync browser dev.png]]'>>"> Send Playground </$button>
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/mwstest' '[[Playground]] [[components.png]] [[sync browser dev.png]]'>>"> Send Playground </$button>
 
 Filter: <$edit-text field=filter />
 <$set name=filter value={{!!filter}}>
-<$button actions="<<node-red 'mws/save-recipe-tiddlers/blank' '$(filter)$'>>"> Send </$button>
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/mwstest' '$(filter)$'>>"> Send </$button>
 </$set>
 
 ---

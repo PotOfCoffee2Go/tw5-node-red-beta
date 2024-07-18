@@ -1,0 +1,7 @@
+created: 20240716121734857
+modified: 20240717013613003
+tags: 
+title: watcher
+type: text/vnd.tiddlywiki
+
+<$button actions="<<node-red 'mws/start-watch-recipe/mwstest'>>"> watch-recipe mwstest </$button>

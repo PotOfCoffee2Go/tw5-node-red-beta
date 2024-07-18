@@ -937,10 +937,10 @@
         "nodes": [
             "fe8b9c657dd14575"
         ],
-        "x": 32,
-        "y": 491,
-        "w": 796,
-        "h": 282
+        "x": 98,
+        "y": 37,
+        "w": 684,
+        "h": 150
     },
     {
         "id": "2cb037cc9808c9d4",
@@ -1508,7 +1508,7 @@
         "type": "group",
         "z": "3a98d4a7cc479175",
         "g": "b3eae0cca5f70a1c",
-        "name": "1. Enable 'Load SQL' (Deploy) \\n 2. Press 'Delete SQL DB' inject button \\n 3. Restart TW5-Node-Red \\n 4. Disable 'Load SQL' (Deploy)",
+        "name": "",
         "style": {
             "label": true,
             "fill": "#3f3f3f",
@@ -1516,13 +1516,14 @@
             "color": "#dbcbe7"
         },
         "nodes": [
-            "4cf17dc99028c6b1",
-            "2f5d15dbb7f6703c"
+            "ad8d78a24b5b036b",
+            "562c59b54e92f9cc",
+            "5287aee91ed80f4a"
         ],
-        "x": 58,
-        "y": 533,
-        "w": 744,
-        "h": 214
+        "x": 124,
+        "y": 79,
+        "w": 632,
+        "h": 82
     },
     {
         "id": "8549cd6c5c10aa65",
@@ -1584,43 +1585,6 @@
         "y": 799,
         "w": 532,
         "h": 82
-    },
-    {
-        "id": "4cf17dc99028c6b1",
-        "type": "group",
-        "z": "3a98d4a7cc479175",
-        "g": "fe8b9c657dd14575",
-        "name": "Load ./public/app 'server' \\n editions into MWS SQLite \\n database as recipes",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "5287aee91ed80f4a"
-        ],
-        "x": 84,
-        "y": 607,
-        "w": 172,
-        "h": 114
-    },
-    {
-        "id": "2f5d15dbb7f6703c",
-        "type": "group",
-        "z": "3a98d4a7cc479175",
-        "g": "fe8b9c657dd14575",
-        "name": "Delete SQLite Database \\n This will require a Reboot of TW5-Node-RED",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "ad8d78a24b5b036b",
-            "562c59b54e92f9cc"
-        ],
-        "x": 284,
-        "y": 623,
-        "w": 492,
-        "h": 98
     },
     {
         "id": "7c48a995b12f0315",
@@ -6758,8 +6722,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 200,
-        "y": 90,
+        "x": 220,
+        "y": 370,
         "wires": [
             [
                 "5a16a0adef35c2c0"
@@ -6774,8 +6738,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 95,
-        "y": 90,
+        "x": 115,
+        "y": 370,
         "wires": [
             [
                 "747659894c7a96e7"
@@ -6792,8 +6756,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 755,
-        "y": 240,
+        "x": 775,
+        "y": 520,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6851,8 +6815,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 7,
-        "x": 160,
-        "y": 200,
+        "x": 180,
+        "y": 480,
         "wires": [
             [
                 "b055ad8d1bdcde33"
@@ -6889,8 +6853,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 150,
+        "x": 460,
+        "y": 430,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6920,8 +6884,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 650,
-        "y": 240,
+        "x": 670,
+        "y": 520,
         "wires": [
             [
                 "5652efdb88423597"
@@ -6940,8 +6904,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 230,
+        "x": 450,
+        "y": 510,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6960,8 +6924,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 190,
+        "x": 450,
+        "y": 470,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6980,11 +6944,11 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    const mustache = global.get('mustache');\n\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        //console.dir(recipeTiddlers);\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList' || /^Draft of /.test(tiddlerInfo.title)) {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (tiddlers.length || deletelist.length) {\n                // Remove stale clientids no longer connected\n                const clientIds = global.get('clientIds');\n                recipes[recipeName].clientid.forEach(id => {\n                    if (!clientIds[id]) {\n                        $tw.utils.removeArrayEntries(recipes[recipeName].clientid, id);\n                        delete recipes[recipeName].msgs[id];\n                    }\n                })\n                // mustache substitution\n                recipes[recipeName].clientid.forEach(id => {\n                    var clTiddlers = [];\n                    tiddlers.forEach(tiddler => {\n                        clTiddlers.push(JSON.parse(JSON.stringify(tiddler)));\n                        if (tiddler.text && tiddler.mustache === 'yes') {\n                            clTiddlers[clTiddlers.length - 1].text = mustache.render(tiddler.text, recipes[recipeName].msgs[id], {}, ['{%', '%}']);\n                        }\n                    })\n                    // Broadcast message\n                    var msg = {};\n                    msg.broadcastId = id;\n                    msg.deletelist = deletelist;\n                    msg.recipe = recipes[recipeName];\n                    msg.payload = clTiddlers;\n                    node.send(msg);\n                })\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\nglobal.set('recipeEvent', undefined);\n",
         "libs": [],
-        "x": 440,
-        "y": 110,
+        "x": 460,
+        "y": 390,
         "wires": [
             [
-                "7076ae22ac2cc708"
+                "a69d54bd36e2f8cd"
             ]
         ]
     },
@@ -6997,8 +6961,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 790,
-        "y": 90,
+        "x": 830,
+        "y": 350,
         "wires": [],
         "l": true
     },
@@ -7014,8 +6978,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 270,
+        "x": 450,
+        "y": 550,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -7034,10 +6998,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 140,
+        "x": 820,
+        "y": 390,
         "wires": [
-            []
+            [
+                "8ecf386acefd8e7d"
+            ]
         ]
     },
     {
@@ -7052,8 +7018,8 @@
         "initialize": "",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
-        "x": 430,
-        "y": 310,
+        "x": 450,
+        "y": 590,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -7065,12 +7031,12 @@
         "type": "http in",
         "z": "3a98d4a7cc479175",
         "name": "",
-        "url": "/bags/:bag_name/tiddlers/:title/blob",
+        "url": "/bags/:bag_name/attachment/:title",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 430,
+        "x": 250,
+        "y": 260,
         "wires": [
             [
                 "c1394e6ac2c2e178"
@@ -7089,8 +7055,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 430,
+        "x": 520,
+        "y": 260,
         "wires": [
             [
                 "4f1a271151298c03"
@@ -7104,51 +7070,54 @@
         "name": "blob reponse",
         "statusCode": "",
         "headers": {},
-        "x": 660,
-        "y": 430,
+        "x": 720,
+        "y": 260,
         "wires": []
     },
     {
         "id": "5287aee91ed80f4a",
         "type": "function",
         "z": "3a98d4a7cc479175",
-        "d": true,
-        "g": "4cf17dc99028c6b1",
+        "g": "fe8b9c657dd14575",
         "name": "Load SQL",
-        "func": "// See 'On Start' for implementation\nreturn msg;",
-        "outputs": 0,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\nif (!tw5flags.SqlLoaded) {\n    loadTNR();\n    setRecipeState();\n}\n\n",
-        "finalize": "",
-        "libs": [],
-        "x": 170,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "ad8d78a24b5b036b",
-        "type": "function",
-        "z": "3a98d4a7cc479175",
-        "g": "2f5d15dbb7f6703c",
-        "name": "Delete SQLite database",
-        "func": "//fs.rmSync(dir, { recursive: true, force: true });\n\nconst mws = './public/mws/';\nconst store = mws + 'store';\nconst tiddlers = mws + 'tiddlers';\n\nfunction deleteDir(dir) {\n    try {\n        global.get('fs').rmSync(dir, { recursive: true, force: true });\n        node.log(`Successfully deleted ${dir}`);\n        node.warn(`Reboot Required`);\n    } catch (e) {\n        node.error(`Delete of ${dir} unsuccessful`);\n        node.error(`${e.message}`);\n    }\n}\nconsole.log('');\ndeleteDir(store);\ndeleteDir(tiddlers);\n\nreturn msg;",
+        "func": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\n//if (!tw5flags.SqlLoaded) {\nloadTNR();\nsetRecipeState();\n//}\n\nreturn msg;",
         "outputs": 0,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 680,
+        "x": 670,
+        "y": 120,
         "wires": []
+    },
+    {
+        "id": "ad8d78a24b5b036b",
+        "type": "function",
+        "z": "3a98d4a7cc479175",
+        "g": "fe8b9c657dd14575",
+        "name": "Delete SQLite database",
+        "func": "//fs.rmSync(dir, { recursive: true, force: true });\n\nconst mws = './public/mws/';\nconst store = mws + 'store';\nconst tiddlers = mws + 'tiddlers';\n\nfunction deleteDir(dir) {\n    try {\n        global.get('fs').rmSync(dir, { recursive: true, force: true });\n        node.log(`Successfully deleted ${dir}`);\n    } catch (e) {\n        node.error(`Delete of ${dir} unsuccessful`);\n    }\n}\nconsole.log('');\ndeleteDir(store);\ndeleteDir(tiddlers);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "5287aee91ed80f4a"
+            ]
+        ]
     },
     {
         "id": "562c59b54e92f9cc",
         "type": "inject",
         "z": "3a98d4a7cc479175",
-        "g": "2f5d15dbb7f6703c",
-        "name": "Delete SQL DB",
+        "g": "fe8b9c657dd14575",
+        "name": "Reinitialize SQL DB",
         "props": [
             {
                 "p": "commands",
@@ -7166,8 +7135,8 @@
         "once": false,
         "onceDelay": "2",
         "topic": "",
-        "x": 410,
-        "y": 680,
+        "x": 260,
+        "y": 120,
         "wires": [
             [
                 "ad8d78a24b5b036b"
@@ -7186,8 +7155,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 70,
+        "x": 460,
+        "y": 350,
         "wires": [
             [
                 "7076ae22ac2cc708"
@@ -7217,11 +7186,42 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 620,
-        "y": 90,
+        "x": 640,
+        "y": 350,
         "wires": [
             [
                 "8ecf386acefd8e7d"
+            ]
+        ]
+    },
+    {
+        "id": "a69d54bd36e2f8cd",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 640,
+        "y": 390,
+        "wires": [
+            [
+                "485d61633f5c01f4"
             ]
         ]
     },
