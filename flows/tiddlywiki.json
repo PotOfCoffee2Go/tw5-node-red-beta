@@ -4316,7 +4316,8 @@
             "04895925eade208c",
             "761190764f5f719c",
             "8ecf386acefd8e7d",
-            "f1ef5a7e371b1c7c"
+            "f1ef5a7e371b1c7c",
+            "ca45cff665073dfd"
         ],
         "x": 400,
         "y": 380,
@@ -9365,10 +9366,12 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 105,
+        "x": 115,
         "y": 50,
         "wires": [
-            []
+            [
+                "07b3f78b2005f79b"
+            ]
         ],
         "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
     },
@@ -9381,7 +9384,7 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 365,
+        "x": 645,
         "y": 50,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
@@ -9405,30 +9408,154 @@
         "repeat": "300",
         "fetch": "auto",
         "inputs": 0,
-        "x": 130,
-        "y": 120,
+        "x": 140,
+        "y": 110,
         "wires": [
             [
-                "e90be089be088cff"
+                "fa133837705129fb"
             ]
         ]
     },
     {
-        "id": "e90be089be088cff",
-        "type": "debug",
+        "id": "07b3f78b2005f79b",
+        "type": "switch",
         "z": "4c181f9e0b0bc719",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 120,
-        "wires": []
+        "name": "watch-email",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "watch-email",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 50,
+        "wires": [
+            [
+                "ec2ff3e97899ec43"
+            ]
+        ]
+    },
+    {
+        "id": "ec2ff3e97899ec43",
+        "type": "function",
+        "z": "4c181f9e0b0bc719",
+        "name": "watch for emails",
+        "func": "// Set this connection to watch for emails\n\n// This client\nvar clientIds = global.get('clientIds');\nvar cId = msg.network.meta._clientid;\n\nif (cId && clientIds[cId]) {\n    clientIds[cId].email = {\n        watching: true,\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 50,
+        "wires": [
+            [
+                "752b4a418e5b2c03"
+            ]
+        ]
+    },
+    {
+        "id": "752b4a418e5b2c03",
+        "type": "set-network",
+        "z": "4c181f9e0b0bc719",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "payload",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: You got mail!\n\n<<list-links filter:\"[tag[Email]]\">>",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 550,
+        "y": 50,
+        "wires": [
+            [
+                "d25c68fba7336a7c"
+            ]
+        ]
+    },
+    {
+        "id": "fa133837705129fb",
+        "type": "function",
+        "z": "4c181f9e0b0bc719",
+        "name": "You got mail",
+        "func": "\nconst clientIds = global.get('clientIds');\n\n// Is this client watching emails?\nfunction clientIsEmailWatcher(cid) {\n    return clientIds[cid].email && clientIds[cid].email.watching;\n}\n\n//  List of all emailing watcher client ids\nfunction getListOfEmailWatchers() {\n    var emailIds = [];\n    for (let cid in clientIds) {\n        if (clientIsEmailWatcher(cid)) {\n            emailIds.push(cid);\n        }\n    }\n    return emailIds;\n}\nvar text = `<div> From: \\n\n${msg.header[\"return-path\"][0].html}\n</div><div>\n${msg.payload}\n</div>\n`;\n\nmsg.tiddler = {\n    title: msg.topic,\n    tags: 'Email',\n    text: text\n}\n\nmsg.broadcastId = getListOfEmailWatchers();\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 110,
+        "wires": [
+            [
+                "873bcbc74084a80c"
+            ]
+        ]
+    },
+    {
+        "id": "873bcbc74084a80c",
+        "type": "set-network",
+        "z": "4c181f9e0b0bc719",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "tiddler",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 450,
+        "y": 110,
+        "wires": [
+            [
+                "ca45cff665073dfd"
+            ]
+        ]
+    },
+    {
+        "id": "ca45cff665073dfd",
+        "type": "link out",
+        "z": "4c181f9e0b0bc719",
+        "name": "Broadcast",
+        "mode": "link",
+        "links": [
+            "85f96a4f808488c5"
+        ],
+        "x": 600,
+        "y": 110,
+        "wires": [],
+        "l": true
     },
     {
         "id": "93753a81a1769fdc",

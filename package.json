@@ -1,7 +1,7 @@
 {
   "name": "@potofcoffee2go/tw5-node-red",
   "description": "TiddlyWiki5 as a client framework for Node-Red server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "author": "PotOfCoffee2Go",
   "license": "Apache-2.0",

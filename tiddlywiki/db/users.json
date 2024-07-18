@@ -75,7 +75,7 @@
     "pwHash": "$2b$08$UbkQanp/.gZggA9ooomj5uYZhUu3ULLx3cwPCv4Prz5s25q5Bj6dS",
     "joined": "hypnothize floor sleepless confront flexible dice",
     "palette": "$:/palettes/Twilight-Node-Red",
-    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAyMTUwNTUzNTcyODhQb3RPZkNvZmZlZTJHbzAuMjM4NjAxNDA2NDgyOTcwNDYiLCJpYXQiOjE3MjEyNzA2NjJ9.UlEgnZBNgiVphlW5AiWlrOalfO5ByHK1yuFPXsZt6Mk"
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAyMTUwNTUzNTcyODhQb3RPZkNvZmZlZTJHbzAuNzI1NjMwODkwODc2NTkxNiIsImlhdCI6MTcyMTMxNzU4NX0.4jFz-0cNj67XTSdRIIHbJ8zaAaPTUcULj7BAbohosG4"
   },
   {
     "created": "20240414173620892",
@@ -111,7 +111,8 @@
     "fetched": "20240325205227771",
     "tags": "·node-red·",
     "pwHash": "$2b$08$Xx0a8zWeki22xkXtgoZJd.tLoKUIQj7o4Ta7pnK7Rcs8fp58MVHwO",
-    "joined": "flexible"
+    "joined": "flexible",
+    "remember": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhU3RyaW5nIjoiMjAyNDAzMjUyMDUyMjc3NzFwZWUgcGVlMC4yOTY1MzIyNjQ2ODkwNDA3IiwiaWF0IjoxNzIxMzEzNDA2fQ.lys-qpg_t8AU3Z09_fQz4Ab_PepaRk-fC27jpeIjKzI"
   },
   {
     "created": "20240421153744193",
