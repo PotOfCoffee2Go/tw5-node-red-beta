@@ -17,9 +17,6 @@
     "tiddlywiki": "^5.3.5",
     "tiddlywikimws": "file:../TiddlyWiki5"
   },
-  "devDependencies": {
-    "jasmine": "^5.1.0"
-  },
   "scripts": {
     "start": "node ./node_modules/node-red/red.js -s ./settings.js",
     "syncserver": "node ./syncserver",
