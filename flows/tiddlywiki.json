@@ -96,6 +96,14 @@
         "env": []
     },
     {
+        "id": "4c181f9e0b0bc719",
+        "type": "tab",
+        "label": "Email",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "0481506d69936f4f",
         "type": "tab",
         "label": "Applications",
@@ -3810,7 +3818,8 @@
             "a82f26a81975809b",
             "d25c62f7be74bce2",
             "19722cda955e186f",
-            "7c99e0a714c4a066"
+            "7c99e0a714c4a066",
+            "dc03bafa5a5f1bf0"
         ],
         "x": 520,
         "y": 280,
@@ -3880,7 +3889,8 @@
             "a64c7ab49401a344",
             "8968500f2afcb634",
             "1f7cf6bc73665c60",
-            "7a0c00d7e145b45a"
+            "7a0c00d7e145b45a",
+            "d25c68fba7336a7c"
         ],
         "x": 700,
         "y": 280,
@@ -9346,6 +9356,79 @@
         "y": 260,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "dc03bafa5a5f1bf0",
+        "type": "link in",
+        "z": "4c181f9e0b0bc719",
+        "name": "From Client",
+        "links": [
+            "4c9c46b76b72965f"
+        ],
+        "x": 105,
+        "y": 50,
+        "wires": [
+            []
+        ],
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+    },
+    {
+        "id": "d25c68fba7336a7c",
+        "type": "link out",
+        "z": "4c181f9e0b0bc719",
+        "name": "To Client",
+        "mode": "link",
+        "links": [
+            "5f3f98f37ba41eb1"
+        ],
+        "x": 365,
+        "y": 50,
+        "wires": [],
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "773570a16c4b63e2",
+        "type": "e-mail in",
+        "z": "4c181f9e0b0bc719",
+        "name": "",
+        "protocol": "IMAP",
+        "server": "tnr.poc2go.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "300",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "e90be089be088cff"
+            ]
+        ]
+    },
+    {
+        "id": "e90be089be088cff",
+        "type": "debug",
+        "z": "4c181f9e0b0bc719",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
     },
     {
         "id": "93753a81a1769fdc",
