@@ -1904,7 +1904,8 @@
             [
                 "4d1fe7705b6bdeeb"
             ]
-        ]
+        ],
+        "info": "## Example of Hello World\n"
     },
     {
         "id": "b13da77f6d60b38f",
@@ -4017,7 +4018,7 @@
         "type": "switch",
         "z": "eb845b8cbc7ac49a",
         "g": "01567b9b6b2e01a1",
-        "name": "",
+        "name": "A topic",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -11042,7 +11043,7 @@
         "type": "switch",
         "z": "9e01fcb7c734b8a9",
         "g": "78ab404cb9f85fe4",
-        "name": "",
+        "name": "error msg",
         "property": "error.message",
         "propertyType": "msg",
         "rules": [
