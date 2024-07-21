@@ -10,7 +10,7 @@
     {
         "id": "2c9db7aeca761837",
         "type": "tab",
-        "label": "* Startup",
+        "label": "*Startup",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,7 +18,7 @@
     {
         "id": "eb845b8cbc7ac49a",
         "type": "tab",
-        "label": "* Network",
+        "label": "*Network",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,7 +26,7 @@
     {
         "id": "fb90098a1998250c",
         "type": "tab",
-        "label": "* Security",
+        "label": "*Security",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "304338a4b9f89088",
         "type": "tab",
-        "label": "* onConnect",
+        "label": "*onConnect",
         "disabled": false,
         "info": "",
         "env": []
@@ -42,7 +42,7 @@
     {
         "id": "ab56271e77c6f866",
         "type": "tab",
-        "label": "* Databases",
+        "label": "*Databases",
         "disabled": false,
         "info": "",
         "env": []
@@ -50,7 +50,7 @@
     {
         "id": "127607a6bb274a18",
         "type": "tab",
-        "label": "* Utilities",
+        "label": "*Utilities",
         "disabled": false,
         "info": "",
         "env": []
@@ -58,7 +58,7 @@
     {
         "id": "3a98d4a7cc479175",
         "type": "tab",
-        "label": "* TW Multi Wiki",
+        "label": "*TW Multi Wiki",
         "disabled": false,
         "info": "# Mutli-Wiki-Server Interface\n",
         "env": []
@@ -3767,26 +3767,19 @@
         "name": "From Client",
         "mode": "link",
         "links": [
-            "24408524e1d4766d",
-            "4d92fe16a1cdc7af",
-            "953ae984b4f4c06e",
             "9da0d9942e6c2fc1",
-            "b6d912c02aed86c4",
             "cf4153896f871479",
             "d1cb8f6bba82cf91",
             "d6ea0c2ee9926639",
             "de29b90b6878e330",
-            "e1182f32882a4acc",
             "e49174688546a04d",
             "f863a67c056367c1",
             "5c712f0ce8dca9b2",
             "822afd14ac7a2985",
             "f3bc83f894bc836e",
             "90ab04c3ce5393e8",
-            "30c77c05be7866f3",
             "dd5ea46f096963b9",
             "f15b36736dfbab83",
-            "7d181c09e1cbb823",
             "20bdec5d39a32ed9",
             "1bb0c6fc5d4b21c0",
             "b475506f1c04a454",
@@ -3795,27 +3788,13 @@
             "b3f3017b726e9d6d",
             "432685b6a22a9f0c",
             "033ee6c5fd9b2921",
-            "6264a9cb314478e8",
             "30d1b206b8634711",
-            "4bfb1be4b8167a4b",
-            "7df426b3cbeb4f44",
-            "3ba672d713e44792",
-            "082166158d46af41",
             "7c6ac8311b11bc2a",
-            "f24e0c3fe3980b8a",
-            "e368bd6862eeba29",
             "4187e021402a55de",
-            "9321e75d118ca4af",
             "b27ea02bc203e5f5",
             "a5a15f950dcbf5eb",
-            "1f09a9e28b57b394",
             "8c82e7455a92d9d0",
-            "b3f1b086fcd9e11d",
-            "9e04bbecb2bb7c33",
-            "cbaa14bc051e3edb",
             "3c3235632a2801e6",
-            "193b99040d04db3d",
-            "6f22ba451b7f1160",
             "a82f26a81975809b",
             "d25c62f7be74bce2",
             "19722cda955e186f",

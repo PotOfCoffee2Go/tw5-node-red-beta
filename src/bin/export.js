@@ -34,8 +34,8 @@ var defParams = {
 	tabsString: '0,tnr'
 }
 // TW5-Node-RED tabs
-var tnrTabLabels = ['* Startup', '* Network', '* Security',
-		'* onConnect', '* Databases', '* Utilities', '* TW Multi Wiki'];
+var tnrTabLabels = ['*Startup', '*Network', '*Security',
+		'*onConnect', '*Databases', '*Utilities', '*TW Multi Wiki'];
 
 
 // Outout tabs to a single flowFile or a library directory

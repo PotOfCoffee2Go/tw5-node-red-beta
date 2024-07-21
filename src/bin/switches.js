@@ -25,44 +25,20 @@ const options = {
    path: `/red`
 };
 
-// Default parameters
-var defParams = {
-	path: './flows/new.json',
-	library:'./lib/tw5-node-red/flows/all',
-	overwrite: 'y',
-	tabsString: '0,tnr'
-}
-
-// Outout results to a single file
-var mode = 'file';
-
 // End of config
 // -------------
 
-// -------------
-// Working parameters
-var inp = {
-	path: '',
-	library:'',
-	overwrite: '',
-	tabsString: '',
-	tabsParsed: ''
-}
 
 // Help text - see end of program
 var help = {};
 
 // Syntax candy - logging and debug
 const log = (...args) => { console.log(...args); }
-const dir = (...args) => { console.dir(...args); }
+const dir = (...args) => { console.dir(...args, {depth:5}); }
 
 // Helpers
 const makeCopy = (obj) => JSON.parse(JSON.stringify(obj));
 const fnd = (fld, val) => flows.filter(node => node[fld] === val);
-const listOfSwitches = () => flows.filter(node => node.type === 'switch');
-const listOfSwitchesIndex = (label) => listOfTabs().findIndex((node) => node.label === label)
-const listOfLinkIn = () => flows.filter(node => node.type === 'link in');
-const listOfLinkInIndex = (label) => listOfLinkIn().findIndex((node) => node.label === label)
 const listOfFromClients = () => flows.filter(node => node.name === 'From Client');
 
 // Set terminal colours
@@ -109,45 +85,34 @@ function noderedRequest(path) {
 }
 
 // -------------
+var switchCount = 0;
+var fromClientCount = 0;
 function displayListOfFromClients() {
 	let sourceNode = fnd('id', '4c9c46b76b72965f');
 	dir(sourceNode);
-	sourceNode[0].links.forEach(clientNode => {
-		log(`------------${clientNode}------------------------`)
-		dir(fnd('id', clientNode),{depth:5});
-//		let nextNode = [];
-//		if (clientNode.wires.length) {
-//			clientNode.wires[0].forEach(id => {
-//				//dir(flows.find(node => node.id === id))
-//			})
-//		}
+	sourceNode[0].links.forEach(clientNodeId => {
+		if (fnd('id', clientNodeId).length === 0) {
+			log(`Node not found ------- ${clientNode}-----------`)
+		} else {
+			fromClientCount++;
+			//dir(fnd('id', clientNodeId));
+			let clientNode = fnd('id', clientNodeId)[0];
+			let tab = fnd('id', clientNode.z)[0].label;
+			if (clientNode.wires && clientNode.wires[0].length){
+				clientNode.wires[0].forEach(switchNodeId => {
+					let switchNode = fnd('id', switchNodeId)[0];
+					//dir(switchNode);
+					switchNode.rules.forEach(rule => {
+						dir(rule.v);
+						log(`'${rule.v}' - tab: ${tab}`)
+					})
+					switchCount++;
+				})
+			}
+		}
 	})
-	rt.displayPrompt();
-}
-
-
-function displayListOfLinkIn() {
-	colour.log('\n',153);
-	listOfLinkIn().forEach((linkInNode, idx) => {
-		//let switchNode = fnd('id', linkInNode.wires)[0];
-		//let switchtInfo = `${idx.toString().padStart(2,'0')} - ${switchNode[0].type} ${switchNode[0].label}`;
-		//colour.log(`${linkInNode}: ${linkInNode.id} ${linkInNode.name}\n`,153);
-		if (linkInNode.id === 'cf4153896f871479') dir(linkInNode,{depth:5});
-	})
-	rt.displayPrompt();
-}
-
-function displayListOfSwitches() {
-	colour.log('\n',153);
-	listOfSwitches().forEach((switchNode, idx) => {
-		/*
-		let parent = fnd('id', switchNode.z);
-		let parentInfo = `${idx.toString().padStart(2,'0')} - ${parent[0].type} ${parent[0].label}`;
-		colour.log(`${parentInfo}: ${switchNode.id} ${switchNode.name}\n`,153);
-		*/
-		if (switchNode.id === 'e70e9b4d0880f940') dir(switchNode,{depth:5});
-		//dir(listOfWires(switchNode),{depth:5});
-	})
+	log('from client count:', fromClientCount);
+	log('switch count:', switchCount);
 	rt.displayPrompt();
 }
 
@@ -174,7 +139,7 @@ function mycompleter(line) {
 // Place in REPL context so can be referenced
 function resetContext() {
 	rt.context.rt = rt;
-	rt.context.flows = flows;
+	rt.context.flows = () => flows;
 	rt.context.help = help;
 }
 
@@ -208,8 +173,6 @@ function startRepl() {
 // Startup
 startRepl();
 noderedRequest('flows').then(() => {
-//	displayListOfSwitches()
-//	displayListOfLinkIn()
 	displayListOfFromClients()
 })
 
