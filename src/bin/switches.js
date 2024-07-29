@@ -29,9 +29,6 @@ const options = {
 // -------------
 
 
-// Help text - see end of program
-var help = {};
-
 // Syntax candy - logging and debug
 const log = (...args) => { console.log(...args); }
 const dir = (...args) => { console.dir(...args, {depth:5}); }
@@ -52,8 +49,6 @@ const colour = {
 
 // Flows from Node-RED
 var flows = [];
-// Nodes to write to file
-var toFlowFile = [];
 
 // Request to running Node-RED server
 function noderedRequest(path) {
@@ -87,7 +82,9 @@ function noderedRequest(path) {
 // -------------
 var switchCount = 0;
 var fromClientCount = 0;
-function displayListOfFromClients() {
+var output = [];
+
+function extractListOfFromClients() {
 	let sourceNode = fnd('id', '4c9c46b76b72965f');
 	dir(sourceNode);
 	sourceNode[0].links.forEach(clientNodeId => {
@@ -103,8 +100,8 @@ function displayListOfFromClients() {
 					let switchNode = fnd('id', switchNodeId)[0];
 					//dir(switchNode);
 					switchNode.rules.forEach(rule => {
-						dir(rule.v);
-						log(`'${rule.v}' - tab: ${tab}`)
+						//dir(rule.v);
+						output.push(`|${rule.v.replace('|', ' ')}|${tab}|`)
 					})
 					switchCount++;
 				})
@@ -172,16 +169,22 @@ function startRepl() {
 // -------------------
 // Startup
 startRepl();
-noderedRequest('flows').then(() => {
-	displayListOfFromClients()
-})
-
+noderedRequest('flows')
+	.then(() => {
+		extractListOfFromClients()
+	})
+	.then(() => {
+		log('\n|Topic|Tab|h');
+		log(output.sort().join('\n'));
+		rt.displayPrompt();
+	})
 
 
 
 // -------------------
 // -------------------
 // Help text
+var help = {};
 
 help.cmds = () => {
 	colour.log(`help.intro()\n`)
