@@ -138,7 +138,7 @@
     {
         "id": "785334168b65be6b",
         "type": "tab",
-        "label": "$tw functions",
+        "label": "TW functions",
         "disabled": false,
         "info": "",
         "env": []
@@ -945,10 +945,10 @@
         "nodes": [
             "fe8b9c657dd14575"
         ],
-        "x": 32,
-        "y": 67,
-        "w": 760,
-        "h": 236
+        "x": 122,
+        "y": 655,
+        "w": 600,
+        "h": 272
     },
     {
         "id": "2cb037cc9808c9d4",
@@ -1529,10 +1529,10 @@
             "863726178f893166",
             "fe92fefd1bf96d78"
         ],
-        "x": 58,
-        "y": 109,
-        "w": 708,
-        "h": 168
+        "x": 148,
+        "y": 697,
+        "w": 548,
+        "h": 204
     },
     {
         "id": "8549cd6c5c10aa65",
@@ -1562,19 +1562,20 @@
         "type": "group",
         "z": "eb845b8cbc7ac49a",
         "g": "e0350dac670bea64",
-        "name": "",
+        "name": " => · · ·  · · ·  =>",
         "style": {
             "stroke": "#7f7f7f",
-            "label": true
+            "label": true,
+            "label-position": "s"
         },
         "nodes": [
             "4c9c46b76b72965f",
             "5f3f98f37ba41eb1"
         ],
-        "x": 424,
+        "x": 414,
         "y": 239,
-        "w": 362,
-        "h": 82
+        "w": 382,
+        "h": 90
     },
     {
         "id": "7d2e58723eb09955",
@@ -1609,8 +1610,8 @@
         "nodes": [
             "562c59b54e92f9cc"
         ],
-        "x": 84,
-        "y": 153,
+        "x": 174,
+        "y": 723,
         "w": 252,
         "h": 98
     },
@@ -3819,10 +3820,9 @@
             "d25c62f7be74bce2",
             "19722cda955e186f",
             "7c99e0a714c4a066",
-            "dc03bafa5a5f1bf0",
-            "72136f58fc780f38"
+            "dc03bafa5a5f1bf0"
         ],
-        "x": 520,
+        "x": 510,
         "y": 280,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg",
@@ -3893,7 +3893,7 @@
             "7a0c00d7e145b45a",
             "d25c68fba7336a7c"
         ],
-        "x": 700,
+        "x": 710,
         "y": 280,
         "wires": [
             [
@@ -6734,8 +6734,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 200,
-        "y": 430,
+        "x": 220,
+        "y": 130,
         "wires": [
             [
                 "5a16a0adef35c2c0"
@@ -6750,8 +6750,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 95,
-        "y": 430,
+        "x": 115,
+        "y": 130,
         "wires": [
             [
                 "747659894c7a96e7"
@@ -6768,8 +6768,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 785,
-        "y": 590,
+        "x": 805,
+        "y": 290,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6777,7 +6777,7 @@
         "id": "5a16a0adef35c2c0",
         "type": "switch",
         "z": "3a98d4a7cc479175",
-        "name": "enable-attachments \\n start-watch-recipe \\n get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n stop-watch-recipe \\n save-archive",
+        "name": "enable-attachments \\n start-watch-recipe \\n get-bag-all \\n get-recipe-tiddlers \\n get-bag-tiddler \\n save-recipe-tiddlers \\n stop-watch-recipe \\n load-archive \\n save-archive",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -6825,6 +6825,12 @@
             },
             {
                 "t": "regex",
+                "v": "^mws\\/load-archive$",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
                 "v": "^mws\\/save-archive$",
                 "vt": "str",
                 "case": false
@@ -6832,9 +6838,9 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 8,
-        "x": 160,
-        "y": 560,
+        "outputs": 9,
+        "x": 180,
+        "y": 290,
         "wires": [
             [
                 "b055ad8d1bdcde33"
@@ -6859,6 +6865,9 @@
             ],
             [
                 "eb46b7b8e6895dcb"
+            ],
+            [
+                "ac25ef40411c474c"
             ]
         ]
     },
@@ -6874,8 +6883,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 510,
+        "x": 460,
+        "y": 210,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6905,8 +6914,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 670,
-        "y": 590,
+        "x": 690,
+        "y": 290,
         "wires": [
             [
                 "5652efdb88423597"
@@ -6925,8 +6934,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 590,
+        "x": 450,
+        "y": 290,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6945,8 +6954,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 550,
+        "x": 450,
+        "y": 250,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -6958,15 +6967,15 @@
         "type": "function",
         "z": "3a98d4a7cc479175",
         "name": "start-watch-recipe",
-        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'start-watch-recipe', [2] = recipename\nconst recipe = cmdparts[2];\n\nconsole.dir(recipes)\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    recipes[recipe].msgs[msg.network.meta._clientid] = msg;\n    msg.broadcastId = msg.network.meta._clientid;\n    msg.payload = {\n        title: `Watching recipe ${recipe} for updates`,\n        text: `Started watching for updates to MWS recipe '''${recipe}'''\\n\\n\\n` +\n            `<$button actions=\"<<node-red 'mws/stop-watch-recipe/${recipe}'>>\"> Stop </$button> watching for '''${recipe}''' recipe updates.\\n`\n    }\n    node.send(msg);\n}\n\nnode.done()\nreturn;\n",
+        "func": "// See 'On Start' for the event listener\n\n// Register client to listen for events\nconst $tw = global.get('$twmws');\nconst recipes = global.get('recipes');\nconst cmdparts = msg.topic.split('/');\n\n// [0] = 'mws', [1] = 'start-watch-recipe', [2] = recipename\nconst recipe = cmdparts[2];\n\nif (recipes[recipe]) {\n    $tw.utils.pushTop(recipes[recipe].clientid, msg.network.meta._clientid);\n    recipes[recipe].msgs[msg.network.meta._clientid] = msg;\n    msg.broadcastId = msg.network.meta._clientid;\n    msg.payload = {\n        title: `Watching recipe ${recipe} for updates`,\n        text: `Started watching for updates to MWS recipe '''${recipe}'''\\n\\n\\n` +\n            `<$button actions=\"<<node-red 'mws/stop-watch-recipe/${recipe}'>>\"> Stop </$button> watching for '''${recipe}''' recipe updates.\\n`\n    }\n    node.send(msg);\n}\n\nnode.done()\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n// Recipe Event Handler\nfunction onRecipeTiddlersChanged() {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    const recipes = global.get('recipes');\n    const mustache = global.get('mustache');\n\n    // Don't know which recipe changed - so check them all\n    for (let recipeName in recipes) {\n        let current_last_tiddler_id = $tw.mws.store.getRecipeLastTiddlerId(recipeName);\n        if (!current_last_tiddler_id || current_last_tiddler_id <= recipes[recipeName].last_known_tiddler_id) {\n            continue;\n        }\n        let recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipeName, {\n            include_deleted: true,\n            last_known_tiddler_id: recipes[recipeName].last_known_tiddler_id\n        })\n        //console.dir(recipeTiddlers);\n        // Found recipe with tiddler(s) changed\n        if (recipeTiddlers && recipeTiddlers.length) {\n            let tiddlers = [];\n            let deletelist = [];\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > recipes[recipeName].last_known_tiddler_id) {\n                    recipes[recipeName].last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    recipes[recipeName].lastTiddlerInfo = tiddlerInfo;\n                }\n                if (tiddlerInfo.title === '$:/StoryList' || /^Draft of /.test(tiddlerInfo.title)) {\n                    continue;\n                }\n                if (!tiddlerInfo.is_deleted) {\n                    const tiddler = $tw.mws.store.getRecipeTiddler(tiddlerInfo.title, recipeName);\n                    if (tiddler) {\n                        tiddlers.push(tiddler.tiddler);\n                    }\n                } else {\n                    deletelist.push(tiddlerInfo.title);\n                }\n            }\n            // Send to registered client(s)\n            if (tiddlers.length || deletelist.length) {\n                // Remove stale clientids no longer connected\n                const clientIds = global.get('clientIds');\n                recipes[recipeName].clientid.forEach(id => {\n                    if (!clientIds[id]) {\n                        $tw.utils.removeArrayEntries(recipes[recipeName].clientid, id);\n                        delete recipes[recipeName].msgs[id];\n                    }\n                })\n                // mustache substitution\n                recipes[recipeName].clientid.forEach(id => {\n                    var clTiddlers = [];\n                    tiddlers.forEach(tiddler => {\n                        clTiddlers.push(JSON.parse(JSON.stringify(tiddler)));\n                        if (tiddler.text && tiddler.mustache === 'yes') {\n                            clTiddlers[clTiddlers.length - 1].text = mustache.render(tiddler.text, recipes[recipeName].msgs[id], {}, ['{%', '%}']);\n                        }\n                    })\n                    // Broadcast message\n                    var msg = {};\n                    msg.broadcastId = id;\n                    msg.deletelist = deletelist;\n                    msg.recipe = recipes[recipeName];\n                    msg.payload = clTiddlers;\n                    node.send(msg);\n                })\n            }\n        }\n    }\n}\n\n// Place listener in Node-RED global context\nif (!global.get('recipeEvents')) {\n    const $tw = global.get('$twmws'); // MultiWikiServer TW instance\n    global.set('recipeEvent', onRecipeTiddlersChanged);\n    $tw.mws.store.addEventListener(\"change\", global.get('recipeEvent'));\n}\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\nglobal.set('recipeEvent', undefined);\n",
         "libs": [],
-        "x": 440,
-        "y": 470,
+        "x": 460,
+        "y": 170,
         "wires": [
             [
                 "a69d54bd36e2f8cd"
@@ -6982,8 +6991,8 @@
         "links": [
             "85f96a4f808488c5"
         ],
-        "x": 810,
-        "y": 430,
+        "x": 830,
+        "y": 130,
         "wires": [],
         "l": true
     },
@@ -6999,8 +7008,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 630,
+        "x": 450,
+        "y": 330,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -7019,8 +7028,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 470,
+        "x": 820,
+        "y": 170,
         "wires": [
             [
                 "8ecf386acefd8e7d"
@@ -7039,8 +7048,8 @@
         "initialize": "",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst $tw = global.get('$twmws'); // MultiWikiServer TW instance\n$tw.mws.store.removeEventListener(\"change\", global.get('recipeEvent'));\n",
         "libs": [],
-        "x": 430,
-        "y": 670,
+        "x": 450,
+        "y": 370,
         "wires": [
             [
                 "9163b93163fb2f63"
@@ -7056,8 +7065,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 220,
-        "y": 350,
+        "x": 240,
+        "y": 50,
         "wires": [
             [
                 "c1394e6ac2c2e178"
@@ -7076,8 +7085,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 350,
+        "x": 510,
+        "y": 50,
         "wires": [
             [
                 "4f1a271151298c03"
@@ -7091,8 +7100,8 @@
         "name": "blob reponse",
         "statusCode": "",
         "headers": {},
-        "x": 690,
-        "y": 350,
+        "x": 710,
+        "y": 50,
         "wires": []
     },
     {
@@ -7101,15 +7110,15 @@
         "z": "3a98d4a7cc479175",
         "g": "fe8b9c657dd14575",
         "name": "Load SQL",
-        "func": "// Code added here will be run once\n// whenever the node is started.\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\n//if (!tw5flags.SqlLoaded) {\nloadTNR();\nsetRecipeState();\n//}\n\nreturn msg;",
+        "func": "// Also see 'On Start' tab above \n\n// TW5-Node-RED recipes\nconst $tw = global.get('$twmws');\nconst fs = global.get('fs');\nconst path = global.get('path');\nconst tw5flags = global.get('tw5flags');\n\nfunction loadTNR() {\n    // List of TW5-Node-RED applications ('server' editions)\n    function editionNames() {\n        const editionFolder = path.resolve(\".\", \"public/app\");\n        return fs\n            .readdirSync(editionFolder, { withFileTypes: true })\n            .filter(dirent => dirent.isDirectory())\n            .map(dirent => dirent.name);\n    }\n    // Copy editions\n    function copyEdition(options) {\n        node.log(`Copying TNR ${options.recipeName} recipe`);\n        $tw.mws.store.createBag(options.bagName, options.bagDescription);\n        $tw.mws.store.createRecipe(options.recipeName, [options.bagName], options.recipeDescription);\n        $tw.mws.store.saveTiddlersFromPath(path.resolve($tw.boot.corePath, $tw.config.editionsPath, options.tiddlersPath), options.bagName);\n        // Enable SSE\n        $tw.mws.store.saveBagTiddler(\n            { title: '$:/config/multiwikiclient/use-server-sent-events', text: 'yes' }, options.bagName\n        );\n    }\n    // Load editions into database.sqlite\n    editionNames().forEach((editionName) => {\n        copyEdition({\n            bagName: editionName,\n            bagDescription: `TW5-Node-RED ${editionName}`,\n            recipeName: editionName,\n            recipeDescription: `TW5-Node-RED ${editionName}`,\n            tiddlersPath: path.resolve(\".\", `public/app/${editionName}/tiddlers`)\n        })\n    })\n    tw5flags.SqlLoaded = true;\n}\n\nloadTNR();\n\n\nreturn msg;",
         "outputs": 0,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst $tw = global.get('$twmws');\n\n// Record info about recipes - last_known_tiddler_id, lastTiddlerInfo, etc.\nfunction setRecipeState() {\n    var recipes = {};\n    $tw.mws.store.listRecipes().forEach(recipe => {\n        var last_known_tiddler_id = 0;\n        var lastTiddlerInfo = {};\n        // Get the tiddlers in the recipe\n        var recipeTiddlers = $tw.mws.store.getRecipeTiddlers(recipe.recipe_name, {\n            include_deleted: true,\n            last_known_tiddler_id: 0\n        });\n        // Got tiddlers so update recipe info\n        if (recipeTiddlers) {\n            for (let index = recipeTiddlers.length - 1; index >= 0; index--) {\n                const tiddlerInfo = recipeTiddlers[index];\n                if (tiddlerInfo.tiddler_id > last_known_tiddler_id) {\n                    last_known_tiddler_id = tiddlerInfo.tiddler_id;\n                    lastTiddlerInfo = tiddlerInfo;\n                }\n            }\n        }\n        // Remember current info\n        recipes[recipe.recipe_name] = {\n            last_known_tiddler_id,\n            clientid: [],\n            msgs: {},\n            recipe,\n            lastTiddlerInfo\n        }\n    })\n\n    global.set('recipes', recipes);\n}\n\n//if (!tw5flags.SqlLoaded) {\nsetRecipeState();\n//}\n",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 180,
+        "x": 530,
+        "y": 860,
         "wires": []
     },
     {
@@ -7125,12 +7134,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 210,
+        "x": 560,
+        "y": 780,
         "wires": [
-            [
-                "5287aee91ed80f4a"
-            ]
+            []
         ]
     },
     {
@@ -7156,8 +7163,8 @@
         "once": false,
         "onceDelay": "2",
         "topic": "",
-        "x": 220,
-        "y": 210,
+        "x": 310,
+        "y": 780,
         "wires": [
             [
                 "ad8d78a24b5b036b"
@@ -7176,8 +7183,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 430,
+        "x": 460,
+        "y": 130,
         "wires": [
             [
                 "7076ae22ac2cc708"
@@ -7207,8 +7214,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 620,
-        "y": 430,
+        "x": 640,
+        "y": 130,
         "wires": [
             [
                 "8ecf386acefd8e7d"
@@ -7238,8 +7245,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 620,
-        "y": 470,
+        "x": 640,
+        "y": 170,
         "wires": [
             [
                 "485d61633f5c01f4"
@@ -7256,7 +7263,7 @@
                 "t": "set",
                 "p": "commands",
                 "pt": "msg",
-                "to": "[\"--mws-save-archive\",\"./public/mws\"]",
+                "to": "[\"--mws-load-archive\",\"./public/mws/archive\"]",
                 "tot": "json"
             }
         ],
@@ -7265,8 +7272,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 710,
+        "x": 450,
+        "y": 450,
         "wires": [
             [
                 "d8e2df149a1e027b"
@@ -7283,8 +7290,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 460,
-        "y": 750,
+        "x": 480,
+        "y": 490,
         "wires": [
             [
                 "c51170fc9ee098b6"
@@ -7308,8 +7315,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 490,
-        "y": 150,
+        "x": 310,
+        "y": 860,
         "wires": [
             [
                 "5287aee91ed80f4a"
@@ -7329,7 +7336,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "true",
-        "template": "title: Save SQL Archive\nmustache: yes\n\nSQL Recipe/bag Archive saved in server directory\n\n''{% commands.1 %}''\n",
+        "template": "title: SQL Archive\nmustache: yes\n\nSQL Recipe/bag Archive loaded from server directory\n\n''{% commands.1 %}''\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -7339,11 +7346,135 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 660,
-        "y": 750,
+        "x": 680,
+        "y": 490,
         "wires": [
             [
                 "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "ac25ef40411c474c",
+        "type": "change",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "commands",
+                "pt": "msg",
+                "to": "[\"--mws-save-archive\",\"./public/mws/archive\"]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "5ee2327b020a789d"
+            ]
+        ]
+    },
+    {
+        "id": "5ee2327b020a789d",
+        "type": "link call",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "links": [
+            "45d54f170e388b66"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 480,
+        "y": 580,
+        "wires": [
+            [
+                "abb488e3b73d4647"
+            ]
+        ]
+    },
+    {
+        "id": "abb488e3b73d4647",
+        "type": "set-network",
+        "z": "3a98d4a7cc479175",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: SQL Archive\nmustache: yes\n\nSQL Recipe/bag Archive saved in server directory\n\n''{% commands.1 %}''\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "5652efdb88423597"
+            ]
+        ]
+    },
+    {
+        "id": "56b3c0cfb108f867",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "name": "Load archive",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 450,
+        "wires": [
+            [
+                "eb46b7b8e6895dcb"
+            ]
+        ]
+    },
+    {
+        "id": "f1342b6d86faa0a4",
+        "type": "inject",
+        "z": "3a98d4a7cc479175",
+        "name": "Save archive",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 540,
+        "wires": [
+            [
+                "ac25ef40411c474c"
             ]
         ]
     },

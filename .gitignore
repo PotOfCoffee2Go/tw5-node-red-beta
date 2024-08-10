@@ -13,3 +13,4 @@
 
 # TW MultiWikiServer database
 /public/mws/store
+/public/mws/archive
