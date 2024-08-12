@@ -730,7 +730,7 @@
         "id": "06a7cfc21197c2d2",
         "type": "group",
         "z": "48bfd625e1f82a45",
-        "name": "Misc dev utilities",
+        "name": "",
         "style": {
             "label": true
         },
@@ -743,7 +743,6 @@
             "05f53b0ba8804b02",
             "123b82e57831527e",
             "db3503f6c6d0f5ea",
-            "d6becbc1eb1981a5",
             "8b2f8fcaf3696a2b",
             "e4bc7258380d7124",
             "5bde851593e32438",
@@ -753,16 +752,12 @@
             "52ac23d6fd69ca75",
             "de29b90b6878e330",
             "605736a10c443a62",
-            "0f24b35ddd5713d5",
-            "384b3178b58d75a3",
-            "53fb3fedf84a21e5",
-            "0a43a979cb79ba2e",
-            "42a9532b8df72e2c"
+            "384b3178b58d75a3"
         ],
         "x": 14,
-        "y": 59,
+        "y": 139,
         "w": 872,
-        "h": 322
+        "h": 282
     },
     {
         "id": "f501ab278a37529f",
@@ -1736,6 +1731,18 @@
         "wires": [
             [
                 "134e6cf970918b0e"
+            ]
+        ]
+    },
+    {
+        "id": "dd65d75275bcb3e0",
+        "type": "junction",
+        "z": "48bfd625e1f82a45",
+        "x": 770,
+        "y": 30,
+        "wires": [
+            [
+                "123b82e57831527e"
             ]
         ]
     },
@@ -7496,8 +7503,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 275,
-        "y": 140,
+        "x": 305,
+        "y": 180,
         "wires": [
             [
                 "b1d22b6ea5af6c8c"
@@ -7510,7 +7517,7 @@
         "type": "switch",
         "z": "48bfd625e1f82a45",
         "g": "06a7cfc21197c2d2",
-        "name": "to json",
+        "name": "convert tiddlers",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -7518,16 +7525,32 @@
                 "t": "eq",
                 "v": "to json",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "to tid",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "to debug",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
+        "outputs": 3,
         "x": 180,
-        "y": 140,
+        "y": 220,
         "wires": [
             [
                 "7e1d28042993ee2d"
+            ],
+            [
+                "605736a10c443a62"
+            ],
+            [
+                "52ac23d6fd69ca75"
             ]
         ]
     },
@@ -7544,8 +7567,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 140,
+        "x": 400,
+        "y": 180,
         "wires": [
             [
                 "8e0b5380e71a239e"
@@ -7575,8 +7598,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 485,
-        "y": 160,
+        "x": 515,
+        "y": 200,
         "wires": [
             [
                 "dad041e7b0ba1a66"
@@ -7596,8 +7619,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 160,
+        "x": 640,
+        "y": 200,
         "wires": [
             [
                 "05f53b0ba8804b02"
@@ -7628,7 +7651,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 755,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "123b82e57831527e"
@@ -7647,7 +7670,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 845,
-        "y": 160,
+        "y": 200,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -7666,34 +7689,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 340,
+        "y": 380,
         "wires": []
-    },
-    {
-        "id": "d6becbc1eb1981a5",
-        "type": "switch",
-        "z": "48bfd625e1f82a45",
-        "g": "06a7cfc21197c2d2",
-        "name": "to debug",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "to debug",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 190,
-        "y": 220,
-        "wires": [
-            [
-                "52ac23d6fd69ca75"
-            ]
-        ]
     },
     {
         "id": "8b2f8fcaf3696a2b",
@@ -7708,7 +7705,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "e4bc7258380d7124"
@@ -7738,7 +7735,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 755,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "db3503f6c6d0f5ea",
@@ -7760,7 +7757,7 @@
         "finalize": "",
         "libs": [],
         "x": 160,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "7a077d0de73446be"
@@ -7791,7 +7788,7 @@
         "twikiIsX": false,
         "fieldIsX": true,
         "x": 285,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "dc7833dc679fadd0"
@@ -7818,7 +7815,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "8b2f8fcaf3696a2b"
@@ -7836,8 +7833,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 570,
-        "y": 220,
+        "x": 600,
+        "y": 260,
         "wires": [
             [
                 "5bde851593e32438"
@@ -7871,8 +7868,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 220,
+        "x": 400,
+        "y": 260,
         "wires": [
             [
                 "dcd45e6966cda24d"
@@ -7889,13 +7886,12 @@
             "4c9c46b76b72965f"
         ],
         "x": 55,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
                 "53cfba302a93975f",
-                "d6becbc1eb1981a5",
-                "0f24b35ddd5713d5",
-                "0a43a979cb79ba2e"
+                "0a43a979cb79ba2e",
+                "c9d570cee5a02362"
             ]
         ],
         "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
@@ -7918,40 +7914,14 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 275,
-        "y": 180,
+        "x": 305,
+        "y": 220,
         "wires": [
             [
                 "384b3178b58d75a3"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "0f24b35ddd5713d5",
-        "type": "switch",
-        "z": "48bfd625e1f82a45",
-        "g": "06a7cfc21197c2d2",
-        "name": "to tid",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "to tid",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 180,
-        "y": 180,
-        "wires": [
-            [
-                "605736a10c443a62"
-            ]
-        ]
     },
     {
         "id": "384b3178b58d75a3",
@@ -7965,8 +7935,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 180,
+        "x": 410,
+        "y": 220,
         "wires": [
             [
                 "8e0b5380e71a239e"
@@ -7977,7 +7947,6 @@
         "id": "53fb3fedf84a21e5",
         "type": "http request",
         "z": "48bfd625e1f82a45",
-        "g": "06a7cfc21197c2d2",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -7990,8 +7959,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 380,
-        "y": 100,
+        "x": 390,
+        "y": 90,
         "wires": [
             [
                 "42a9532b8df72e2c"
@@ -8002,7 +7971,6 @@
         "id": "0a43a979cb79ba2e",
         "type": "switch",
         "z": "48bfd625e1f82a45",
-        "g": "06a7cfc21197c2d2",
         "name": "get gist",
         "property": "topic",
         "propertyType": "msg",
@@ -8016,8 +7984,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 190,
-        "y": 100,
+        "x": 200,
+        "y": 90,
         "wires": [
             [
                 "53fb3fedf84a21e5"
@@ -8028,7 +7996,6 @@
         "id": "42a9532b8df72e2c",
         "type": "set-network",
         "z": "48bfd625e1f82a45",
-        "g": "06a7cfc21197c2d2",
         "name": "",
         "topic": "",
         "networkfield": "network.server.tiddlers",
@@ -8047,14 +8014,90 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 755,
-        "y": 100,
+        "x": 735,
+        "y": 90,
         "wires": [
             [
                 "123b82e57831527e"
             ]
         ],
         "l": false
+    },
+    {
+        "id": "190e52e3ca3b7756",
+        "type": "set-network",
+        "z": "48bfd625e1f82a45",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "title: Server Topics\ntags: tw5-node-red\nmustache: yes\n\n{% &payload %}\n",
+        "clear": false,
+        "editorIsOpen": true,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": true,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": false,
+        "x": 590,
+        "y": 30,
+        "wires": [
+            [
+                "dd65d75275bcb3e0"
+            ]
+        ]
+    },
+    {
+        "id": "8caf970db53bdfb3",
+        "type": "function",
+        "z": "48bfd625e1f82a45",
+        "name": "Table of server topics",
+        "func": "const http = global.get('http');\n\n// ---------------\n// Config\n// Server host, port, and AdminRoot (in Node-RED ./setting.js)\n// Source 'From Client' node id in the Node-RED Editor 'Network' tab\nconst options = {\n    host: '127.0.0.1',\n    port: '1880',\n    path: `/red`,\n    clientMsgSrcNodeId: '4c9c46b76b72965f',\n    table: {\n        header: '|Tab|Node name|Topic|Send|h',\n        fields: '|tab|name|topic|button|'\n    }\n};\n\nconst logText = [];\n\n// Global data\n//  Source 'From Client' node in the 'Network' tab\n//  Flows from Node-RED\n//  Switches that contain rules for topic\n//  Topics from switch nodes\nvar clientMsgSrcNode;\nvar flows = [];\nvar switches = [];\nvar topics = [];\n\nconst log = (text) => logText.push(text); //  console.log(text);\nconst makeCopy = (obj) => JSON.parse(JSON.stringify(obj));\nconst fnd = (fld, val) => flows.filter(node => node[fld] === val);\nconst listOfFromClients = () => flows.filter(node => node.name === 'From Client');\nconst formatRule = (rule) => rule.replace('|', ' ');\nconst formatName = (name) => name.replace(/ \\\\n.*$/, ' \\\\n · · ·');\nconst byTopic = (a, b) => ((a.topic < b.topic) ? -1 : ((a.topic > b.topic) ? 1 : 0));\nconst byTab = (a, b) => ((a.tab < b.tab) ? -1 : ((a.tab > b.tab) ? 1 : 0));\nconst makeButton = (topic) => `<$button actions=\"<<node-red '${topic}'>>\"> ${topic} </$button>`;\n\n\n// Request from running Node-RED server\nfunction noderedRequest(path) {\n    return new Promise((resolve, reject) => {\n        const opts = makeCopy(options);\n        opts.path = opts.path + `/${path}`;\n        log(`\\nRequesting: http://${opts.host}:${opts.port}${opts.path}\\n`);\n\n        const callback = (response) => {\n            let body = '';\n            response.on('data', (data) => { body += data; });\n            response.on('end', () => {\n                try { flows = JSON.parse(body).flows; } catch (e) { log(body); }\n                log(`Received ${flows.length} nodes from Node-RED server\\n`);\n                resolve(body.length);\n            });\n        }\n\n        try {\n            const req = http.request(opts, callback);\n            req.setHeader('Node-RED-API-Version', 'v2');\n            req.end();\n        } catch (err) { log(err.message); }\n    }).catch(err => { log(err.message); })\n}\n\n// Topic information from switches following the 'From Client' node\nfunction clientNodeTopicInfo(clientNodeId) {\n    let clientNode = fnd('id', clientNodeId)[0];\n    let tab = fnd('id', clientNode.z)[0].label;\n    if (clientNode.wires && clientNode.wires[0].length) {\n        clientNode.wires[0].forEach(switchNodeId => {\n            let switchNode = fnd('id', switchNodeId)[0];\n            switchNode.tab = tab;\n            switches.push(switchNode);\n            switchNode.rules.forEach(rule => {\n                let topic = makeCopy(switchNode);\n                topic.name = formatName(switchNode.name);\n                topic.topic = formatRule(rule.v);\n                topic.button = makeButton(topic.topic);\n                topics.push(topic);\n            })\n        })\n    }\n}\n\n// Nodes that the source From Client node is linked to\nfunction extractListOfFromClientNodes() {\n    if (flows.length === 0) { return false; }\n    clientMsgSrcNode = fnd('id', options.clientMsgSrcNodeId);\n    clientMsgSrcNode[0].links.forEach(clientNodeId => {\n        if (fnd('id', clientNodeId).length === 0) {\n            log(`Node not found ------- ${clientNodeId}-----------`)\n        } else {\n            clientNodeTopicInfo(clientNodeId);\n        }\n    })\n    return true;\n}\n\n// Output topics as a WikiText table\nfunction outputTable(fields = options.table.fields, header = options.table.header) {\n    var lines = [header];\n    const flds = fields.toLowerCase().split('|');\n    topics.forEach(topic => {\n        let line = '|';\n        flds.forEach(fld => {\n            if (fld) { line += (topic[fld] + '|'); }\n        })\n        lines.push(line);\n    })\n    log(lines.join('\\n') + '\\n');\n}\n\nnoderedRequest('flows').then(() => {\n\tif (extractListOfFromClientNodes()) {\n        topics.sort(byTab);\n        outputTable();\n    }\n    msg.payload = logText.join('\\n');\n    node.send(msg);\n    node.done();\n})\n\nnode.send(msg);\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 30,
+        "wires": [
+            [
+                "190e52e3ca3b7756"
+            ]
+        ]
+    },
+    {
+        "id": "c9d570cee5a02362",
+        "type": "switch",
+        "z": "48bfd625e1f82a45",
+        "name": "server topics",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "server topics",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 200,
+        "y": 30,
+        "wires": [
+            [
+                "8caf970db53bdfb3"
+            ]
+        ]
     },
     {
         "id": "ed5874185a4d04b9",

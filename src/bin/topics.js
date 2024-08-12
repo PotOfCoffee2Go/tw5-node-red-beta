@@ -28,7 +28,7 @@ const colour = {
 		`\x1b[38;5;${fg};48;5;${bg}m${txt}\x1b[38;5;${efg};48;5;${ebg}m`,
 }
 
-// Syntax candy - logging, debug
+// Syntax candy
 const log = (...args) => { console.log(...args); }
 const dir = (...args) => { console.dir(...args, {depth:5}); }
 
@@ -45,32 +45,30 @@ const makeButton = (topic) => `<$button actions="<<node-red '${topic}'>>"> ${top
 // Global data
 //  Source 'From Client' node in the 'Network' tab
 //  Flows from Node-RED
+//  Switches that contain rules for topic
 //  Topics from switch nodes
 var clientMsgSrcNode;
 var flows = [];
+var switches = [];
 var topics = [];
-var switchCount = 0;
-var fromClientCount = 0;
 
 // Request from running Node-RED server
 function noderedRequest(path) {
 	return new Promise((resolve, reject) => {
 		const opts = makeCopy(options);
 		opts.path = opts.path + `/${path}`;
-		// Options to be used by request
 		colour.log(`\nRequesting: http://${opts.host}:${opts.port}${opts.path}\n`,153);
-		// Callback function is used to deal with response
+
 		const callback = (response) => {
-			// Continuously update stream with data
 			let body = '';
 			response.on('data', (data) => { body += data; });
 			response.on('end', () => {
-				flows = JSON.parse(body).flows;
+				try { flows = JSON.parse(body).flows; } catch(e) { log(body); }
 				colour.log(`Received ${flows.length} nodes from Node-RED server\n`,153);
 				resolve(body.length);
 			});
 		}
-		// Make a request to the server
+
 		try {
 			const req = require('node:http').request(opts, callback);
 			req.setHeader('Node-RED-API-Version', 'v2');
@@ -79,67 +77,72 @@ function noderedRequest(path) {
 	}).catch(err => { dir(err); })
 }
 
-// Topic information from switch following the 'From Client' node
+// Topic information from switches following the 'From Client' node
 function clientNodeTopicInfo(clientNodeId) {
 	let clientNode = fnd('id', clientNodeId)[0];
 	let tab = fnd('id', clientNode.z)[0].label;
 	if (clientNode.wires && clientNode.wires[0].length) {
 		clientNode.wires[0].forEach(switchNodeId => {
 			let switchNode = fnd('id', switchNodeId)[0];
+			switchNode.tab = tab;
+			switches.push(switchNode);
 			switchNode.rules.forEach(rule => {
-				topics.push({
-					tab: tab,
-					name: formatName(switchNode.name),
-					topic: formatRule(rule.v)
-				});
+				let topic = makeCopy(switchNode);
+				topic.name = formatName(switchNode.name);
+				topic.topic = formatRule(rule.v);
+				topic.button = makeButton(topic.topic);
+				topics.push(topic);
 			})
-			switchCount++;
 		})
 	}
 }
 
-// Nodes that the source node is linked to
+// Nodes that the source From Client node is linked to
 function extractListOfFromClientNodes() {
+	if (flows.length === 0) { return false; }
 	clientMsgSrcNode = fnd('id', options.clientMsgSrcNodeId);
 	clientMsgSrcNode[0].links.forEach(clientNodeId => {
 		if (fnd('id', clientNodeId).length === 0) {
 			log(`Node not found ------- ${clientNodeId}-----------`)
 		} else {
 			clientNodeTopicInfo(clientNodeId);
-			fromClientCount++;
 		}
 	})
+	return true;
+}
+
+// Output topics as a WikiText table
+function outputTable(fields = '|tab|name|topic|', header = '|Tab|Node name|Topic|h') {
+	var lines = [ header ];
+	const flds = fields.toLowerCase().split('|');
+	topics.forEach(topic => {
+		let line = '|';
+		flds.forEach(fld => {
+			if (fld) { line += (topic[fld] + '|'); }
+		})
+		lines.push(line);
+	})
+	colour.log(lines.join('\n')+'\n', 153);
 }
 
 // -------------------
 // REPL
 var rt;
 var completions = [
-	'ctx.outputTopicTable()',
-	'ctx.sortByTopic()', 'ctx.sortByTab()',
-	'ctx.clientMsgSrcNode', 'ctx.topics', 'ctx.flows',
-	'ctx.fromClientCount', 'ctx.switchCount',
+	`cmd.outputTable('|tab|name|topic|', '|Tab|Node name|Topic|h')`,
+	'cmd.sortByTopic()', 'cmd.sortByTab()',
+	'cmd.clientMsgSrcNode',	'cmd.topics', 'cmd.switches', 'cmd.flows',
 ];
 
 // REPL global data access
-const ctx = {
+const cmd = {
 	get clientMsgSrcNode () { return clientMsgSrcNode },
 	get flows () { return flows },
+	get switches () { return switches },
 	get topics () { return topics },
-	get fromClientCount () { return fromClientCount },
-	get switchCount () { return switchCount },
-
-	outputTopicTable: () => {
-		colour.log(`\n|Tab|Name|Topic|Send|h\n`,153);
-		topics.forEach(switchNode => {
-			colour.log(`|${switchNode.tab}|${switchNode.name}|${switchNode.topic}|` +
-				makeButton(switchNode.topic) + `|\n`,153);
-		})
-		colour.log(`\n`,153);
-	},
-
-	sortByTopic: () => { topics.sort(byTopic);ctx.outputTopicTable(); },
-	sortByTab: () => { topics.sort(byTab);ctx.outputTopicTable(); },
+	sortByTopic: () => { switches.sort(byTopic); topics.sort(byTopic); },
+	sortByTab: () => { switches.sort(byTab); topics.sort(byTab); },
+	outputTable: (f,h) => { outputTable(f,h) },
 }
 
 // REPL interface
@@ -153,45 +156,32 @@ const submit = (cmd, key, repeat = 1) => { // key = {ctrl: true, name: 'l'}
 // REPL context
 function resetContext() {
 	rt.context.rt = rt;
-	rt.context.ctx = ctx;
-	rt.context.help = help;
+	rt.context.cmd = cmd;
 }
 
 // Initialize REPL history with app specific commands
-function setHistoryWithCtxCmds() {	rt.history = makeCopy(completions); }
+function setHistoryWithCtxCmds() { rt.history = makeCopy(completions); }
 
 // REPL runtime
 function startRepl() {
 	rt = require('node:repl').start({
 		prompt: prompt, useColors: true, ignoreUndefined: true
 	});
-	// If REPL is reset (.clear) - context needs resetting
 	rt.on('reset', () => resetContext());
-	// Initial context
 	resetContext();
 }
 
 // -------------------
-// Help text
-function help() {
-	colour.log([
-	'ctx.outputTopicTable()',
-	'ctx.clientMsgSrcNode', 'ctx.topics', 'ctx.flows', 'ctx.nodeCounts()',
-	'ctx.sortByTopic()', 'ctx.sortByTab()',
-	'ctx.fromClientCount', 'ctx.switchCount\n'
-	].join('\n'), 153)};
-
-// -------------------
 // App startup
 startRepl();
-//help();
 noderedRequest('flows').then(() => {
-	extractListOfFromClientNodes();
-	setHistoryWithCtxCmds();
-	colour.log('\nUp-arrow to see commands\n\n',153);
-	// Display context (ctx) properties
+	if (extractListOfFromClientNodes()) {
+		setHistoryWithCtxCmds();
+		colour.log('\nUp-arrow to see commands\n\n',153);
+		// Display context (cmd) properties
+		submit('cmd.');
+		submit('', {name: 'tab'}, 2);
+		submit('', {name: 'backspace'}, 4);
+	}
 	rt.displayPrompt();
-	submit('ctx.');
-	submit('', {name: 'tab'}, 2);
-	submit('', {name: 'backspace'}, 4);
 })
