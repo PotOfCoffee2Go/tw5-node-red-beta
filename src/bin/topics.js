@@ -14,10 +14,14 @@ console.log('topics.js v0.4.0\n')
 // Server host, port, and AdminRoot (in Node-RED ./setting.js)
 // Source 'From Client' node id in the Node-RED Editor 'Network' tab
 const options = {
-   host: '127.0.0.1',
-   port: '1880',
-   path: `/red`,
-   clientMsgSrcNodeId: '4c9c46b76b72965f'
+	host: '127.0.0.1',
+	port: '1880',
+	path: `/red`,
+	clientMsgSrcNodeId: '4c9c46b76b72965f',
+	table: {
+		header: '|Tab|Node name|Topic|h',
+		fields: '|tab|name|topic|'
+	}
 };
 
 // Set terminal colours
@@ -37,7 +41,7 @@ const makeCopy = (obj) => JSON.parse(JSON.stringify(obj));
 const fnd = (fld, val) => flows.filter(node => node[fld] === val);
 const listOfFromClients = () => flows.filter(node => node.name === 'From Client');
 const formatRule = (rule) => rule.replace('|', ' ');
-const formatName = (name) => name.replace(/ \\n.*$/, ' \\n · · ·');
+const formatName = (name) => name.replace(/ \\n.*$/, ' · · ·');
 const byTopic = (a,b) => ((a.topic < b.topic) ? -1 : ((a.topic > b.topic) ? 1 : 0));
 const byTab = (a,b) => ((a.tab < b.tab) ? -1 : ((a.tab > b.tab) ? 1 : 0));
 const makeButton = (topic) => `<$button actions="<<node-red '${topic}'>>"> ${topic} </$button>`;
@@ -89,12 +93,34 @@ function clientNodeTopicInfo(clientNodeId) {
 			switchNode.rules.forEach(rule => {
 				let topic = makeCopy(switchNode);
 				topic.name = formatName(switchNode.name);
-				topic.topic = formatRule(rule.v);
+				topic.topic = formatRule(rule.v ? rule.v : rule.t);
 				topic.button = makeButton(topic.topic);
 				topics.push(topic);
 			})
 		})
 	}
+}
+
+function clientNodeSubTopicInfo() {
+	switches.forEach(switchNode => {
+		if (switchNode.wires && switchNode.wires[0].length) {
+			let nextNodeIds = switchNode.wires[0];
+			nextNodeIds.forEach(nodeId => {
+				let node = fnd('id', nodeId)[0];
+				if (node && node.type === 'switch') {
+					let tab = fnd('id', node.z)[0].label;
+					node.tab = tab;
+					node.rules.forEach(rule => {
+						let topic = makeCopy(node);
+						topic.name = formatName(node.name);
+						topic.topic = formatRule(rule.v ? rule.v : rule.t);
+						topic.button = makeButton(topic.topic);
+						topics.push(topic);
+					})
+				}
+			})
+		}
+	})
 }
 
 // Nodes that the source From Client node is linked to
@@ -108,11 +134,12 @@ function extractListOfFromClientNodes() {
 			clientNodeTopicInfo(clientNodeId);
 		}
 	})
+	clientNodeSubTopicInfo();
 	return true;
 }
 
 // Output topics as a WikiText table
-function outputTable(fields = '|tab|name|topic|', header = '|Tab|Node name|Topic|h') {
+function outputTable(fields = options.table.fields, header = options.table.header) {
 	var lines = [ header ];
 	const flds = fields.toLowerCase().split('|');
 	topics.forEach(topic => {
@@ -129,7 +156,7 @@ function outputTable(fields = '|tab|name|topic|', header = '|Tab|Node name|Topic
 // REPL
 var rt;
 var completions = [
-	`cmd.outputTable('|tab|name|topic|', '|Tab|Node name|Topic|h')`,
+	`cmd.outputTable()`,
 	'cmd.sortByTopic()', 'cmd.sortByTab()',
 	'cmd.clientMsgSrcNode',	'cmd.topics', 'cmd.switches', 'cmd.flows',
 ];
