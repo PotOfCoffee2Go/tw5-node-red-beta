@@ -1932,7 +1932,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 230,
+        "x": 280,
         "y": 60,
         "wires": [
             [
@@ -1963,7 +1963,7 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 520,
+        "x": 570,
         "y": 60,
         "wires": [
             [
@@ -1979,7 +1979,7 @@
         "topic": "",
         "tofield": "payload",
         "template": "title: Hello World!\ntags: hello\nmustache: yes\n\nHi {% network.user.username %} - This tiddler is from the server ;)\n",
-        "x": 370,
+        "x": 420,
         "y": 60,
         "wires": [
             [
@@ -2004,7 +2004,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 290,
+        "x": 340,
         "y": 100,
         "wires": [
             [
@@ -2034,7 +2034,7 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 480,
+        "x": 530,
         "y": 100,
         "wires": [
             [
@@ -2050,7 +2050,7 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 125,
+        "x": 120,
         "y": 60,
         "wires": [
             [
@@ -2058,7 +2058,8 @@
                 "3bfcedbc0435c9c3"
             ]
         ],
-        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg"
+        "icon": "@potofcoffee2go/tw5-nodes/networkdown.svg",
+        "l": true
     },
     {
         "id": "425a72841789949c",
@@ -2069,10 +2070,11 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 665,
+        "x": 730,
         "y": 60,
         "wires": [],
-        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+        "icon": "@potofcoffee2go/tw5-nodes/networkup.svg",
+        "l": true
     },
     {
         "id": "7f3dc513caf95a47",
