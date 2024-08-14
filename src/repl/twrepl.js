@@ -135,7 +135,7 @@ function startup(tnr_context) {
 		colour.log('-------------------\n',75);
 		startRepl();
 		submit(`help.intro()\n`);
-		submit(`{ versions: { $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }}\n`);
+		submit(`{ 'Node-RED': RED.version(), $tw: $tw.version, $twsync: $twsync.version, $twmws: $twmws.version }\n`);
 	},2000);
 }
 

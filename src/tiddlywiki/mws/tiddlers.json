@@ -1,5 +1,8 @@
 [
   {
     "title":"$:/config/SyncLogging","text":"no"
+  },
+  {
+    "title": "$:/config/MultiWikiServer/EnableAttachments","text": "no"
   }
 ]

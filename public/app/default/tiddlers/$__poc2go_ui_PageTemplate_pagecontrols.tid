@@ -1,5 +1,5 @@
 created: 20231115040521068
-modified: 20231230104304763
+modified: 20240715184214815
 tags: 
 title: $:/poc2go/ui/PageTemplate/pagecontrols
 type: text/vnd.tiddlywiki
@@ -18,7 +18,6 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <$button style="margin-left: 1rem;" actions=<<edit-action>> class="tc-btn-invisible tc-tiddlylink"> {{$:/core/images/edit-button}}&nbsp;</$button>
 <$button actions=<<open-action>> class="tc-btn-invisible tc-tiddlylink">{{$:/poc2go/toc/selectedTiddler}}&nbsp;{{$:/core/images/preview-open}}</$button>
 <div style="font-size: 1.1em; display:inline-block; margin-top: 10px;float: right;">
-<$button actions="<<node-red 'red'>>" class="flow-editor-btn tc-btn-invisible tc-tiddlylink"> Flow Editor </$button>
 <$list filter="[all[shadows+tiddlers]tag[$:/tags/PageControls]!has[draft.of]]" variable="listItem">
 <$set name="hidden" value=<<config-title>>>
 <$list filter="[<hidden>!text[hide]]" storyview="pop" variable="ignore">

@@ -1,12 +1,14 @@
 created: 20240415214351971
 fetched: 20240421041945029
-modified: 20240502093705155
+modified: 20240717034132250
 mustache: yes
 tags: 
-title: Blank recipe
+title: MWS Test
 type: text/vnd.tiddlywiki
 
 !!! Hi {{ $:/tw5-node-red/username }}
+
+The main tests are in the tiddler [[Playground]].
 
 <pre style="background:black;color:#00ff00;">
 

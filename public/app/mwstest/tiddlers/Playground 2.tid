@@ -1,0 +1,20 @@
+created: 20240813061813804
+modified: 20240813092738100
+tags: 
+title: Playground 2
+type: text/vnd.tiddlywiki
+
+<$button actions="<<node-red 'server topics'>>"> server topics </$button>
+
+Save tiddlers on MWS database
+
+<$button actions="<<node-red 'mws/get-recipe-list'>>"> get list of recipes</$button>
+
+|tc-edit-max-width tc-table-no-border tc-first-link-nowrap|k
+| Recipe:|{{$:/tw5-node-red/mws/recipe-list}}| Filter:|<$edit-text field=filter  />|
+
+<$set name=recipe value={{$:/tw5-node-red/mws/recipe-list!!selected}}>
+<$set name=filter value={{!!filter}}>
+<$button actions="<<node-red 'mws/save-recipe-tiddlers/$(recipe)$' '$(filter)$'>>"> Send </$button>
+</$set>
+</$set>

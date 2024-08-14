@@ -608,7 +608,7 @@ module.exports = {
         process: require('node:process'),
         fs: require('node:fs'),
         path: require('node:path'),
-
+        http: require('node:http'),
         mustache: require('mustache'),
         jwt: require('jsonwebtoken'),
         bcrypt: require('bcrypt'),
