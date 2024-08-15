@@ -268,7 +268,7 @@
             "49e8ade023549ff5"
         ],
         "x": 54,
-        "y": 669,
+        "y": 759,
         "w": 662,
         "h": 82
     },
@@ -291,8 +291,8 @@
             "f384e29897040b4b",
             "b17ee503661f3f7b"
         ],
-        "x": 58,
-        "y": 59,
+        "x": 28,
+        "y": 69,
         "w": 874,
         "h": 358
     },
@@ -358,7 +358,7 @@
             "e5c2695061c28c3d"
         ],
         "x": 54,
-        "y": 789,
+        "y": 879,
         "w": 532,
         "h": 82
     },
@@ -467,8 +467,8 @@
             "62c3e92ae0762df5",
             "3e01a70e8d769a16"
         ],
-        "x": 34,
-        "y": 683.0000133514404,
+        "x": 4,
+        "y": 703.0000133514404,
         "w": 908.0000152587891,
         "h": 379.99998664855957
     },
@@ -485,12 +485,16 @@
         "nodes": [
             "bfac12ca49095e92",
             "530c27cac770eeb4",
-            "581538b733302aa5"
+            "581538b733302aa5",
+            "e03be18459d92079",
+            "4bd9f8e137272492",
+            "a78a0ee6bdd9f084",
+            "1de940c84a911f8e"
         ],
         "x": 8,
         "y": 41,
         "w": 914,
-        "h": 816
+        "h": 846
     },
     {
         "id": "b900c252078e7f0f",
@@ -574,7 +578,7 @@
             "c1e23170a15882f7"
         ],
         "x": 64,
-        "y": 219,
+        "y": 309,
         "w": 482,
         "h": 82
     },
@@ -771,7 +775,7 @@
             "104f9c4c3a9698dd"
         ],
         "x": 28,
-        "y": 323,
+        "y": 413,
         "w": 728,
         "h": 334
     },
@@ -793,8 +797,8 @@
             "844b316ad04edad7",
             "d6df3e42a1c72910"
         ],
-        "x": 154,
-        "y": 469,
+        "x": 124,
+        "y": 499,
         "w": 602,
         "h": 142
     },
@@ -956,8 +960,8 @@
             "7c99e0a714c4a066",
             "f65442df821d2805"
         ],
-        "x": 4,
-        "y": 119,
+        "x": 14,
+        "y": 209,
         "w": 692,
         "h": 82
     },
@@ -1027,7 +1031,7 @@
             "3891c3049d5ff01d"
         ],
         "x": 64,
-        "y": 349,
+        "y": 439,
         "w": 442,
         "h": 82
     },
@@ -1047,7 +1051,7 @@
             "3f8dbc7f474d68d8"
         ],
         "x": 64,
-        "y": 449,
+        "y": 539,
         "w": 522,
         "h": 82
     },
@@ -1067,7 +1071,7 @@
             "16ba0ad94b842abe"
         ],
         "x": 54,
-        "y": 549,
+        "y": 639,
         "w": 532,
         "h": 82
     },
@@ -1264,17 +1268,18 @@
             "3acd500998d87b22",
             "b58a5472ed70d8b5",
             "86514e0ce0668cbe",
-            "750bd45bece7449a",
             "bd6c95b1f4f345ec",
             "362f3c37d0b16030",
             "cfee1305fe93f1c8",
             "509b906f53cc0bc2",
-            "cac2c9295125e3b0"
+            "cac2c9295125e3b0",
+            "ce123af69b463ec3",
+            "b5388a5ace64cf02"
         ],
         "x": 99,
         "y": 67,
         "w": 767,
-        "h": 374
+        "h": 384
     },
     {
         "id": "530c27cac770eeb4",
@@ -1292,7 +1297,8 @@
             "7396102619538ddb",
             "4cd957658dc2bd9c",
             "98189b2afd7d3e72",
-            "1f7cf6bc73665c60"
+            "1f7cf6bc73665c60",
+            "750bd45bece7449a"
         ],
         "x": 34,
         "y": 477,
@@ -1317,8 +1323,8 @@
             "1872fb3e9892e498",
             "d24091429b7ee2fe"
         ],
-        "x": 84,
-        "y": 679,
+        "x": 74,
+        "y": 709,
         "w": 767,
         "h": 152
     },
@@ -1341,8 +1347,8 @@
             "407b772f0f144186",
             "7d2e58723eb09955"
         ],
-        "x": 64,
-        "y": 819,
+        "x": 34,
+        "y": 839,
         "w": 742,
         "h": 218
     },
@@ -1581,8 +1587,8 @@
             "654ee70ffdb7a36c",
             "c0d81093110cbce5"
         ],
-        "x": 154,
-        "y": 929,
+        "x": 124,
+        "y": 949,
         "w": 532,
         "h": 82
     },
@@ -1645,10 +1651,32 @@
             "e9c96a17d3f117a8",
             "8dae0bdde704a7b7"
         ],
-        "x": 84,
-        "y": 229,
+        "x": 54,
+        "y": 239,
         "w": 822,
         "h": 162
+    },
+    {
+        "id": "f9378bb39aa01c61",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "Load a server edition tiddlers directory \\n given path in msg.inputpath ",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "983d7337f861a64f",
+            "d338724a54ce0c69",
+            "eb67756d4222e66c",
+            "24dc82d3323aa375",
+            "ed9d2c2203f05941"
+        ],
+        "x": 64,
+        "y": 3,
+        "w": 622,
+        "h": 138
     },
     {
         "id": "7c48a995b12f0315",
@@ -1752,8 +1780,8 @@
         "type": "junction",
         "z": "304338a4b9f89088",
         "g": "b17ee503661f3f7b",
-        "x": 110,
-        "y": 270,
+        "x": 80,
+        "y": 280,
         "wires": [
             [
                 "f69ecb30fb65d53c",
@@ -3930,7 +3958,8 @@
             "1f7cf6bc73665c60",
             "7a0c00d7e145b45a",
             "d25c68fba7336a7c",
-            "8dae0bdde704a7b7"
+            "8dae0bdde704a7b7",
+            "7c553c7226a43c25"
         ],
         "x": 710,
         "y": 280,
@@ -4472,7 +4501,8 @@
         "y": 140,
         "wires": [
             [
-                "b58a5472ed70d8b5"
+                "b58a5472ed70d8b5",
+                "b5388a5ace64cf02"
             ]
         ],
         "l": true
@@ -4512,7 +4542,7 @@
             "5f3f98f37ba41eb1"
         ],
         "x": 805,
-        "y": 310,
+        "y": 290,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -4553,7 +4583,7 @@
         "type": "switch",
         "z": "fb90098a1998250c",
         "g": "bfac12ca49095e92",
-        "name": "Authenticate \\n Register request \\n Register user \\n Login docs \\n Bearer token \\n otherwise Login request",
+        "name": "Authenticate \\n Register request \\n Register user \\n  Bearer token \\n otherwise Login request",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -4574,11 +4604,6 @@
             },
             {
                 "t": "eq",
-                "v": "login docs",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
                 "v": "heartbeat",
                 "vt": "str"
             },
@@ -4588,9 +4613,9 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 6,
-        "x": 295,
-        "y": 280,
+        "outputs": 5,
+        "x": 280,
+        "y": 260,
         "wires": [
             [
                 "54d80eaa9d3610c7"
@@ -4602,13 +4627,10 @@
                 "bd6c95b1f4f345ec"
             ],
             [
-                "750bd45bece7449a"
-            ],
-            [
                 "cfee1305fe93f1c8"
             ],
             [
-                "cac2c9295125e3b0"
+                "ce123af69b463ec3"
             ]
         ]
     },
@@ -4632,7 +4654,7 @@
         "id": "750bd45bece7449a",
         "type": "set-network",
         "z": "fb90098a1998250c",
-        "g": "bfac12ca49095e92",
+        "g": "530c27cac770eeb4",
         "name": "Sign in help",
         "topic": "",
         "networkfield": "network.server.tiddlers",
@@ -4652,11 +4674,11 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 570,
-        "y": 320,
+        "x": 430,
+        "y": 520,
         "wires": [
             [
-                "ac5ce25a67192096"
+                "1f7cf6bc73665c60"
             ]
         ]
     },
@@ -4689,7 +4711,7 @@
         "file": "",
         "updtostory": true,
         "tostory": "false",
-        "template": "title: $:/temp/tw5-node-red/authenticated\n\nThis tiddler MUST BE FIRST!!\n\n+======+\ntitle: $:/tw5-node-red/login/styles.css\ntags: $:/tags/Stylesheet\ntype: text/css\n\n.tc-page-controls {}\n+======+\ntitle: $:/DefaultTiddlers\n\n+======+\ntitle: $:/StoryList\n\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home\n\nhide\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki\n\nshow\n+======+\ntitle: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n> Note: To change 'Remember Me' settings (ie: automatic login to an account) Must sign-off then re-login with the checkbox set or unset as desired.\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
+        "template": "title: $:/temp/tw5-node-red/authenticated\n\nThis tiddler MUST BE FIRST!!\n\n+======+\ntitle: $:/tw5-node-red/login/styles.css\ntags: $:/tags/Stylesheet\ntype: text/css\n\n.tc-page-controls {}\n+======+\ntitle: $:/DefaultTiddlers\n\n+======+\ntitle: $:/StoryList\n\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home\n\nhide\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler\n\nshow\n+======+\ntitle: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki\n\nshow\n+======+\ntitle: $:/tw5-node-red/logout\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n\n!!! Logout request\n\n{%#error%}\n<span style=\"color: red; font-size: 1.2em;\">{%.%}</span>\n{%/error%}\n\nThis logout request is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID|{{!!userid}}|\n|User name|{{!!username}}|\n\n> Note: To change 'Remember Me' settings (ie: automatic login to an account) Must sign-off then re-login with the checkbox set or unset as desired.\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n+======+\ntitle: $:/tw5-node-red/login\nmustache: yes\nuserid: {%network.user.userid%}\nusername: {%network.user.username%}\nemail: {%network.user.email%}\n\n!!! Authorized\n\nThis authorization success is a placeholder to be implemented by TW5-Node-RED application developers. See <$button actions=\"<<node-red 'login docs'>>\" class=\"tc-btn-invisible tc-tiddlylink\">Login documentation</$button>\n\n|User ID*|<$edit-text field=\"userid\"/>| Unique string used to sign on |\n|User name*|<$edit-text field=\"username\"/>| Name to display to other users |\n|Email|<$edit-text field=\"email\"/>| optional email address |\n\n<$checkbox tiddler=\"$:/temp/tw5-node-red/store\" field=\"rememberMe\" checked=\"yes\" unchecked=\"no\" default=\"no\"> Remember me - log in as this user automatically in the futue </$checkbox>\n\n<$button actions=\"<<node-red 'logout'>>\"> Sign off </$button>\n\n\n+======+\ntitle: $:/poc2go/ui/Buttons/logout\ntags: $:/tags/PageControls\ncaption: {{$:/poc2go/images/logout-button}} {{$:/language/Buttons/Logout/Caption}}\ndescription: {{$:/language/Buttons/Logout/Hint}}\n\n\\whitespace trim\n<$button to=\"$:/tw5-node-red/logout\" tooltip={{$:/language/Buttons/Logout/Hint}} aria-label={{$:/language/Buttons/Logout/Caption}} class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>match[yes]]\">\n{{$:/poc2go/images/logout-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>match[yes]]\">\n<span class=\"tc-btn-text\">\n<$text text={{$:/language/Buttons/Logout/Caption}}/>\n</span>\n</$list>\n</$button>\n\n+======+\ntitle: $:/poc2go/images/logout-button\ntags: $:/tags/Image Icons Images SVG\nlibrary_version: 5.15.2\nlibrary: Font-Awesome\ncollection: Solid\ncaption: network\n\n<svg width=\"22pt\" height=\"22pt\" class=\"tc-image-fa-network-wired tc-image-button\" viewBox=\"0 0 640 512\"><path d=\"M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z\"/></svg>\n\n+======+\ntitle: $:/language/Buttons/Logout/Caption\n\nSign off\n\n+======+\ntitle: $:/language/Buttons/Logout/Hint\n\nSign off from server\n\n",
         "clear": false,
         "editorIsOpen": true,
         "settingsIsOpen": false,
@@ -4699,7 +4721,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 570,
+        "x": 610,
         "y": 200,
         "wires": [
             [
@@ -4731,8 +4753,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 570,
-        "y": 360,
+        "x": 560,
+        "y": 320,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -4752,7 +4774,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 430,
         "y": 560,
         "wires": [
             [
@@ -4852,7 +4874,7 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 575,
+        "x": 590,
         "y": 560,
         "wires": [
             [
@@ -4889,8 +4911,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 770,
+        "x": 240,
+        "y": 800,
         "wires": [
             [
                 "9b0a95db2e9194f2"
@@ -4913,8 +4935,8 @@
         "links": [
             "bd6c95b1f4f345ec"
         ],
-        "x": 190,
-        "y": 720,
+        "x": 180,
+        "y": 750,
         "wires": [
             [
                 "502c174b58244c46"
@@ -4950,8 +4972,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 465,
-        "y": 790,
+        "x": 455,
+        "y": 820,
         "wires": [
             [
                 "1872fb3e9892e498"
@@ -4969,8 +4991,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 475,
-        "y": 750,
+        "x": 465,
+        "y": 780,
         "wires": [],
         "l": true
     },
@@ -4998,8 +5020,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 665,
-        "y": 790,
+        "x": 655,
+        "y": 820,
         "wires": [
             [
                 "d24091429b7ee2fe"
@@ -5016,8 +5038,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 810,
-        "y": 790,
+        "x": 800,
+        "y": 820,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5045,8 +5067,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 570,
-        "y": 400,
+        "x": 610,
+        "y": 360,
         "wires": [
             [
                 "ac5ce25a67192096"
@@ -5063,10 +5085,132 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 705,
+        "x": 725,
         "y": 520,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "ce123af69b463ec3",
+        "type": "link call",
+        "z": "fb90098a1998250c",
+        "g": "bfac12ca49095e92",
+        "name": "splash screen",
+        "links": [
+            "e03be18459d92079"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 570,
+        "y": 410,
+        "wires": [
+            [
+                "cac2c9295125e3b0"
+            ]
+        ]
+    },
+    {
+        "id": "b5388a5ace64cf02",
+        "type": "switch",
+        "z": "fb90098a1998250c",
+        "g": "bfac12ca49095e92",
+        "name": "login docs",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "login docs",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 400,
+        "wires": [
+            [
+                "750bd45bece7449a"
+            ]
+        ]
+    },
+    {
+        "id": "e03be18459d92079",
+        "type": "link in",
+        "z": "fb90098a1998250c",
+        "g": "a24216bd24717c1e",
+        "name": "Splash screen",
+        "links": [
+            "d73bd697d4cbddce"
+        ],
+        "x": 210,
+        "y": 670,
+        "wires": [
+            [
+                "1de940c84a911f8e"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "4bd9f8e137272492",
+        "type": "link out",
+        "z": "fb90098a1998250c",
+        "g": "a24216bd24717c1e",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 755,
+        "y": 670,
+        "wires": []
+    },
+    {
+        "id": "a78a0ee6bdd9f084",
+        "type": "link call",
+        "z": "fb90098a1998250c",
+        "g": "a24216bd24717c1e",
+        "name": "",
+        "links": [
+            "983d7337f861a64f"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 600,
+        "y": 670,
+        "wires": [
+            [
+                "4bd9f8e137272492"
+            ]
+        ]
+    },
+    {
+        "id": "1de940c84a911f8e",
+        "type": "change",
+        "z": "fb90098a1998250c",
+        "g": "a24216bd24717c1e",
+        "name": "Splash edition",
+        "rules": [
+            {
+                "t": "set",
+                "p": "inputpath",
+                "pt": "msg",
+                "to": "./public/app/splash/tiddlers",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 670,
+        "wires": [
+            [
+                "a78a0ee6bdd9f084"
+            ]
+        ]
     },
     {
         "id": "2318b06227765245",
@@ -5079,8 +5223,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 540,
-        "y": 100,
+        "x": 520,
+        "y": 110,
         "wires": [
             [
                 "f384e29897040b4b"
@@ -5096,8 +5240,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 195,
-        "y": 100,
+        "x": 175,
+        "y": 110,
         "wires": [
             [
                 "cdcb7e61e457aacb"
@@ -5123,8 +5267,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 320,
-        "y": 100,
+        "x": 300,
+        "y": 110,
         "wires": [
             [
                 "2318b06227765245"
@@ -5141,8 +5285,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 745,
-        "y": 160,
+        "x": 725,
+        "y": 170,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -5170,8 +5314,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 540,
-        "y": 160,
+        "x": 520,
+        "y": 170,
         "wires": [
             [
                 "80f6cc12c651bec8",
@@ -5188,8 +5332,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 75,
-        "y": 760,
+        "x": 45,
+        "y": 780,
         "wires": [
             [
                 "2980cdfa0cd44104"
@@ -5222,8 +5366,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 180,
-        "y": 760,
+        "x": 150,
+        "y": 780,
         "wires": [
             [
                 "62c3e92ae0762df5"
@@ -5251,8 +5395,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 240,
-        "y": 310,
+        "x": 210,
+        "y": 320,
         "wires": [
             [
                 "e4714903c559cb33"
@@ -5279,8 +5423,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 310,
+        "x": 410,
+        "y": 320,
         "wires": [
             [
                 "45637c86870095dd"
@@ -5298,8 +5442,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 790,
-        "y": 330,
+        "x": 760,
+        "y": 340,
         "wires": [],
         "l": true
     },
@@ -5310,8 +5454,8 @@
         "g": "e7370f616716a124",
         "name": "twsync site",
         "links": [],
-        "x": 150,
-        "y": 880,
+        "x": 120,
+        "y": 900,
         "wires": [
             [
                 "14477b22c78480b3"
@@ -5327,8 +5471,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 765,
-        "y": 880,
+        "x": 735,
+        "y": 900,
         "wires": []
     },
     {
@@ -5344,8 +5488,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 880,
+        "x": 350,
+        "y": 900,
         "wires": [
             [
                 "407b772f0f144186"
@@ -5387,8 +5531,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": true,
-        "x": 640,
-        "y": 900,
+        "x": 610,
+        "y": 920,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5408,8 +5552,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 860,
+        "x": 610,
+        "y": 880,
         "wires": [
             [
                 "21d435e3c4987e1a"
@@ -5427,8 +5571,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 370,
-        "y": 160,
+        "x": 350,
+        "y": 170,
         "wires": [
             [
                 "e3621e319e0136b6"
@@ -5446,8 +5590,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 826.0000152587891,
-        "y": 756.0000133514404,
+        "x": 796.0000152587891,
+        "y": 776.0000133514404,
         "wires": [],
         "l": true
     },
@@ -5471,8 +5615,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 616.0000152587891,
-        "y": 756.0000133514404,
+        "x": 586.0000152587891,
+        "y": 776.0000133514404,
         "wires": [
             [
                 "55476bca421eb07a"
@@ -5497,8 +5641,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 260,
-        "y": 270,
+        "x": 230,
+        "y": 280,
         "wires": [
             [
                 "5888fc4a0550ddd7"
@@ -5529,8 +5673,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 470,
-        "y": 270,
+        "x": 440,
+        "y": 280,
         "wires": [
             [
                 "8dae0bdde704a7b7"
@@ -5544,8 +5688,8 @@
         "g": "e277a3352b39ab18",
         "name": "TW5-Node-RED Core",
         "links": [],
-        "x": 280,
-        "y": 510,
+        "x": 250,
+        "y": 540,
         "wires": [
             [
                 "8a6999c14f732048"
@@ -5576,8 +5720,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 450,
-        "y": 510,
+        "x": 420,
+        "y": 540,
         "wires": [
             [
                 "c9bbe0f3f12e859e"
@@ -5607,8 +5751,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 600,
-        "y": 510,
+        "x": 570,
+        "y": 540,
         "wires": [
             [
                 "d6df3e42a1c72910"
@@ -5638,8 +5782,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 590,
-        "y": 570,
+        "x": 560,
+        "y": 600,
         "wires": [
             [
                 "99b7abd4d3bc5b40"
@@ -5654,8 +5798,8 @@
         "name": "Return",
         "mode": "return",
         "links": [],
-        "x": 715,
-        "y": 570,
+        "x": 685,
+        "y": 600,
         "wires": []
     },
     {
@@ -5682,8 +5826,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 280,
-        "y": 570,
+        "x": 250,
+        "y": 600,
         "wires": [
             []
         ]
@@ -5699,8 +5843,8 @@
             "96d69fda963f66a2",
             "9bda19b8b96ee73e"
         ],
-        "x": 570,
-        "y": 970,
+        "x": 540,
+        "y": 990,
         "wires": [],
         "l": true
     },
@@ -5732,8 +5876,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 300,
-        "y": 970,
+        "x": 270,
+        "y": 990,
         "wires": [
             [
                 "c0d81093110cbce5"
@@ -5763,8 +5907,8 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 450,
-        "y": 570,
+        "x": 420,
+        "y": 600,
         "wires": [
             [
                 "47d0e6a8f8415aa2"
@@ -5791,8 +5935,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 780,
+        "x": 360,
+        "y": 800,
         "wires": [
             [
                 "62c3e92ae0762df5"
@@ -5817,8 +5961,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 260,
-        "y": 350,
+        "x": 230,
+        "y": 360,
         "wires": [
             [
                 "de1e71dcf3ac2d20"
@@ -5850,8 +5994,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 330,
+        "x": 580,
+        "y": 340,
         "wires": [
             [
                 "edc0b050e5af6de4"
@@ -5878,8 +6022,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 350,
+        "x": 430,
+        "y": 360,
         "wires": [
             [
                 "45637c86870095dd"
@@ -5896,8 +6040,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 665,
-        "y": 270,
+        "x": 635,
+        "y": 280,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6381,7 +6525,7 @@
         "twikiIsX": false,
         "fieldIsX": false,
         "x": 570,
-        "y": 710,
+        "y": 800,
         "wires": [
             [
                 "49e8ade023549ff5"
@@ -6401,7 +6545,7 @@
         "return": false,
         "outputs": 1,
         "x": 290,
-        "y": 710,
+        "y": 800,
         "wires": [
             [
                 "5cb34faaf5e14207"
@@ -6427,7 +6571,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 420,
-        "y": 710,
+        "y": 800,
         "wires": [
             [
                 "dee53a18f9af7b3c"
@@ -6442,7 +6586,7 @@
         "name": "Hide Sidebar",
         "links": [],
         "x": 150,
-        "y": 710,
+        "y": 800,
         "wires": [
             [
                 "1d23e008fde4d932"
@@ -6459,7 +6603,7 @@
         "mode": "return",
         "links": [],
         "x": 675,
-        "y": 710,
+        "y": 800,
         "wires": []
     },
     {
@@ -6476,7 +6620,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 830,
+        "y": 920,
         "wires": [
             [
                 "e5c2695061c28c3d"
@@ -6491,7 +6635,7 @@
         "name": "set msg.twikis",
         "links": [],
         "x": 150,
-        "y": 830,
+        "y": 920,
         "wires": [
             [
                 "1c83c2ba47bdb96a"
@@ -6508,7 +6652,7 @@
         "mode": "return",
         "links": [],
         "x": 545,
-        "y": 830,
+        "y": 920,
         "wires": []
     },
     {
@@ -6525,7 +6669,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 390,
+        "y": 480,
         "wires": [
             [
                 "3891c3049d5ff01d"
@@ -6540,7 +6684,7 @@
         "name": "TW Commander",
         "links": [],
         "x": 170,
-        "y": 390,
+        "y": 480,
         "wires": [
             [
                 "d679dc2c7fb5ad4c"
@@ -6557,7 +6701,7 @@
         "mode": "return",
         "links": [],
         "x": 465,
-        "y": 390,
+        "y": 480,
         "wires": []
     },
     {
@@ -6575,7 +6719,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 410,
-        "y": 260,
+        "y": 350,
         "wires": []
     },
     {
@@ -6597,7 +6741,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 200,
-        "y": 260,
+        "y": 350,
         "wires": [
             [
                 "a07af28ade3a49a2"
@@ -6618,7 +6762,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 490,
+        "y": 580,
         "wires": [
             [
                 "3f8dbc7f474d68d8"
@@ -6633,7 +6777,7 @@
         "name": "TW Sync Commander",
         "links": [],
         "x": 190,
-        "y": 490,
+        "y": 580,
         "wires": [
             [
                 "c76e9202971136a2"
@@ -6650,7 +6794,7 @@
         "mode": "return",
         "links": [],
         "x": 545,
-        "y": 490,
+        "y": 580,
         "wires": []
     },
     {
@@ -6661,7 +6805,7 @@
         "name": "TW MWS Commander",
         "links": [],
         "x": 180,
-        "y": 590,
+        "y": 680,
         "wires": [
             [
                 "edf7669fe4924d86",
@@ -6679,7 +6823,7 @@
         "mode": "return",
         "links": [],
         "x": 545,
-        "y": 590,
+        "y": 680,
         "wires": []
     },
     {
@@ -6696,7 +6840,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 590,
+        "y": 680,
         "wires": [
             []
         ]
@@ -6710,7 +6854,7 @@
         "scope": "group",
         "uncaught": false,
         "x": 610,
-        "y": 370,
+        "y": 460,
         "wires": [
             [
                 "104f9c4c3a9698dd"
@@ -6732,7 +6876,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
-        "y": 420,
+        "y": 510,
         "wires": []
     },
     {
@@ -6753,8 +6897,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 130,
-        "y": 160,
+        "x": 140,
+        "y": 250,
         "wires": [
             [
                 "a2c79fa655fbdc24"
@@ -6785,8 +6929,8 @@
         "networkIsX": false,
         "twikiIsX": true,
         "fieldIsX": false,
-        "x": 330,
-        "y": 160,
+        "x": 340,
+        "y": 250,
         "wires": [
             [
                 "f65442df821d2805"
@@ -6802,8 +6946,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 45,
-        "y": 160,
+        "x": 55,
+        "y": 250,
         "wires": [
             [
                 "2e52f9cf3570eb69"
@@ -6821,8 +6965,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 655,
-        "y": 160,
+        "x": 665,
+        "y": 250,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6837,8 +6981,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 550,
-        "y": 160,
+        "x": 560,
+        "y": 250,
         "wires": [
             [
                 "7a0c00d7e145b45a"
@@ -6868,8 +7012,8 @@
         "networkIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 390,
-        "y": 60,
+        "x": 330,
+        "y": 170,
         "wires": [
             [
                 "1e51d86796c72732"
@@ -6884,8 +7028,8 @@
         "links": [
             "4c9c46b76b72965f"
         ],
-        "x": 165,
-        "y": 60,
+        "x": 105,
+        "y": 170,
         "wires": [
             [
                 "c195a1bee3d5f2c9"
@@ -6902,8 +7046,8 @@
         "links": [
             "5f3f98f37ba41eb1"
         ],
-        "x": 495,
-        "y": 60,
+        "x": 435,
+        "y": 170,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
     },
@@ -6924,11 +7068,127 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 250,
-        "y": 60,
+        "x": 190,
+        "y": 170,
         "wires": [
             [
                 "69da7222c5b37b92"
+            ]
+        ]
+    },
+    {
+        "id": "983d7337f861a64f",
+        "type": "link in",
+        "z": "127607a6bb274a18",
+        "g": "f9378bb39aa01c61",
+        "name": "Load server edition",
+        "links": [],
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "d338724a54ce0c69"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "d338724a54ce0c69",
+        "type": "function",
+        "z": "127607a6bb274a18",
+        "g": "f9378bb39aa01c61",
+        "name": "Load edition",
+        "func": "const $tw = global.get('$tw');\nconst mustache = global.get('mustache');\n\nfunction loadEdition() {\n    var inputpath = msg.inputpath;\n\n    if (!$tw.utils.isDirectory(inputpath)) {\n        msg.edition = [\n            {\n                title: 'Error: Server edition not found',\n                text: `The server edition at '${inputpath}' is not found in '${inputpath}'\\n`\n            }\n        ];\n        node.debug(`msg.inputpath: ${inputpath} is not found.`, msg);\n        node.send([null, msg])\n        return;\n    }\n\n    const wiki = new $tw.Wiki;\n\n    var tiddlers = $tw.loadTiddlersFromPath(inputpath);\n\n    $tw.utils.each(tiddlers, (tiddlerInfo) => {\n        $tw.utils.each(tiddlerInfo.tiddlers, (tiddler) => {\n            wiki.importTiddler(new $tw.Tiddler(tiddler));\n        });\n    });\n\n    wiki.deleteTiddler('$:/StoryList');\n\n    msg.edition = JSON.parse(wiki.getTiddlersAsJson('[all[]]'));\n\n    for (let i = 0; i < msg.edition.length; i++) {\n        if (msg.edition[i].text && msg.edition[i].mustache === 'yes') {\n            msg.edition[i].text = mustache.render(msg.edition[i].text, msg, {}, ['{%', '%}'])\n        }\n    }\n}\n\nloadEdition();\nnode.send([msg, null]);\nnode.done();\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "eb67756d4222e66c"
+            ],
+            [
+                "ed9d2c2203f05941"
+            ]
+        ]
+    },
+    {
+        "id": "eb67756d4222e66c",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "f9378bb39aa01c61",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "edition",
+        "file": "",
+        "updtostory": true,
+        "tostory": "false",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "24dc82d3323aa375"
+            ]
+        ]
+    },
+    {
+        "id": "24dc82d3323aa375",
+        "type": "link out",
+        "z": "127607a6bb274a18",
+        "g": "f9378bb39aa01c61",
+        "name": "Return",
+        "mode": "return",
+        "links": [],
+        "x": 645,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ed9d2c2203f05941",
+        "type": "set-network",
+        "z": "127607a6bb274a18",
+        "g": "f9378bb39aa01c61",
+        "name": "",
+        "topic": "",
+        "networkfield": "network.server.tiddlers",
+        "twikiName": "$tw.wiki",
+        "filter": "[all[]]",
+        "field": "edition",
+        "file": "",
+        "updtostory": true,
+        "tostory": "true",
+        "template": "",
+        "clear": false,
+        "editorIsOpen": false,
+        "settingsIsOpen": false,
+        "fromIsOpen": true,
+        "editorIsX": false,
+        "fileIsX": false,
+        "networkIsX": false,
+        "twikiIsX": false,
+        "fieldIsX": true,
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "24dc82d3323aa375"
             ]
         ]
     },

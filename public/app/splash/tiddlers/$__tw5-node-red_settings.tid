@@ -1,0 +1,13 @@
+autoLoadPlugin: no
+autoSend: [[$:/temp/tw5-node-red/store]] [[$:/temp/tw5-node-red/data]]
+autoTags: [[·node-red·]]
+heartbeatInterval: 10000
+redData: $:/temp/tw5-node-red/data
+redNetstat: $:/temp/tw5-node-red/netstat
+redStore: $:/temp/tw5-node-red/store
+tagWithTopic: no
+tags: tw5-node-red
+title: $:/tw5-node-red/settings
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/potofcoffee2go/tw5-node-red/settings/page}}
