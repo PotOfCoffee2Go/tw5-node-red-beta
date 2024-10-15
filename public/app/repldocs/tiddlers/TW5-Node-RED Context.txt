@@ -1,0 +1,25 @@
+tnr.$tw         Main TiddlyWiki instance
+tnr.$twsync     syncServer TiddlyWiki instance
+tnr.$twmws      multiwikiserver TiddlyWiki instance
+tnr.RED         Node-RED server instance
+tnr.allowAnon 
+tnr.app         httpAdmin 'app' object for middleware and routes
+tnr.bcrypt      Encryption
+tnr.clientIds   Session info for each connected client 
+tnr.fs          node:fs
+tnr.http        node:http
+tnr.jwt         JavaScript Web Token
+tnr.mustache    mustache template system
+tnr.mwsDir      multiwikiserver TiddlyWiki instance output directory
+tnr.mwsServer   Startup 'multiwikiserver' edition instance (true)
+tnr.outDir      Main TiddlyWiki instance output directory
+tnr.path        node:path
+tnr.process     node:process
+tnr.recipeEvent Event handle for MWS recipes updates
+tnr.recipes     MWS recipes info
+tnr.startupRepl start this REPL? (true)
+tnr.syncDir     syncServer TiddlyWiki instance output directory
+tnr.syncServer  Startup 'server' edition instance (false)
+tnr.tw5flags
+tnr.twikis      TiddlyWiki Wiki instances as databases
+tnr.twrepl      Node-RED interface to this REPL

@@ -1,0 +1,7 @@
+log('Hello World!',214)
+var obj = { some: 'stuff', more: { deeper: 'junk', lives: 'here' } }
+dbg(obj)
+dbg(obj,5)
+
+log(string,colorCode)   https://i.sstatic.net/KTSQa.png
+dbg(obj,depth)          Show object depth levels

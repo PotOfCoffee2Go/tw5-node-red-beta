@@ -1,0 +1,20 @@
+
+Welcome to TW5-Node-RED REPL
+
+This REPL has online access to the complete system.
+See http://localhost:1880/svr/wiki/nodered.html?app=repl for more information.
+
+(User: 'demo' password 'demo') or better yet 'Create account' at login.
+
+See https://jscomplete.com/learn/complete-intro-nodejs/1ni-repl-mode for 
+ a writeup about node.js REPL.
+
+For info on TW5-Node-RED - see http://localhost:1880/svr/wiki/nodered.html?app=welcome for documentation.
+
+.docs       Current page
+.docs >     Next page
+.docs <     Prev page
+.docs ^     Welcome page
+.docs *     List pages
+.docs load  Load pages from 'repldocs' wiki
+

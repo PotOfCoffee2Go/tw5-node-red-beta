@@ -966,6 +966,28 @@
         "h": 82
     },
     {
+        "id": "f9378bb39aa01c61",
+        "type": "group",
+        "z": "127607a6bb274a18",
+        "name": "Load a server edition tiddlers directory \\n given path in msg.inputpath ",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "983d7337f861a64f",
+            "d338724a54ce0c69",
+            "eb67756d4222e66c",
+            "24dc82d3323aa375",
+            "ed9d2c2203f05941"
+        ],
+        "x": 64,
+        "y": 3,
+        "w": 622,
+        "h": 138
+    },
+    {
         "id": "022d52b9f38c8589",
         "type": "group",
         "z": "0481506d69936f4f",
@@ -1531,6 +1553,33 @@
         "h": 260
     },
     {
+        "id": "b17ee503661f3f7b",
+        "type": "group",
+        "z": "304338a4b9f89088",
+        "g": "d57af1ba9d807a6e",
+        "name": "Single file wiki and app specific onload actions",
+        "style": {
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "628aab7aaefe715e",
+            "e4714903c559cb33",
+            "edc0b050e5af6de4",
+            "f69ecb30fb65d53c",
+            "5888fc4a0550ddd7",
+            "c1c52a548f5af85f",
+            "45637c86870095dd",
+            "de1e71dcf3ac2d20",
+            "e9c96a17d3f117a8",
+            "8dae0bdde704a7b7"
+        ],
+        "x": 54,
+        "y": 239,
+        "w": 822,
+        "h": 162
+    },
+    {
         "id": "8549cd6c5c10aa65",
         "type": "group",
         "z": "2c9db7aeca761837",
@@ -1628,55 +1677,6 @@
         "y": 833,
         "w": 252,
         "h": 98
-    },
-    {
-        "id": "b17ee503661f3f7b",
-        "type": "group",
-        "z": "304338a4b9f89088",
-        "g": "d57af1ba9d807a6e",
-        "name": "Single file wiki and app specific onload actions",
-        "style": {
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "628aab7aaefe715e",
-            "e4714903c559cb33",
-            "edc0b050e5af6de4",
-            "f69ecb30fb65d53c",
-            "5888fc4a0550ddd7",
-            "c1c52a548f5af85f",
-            "45637c86870095dd",
-            "de1e71dcf3ac2d20",
-            "e9c96a17d3f117a8",
-            "8dae0bdde704a7b7"
-        ],
-        "x": 54,
-        "y": 239,
-        "w": 822,
-        "h": 162
-    },
-    {
-        "id": "f9378bb39aa01c61",
-        "type": "group",
-        "z": "127607a6bb274a18",
-        "name": "Load a server edition tiddlers directory \\n given path in msg.inputpath ",
-        "style": {
-            "stroke": "#ffff00",
-            "label": true,
-            "label-position": "n"
-        },
-        "nodes": [
-            "983d7337f861a64f",
-            "d338724a54ce0c69",
-            "eb67756d4222e66c",
-            "24dc82d3323aa375",
-            "ed9d2c2203f05941"
-        ],
-        "x": 64,
-        "y": 3,
-        "w": 622,
-        "h": 138
     },
     {
         "id": "7c48a995b12f0315",
@@ -2085,7 +2085,7 @@
         "fileIsX": false,
         "twikiIsX": false,
         "fieldIsX": false,
-        "x": 530,
+        "x": 510,
         "y": 100,
         "wires": [
             [
@@ -12496,7 +12496,7 @@
         "type": "function",
         "z": "9434cba69ba3166b",
         "name": "function 3",
-        "func": "const twrepl = global.get('twrepl');\ntwrepl.submit(`showObj(${JSON.stringify(msg)})\\n`);\nreturn msg;",
+        "func": "//const twrepl = global.get('twrepl');\n//twrepl.submit(`showObj(${JSON.stringify(msg)})\\n`);\nglobal.set('hhh','ppp');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -12594,5 +12594,34 @@
         "y": 40,
         "wires": [],
         "icon": "@potofcoffee2go/tw5-nodes/networkup.svg"
+    },
+    {
+        "id": "68f68c35dd1eafe5",
+        "type": "inject",
+        "z": "9434cba69ba3166b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 190,
+        "wires": [
+            [
+                "eb95b693bb3411d6"
+            ]
+        ]
     }
 ]
